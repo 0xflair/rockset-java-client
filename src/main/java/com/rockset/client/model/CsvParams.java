@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CsvParams
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CsvParams {
   @SerializedName("columnNames")
   private List<String> columnNames = null;
@@ -42,25 +43,25 @@ public class CsvParams {
   @JsonAdapter(ColumnTypesEnum.Adapter.class)
   public enum ColumnTypesEnum {
     UNKNOWN("UNKNOWN"),
-    
+
     BOOLEAN("BOOLEAN"),
-    
+
     BOOL("BOOL"),
-    
+
     INTEGER("INTEGER"),
-    
+
     INT("INT"),
-    
+
     FLOAT("FLOAT"),
-    
+
     TIME("TIME"),
-    
+
     DATE("DATE"),
-    
+
     DATETIME("DATETIME"),
-    
+
     TIMESTAMP("TIMESTAMP"),
-    
+
     STRING("STRING");
 
     private String value;
@@ -133,13 +134,14 @@ public class CsvParams {
     return this;
   }
 
-   /**
+  /**
    * Names of columns.
+   * 
    * @return columnNames
-  **/
+   **/
 
-@JsonProperty("columnNames")
-@ApiModelProperty(example = "\"[\\\"c1\\\", \\\"c2\\\", \\\"c3\\\"]\"", value = "Names of columns.")
+  @JsonProperty("columnNames")
+  @ApiModelProperty(example = "\"[\\\"c1\\\", \\\"c2\\\", \\\"c3\\\"]\"", value = "Names of columns.")
   public List<String> getColumnNames() {
     return columnNames;
   }
@@ -161,13 +163,14 @@ public class CsvParams {
     return this;
   }
 
-   /**
+  /**
    * Names of columns.
+   * 
    * @return columnTypes
-  **/
+   **/
 
-@JsonProperty("columnTypes")
-@ApiModelProperty(example = "\"[\\\"BOOLEAN\\\", \\\"INTEGER\\\", \\\"FLOAT\\\", \\\"STRING\\\"]\"", value = "Names of columns.")
+  @JsonProperty("columnTypes")
+  @ApiModelProperty(example = "\"[\\\"BOOLEAN\\\", \\\"INTEGER\\\", \\\"FLOAT\\\", \\\"STRING\\\"]\"", value = "Names of columns.")
   public List<ColumnTypesEnum> getColumnTypes() {
     return columnTypes;
   }
@@ -181,13 +184,14 @@ public class CsvParams {
     return this;
   }
 
-   /**
+  /**
    * One of: UTF-8, ISO_8859_1, UTF-16.
+   * 
    * @return encoding
-  **/
+   **/
 
-@JsonProperty("encoding")
-@ApiModelProperty(example = "UTF-8", value = "One of: UTF-8, ISO_8859_1, UTF-16.")
+  @JsonProperty("encoding")
+  @ApiModelProperty(example = "UTF-8", value = "One of: UTF-8, ISO_8859_1, UTF-16.")
   public String getEncoding() {
     return encoding;
   }
@@ -201,13 +205,15 @@ public class CsvParams {
     return this;
   }
 
-   /**
-   * escape character removes any special meaning from the following character,default is &#39;\\&#39;
+  /**
+   * escape character removes any special meaning from the following
+   * character,default is &#39;\\&#39;
+   * 
    * @return escapeChar
-  **/
+   **/
 
-@JsonProperty("escapeChar")
-@ApiModelProperty(example = "\\", value = "escape character removes any special meaning from the following character,default is '\\'")
+  @JsonProperty("escapeChar")
+  @ApiModelProperty(example = "\\", value = "escape character removes any special meaning from the following character,default is '\\'")
   public String getEscapeChar() {
     return escapeChar;
   }
@@ -221,13 +227,14 @@ public class CsvParams {
     return this;
   }
 
-   /**
+  /**
    * If the first line in every object specifies the column names.
+   * 
    * @return firstLineAsColumnNames
-  **/
+   **/
 
-@JsonProperty("firstLineAsColumnNames")
-@ApiModelProperty(example = "true", value = "If the first line in every object specifies the column names.")
+  @JsonProperty("firstLineAsColumnNames")
+  @ApiModelProperty(example = "true", value = "If the first line in every object specifies the column names.")
   public Boolean isFirstLineAsColumnNames() {
     return firstLineAsColumnNames;
   }
@@ -241,13 +248,15 @@ public class CsvParams {
     return this;
   }
 
-   /**
-   * character within which a cell value is enclosed,null character if no such character, default is &#39;\&quot;&#39;
+  /**
+   * character within which a cell value is enclosed,null character if no such
+   * character, default is &#39;\&quot;&#39;
+   * 
    * @return quoteChar
-  **/
+   **/
 
-@JsonProperty("quoteChar")
-@ApiModelProperty(example = "\"", value = "character within which a cell value is enclosed,null character if no such character, default is '\"'")
+  @JsonProperty("quoteChar")
+  @ApiModelProperty(example = "\"", value = "character within which a cell value is enclosed,null character if no such character, default is '\"'")
   public String getQuoteChar() {
     return quoteChar;
   }
@@ -261,13 +270,14 @@ public class CsvParams {
     return this;
   }
 
-   /**
+  /**
    * A single character that is the column separator.
+   * 
    * @return separator
-  **/
+   **/
 
-@JsonProperty("separator")
-@ApiModelProperty(example = ",", value = "A single character that is the column separator.")
+  @JsonProperty("separator")
+  @ApiModelProperty(example = ",", value = "A single character that is the column separator.")
   public String getSeparator() {
     return separator;
   }
@@ -275,7 +285,6 @@ public class CsvParams {
   public void setSeparator(String separator) {
     this.separator = separator;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -300,12 +309,11 @@ public class CsvParams {
     return Objects.hash(columnNames, columnTypes, encoding, escapeChar, firstLineAsColumnNames, quoteChar, separator);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CsvParams {\n");
-    
+
     sb.append("    columnNames: ").append(toIndentedString(columnNames)).append("\n");
     sb.append("    columnTypes: ").append(toIndentedString(columnTypes)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
@@ -329,4 +337,3 @@ public class CsvParams {
   }
 
 }
-

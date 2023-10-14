@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Cluster
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Cluster {
   @SerializedName("apiserver_url")
   private String apiserverUrl = null;
@@ -100,13 +101,14 @@ public class Cluster {
     return this;
   }
 
-   /**
+  /**
    * Api server url for cluster.
+   * 
    * @return apiserverUrl
-  **/
+   **/
 
-@JsonProperty("apiserver_url")
-@ApiModelProperty(example = "api.rockset.us-west-2.rockset.com", value = "Api server url for cluster.")
+  @JsonProperty("apiserver_url")
+  @ApiModelProperty(example = "api.rockset.us-west-2.rockset.com", value = "Api server url for cluster.")
   public String getApiserverUrl() {
     return apiserverUrl;
   }
@@ -120,13 +122,14 @@ public class Cluster {
     return this;
   }
 
-   /**
+  /**
    * Aws region.
+   * 
    * @return awsRegion
-  **/
+   **/
 
-@JsonProperty("aws_region")
-@ApiModelProperty(example = "us-west-2", value = "Aws region.")
+  @JsonProperty("aws_region")
+  @ApiModelProperty(example = "us-west-2", value = "Aws region.")
   public String getAwsRegion() {
     return awsRegion;
   }
@@ -140,13 +143,14 @@ public class Cluster {
     return this;
   }
 
-   /**
+  /**
    * Cluster type.
+   * 
    * @return clusterType
-  **/
+   **/
 
-@JsonProperty("cluster_type")
-@ApiModelProperty(example = "PRIVATE", value = "Cluster type.")
+  @JsonProperty("cluster_type")
+  @ApiModelProperty(example = "PRIVATE", value = "Cluster type.")
   public ClusterTypeEnum getClusterType() {
     return clusterType;
   }
@@ -160,13 +164,14 @@ public class Cluster {
     return this;
   }
 
-   /**
+  /**
    * Domain of org using cluster.
+   * 
    * @return domain
-  **/
+   **/
 
-@JsonProperty("domain")
-@ApiModelProperty(example = "rockset", value = "Domain of org using cluster.")
+  @JsonProperty("domain")
+  @ApiModelProperty(example = "rockset", value = "Domain of org using cluster.")
   public String getDomain() {
     return domain;
   }
@@ -180,13 +185,14 @@ public class Cluster {
     return this;
   }
 
-   /**
+  /**
    * Unique identifier for the cluster.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("id")
-@ApiModelProperty(example = "asdf98-as9df8adf-adsf9asfd", value = "Unique identifier for the cluster.")
+  @JsonProperty("id")
+  @ApiModelProperty(example = "asdf98-as9df8adf-adsf9asfd", value = "Unique identifier for the cluster.")
   public String getId() {
     return id;
   }
@@ -200,13 +206,14 @@ public class Cluster {
     return this;
   }
 
-   /**
+  /**
    * Top level domain of org using cluster.
+   * 
    * @return topLevelDomain
-  **/
+   **/
 
-@JsonProperty("top_level_domain")
-@ApiModelProperty(example = ".com", value = "Top level domain of org using cluster.")
+  @JsonProperty("top_level_domain")
+  @ApiModelProperty(example = ".com", value = "Top level domain of org using cluster.")
   public String getTopLevelDomain() {
     return topLevelDomain;
   }
@@ -214,7 +221,6 @@ public class Cluster {
   public void setTopLevelDomain(String topLevelDomain) {
     this.topLevelDomain = topLevelDomain;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -238,12 +244,11 @@ public class Cluster {
     return Objects.hash(apiserverUrl, awsRegion, clusterType, domain, id, topLevelDomain);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Cluster {\n");
-    
+
     sb.append("    apiserverUrl: ").append(toIndentedString(apiserverUrl)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    clusterType: ").append(toIndentedString(clusterType)).append("\n");
@@ -266,4 +271,3 @@ public class Cluster {
   }
 
 }
-

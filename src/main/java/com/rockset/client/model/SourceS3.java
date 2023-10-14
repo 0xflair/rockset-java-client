@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceS3
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceS3 {
   @SerializedName("bucket")
   private String bucket = null;
@@ -69,13 +70,14 @@ public class SourceS3 {
     return this;
   }
 
-   /**
+  /**
    * Address of S3 bucket containing data.
+   * 
    * @return bucket
-  **/
+   **/
 
-@JsonProperty("bucket")
-@ApiModelProperty(example = "s3://customer-account-info", required = true, value = "Address of S3 bucket containing data.")
+  @JsonProperty("bucket")
+  @ApiModelProperty(example = "s3://customer-account-info", required = true, value = "Address of S3 bucket containing data.")
   public String getBucket() {
     return bucket;
   }
@@ -84,46 +86,50 @@ public class SourceS3 {
     this.bucket = bucket;
   }
 
-   /**
+  /**
    * Get objectBytesDownloaded
+   * 
    * @return objectBytesDownloaded
-  **/
+   **/
 
-@JsonProperty("object_bytes_downloaded")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_bytes_downloaded")
+  @ApiModelProperty(value = "")
   public Long getObjectBytesDownloaded() {
     return objectBytesDownloaded;
   }
 
-   /**
+  /**
    * Get objectBytesTotal
+   * 
    * @return objectBytesTotal
-  **/
+   **/
 
-@JsonProperty("object_bytes_total")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_bytes_total")
+  @ApiModelProperty(value = "")
   public Long getObjectBytesTotal() {
     return objectBytesTotal;
   }
 
-   /**
+  /**
    * Get objectCountDownloaded
+   * 
    * @return objectCountDownloaded
-  **/
+   **/
 
-@JsonProperty("object_count_downloaded")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_count_downloaded")
+  @ApiModelProperty(value = "")
   public Long getObjectCountDownloaded() {
     return objectCountDownloaded;
   }
 
-   /**
+  /**
    * Get objectCountTotal
+   * 
    * @return objectCountTotal
-  **/
+   **/
 
-@JsonProperty("object_count_total")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_count_total")
+  @ApiModelProperty(value = "")
   public Long getObjectCountTotal() {
     return objectCountTotal;
   }
@@ -133,13 +139,15 @@ public class SourceS3 {
     return this;
   }
 
-   /**
-   * Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.
+  /**
+   * Glob-style pattern that selects keys to ingest. Only either prefix or pattern
+   * can be specified.
+   * 
    * @return pattern
-  **/
+   **/
 
-@JsonProperty("pattern")
-@ApiModelProperty(example = "prefix/to/_**_/keys/_*.format", value = "Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.")
+  @JsonProperty("pattern")
+  @ApiModelProperty(example = "prefix/to/_**_/keys/_*.format", value = "Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.")
   public String getPattern() {
     return pattern;
   }
@@ -153,13 +161,14 @@ public class SourceS3 {
     return this;
   }
 
-   /**
+  /**
    * Prefix that selects keys to ingest.
+   * 
    * @return prefix
-  **/
+   **/
 
-@JsonProperty("prefix")
-@ApiModelProperty(example = "prefix/to/keys", value = "Prefix that selects keys to ingest.")
+  @JsonProperty("prefix")
+  @ApiModelProperty(example = "prefix/to/keys", value = "Prefix that selects keys to ingest.")
   public String getPrefix() {
     return prefix;
   }
@@ -168,13 +177,14 @@ public class SourceS3 {
     this.prefix = prefix;
   }
 
-   /**
+  /**
    * List of prefixes to paths from which data should be ingested.
+   * 
    * @return prefixes
-  **/
+   **/
 
-@JsonProperty("prefixes")
-@ApiModelProperty(example = "\"[\\\"/transactions\\\", \\\"/stores\\\"]\"", value = "List of prefixes to paths from which data should be ingested.")
+  @JsonProperty("prefixes")
+  @ApiModelProperty(example = "\"[\\\"/transactions\\\", \\\"/stores\\\"]\"", value = "List of prefixes to paths from which data should be ingested.")
   public List<String> getPrefixes() {
     return prefixes;
   }
@@ -184,13 +194,14 @@ public class SourceS3 {
     return this;
   }
 
-   /**
+  /**
    * AWS region containing source bucket.
+   * 
    * @return region
-  **/
+   **/
 
-@JsonProperty("region")
-@ApiModelProperty(example = "us-west-2", value = "AWS region containing source bucket.")
+  @JsonProperty("region")
+  @ApiModelProperty(example = "us-west-2", value = "AWS region containing source bucket.")
   public String getRegion() {
     return region;
   }
@@ -204,13 +215,14 @@ public class SourceS3 {
     return this;
   }
 
-   /**
+  /**
    * custom settings for Amazon S3 source
+   * 
    * @return settings
-  **/
+   **/
 
-@JsonProperty("settings")
-@ApiModelProperty(value = "custom settings for Amazon S3 source")
+  @JsonProperty("settings")
+  @ApiModelProperty(value = "custom settings for Amazon S3 source")
   public SourceS3Settings getSettings() {
     return settings;
   }
@@ -218,7 +230,6 @@ public class SourceS3 {
   public void setSettings(SourceS3Settings settings) {
     this.settings = settings;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -243,15 +254,15 @@ public class SourceS3 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, objectBytesDownloaded, objectBytesTotal, objectCountDownloaded, objectCountTotal, pattern, prefix, prefixes, region, settings);
+    return Objects.hash(bucket, objectBytesDownloaded, objectBytesTotal, objectCountDownloaded, objectCountTotal,
+        pattern, prefix, prefixes, region, settings);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceS3 {\n");
-    
+
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
     sb.append("    objectBytesDownloaded: ").append(toIndentedString(objectBytesDownloaded)).append("\n");
     sb.append("    objectBytesTotal: ").append(toIndentedString(objectBytesTotal)).append("\n");
@@ -278,4 +289,3 @@ public class SourceS3 {
   }
 
 }
-

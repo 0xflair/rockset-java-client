@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * UpdateRoleRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UpdateRoleRequest {
   @SerializedName("description")
   private String description = null;
@@ -45,13 +46,14 @@ public class UpdateRoleRequest {
     return this;
   }
 
-   /**
+  /**
    * Description for the role.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "Role with read and write privileges to all collections.", value = "Description for the role.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "Role with read and write privileges to all collections.", value = "Description for the role.")
   public String getDescription() {
     return description;
   }
@@ -73,13 +75,14 @@ public class UpdateRoleRequest {
     return this;
   }
 
-   /**
+  /**
    * List of privileges that will be associated with the role.
+   * 
    * @return privileges
-  **/
+   **/
 
-@JsonProperty("privileges")
-@ApiModelProperty(value = "List of privileges that will be associated with the role.")
+  @JsonProperty("privileges")
+  @ApiModelProperty(value = "List of privileges that will be associated with the role.")
   public List<Privilege> getPrivileges() {
     return privileges;
   }
@@ -87,7 +90,6 @@ public class UpdateRoleRequest {
   public void setPrivileges(List<Privilege> privileges) {
     this.privileges = privileges;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +109,11 @@ public class UpdateRoleRequest {
     return Objects.hash(description, privileges);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateRoleRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    privileges: ").append(toIndentedString(privileges)).append("\n");
     sb.append("}");
@@ -131,4 +132,3 @@ public class UpdateRoleRequest {
   }
 
 }
-

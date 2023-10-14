@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -42,11 +41,15 @@ import java.io.IOException;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Details about the data source for the given collection. Only one of the following fields are allowed to be defined. Only collections can act as data sources for views. 
+ * Details about the data source for the given collection. Only one of the
+ * following fields are allowed to be defined. Only collections can act as data
+ * sources for views.
  */
 
 @ApiModel(description = "Details about the data source for the given collection. Only one of the following fields are allowed to be defined. Only collections can act as data sources for views. ")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Source {
   @SerializedName("azure_blob_storage")
   private SourceAzureBlobStorage azureBlobStorage = null;
@@ -110,13 +113,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from Azure Blob Storage.
+   * 
    * @return azureBlobStorage
-  **/
+   **/
 
-@JsonProperty("azure_blob_storage")
-@ApiModelProperty(value = "Configuration for ingestion from Azure Blob Storage.")
+  @JsonProperty("azure_blob_storage")
+  @ApiModelProperty(value = "Configuration for ingestion from Azure Blob Storage.")
   public SourceAzureBlobStorage getAzureBlobStorage() {
     return azureBlobStorage;
   }
@@ -130,13 +134,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from Azure Event Hubs.
+   * 
    * @return azureEventHubs
-  **/
+   **/
 
-@JsonProperty("azure_event_hubs")
-@ApiModelProperty(value = "Configuration for ingestion from Azure Event Hubs.")
+  @JsonProperty("azure_event_hubs")
+  @ApiModelProperty(value = "Configuration for ingestion from Azure Event Hubs.")
   public SourceAzureEventHubs getAzureEventHubs() {
     return azureEventHubs;
   }
@@ -150,13 +155,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get azureServiceBus
+   * 
    * @return azureServiceBus
-  **/
+   **/
 
-@JsonProperty("azure_service_bus")
-@ApiModelProperty(value = "")
+  @JsonProperty("azure_service_bus")
+  @ApiModelProperty(value = "")
   public SourceAzureServiceBus getAzureServiceBus() {
     return azureServiceBus;
   }
@@ -170,13 +176,14 @@ public class Source {
     return this;
   }
 
-   /**
-   * Configuration for ingestion from  a dynamodb table.
+  /**
+   * Configuration for ingestion from a dynamodb table.
+   * 
    * @return dynamodb
-  **/
+   **/
 
-@JsonProperty("dynamodb")
-@ApiModelProperty(value = "Configuration for ingestion from  a dynamodb table.")
+  @JsonProperty("dynamodb")
+  @ApiModelProperty(value = "Configuration for ingestion from  a dynamodb table.")
   public SourceDynamoDb getDynamodb() {
     return dynamodb;
   }
@@ -185,13 +192,14 @@ public class Source {
     this.dynamodb = dynamodb;
   }
 
-   /**
+  /**
    * File upload details.
+   * 
    * @return fileUpload
-  **/
+   **/
 
-@JsonProperty("file_upload")
-@ApiModelProperty(value = "File upload details.")
+  @JsonProperty("file_upload")
+  @ApiModelProperty(value = "File upload details.")
   public SourceFileUpload getFileUpload() {
     return fileUpload;
   }
@@ -201,13 +209,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Format parameters for data from this source.
+   * 
    * @return formatParams
-  **/
+   **/
 
-@JsonProperty("format_params")
-@ApiModelProperty(value = "Format parameters for data from this source.")
+  @JsonProperty("format_params")
+  @ApiModelProperty(value = "Format parameters for data from this source.")
   public FormatParams getFormatParams() {
     return formatParams;
   }
@@ -221,13 +230,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from GCS.
+   * 
    * @return gcs
-  **/
+   **/
 
-@JsonProperty("gcs")
-@ApiModelProperty(value = "Configuration for ingestion from GCS.")
+  @JsonProperty("gcs")
+  @ApiModelProperty(value = "Configuration for ingestion from GCS.")
   public SourceGcs getGcs() {
     return gcs;
   }
@@ -236,13 +246,14 @@ public class Source {
     this.gcs = gcs;
   }
 
-   /**
+  /**
    * Unique source identifier.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("id")
-@ApiModelProperty(example = "a1df483c-734e-485b-8005-f46386ef42f6", value = "Unique source identifier.")
+  @JsonProperty("id")
+  @ApiModelProperty(example = "a1df483c-734e-485b-8005-f46386ef42f6", value = "Unique source identifier.")
   public String getId() {
     return id;
   }
@@ -252,13 +263,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Ingest transformation for a source.
+   * 
    * @return ingestTransformation
-  **/
+   **/
 
-@JsonProperty("ingest_transformation")
-@ApiModelProperty(value = "Ingest transformation for a source.")
+  @JsonProperty("ingest_transformation")
+  @ApiModelProperty(value = "Ingest transformation for a source.")
   public FieldMappingQuery getIngestTransformation() {
     return ingestTransformation;
   }
@@ -272,13 +284,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Name of integration to use.
+   * 
    * @return integrationName
-  **/
+   **/
 
-@JsonProperty("integration_name")
-@ApiModelProperty(example = "aws-integration", value = "Name of integration to use.")
+  @JsonProperty("integration_name")
+  @ApiModelProperty(example = "aws-integration", value = "Name of integration to use.")
   public String getIntegrationName() {
     return integrationName;
   }
@@ -292,13 +305,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Kafka collection identifier.
+   * 
    * @return kafka
-  **/
+   **/
 
-@JsonProperty("kafka")
-@ApiModelProperty(value = "Kafka collection identifier.")
+  @JsonProperty("kafka")
+  @ApiModelProperty(value = "Kafka collection identifier.")
   public SourceKafka getKafka() {
     return kafka;
   }
@@ -312,13 +326,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from kinesis stream.
+   * 
    * @return kinesis
-  **/
+   **/
 
-@JsonProperty("kinesis")
-@ApiModelProperty(value = "Configuration for ingestion from kinesis stream.")
+  @JsonProperty("kinesis")
+  @ApiModelProperty(value = "Configuration for ingestion from kinesis stream.")
   public SourceKinesis getKinesis() {
     return kinesis;
   }
@@ -332,13 +347,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * MongoDB collection details.
+   * 
    * @return mongodb
-  **/
+   **/
 
-@JsonProperty("mongodb")
-@ApiModelProperty(value = "MongoDB collection details.")
+  @JsonProperty("mongodb")
+  @ApiModelProperty(value = "MongoDB collection details.")
   public SourceMongoDb getMongodb() {
     return mongodb;
   }
@@ -347,13 +363,14 @@ public class Source {
     this.mongodb = mongodb;
   }
 
-   /**
+  /**
    * ISO-8601 date when source would be auto resumed, if suspended
+   * 
    * @return resumeAt
-  **/
+   **/
 
-@JsonProperty("resume_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source would be auto resumed, if suspended")
+  @JsonProperty("resume_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source would be auto resumed, if suspended")
   public String getResumeAt() {
     return resumeAt;
   }
@@ -363,13 +380,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from S3.
+   * 
    * @return s3
-  **/
+   **/
 
-@JsonProperty("s3")
-@ApiModelProperty(value = "Configuration for ingestion from S3.")
+  @JsonProperty("s3")
+  @ApiModelProperty(value = "Configuration for ingestion from S3.")
   public SourceS3 getS3() {
     return s3;
   }
@@ -383,13 +401,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from Snowflake.
+   * 
    * @return snowflake
-  **/
+   **/
 
-@JsonProperty("snowflake")
-@ApiModelProperty(value = "Configuration for ingestion from Snowflake.")
+  @JsonProperty("snowflake")
+  @ApiModelProperty(value = "Configuration for ingestion from Snowflake.")
   public SourceSnowflake getSnowflake() {
     return snowflake;
   }
@@ -398,24 +417,26 @@ public class Source {
     this.snowflake = snowflake;
   }
 
-   /**
+  /**
    * The ingest status of this source.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(value = "The ingest status of this source.")
+  @JsonProperty("status")
+  @ApiModelProperty(value = "The ingest status of this source.")
   public Status getStatus() {
     return status;
   }
 
-   /**
+  /**
    * ISO-8601 date when source was suspended, if suspended
+   * 
    * @return suspendedAt
-  **/
+   **/
 
-@JsonProperty("suspended_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was suspended, if suspended")
+  @JsonProperty("suspended_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was suspended, if suspended")
   public String getSuspendedAt() {
     return suspendedAt;
   }
@@ -425,13 +446,14 @@ public class Source {
     return this;
   }
 
-   /**
+  /**
    * Get system
+   * 
    * @return system
-  **/
+   **/
 
-@JsonProperty("system")
-@ApiModelProperty(value = "")
+  @JsonProperty("system")
+  @ApiModelProperty(value = "")
   public SourceSystem getSystem() {
     return system;
   }
@@ -439,7 +461,6 @@ public class Source {
   public void setSystem(SourceSystem system) {
     this.system = system;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -473,15 +494,16 @@ public class Source {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlobStorage, azureEventHubs, azureServiceBus, dynamodb, fileUpload, formatParams, gcs, id, ingestTransformation, integrationName, kafka, kinesis, mongodb, resumeAt, s3, snowflake, status, suspendedAt, system);
+    return Objects.hash(azureBlobStorage, azureEventHubs, azureServiceBus, dynamodb, fileUpload, formatParams, gcs, id,
+        ingestTransformation, integrationName, kafka, kinesis, mongodb, resumeAt, s3, snowflake, status, suspendedAt,
+        system);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Source {\n");
-    
+
     sb.append("    azureBlobStorage: ").append(toIndentedString(azureBlobStorage)).append("\n");
     sb.append("    azureEventHubs: ").append(toIndentedString(azureEventHubs)).append("\n");
     sb.append("    azureServiceBus: ").append(toIndentedString(azureServiceBus)).append("\n");
@@ -517,4 +539,3 @@ public class Source {
   }
 
 }
-

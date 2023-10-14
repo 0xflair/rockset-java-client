@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusAzureEventHubsPartition
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusAzureEventHubsPartition {
   @SerializedName("offset_lag")
   private Long offsetLag = null;
@@ -45,13 +46,14 @@ public class StatusAzureEventHubsPartition {
     return this;
   }
 
-   /**
+  /**
    * Per partition lag for offset.
+   * 
    * @return offsetLag
-  **/
+   **/
 
-@JsonProperty("offset_lag")
-@ApiModelProperty(example = "10", value = "Per partition lag for offset.")
+  @JsonProperty("offset_lag")
+  @ApiModelProperty(example = "10", value = "Per partition lag for offset.")
   public Long getOffsetLag() {
     return offsetLag;
   }
@@ -65,13 +67,14 @@ public class StatusAzureEventHubsPartition {
     return this;
   }
 
-   /**
+  /**
    * The number of this partition.
+   * 
    * @return partitionNumber
-  **/
+   **/
 
-@JsonProperty("partition_number")
-@ApiModelProperty(example = "123", value = "The number of this partition.")
+  @JsonProperty("partition_number")
+  @ApiModelProperty(example = "123", value = "The number of this partition.")
   public Integer getPartitionNumber() {
     return partitionNumber;
   }
@@ -85,13 +88,14 @@ public class StatusAzureEventHubsPartition {
     return this;
   }
 
-   /**
+  /**
    * Latest offset of partition.
+   * 
    * @return partitionOffset
-  **/
+   **/
 
-@JsonProperty("partition_offset")
-@ApiModelProperty(example = "100", value = "Latest offset of partition.")
+  @JsonProperty("partition_offset")
+  @ApiModelProperty(example = "100", value = "Latest offset of partition.")
   public Long getPartitionOffset() {
     return partitionOffset;
   }
@@ -99,7 +103,6 @@ public class StatusAzureEventHubsPartition {
   public void setPartitionOffset(Long partitionOffset) {
     this.partitionOffset = partitionOffset;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class StatusAzureEventHubsPartition {
     return Objects.hash(offsetLag, partitionNumber, partitionOffset);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusAzureEventHubsPartition {\n");
-    
+
     sb.append("    offsetLag: ").append(toIndentedString(offsetLag)).append("\n");
     sb.append("    partitionNumber: ").append(toIndentedString(partitionNumber)).append("\n");
     sb.append("    partitionOffset: ").append(toIndentedString(partitionOffset)).append("\n");
@@ -145,4 +147,3 @@ public class StatusAzureEventHubsPartition {
   }
 
 }
-

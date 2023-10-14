@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** CreateQueryLambdaResponse */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2020-03-04T00:00:49.700Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2020-03-04T00:00:49.700Z")
 public class CreateQueryLambdaResponse {
   @SerializedName("data")
   private QueryLambda data = null;
@@ -73,7 +73,8 @@ public class CreateQueryLambdaResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

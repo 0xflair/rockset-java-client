@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CollectionStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CollectionStats {
   @SerializedName("bulk_bytes_inserted")
   private Long bulkBytesInserted = null;
@@ -84,13 +85,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total number of bytes inserted into the collection during bulk.
+   * 
    * @return bulkBytesInserted
-  **/
+   **/
 
-@JsonProperty("bulk_bytes_inserted")
-@ApiModelProperty(value = "Total number of bytes inserted into the collection during bulk.")
+  @JsonProperty("bulk_bytes_inserted")
+  @ApiModelProperty(value = "Total number of bytes inserted into the collection during bulk.")
   public Long getBulkBytesInserted() {
     return bulkBytesInserted;
   }
@@ -104,13 +106,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total number of bytes overwritten in writing into the collection during bulk.
+   * 
    * @return bulkBytesOverwritten
-  **/
+   **/
 
-@JsonProperty("bulk_bytes_overwritten")
-@ApiModelProperty(value = "Total number of bytes overwritten in writing into the collection during bulk.")
+  @JsonProperty("bulk_bytes_overwritten")
+  @ApiModelProperty(value = "Total number of bytes overwritten in writing into the collection during bulk.")
   public Long getBulkBytesOverwritten() {
     return bulkBytesOverwritten;
   }
@@ -124,13 +127,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total number of bytes inserted into the collection.
+   * 
    * @return bytesInserted
-  **/
+   **/
 
-@JsonProperty("bytes_inserted")
-@ApiModelProperty(example = "123456", value = "Total number of bytes inserted into the collection.")
+  @JsonProperty("bytes_inserted")
+  @ApiModelProperty(example = "123456", value = "Total number of bytes inserted into the collection.")
   public Long getBytesInserted() {
     return bytesInserted;
   }
@@ -144,13 +148,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total number of bytes overwritten in writing into the collection.
+   * 
    * @return bytesOverwritten
-  **/
+   **/
 
-@JsonProperty("bytes_overwritten")
-@ApiModelProperty(example = "123456", value = "Total number of bytes overwritten in writing into the collection.")
+  @JsonProperty("bytes_overwritten")
+  @ApiModelProperty(example = "123456", value = "Total number of bytes overwritten in writing into the collection.")
   public Long getBytesOverwritten() {
     return bytesOverwritten;
   }
@@ -164,13 +169,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total collection column index size in bytes.
+   * 
    * @return columnIndexSize
-  **/
+   **/
 
-@JsonProperty("column_index_size")
-@ApiModelProperty(example = "123456", value = "Total collection column index size in bytes.")
+  @JsonProperty("column_index_size")
+  @ApiModelProperty(example = "123456", value = "Total collection column index size in bytes.")
   public Long getColumnIndexSize() {
     return columnIndexSize;
   }
@@ -184,13 +190,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Number of documents in the collection.
+   * 
    * @return docCount
-  **/
+   **/
 
-@JsonProperty("doc_count")
-@ApiModelProperty(example = "2145", value = "Number of documents in the collection.")
+  @JsonProperty("doc_count")
+  @ApiModelProperty(example = "2145", value = "Number of documents in the collection.")
   public Long getDocCount() {
     return docCount;
   }
@@ -204,13 +211,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Number between 0 and 1 that indicates progress of collection creation.
+   * 
    * @return fillProgress
-  **/
+   **/
 
-@JsonProperty("fill_progress")
-@ApiModelProperty(example = "0.6", value = "Number between 0 and 1 that indicates progress of collection creation.")
+  @JsonProperty("fill_progress")
+  @ApiModelProperty(example = "0.6", value = "Number between 0 and 1 that indicates progress of collection creation.")
   public Double getFillProgress() {
     return fillProgress;
   }
@@ -224,13 +232,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total collection inverted index size in bytes.
+   * 
    * @return invertedIndexSize
-  **/
+   **/
 
-@JsonProperty("inverted_index_size")
-@ApiModelProperty(example = "123456", value = "Total collection inverted index size in bytes.")
+  @JsonProperty("inverted_index_size")
+  @ApiModelProperty(example = "123456", value = "Total collection inverted index size in bytes.")
   public Long getInvertedIndexSize() {
     return invertedIndexSize;
   }
@@ -244,13 +253,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Milliseconds since Unix epoch Jan 1, 1970.
+   * 
    * @return lastQueriedMs
-  **/
+   **/
 
-@JsonProperty("last_queried_ms")
-@ApiModelProperty(example = "1535101119334", value = "Milliseconds since Unix epoch Jan 1, 1970.")
+  @JsonProperty("last_queried_ms")
+  @ApiModelProperty(example = "1535101119334", value = "Milliseconds since Unix epoch Jan 1, 1970.")
   public Long getLastQueriedMs() {
     return lastQueriedMs;
   }
@@ -264,13 +274,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Milliseconds since Unix epoch Jan 1, 1970.
+   * 
    * @return lastUpdatedMs
-  **/
+   **/
 
-@JsonProperty("last_updated_ms")
-@ApiModelProperty(example = "1535101094433", value = "Milliseconds since Unix epoch Jan 1, 1970.")
+  @JsonProperty("last_updated_ms")
+  @ApiModelProperty(example = "1535101094433", value = "Milliseconds since Unix epoch Jan 1, 1970.")
   public Long getLastUpdatedMs() {
     return lastUpdatedMs;
   }
@@ -284,13 +295,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Number of documents purged from the collection.
+   * 
    * @return purgedDocCount
-  **/
+   **/
 
-@JsonProperty("purged_doc_count")
-@ApiModelProperty(example = "2145", value = "Number of documents purged from the collection.")
+  @JsonProperty("purged_doc_count")
+  @ApiModelProperty(example = "2145", value = "Number of documents purged from the collection.")
   public Long getPurgedDocCount() {
     return purgedDocCount;
   }
@@ -304,13 +316,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total size of bytes purged in bytes.
+   * 
    * @return purgedDocSize
-  **/
+   **/
 
-@JsonProperty("purged_doc_size")
-@ApiModelProperty(example = "123456", value = "Total size of bytes purged in bytes.")
+  @JsonProperty("purged_doc_size")
+  @ApiModelProperty(example = "123456", value = "Total size of bytes purged in bytes.")
   public Long getPurgedDocSize() {
     return purgedDocSize;
   }
@@ -324,13 +337,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total collection range index size in bytes.
+   * 
    * @return rangeIndexSize
-  **/
+   **/
 
-@JsonProperty("range_index_size")
-@ApiModelProperty(example = "123456", value = "Total collection range index size in bytes.")
+  @JsonProperty("range_index_size")
+  @ApiModelProperty(example = "123456", value = "Total collection range index size in bytes.")
   public Long getRangeIndexSize() {
     return rangeIndexSize;
   }
@@ -344,13 +358,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total collection row index size in bytes.
+   * 
    * @return rowIndexSize
-  **/
+   **/
 
-@JsonProperty("row_index_size")
-@ApiModelProperty(example = "123456", value = "Total collection row index size in bytes.")
+  @JsonProperty("row_index_size")
+  @ApiModelProperty(example = "123456", value = "Total collection row index size in bytes.")
   public Long getRowIndexSize() {
     return rowIndexSize;
   }
@@ -364,13 +379,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total collection index size in bytes.
+   * 
    * @return totalIndexSize
-  **/
+   **/
 
-@JsonProperty("total_index_size")
-@ApiModelProperty(example = "123456", value = "Total collection index size in bytes.")
+  @JsonProperty("total_index_size")
+  @ApiModelProperty(example = "123456", value = "Total collection index size in bytes.")
   public Long getTotalIndexSize() {
     return totalIndexSize;
   }
@@ -384,13 +400,14 @@ public class CollectionStats {
     return this;
   }
 
-   /**
+  /**
    * Total collection size in bytes.
+   * 
    * @return totalSize
-  **/
+   **/
 
-@JsonProperty("total_size")
-@ApiModelProperty(example = "123456", value = "Total collection size in bytes.")
+  @JsonProperty("total_size")
+  @ApiModelProperty(example = "123456", value = "Total collection size in bytes.")
   public Long getTotalSize() {
     return totalSize;
   }
@@ -398,7 +415,6 @@ public class CollectionStats {
   public void setTotalSize(Long totalSize) {
     this.totalSize = totalSize;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -429,15 +445,16 @@ public class CollectionStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bulkBytesInserted, bulkBytesOverwritten, bytesInserted, bytesOverwritten, columnIndexSize, docCount, fillProgress, invertedIndexSize, lastQueriedMs, lastUpdatedMs, purgedDocCount, purgedDocSize, rangeIndexSize, rowIndexSize, totalIndexSize, totalSize);
+    return Objects.hash(bulkBytesInserted, bulkBytesOverwritten, bytesInserted, bytesOverwritten, columnIndexSize,
+        docCount, fillProgress, invertedIndexSize, lastQueriedMs, lastUpdatedMs, purgedDocCount, purgedDocSize,
+        rangeIndexSize, rowIndexSize, totalIndexSize, totalSize);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionStats {\n");
-    
+
     sb.append("    bulkBytesInserted: ").append(toIndentedString(bulkBytesInserted)).append("\n");
     sb.append("    bulkBytesOverwritten: ").append(toIndentedString(bulkBytesOverwritten)).append("\n");
     sb.append("    bytesInserted: ").append(toIndentedString(bytesInserted)).append("\n");
@@ -470,4 +487,3 @@ public class CollectionStats {
   }
 
 }
-

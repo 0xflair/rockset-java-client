@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusAzureServiceBusSession
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusAzureServiceBusSession {
   @SerializedName("last_processed")
   private String lastProcessed = null;
@@ -42,13 +43,14 @@ public class StatusAzureServiceBusSession {
     return this;
   }
 
-   /**
+  /**
    * Most recent ISO-8601 date when a message from this session was processed.
+   * 
    * @return lastProcessed
-  **/
+   **/
 
-@JsonProperty("last_processed")
-@ApiModelProperty(example = "2022-08-23T00:13:41Z", value = "Most recent ISO-8601 date when a message from this session was processed.")
+  @JsonProperty("last_processed")
+  @ApiModelProperty(example = "2022-08-23T00:13:41Z", value = "Most recent ISO-8601 date when a message from this session was processed.")
   public String getLastProcessed() {
     return lastProcessed;
   }
@@ -62,13 +64,14 @@ public class StatusAzureServiceBusSession {
     return this;
   }
 
-   /**
+  /**
    * The last processed sequence number within this session.
+   * 
    * @return sequenceNumber
-  **/
+   **/
 
-@JsonProperty("sequence_number")
-@ApiModelProperty(example = "323862", value = "The last processed sequence number within this session.")
+  @JsonProperty("sequence_number")
+  @ApiModelProperty(example = "323862", value = "The last processed sequence number within this session.")
   public Long getSequenceNumber() {
     return sequenceNumber;
   }
@@ -76,7 +79,6 @@ public class StatusAzureServiceBusSession {
   public void setSequenceNumber(Long sequenceNumber) {
     this.sequenceNumber = sequenceNumber;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class StatusAzureServiceBusSession {
     return Objects.hash(lastProcessed, sequenceNumber);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusAzureServiceBusSession {\n");
-    
+
     sb.append("    lastProcessed: ").append(toIndentedString(lastProcessed)).append("\n");
     sb.append("    sequenceNumber: ").append(toIndentedString(sequenceNumber)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class StatusAzureServiceBusSession {
   }
 
 }
-

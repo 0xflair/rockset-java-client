@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -27,11 +26,14 @@ import java.io.IOException;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * API keys are used to authenticate requests to Rockset&#39;s API. An API key is tied to the user who creates it.
+ * API keys are used to authenticate requests to Rockset&#39;s API. An API key
+ * is tied to the user who creates it.
  */
 
 @ApiModel(description = "API keys are used to authenticate requests to Rockset's API. An API key is tied to the user who creates it.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class ApiKey {
   @SerializedName("created_at")
   private String createdAt = null;
@@ -63,7 +65,7 @@ public class ApiKey {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     ACTIVE("ACTIVE"),
-    
+
     SUSPENDED("SUSPENDED");
 
     private String value;
@@ -113,13 +115,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * Date that API key was created (ISO-8601 format).
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Date that API key was created (ISO-8601 format).")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Date that API key was created (ISO-8601 format).")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -133,13 +136,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * Email of API key owner.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "test@rockset.com", value = "Email of API key owner.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "test@rockset.com", value = "Email of API key owner.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -153,13 +157,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key that was used to create this object if one was used.
+   * 
    * @return createdByApikeyName
-  **/
+   **/
 
-@JsonProperty("created_by_apikey_name")
-@ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
+  @JsonProperty("created_by_apikey_name")
+  @ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
   public String getCreatedByApikeyName() {
     return createdByApikeyName;
   }
@@ -173,13 +178,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * The expiration date of this API key.
+   * 
    * @return expiryTime
-  **/
+   **/
 
-@JsonProperty("expiry_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "The expiration date of this API key.")
+  @JsonProperty("expiry_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "The expiration date of this API key.")
   public String getExpiryTime() {
     return expiryTime;
   }
@@ -193,13 +199,15 @@ public class ApiKey {
     return this;
   }
 
-   /**
-   * This field will only be populated with the full key when creating an API key. Otherwise, it will be an API key identifier of 6 characters.
+  /**
+   * This field will only be populated with the full key when creating an API key.
+   * Otherwise, it will be an API key identifier of 6 characters.
+   * 
    * @return key
-  **/
+   **/
 
-@JsonProperty("key")
-@ApiModelProperty(example = "aB35kD", required = true, value = "This field will only be populated with the full key when creating an API key. Otherwise, it will be an API key identifier of 6 characters.")
+  @JsonProperty("key")
+  @ApiModelProperty(example = "aB35kD", required = true, value = "This field will only be populated with the full key when creating an API key. Otherwise, it will be an API key identifier of 6 characters.")
   public String getKey() {
     return key;
   }
@@ -213,13 +221,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * Date that API key was most recently used (ISO-8601 format).
+   * 
    * @return lastAccessTime
-  **/
+   **/
 
-@JsonProperty("last_access_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Date that API key was most recently used (ISO-8601 format).")
+  @JsonProperty("last_access_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Date that API key was most recently used (ISO-8601 format).")
   public String getLastAccessTime() {
     return lastAccessTime;
   }
@@ -233,13 +242,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "my-key", required = true, value = "Name of the API key.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "my-key", required = true, value = "Name of the API key.")
   public String getName() {
     return name;
   }
@@ -253,13 +263,15 @@ public class ApiKey {
     return this;
   }
 
-   /**
-   * Role specifying access control. If not specified, API key will have access to all of the associated user&#39;s roles.
+  /**
+   * Role specifying access control. If not specified, API key will have access to
+   * all of the associated user&#39;s roles.
+   * 
    * @return role
-  **/
+   **/
 
-@JsonProperty("role")
-@ApiModelProperty(example = "read-only", value = "Role specifying access control. If not specified, API key will have access to all of the associated user's roles.")
+  @JsonProperty("role")
+  @ApiModelProperty(example = "read-only", value = "Role specifying access control. If not specified, API key will have access to all of the associated user's roles.")
   public String getRole() {
     return role;
   }
@@ -273,13 +285,14 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * Current state of this key.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "Current state of this key.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "Current state of this key.")
   public StateEnum getState() {
     return state;
   }
@@ -287,7 +300,6 @@ public class ApiKey {
   public void setState(StateEnum state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -314,12 +326,11 @@ public class ApiKey {
     return Objects.hash(createdAt, createdBy, createdByApikeyName, expiryTime, key, lastAccessTime, name, role, state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiKey {\n");
-    
+
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdByApikeyName: ").append(toIndentedString(createdByApikeyName)).append("\n");
@@ -345,4 +356,3 @@ public class ApiKey {
   }
 
 }
-

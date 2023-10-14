@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * View
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class View {
   @SerializedName("created_at")
   private String createdAt = null;
@@ -69,9 +70,9 @@ public class View {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     CREATED("CREATED"),
-    
+
     SYNCING("SYNCING"),
-    
+
     DELETED("DELETED");
 
     private String value;
@@ -124,13 +125,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -144,13 +146,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key that was used to create this object if one was used.
+   * 
    * @return createdByApikeyName
-  **/
+   **/
 
-@JsonProperty("created_by_apikey_name")
-@ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
+  @JsonProperty("created_by_apikey_name")
+  @ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
   public String getCreatedByApikeyName() {
     return createdByApikeyName;
   }
@@ -164,13 +167,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * Email of the creator.
+   * 
    * @return creatorEmail
-  **/
+   **/
 
-@JsonProperty("creator_email")
-@ApiModelProperty(example = "xyz@rockset.com", value = "Email of the creator.")
+  @JsonProperty("creator_email")
+  @ApiModelProperty(example = "xyz@rockset.com", value = "Email of the creator.")
   public String getCreatorEmail() {
     return creatorEmail;
   }
@@ -184,13 +188,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * View description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "view referencing collection in workspace", value = "View description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "view referencing collection in workspace", value = "View description.")
   public String getDescription() {
     return description;
   }
@@ -212,13 +217,15 @@ public class View {
     return this;
   }
 
-   /**
-   * List of entities referenced by view. An entity can be a view, alias or collection.
+  /**
+   * List of entities referenced by view. An entity can be a view, alias or
+   * collection.
+   * 
    * @return entities
-  **/
+   **/
 
-@JsonProperty("entities")
-@ApiModelProperty(example = "\"[\\\"common.foo_view\\\", \\\"prod.demo_alias\\\", \\\"dev.user_collection\\\"]\"", value = "List of entities referenced by view. An entity can be a view, alias or collection.")
+  @JsonProperty("entities")
+  @ApiModelProperty(example = "\"[\\\"common.foo_view\\\", \\\"prod.demo_alias\\\", \\\"dev.user_collection\\\"]\"", value = "List of entities referenced by view. An entity can be a view, alias or collection.")
   public List<String> getEntities() {
     return entities;
   }
@@ -232,13 +239,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return modifiedAt
-  **/
+   **/
 
-@JsonProperty("modified_at")
-@ApiModelProperty(example = "2001-08-28T00:23:42Z", value = "ISO-8601 date.")
+  @JsonProperty("modified_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:42Z", value = "ISO-8601 date.")
   public String getModifiedAt() {
     return modifiedAt;
   }
@@ -252,13 +260,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * Name of the view.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "demo", value = "Name of the view.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "demo", value = "Name of the view.")
   public String getName() {
     return name;
   }
@@ -272,13 +281,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * Email of the owner, note: deprecated and will always be null.
+   * 
    * @return ownerEmail
-  **/
+   **/
 
-@JsonProperty("owner_email")
-@ApiModelProperty(example = "abc@rockset.com", value = "Email of the owner, note: deprecated and will always be null.")
+  @JsonProperty("owner_email")
+  @ApiModelProperty(example = "abc@rockset.com", value = "Email of the owner, note: deprecated and will always be null.")
   public String getOwnerEmail() {
     return ownerEmail;
   }
@@ -292,13 +302,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * Get path
+   * 
    * @return path
-  **/
+   **/
 
-@JsonProperty("path")
-@ApiModelProperty(value = "")
+  @JsonProperty("path")
+  @ApiModelProperty(value = "")
   public String getPath() {
     return path;
   }
@@ -312,13 +323,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * SQL query of the view.
+   * 
    * @return querySql
-  **/
+   **/
 
-@JsonProperty("query_sql")
-@ApiModelProperty(example = "SELECT * FROM commons.foo", value = "SQL query of the view.")
+  @JsonProperty("query_sql")
+  @ApiModelProperty(example = "SELECT * FROM commons.foo", value = "SQL query of the view.")
   public String getQuerySql() {
     return querySql;
   }
@@ -332,13 +344,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * State of the view.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "CREATED", value = "State of the view.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "CREATED", value = "State of the view.")
   public StateEnum getState() {
     return state;
   }
@@ -352,13 +365,14 @@ public class View {
     return this;
   }
 
-   /**
+  /**
    * Name of the workspace.
+   * 
    * @return workspace
-  **/
+   **/
 
-@JsonProperty("workspace")
-@ApiModelProperty(example = "commons", value = "Name of the workspace.")
+  @JsonProperty("workspace")
+  @ApiModelProperty(example = "commons", value = "Name of the workspace.")
   public String getWorkspace() {
     return workspace;
   }
@@ -366,7 +380,6 @@ public class View {
   public void setWorkspace(String workspace) {
     this.workspace = workspace;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -393,15 +406,15 @@ public class View {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, createdByApikeyName, creatorEmail, description, entities, modifiedAt, name, ownerEmail, path, querySql, state, workspace);
+    return Objects.hash(createdAt, createdByApikeyName, creatorEmail, description, entities, modifiedAt, name,
+        ownerEmail, path, querySql, state, workspace);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class View {\n");
-    
+
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByApikeyName: ").append(toIndentedString(createdByApikeyName)).append("\n");
     sb.append("    creatorEmail: ").append(toIndentedString(creatorEmail)).append("\n");
@@ -430,4 +443,3 @@ public class View {
   }
 
 }
-

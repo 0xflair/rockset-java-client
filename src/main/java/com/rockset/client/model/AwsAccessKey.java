@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * AwsAccessKey
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class AwsAccessKey {
   @SerializedName("aws_access_key_id")
   private String awsAccessKeyId = null;
@@ -42,13 +43,14 @@ public class AwsAccessKey {
     return this;
   }
 
-   /**
+  /**
    * AWS access key ID.
+   * 
    * @return awsAccessKeyId
-  **/
+   **/
 
-@JsonProperty("aws_access_key_id")
-@ApiModelProperty(example = "AKIAIOSFODNN7EXAMPLE", required = true, value = "AWS access key ID.")
+  @JsonProperty("aws_access_key_id")
+  @ApiModelProperty(example = "AKIAIOSFODNN7EXAMPLE", required = true, value = "AWS access key ID.")
   public String getAwsAccessKeyId() {
     return awsAccessKeyId;
   }
@@ -62,13 +64,14 @@ public class AwsAccessKey {
     return this;
   }
 
-   /**
+  /**
    * AWS secret access key.
+   * 
    * @return awsSecretAccessKey
-  **/
+   **/
 
-@JsonProperty("aws_secret_access_key")
-@ApiModelProperty(example = "wJal....", required = true, value = "AWS secret access key.")
+  @JsonProperty("aws_secret_access_key")
+  @ApiModelProperty(example = "wJal....", required = true, value = "AWS secret access key.")
   public String getAwsSecretAccessKey() {
     return awsSecretAccessKey;
   }
@@ -76,7 +79,6 @@ public class AwsAccessKey {
   public void setAwsSecretAccessKey(String awsSecretAccessKey) {
     this.awsSecretAccessKey = awsSecretAccessKey;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class AwsAccessKey {
     return Objects.hash(awsAccessKeyId, awsSecretAccessKey);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsAccessKey {\n");
-    
+
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class AwsAccessKey {
   }
 
 }
-

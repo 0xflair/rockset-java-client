@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceGcs
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceGcs {
   @SerializedName("bucket")
   private String bucket = null;
@@ -61,13 +62,14 @@ public class SourceGcs {
     return this;
   }
 
-   /**
+  /**
    * Name of GCS bucket you want to ingest from.
+   * 
    * @return bucket
-  **/
+   **/
 
-@JsonProperty("bucket")
-@ApiModelProperty(example = "server-logs", value = "Name of GCS bucket you want to ingest from.")
+  @JsonProperty("bucket")
+  @ApiModelProperty(example = "server-logs", value = "Name of GCS bucket you want to ingest from.")
   public String getBucket() {
     return bucket;
   }
@@ -76,46 +78,50 @@ public class SourceGcs {
     this.bucket = bucket;
   }
 
-   /**
+  /**
    * Get objectBytesDownloaded
+   * 
    * @return objectBytesDownloaded
-  **/
+   **/
 
-@JsonProperty("object_bytes_downloaded")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_bytes_downloaded")
+  @ApiModelProperty(value = "")
   public Long getObjectBytesDownloaded() {
     return objectBytesDownloaded;
   }
 
-   /**
+  /**
    * Get objectBytesTotal
+   * 
    * @return objectBytesTotal
-  **/
+   **/
 
-@JsonProperty("object_bytes_total")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_bytes_total")
+  @ApiModelProperty(value = "")
   public Long getObjectBytesTotal() {
     return objectBytesTotal;
   }
 
-   /**
+  /**
    * Get objectCountDownloaded
+   * 
    * @return objectCountDownloaded
-  **/
+   **/
 
-@JsonProperty("object_count_downloaded")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_count_downloaded")
+  @ApiModelProperty(value = "")
   public Long getObjectCountDownloaded() {
     return objectCountDownloaded;
   }
 
-   /**
+  /**
    * Get objectCountTotal
+   * 
    * @return objectCountTotal
-  **/
+   **/
 
-@JsonProperty("object_count_total")
-@ApiModelProperty(value = "")
+  @JsonProperty("object_count_total")
+  @ApiModelProperty(value = "")
   public Long getObjectCountTotal() {
     return objectCountTotal;
   }
@@ -125,13 +131,15 @@ public class SourceGcs {
     return this;
   }
 
-   /**
-   * Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.
+  /**
+   * Glob-style pattern that selects keys to ingest. Only either prefix or pattern
+   * can be specified.
+   * 
    * @return pattern
-  **/
+   **/
 
-@JsonProperty("pattern")
-@ApiModelProperty(example = "prefix/to/_**_/keys/_*.format", value = "Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.")
+  @JsonProperty("pattern")
+  @ApiModelProperty(example = "prefix/to/_**_/keys/_*.format", value = "Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.")
   public String getPattern() {
     return pattern;
   }
@@ -145,13 +153,14 @@ public class SourceGcs {
     return this;
   }
 
-   /**
+  /**
    * Prefix that selects keys to ingest.
+   * 
    * @return prefix
-  **/
+   **/
 
-@JsonProperty("prefix")
-@ApiModelProperty(example = "prefix/to/keys", value = "Prefix that selects keys to ingest.")
+  @JsonProperty("prefix")
+  @ApiModelProperty(example = "prefix/to/keys", value = "Prefix that selects keys to ingest.")
   public String getPrefix() {
     return prefix;
   }
@@ -165,13 +174,14 @@ public class SourceGcs {
     return this;
   }
 
-   /**
+  /**
    * custom settings for Google cloud Storage source
+   * 
    * @return settings
-  **/
+   **/
 
-@JsonProperty("settings")
-@ApiModelProperty(value = "custom settings for Google cloud Storage source")
+  @JsonProperty("settings")
+  @ApiModelProperty(value = "custom settings for Google cloud Storage source")
   public SourceGcsSettings getSettings() {
     return settings;
   }
@@ -179,7 +189,6 @@ public class SourceGcs {
   public void setSettings(SourceGcsSettings settings) {
     this.settings = settings;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,15 +211,15 @@ public class SourceGcs {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, objectBytesDownloaded, objectBytesTotal, objectCountDownloaded, objectCountTotal, pattern, prefix, settings);
+    return Objects.hash(bucket, objectBytesDownloaded, objectBytesTotal, objectCountDownloaded, objectCountTotal,
+        pattern, prefix, settings);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceGcs {\n");
-    
+
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
     sb.append("    objectBytesDownloaded: ").append(toIndentedString(objectBytesDownloaded)).append("\n");
     sb.append("    objectBytesTotal: ").append(toIndentedString(objectBytesTotal)).append("\n");
@@ -235,4 +244,3 @@ public class SourceGcs {
   }
 
 }
-

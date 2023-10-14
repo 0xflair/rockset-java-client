@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * AzureEventHubsIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class AzureEventHubsIntegration {
   @SerializedName("connection_string")
   private String connectionString = null;
@@ -39,13 +40,14 @@ public class AzureEventHubsIntegration {
     return this;
   }
 
-   /**
+  /**
    * Credentials for the Azure Event Hubs.
+   * 
    * @return connectionString
-  **/
+   **/
 
-@JsonProperty("connection_string")
-@ApiModelProperty(example = "Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>", value = "Credentials for the Azure Event Hubs.")
+  @JsonProperty("connection_string")
+  @ApiModelProperty(example = "Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>", value = "Credentials for the Azure Event Hubs.")
   public String getConnectionString() {
     return connectionString;
   }
@@ -53,7 +55,6 @@ public class AzureEventHubsIntegration {
   public void setConnectionString(String connectionString) {
     this.connectionString = connectionString;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class AzureEventHubsIntegration {
     return Objects.hash(connectionString);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureEventHubsIntegration {\n");
-    
+
     sb.append("    connectionString: ").append(toIndentedString(connectionString)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class AzureEventHubsIntegration {
   }
 
 }
-

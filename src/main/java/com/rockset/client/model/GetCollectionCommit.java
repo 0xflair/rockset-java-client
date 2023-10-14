@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * GetCollectionCommit
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class GetCollectionCommit {
   @SerializedName("data")
   private GetCollectionCommitData data = null;
@@ -44,13 +45,14 @@ public class GetCollectionCommit {
     return this;
   }
 
-   /**
+  /**
    * Get data
+   * 
    * @return data
-  **/
+   **/
 
-@JsonProperty("data")
-@ApiModelProperty(value = "")
+  @JsonProperty("data")
+  @ApiModelProperty(value = "")
   public GetCollectionCommitData getData() {
     return data;
   }
@@ -64,13 +66,14 @@ public class GetCollectionCommit {
     return this;
   }
 
-   /**
+  /**
    * Get offsets
+   * 
    * @return offsets
-  **/
+   **/
 
-@JsonProperty("offsets")
-@ApiModelProperty(value = "")
+  @JsonProperty("offsets")
+  @ApiModelProperty(value = "")
   public Offsets getOffsets() {
     return offsets;
   }
@@ -78,7 +81,6 @@ public class GetCollectionCommit {
   public void setOffsets(Offsets offsets) {
     this.offsets = offsets;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,12 +100,11 @@ public class GetCollectionCommit {
     return Objects.hash(data, offsets);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCollectionCommit {\n");
-    
+
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    offsets: ").append(toIndentedString(offsets)).append("\n");
     sb.append("}");
@@ -122,4 +123,3 @@ public class GetCollectionCommit {
   }
 
 }
-

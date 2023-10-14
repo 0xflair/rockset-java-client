@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CollectionMountStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CollectionMountStats {
   @SerializedName("last_queried_ms")
   private Long lastQueriedMs = null;
@@ -39,13 +40,14 @@ public class CollectionMountStats {
     return this;
   }
 
-   /**
+  /**
    * Milliseconds since Unix epoch Jan 1, 1970.
+   * 
    * @return lastQueriedMs
-  **/
+   **/
 
-@JsonProperty("last_queried_ms")
-@ApiModelProperty(example = "1535101119334", value = "Milliseconds since Unix epoch Jan 1, 1970.")
+  @JsonProperty("last_queried_ms")
+  @ApiModelProperty(example = "1535101119334", value = "Milliseconds since Unix epoch Jan 1, 1970.")
   public Long getLastQueriedMs() {
     return lastQueriedMs;
   }
@@ -53,7 +55,6 @@ public class CollectionMountStats {
   public void setLastQueriedMs(Long lastQueriedMs) {
     this.lastQueriedMs = lastQueriedMs;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class CollectionMountStats {
     return Objects.hash(lastQueriedMs);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionMountStats {\n");
-    
+
     sb.append("    lastQueriedMs: ").append(toIndentedString(lastQueriedMs)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class CollectionMountStats {
   }
 
 }
-

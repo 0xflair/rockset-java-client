@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Alias
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Alias {
   @SerializedName("collections")
   private List<String> collections = null;
@@ -60,7 +61,7 @@ public class Alias {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     CREATED("CREATED"),
-    
+
     DELETED("DELETED");
 
     private String value;
@@ -121,13 +122,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * List of fully qualified collection names referenced by alias.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(example = "\"[\\\"commons.foo\\\", \\\"prod.demo\\\"]\"", value = "List of fully qualified collection names referenced by alias.")
+  @JsonProperty("collections")
+  @ApiModelProperty(example = "\"[\\\"commons.foo\\\", \\\"prod.demo\\\"]\"", value = "List of fully qualified collection names referenced by alias.")
   public List<String> getCollections() {
     return collections;
   }
@@ -141,13 +143,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -161,13 +164,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key that was used to create this object if one was used.
+   * 
    * @return createdByApikeyName
-  **/
+   **/
 
-@JsonProperty("created_by_apikey_name")
-@ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
+  @JsonProperty("created_by_apikey_name")
+  @ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
   public String getCreatedByApikeyName() {
     return createdByApikeyName;
   }
@@ -181,13 +185,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * Email of the creator.
+   * 
    * @return creatorEmail
-  **/
+   **/
 
-@JsonProperty("creator_email")
-@ApiModelProperty(example = "xyz@rockset.com", value = "Email of the creator.")
+  @JsonProperty("creator_email")
+  @ApiModelProperty(example = "xyz@rockset.com", value = "Email of the creator.")
   public String getCreatorEmail() {
     return creatorEmail;
   }
@@ -201,13 +206,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * Alias description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "alias referencing collection in workspace", value = "Alias description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "alias referencing collection in workspace", value = "Alias description.")
   public String getDescription() {
     return description;
   }
@@ -221,13 +227,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return modifiedAt
-  **/
+   **/
 
-@JsonProperty("modified_at")
-@ApiModelProperty(example = "2001-08-28T00:23:42Z", value = "ISO-8601 date.")
+  @JsonProperty("modified_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:42Z", value = "ISO-8601 date.")
   public String getModifiedAt() {
     return modifiedAt;
   }
@@ -241,13 +248,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * Name of the alias.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "demo", value = "Name of the alias.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "demo", value = "Name of the alias.")
   public String getName() {
     return name;
   }
@@ -261,13 +269,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * State of the alias.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "CREATED", value = "State of the alias.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "CREATED", value = "State of the alias.")
   public StateEnum getState() {
     return state;
   }
@@ -281,13 +290,14 @@ public class Alias {
     return this;
   }
 
-   /**
+  /**
    * Name of the workspace.
+   * 
    * @return workspace
-  **/
+   **/
 
-@JsonProperty("workspace")
-@ApiModelProperty(example = "commons", value = "Name of the workspace.")
+  @JsonProperty("workspace")
+  @ApiModelProperty(example = "commons", value = "Name of the workspace.")
   public String getWorkspace() {
     return workspace;
   }
@@ -295,7 +305,6 @@ public class Alias {
   public void setWorkspace(String workspace) {
     this.workspace = workspace;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -319,15 +328,15 @@ public class Alias {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collections, createdAt, createdByApikeyName, creatorEmail, description, modifiedAt, name, state, workspace);
+    return Objects.hash(collections, createdAt, createdByApikeyName, creatorEmail, description, modifiedAt, name, state,
+        workspace);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Alias {\n");
-    
+
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByApikeyName: ").append(toIndentedString(createdByApikeyName)).append("\n");
@@ -353,4 +362,3 @@ public class Alias {
   }
 
 }
-

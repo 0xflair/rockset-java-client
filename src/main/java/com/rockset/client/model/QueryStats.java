@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -34,7 +33,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class QueryStats {
   @SerializedName("elapsed_time_ms")
   private Long elapsedTimeMs = null;
@@ -71,13 +72,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * query time in milliseconds
+   * 
    * @return elapsedTimeMs
-  **/
+   **/
 
-@JsonProperty("elapsed_time_ms")
-@ApiModelProperty(example = "126", value = "query time in milliseconds")
+  @JsonProperty("elapsed_time_ms")
+  @ApiModelProperty(example = "126", value = "query time in milliseconds")
   public Long getElapsedTimeMs() {
     return elapsedTimeMs;
   }
@@ -91,13 +93,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * rows scanned as part of query execution
+   * 
    * @return rowsScanned
-  **/
+   **/
 
-@JsonProperty("rows_scanned")
-@ApiModelProperty(example = "25000", value = "rows scanned as part of query execution")
+  @JsonProperty("rows_scanned")
+  @ApiModelProperty(example = "25000", value = "rows scanned as part of query execution")
   public Long getRowsScanned() {
     return rowsScanned;
   }
@@ -111,13 +114,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * number of rows returned from the query
+   * 
    * @return rowsReturned
-  **/
+   **/
 
-@JsonProperty("rows_returned")
-@ApiModelProperty(example = "100", value = "number of rows returned from the query")
+  @JsonProperty("rows_returned")
+  @ApiModelProperty(example = "100", value = "number of rows returned from the query")
   public Long getRowsReturned() {
     return rowsReturned;
   }
@@ -139,13 +143,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * Statistics for each operator from query execution
+   * 
    * @return operators
-  **/
+   **/
 
-@JsonProperty("operators")
-@ApiModelProperty(value = "Statistics for each operator from query execution")
+  @JsonProperty("operators")
+  @ApiModelProperty(value = "Statistics for each operator from query execution")
   public List<OperatorStats> getOperators() {
     return operators;
   }
@@ -167,13 +172,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * Statistics for each exchange source from query execution
+   * 
    * @return exchangeSources
-  **/
+   **/
 
-@JsonProperty("exchange_sources")
-@ApiModelProperty(value = "Statistics for each exchange source from query execution")
+  @JsonProperty("exchange_sources")
+  @ApiModelProperty(value = "Statistics for each exchange source from query execution")
   public List<RpcSourceStats> getExchangeSources() {
     return exchangeSources;
   }
@@ -195,13 +201,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * Statistics for each exchange sink from query execution
+   * 
    * @return exchangeSinks
-  **/
+   **/
 
-@JsonProperty("exchange_sinks")
-@ApiModelProperty(value = "Statistics for each exchange sink from query execution")
+  @JsonProperty("exchange_sinks")
+  @ApiModelProperty(value = "Statistics for each exchange sink from query execution")
   public List<RpcSinkStats> getExchangeSinks() {
     return exchangeSinks;
   }
@@ -215,13 +222,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * DOT graph representing the execution steps of this query
+   * 
    * @return executionGraph
-  **/
+   **/
 
-@JsonProperty("execution_graph")
-@ApiModelProperty(value = "DOT graph representing the execution steps of this query")
+  @JsonProperty("execution_graph")
+  @ApiModelProperty(value = "DOT graph representing the execution steps of this query")
   public String getExecutionGraph() {
     return executionGraph;
   }
@@ -235,13 +243,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * Execution plan (output of EXPLAIN) of this query
+   * 
    * @return executionPlan
-  **/
+   **/
 
-@JsonProperty("execution_plan")
-@ApiModelProperty(value = "Execution plan (output of EXPLAIN) of this query")
+  @JsonProperty("execution_plan")
+  @ApiModelProperty(value = "Execution plan (output of EXPLAIN) of this query")
   public String getExecutionPlan() {
     return executionPlan;
   }
@@ -255,13 +264,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * Information about each physical operator, like what fields it is fetching
+   * 
    * @return operatorMetadata
-  **/
+   **/
 
-@JsonProperty("operator_metadata")
-@ApiModelProperty(value = "Information about each physical operator, like what fields it is fetching")
+  @JsonProperty("operator_metadata")
+  @ApiModelProperty(value = "Information about each physical operator, like what fields it is fetching")
   public String getOperatorMetadata() {
     return operatorMetadata;
   }
@@ -275,13 +285,14 @@ public class QueryStats {
     return this;
   }
 
-   /**
+  /**
    * SQL text of Query that was executed
+   * 
    * @return queryText
-  **/
+   **/
 
-@JsonProperty("query_text")
-@ApiModelProperty(value = "SQL text of Query that was executed")
+  @JsonProperty("query_text")
+  @ApiModelProperty(value = "SQL text of Query that was executed")
   public String getQueryText() {
     return queryText;
   }
@@ -289,7 +300,6 @@ public class QueryStats {
   public void setQueryText(String queryText) {
     this.queryText = queryText;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -314,15 +324,15 @@ public class QueryStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsedTimeMs, rowsScanned, rowsReturned, operators, exchangeSources, exchangeSinks, executionGraph, executionPlan, operatorMetadata, queryText);
+    return Objects.hash(elapsedTimeMs, rowsScanned, rowsReturned, operators, exchangeSources, exchangeSinks,
+        executionGraph, executionPlan, operatorMetadata, queryText);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryStats {\n");
-    
+
     sb.append("    elapsedTimeMs: ").append(toIndentedString(elapsedTimeMs)).append("\n");
     sb.append("    rowsScanned: ").append(toIndentedString(rowsScanned)).append("\n");
     sb.append("    rowsReturned: ").append(toIndentedString(rowsReturned)).append("\n");
@@ -349,4 +359,3 @@ public class QueryStats {
   }
 
 }
-

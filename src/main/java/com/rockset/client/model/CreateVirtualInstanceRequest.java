@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateVirtualInstanceRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateVirtualInstanceRequest {
   @SerializedName("auto_suspend_seconds")
   private Integer autoSuspendSeconds = null;
@@ -52,27 +53,27 @@ public class CreateVirtualInstanceRequest {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     FREE("FREE"),
-    
+
     NANO("NANO"),
-    
+
     SHARED("SHARED"),
-    
+
     MILLI("MILLI"),
-    
+
     SMALL("SMALL"),
-    
+
     MEDIUM("MEDIUM"),
-    
+
     LARGE("LARGE"),
-    
+
     XLARGE("XLARGE"),
-    
+
     XLARGE2("XLARGE2"),
-    
+
     XLARGE4("XLARGE4"),
-    
+
     XLARGE8("XLARGE8"),
-    
+
     XLARGE16("XLARGE16");
 
     private String value;
@@ -122,13 +123,14 @@ public class CreateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds without queries after which the VI is suspended
+   * 
    * @return autoSuspendSeconds
-  **/
+   **/
 
-@JsonProperty("auto_suspend_seconds")
-@ApiModelProperty(example = "3600", value = "Number of seconds without queries after which the VI is suspended")
+  @JsonProperty("auto_suspend_seconds")
+  @ApiModelProperty(example = "3600", value = "Number of seconds without queries after which the VI is suspended")
   public Integer getAutoSuspendSeconds() {
     return autoSuspendSeconds;
   }
@@ -142,13 +144,14 @@ public class CreateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Description of requested virtual instance.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "VI serving prod traffic", value = "Description of requested virtual instance.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "VI serving prod traffic", value = "Description of requested virtual instance.")
   public String getDescription() {
     return description;
   }
@@ -162,13 +165,15 @@ public class CreateVirtualInstanceRequest {
     return this;
   }
 
-   /**
-   * When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.
+  /**
+   * When a Virtual Instance is resumed, it will remount all collections that were
+   * mounted when the Virtual Instance was suspended.
+   * 
    * @return enableRemountOnResume
-  **/
+   **/
 
-@JsonProperty("enable_remount_on_resume")
-@ApiModelProperty(example = "true", value = "When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.")
+  @JsonProperty("enable_remount_on_resume")
+  @ApiModelProperty(example = "true", value = "When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.")
   public Boolean isEnableRemountOnResume() {
     return enableRemountOnResume;
   }
@@ -182,13 +187,16 @@ public class CreateVirtualInstanceRequest {
     return this;
   }
 
-   /**
-   * Number of seconds between data refreshes for mounts on this Virtual Instance. A value of 0 means continuous refresh and a value of null means never refresh.
+  /**
+   * Number of seconds between data refreshes for mounts on this Virtual Instance.
+   * A value of 0 means continuous refresh and a value of null means never
+   * refresh.
+   * 
    * @return mountRefreshIntervalSeconds
-  **/
+   **/
 
-@JsonProperty("mount_refresh_interval_seconds")
-@ApiModelProperty(example = "3600", value = "Number of seconds between data refreshes for mounts on this Virtual Instance. A value of 0 means continuous refresh and a value of null means never refresh.")
+  @JsonProperty("mount_refresh_interval_seconds")
+  @ApiModelProperty(example = "3600", value = "Number of seconds between data refreshes for mounts on this Virtual Instance. A value of 0 means continuous refresh and a value of null means never refresh.")
   public Integer getMountRefreshIntervalSeconds() {
     return mountRefreshIntervalSeconds;
   }
@@ -202,13 +210,15 @@ public class CreateVirtualInstanceRequest {
     return this;
   }
 
-   /**
-   * Unique identifier for virtual instance, can contain alphanumeric or dash characters.
+  /**
+   * Unique identifier for virtual instance, can contain alphanumeric or dash
+   * characters.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "prod_vi", required = true, value = "Unique identifier for virtual instance, can contain alphanumeric or dash characters.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "prod_vi", required = true, value = "Unique identifier for virtual instance, can contain alphanumeric or dash characters.")
   public String getName() {
     return name;
   }
@@ -222,13 +232,14 @@ public class CreateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Requested virtual instance type.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "LARGE", value = "Requested virtual instance type.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "LARGE", value = "Requested virtual instance type.")
   public TypeEnum getType() {
     return type;
   }
@@ -236,7 +247,6 @@ public class CreateVirtualInstanceRequest {
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -257,15 +267,15 @@ public class CreateVirtualInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoSuspendSeconds, description, enableRemountOnResume, mountRefreshIntervalSeconds, name, type);
+    return Objects.hash(autoSuspendSeconds, description, enableRemountOnResume, mountRefreshIntervalSeconds, name,
+        type);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateVirtualInstanceRequest {\n");
-    
+
     sb.append("    autoSuspendSeconds: ").append(toIndentedString(autoSuspendSeconds)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableRemountOnResume: ").append(toIndentedString(enableRemountOnResume)).append("\n");
@@ -288,4 +298,3 @@ public class CreateVirtualInstanceRequest {
   }
 
 }
-

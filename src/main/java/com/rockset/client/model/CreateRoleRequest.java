@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateRoleRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateRoleRequest {
   @SerializedName("description")
   private String description = null;
@@ -48,13 +49,14 @@ public class CreateRoleRequest {
     return this;
   }
 
-   /**
+  /**
    * Description for the role.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "Role with read and write privileges to all collections.", value = "Description for the role.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "Role with read and write privileges to all collections.", value = "Description for the role.")
   public String getDescription() {
     return description;
   }
@@ -76,13 +78,14 @@ public class CreateRoleRequest {
     return this;
   }
 
-   /**
+  /**
    * List of privileges that will be associated with the role.
+   * 
    * @return privileges
-  **/
+   **/
 
-@JsonProperty("privileges")
-@ApiModelProperty(value = "List of privileges that will be associated with the role.")
+  @JsonProperty("privileges")
+  @ApiModelProperty(value = "List of privileges that will be associated with the role.")
   public List<Privilege> getPrivileges() {
     return privileges;
   }
@@ -96,13 +99,14 @@ public class CreateRoleRequest {
     return this;
   }
 
-   /**
+  /**
    * Unique identifier for the role.
+   * 
    * @return roleName
-  **/
+   **/
 
-@JsonProperty("role_name")
-@ApiModelProperty(example = "read_write", value = "Unique identifier for the role.")
+  @JsonProperty("role_name")
+  @ApiModelProperty(example = "read_write", value = "Unique identifier for the role.")
   public String getRoleName() {
     return roleName;
   }
@@ -110,7 +114,6 @@ public class CreateRoleRequest {
   public void setRoleName(String roleName) {
     this.roleName = roleName;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +134,11 @@ public class CreateRoleRequest {
     return Objects.hash(description, privileges, roleName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRoleRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    privileges: ").append(toIndentedString(privileges)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
@@ -156,4 +158,3 @@ public class CreateRoleRequest {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceAzureEventHubs
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceAzureEventHubs {
   @SerializedName("hub_id")
   private String hubId = null;
@@ -41,7 +42,7 @@ public class SourceAzureEventHubs {
   @JsonAdapter(OffsetResetPolicyEnum.Adapter.class)
   public enum OffsetResetPolicyEnum {
     LATEST("LATEST"),
-    
+
     EARLIEST("EARLIEST");
 
     private String value;
@@ -94,13 +95,14 @@ public class SourceAzureEventHubs {
     return this;
   }
 
-   /**
+  /**
    * Name of the hub which rockset should ingest from.
+   * 
    * @return hubId
-  **/
+   **/
 
-@JsonProperty("hub_id")
-@ApiModelProperty(example = "event-hub-1", value = "Name of the hub which rockset should ingest from.")
+  @JsonProperty("hub_id")
+  @ApiModelProperty(example = "event-hub-1", value = "Name of the hub which rockset should ingest from.")
   public String getHubId() {
     return hubId;
   }
@@ -114,13 +116,14 @@ public class SourceAzureEventHubs {
     return this;
   }
 
-   /**
+  /**
    * The offset reset policy.
+   * 
    * @return offsetResetPolicy
-  **/
+   **/
 
-@JsonProperty("offset_reset_policy")
-@ApiModelProperty(example = "EARLIEST", value = "The offset reset policy.")
+  @JsonProperty("offset_reset_policy")
+  @ApiModelProperty(example = "EARLIEST", value = "The offset reset policy.")
   public OffsetResetPolicyEnum getOffsetResetPolicy() {
     return offsetResetPolicy;
   }
@@ -129,17 +132,17 @@ public class SourceAzureEventHubs {
     this.offsetResetPolicy = offsetResetPolicy;
   }
 
-   /**
+  /**
    * Source status.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(value = "Source status.")
+  @JsonProperty("status")
+  @ApiModelProperty(value = "Source status.")
   public StatusAzureEventHubs getStatus() {
     return status;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +163,11 @@ public class SourceAzureEventHubs {
     return Objects.hash(hubId, offsetResetPolicy, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceAzureEventHubs {\n");
-    
+
     sb.append("    hubId: ").append(toIndentedString(hubId)).append("\n");
     sb.append("    offsetResetPolicy: ").append(toIndentedString(offsetResetPolicy)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -185,4 +187,3 @@ public class SourceAzureEventHubs {
   }
 
 }
-

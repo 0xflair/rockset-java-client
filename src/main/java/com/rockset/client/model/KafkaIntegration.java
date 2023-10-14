@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -37,7 +36,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * KafkaIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class KafkaIntegration {
   @SerializedName("aws_role")
   private AwsRole awsRole = null;
@@ -54,7 +55,7 @@ public class KafkaIntegration {
   @JsonAdapter(KafkaDataFormatEnum.Adapter.class)
   public enum KafkaDataFormatEnum {
     JSON("JSON"),
-    
+
     AVRO("AVRO");
 
     private String value;
@@ -119,13 +120,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * Details of an AWS cross-account role integration.
+   * 
    * @return awsRole
-  **/
+   **/
 
-@JsonProperty("aws_role")
-@ApiModelProperty(value = "Details of an AWS cross-account role integration.")
+  @JsonProperty("aws_role")
+  @ApiModelProperty(value = "Details of an AWS cross-account role integration.")
   public AwsRole getAwsRole() {
     return awsRole;
   }
@@ -139,13 +141,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * The Kafka bootstrap server url(s). Required only for V3 integration.
+   * 
    * @return bootstrapServers
-  **/
+   **/
 
-@JsonProperty("bootstrap_servers")
-@ApiModelProperty(example = "localhost:9092", value = "The Kafka bootstrap server url(s). Required only for V3 integration.")
+  @JsonProperty("bootstrap_servers")
+  @ApiModelProperty(example = "localhost:9092", value = "The Kafka bootstrap server url(s). Required only for V3 integration.")
   public String getBootstrapServers() {
     return bootstrapServers;
   }
@@ -159,13 +162,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * Kafka connection string.
+   * 
    * @return connectionString
-  **/
+   **/
 
-@JsonProperty("connection_string")
-@ApiModelProperty(value = "Kafka connection string.")
+  @JsonProperty("connection_string")
+  @ApiModelProperty(value = "Kafka connection string.")
   public String getConnectionString() {
     return connectionString;
   }
@@ -179,13 +183,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * The format of the Kafka topics being tailed.
+   * 
    * @return kafkaDataFormat
-  **/
+   **/
 
-@JsonProperty("kafka_data_format")
-@ApiModelProperty(example = "JSON", value = "The format of the Kafka topics being tailed.")
+  @JsonProperty("kafka_data_format")
+  @ApiModelProperty(example = "JSON", value = "The format of the Kafka topics being tailed.")
   public KafkaDataFormatEnum getKafkaDataFormat() {
     return kafkaDataFormat;
   }
@@ -207,13 +212,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * Kafka topics to tail.
+   * 
    * @return kafkaTopicNames
-  **/
+   **/
 
-@JsonProperty("kafka_topic_names")
-@ApiModelProperty(value = "Kafka topics to tail.")
+  @JsonProperty("kafka_topic_names")
+  @ApiModelProperty(value = "Kafka topics to tail.")
   public List<String> getKafkaTopicNames() {
     return kafkaTopicNames;
   }
@@ -227,13 +233,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * Kafka configurations for schema registry.
+   * 
    * @return schemaRegistryConfig
-  **/
+   **/
 
-@JsonProperty("schema_registry_config")
-@ApiModelProperty(value = "Kafka configurations for schema registry.")
+  @JsonProperty("schema_registry_config")
+  @ApiModelProperty(value = "Kafka configurations for schema registry.")
   public SchemaRegistryConfig getSchemaRegistryConfig() {
     return schemaRegistryConfig;
   }
@@ -247,13 +254,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * Kafka security configurations.
+   * 
    * @return securityConfig
-  **/
+   **/
 
-@JsonProperty("security_config")
-@ApiModelProperty(value = "Kafka security configurations.")
+  @JsonProperty("security_config")
+  @ApiModelProperty(value = "Kafka security configurations.")
   public KafkaV3SecurityConfig getSecurityConfig() {
     return securityConfig;
   }
@@ -262,13 +270,14 @@ public class KafkaIntegration {
     this.securityConfig = securityConfig;
   }
 
-   /**
+  /**
    * The status of the Kafka source by topic.
+   * 
    * @return sourceStatusByTopic
-  **/
+   **/
 
-@JsonProperty("source_status_by_topic")
-@ApiModelProperty(example = "\"{\\\"topic-a\\\": \\\"DORMANT\\\"}\"", value = "The status of the Kafka source by topic.")
+  @JsonProperty("source_status_by_topic")
+  @ApiModelProperty(example = "\"{\\\"topic-a\\\": \\\"DORMANT\\\"}\"", value = "The status of the Kafka source by topic.")
   public Map<String, StatusKafka> getSourceStatusByTopic() {
     return sourceStatusByTopic;
   }
@@ -278,13 +287,14 @@ public class KafkaIntegration {
     return this;
   }
 
-   /**
+  /**
    * Get useV3
+   * 
    * @return useV3
-  **/
+   **/
 
-@JsonProperty("use_v3")
-@ApiModelProperty(value = "")
+  @JsonProperty("use_v3")
+  @ApiModelProperty(value = "")
   public Boolean isUseV3() {
     return useV3;
   }
@@ -292,7 +302,6 @@ public class KafkaIntegration {
   public void setUseV3(Boolean useV3) {
     this.useV3 = useV3;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -316,15 +325,15 @@ public class KafkaIntegration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsRole, bootstrapServers, connectionString, kafkaDataFormat, kafkaTopicNames, schemaRegistryConfig, securityConfig, sourceStatusByTopic, useV3);
+    return Objects.hash(awsRole, bootstrapServers, connectionString, kafkaDataFormat, kafkaTopicNames,
+        schemaRegistryConfig, securityConfig, sourceStatusByTopic, useV3);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KafkaIntegration {\n");
-    
+
     sb.append("    awsRole: ").append(toIndentedString(awsRole)).append("\n");
     sb.append("    bootstrapServers: ").append(toIndentedString(bootstrapServers)).append("\n");
     sb.append("    connectionString: ").append(toIndentedString(connectionString)).append("\n");
@@ -350,4 +359,3 @@ public class KafkaIntegration {
   }
 
 }
-

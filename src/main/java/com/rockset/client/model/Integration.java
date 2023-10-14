@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -40,11 +39,14 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Integrations that can be associated with data sources to create collections. Only one type of integration may be specified.
+ * Integrations that can be associated with data sources to create collections.
+ * Only one type of integration may be specified.
  */
 
 @ApiModel(description = "Integrations that can be associated with data sources to create collections. Only one type of integration may be specified.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Integration {
   @SerializedName("azure_blob_storage")
   private AzureBlobStorageIntegration azureBlobStorage = null;
@@ -102,13 +104,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Azure Blob Storage details.
+   * 
    * @return azureBlobStorage
-  **/
+   **/
 
-@JsonProperty("azure_blob_storage")
-@ApiModelProperty(value = "Azure Blob Storage details.")
+  @JsonProperty("azure_blob_storage")
+  @ApiModelProperty(value = "Azure Blob Storage details.")
   public AzureBlobStorageIntegration getAzureBlobStorage() {
     return azureBlobStorage;
   }
@@ -122,13 +125,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Azure Event Hubs details.
+   * 
    * @return azureEventHubs
-  **/
+   **/
 
-@JsonProperty("azure_event_hubs")
-@ApiModelProperty(value = "Azure Event Hubs details.")
+  @JsonProperty("azure_event_hubs")
+  @ApiModelProperty(value = "Azure Event Hubs details.")
   public AzureEventHubsIntegration getAzureEventHubs() {
     return azureEventHubs;
   }
@@ -142,13 +146,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Azure Service Bus details.
+   * 
    * @return azureServiceBus
-  **/
+   **/
 
-@JsonProperty("azure_service_bus")
-@ApiModelProperty(value = "Azure Service Bus details.")
+  @JsonProperty("azure_service_bus")
+  @ApiModelProperty(value = "Azure Service Bus details.")
   public AzureServiceBusIntegration getAzureServiceBus() {
     return azureServiceBus;
   }
@@ -170,13 +175,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * List of collections that use the integration.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(value = "List of collections that use the integration.")
+  @JsonProperty("collections")
+  @ApiModelProperty(value = "List of collections that use the integration.")
   public List<Collection> getCollections() {
     return collections;
   }
@@ -190,13 +196,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -210,13 +217,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Email of user who created the integration.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "hello@rockset.com", required = true, value = "Email of user who created the integration.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "hello@rockset.com", required = true, value = "Email of user who created the integration.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -230,13 +238,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key that was used to create this object if one was used.
+   * 
    * @return createdByApikeyName
-  **/
+   **/
 
-@JsonProperty("created_by_apikey_name")
-@ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
+  @JsonProperty("created_by_apikey_name")
+  @ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
   public String getCreatedByApikeyName() {
     return createdByApikeyName;
   }
@@ -250,13 +259,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Longer explanation for the integration.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "AWS account with event data for the data science team.", value = "Longer explanation for the integration.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "AWS account with event data for the data science team.", value = "Longer explanation for the integration.")
   public String getDescription() {
     return description;
   }
@@ -270,13 +280,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Amazon DynamoDB details, must have one of aws_access_key or aws_role.
+   * 
    * @return dynamodb
-  **/
+   **/
 
-@JsonProperty("dynamodb")
-@ApiModelProperty(value = "Amazon DynamoDB details, must have one of aws_access_key or aws_role.")
+  @JsonProperty("dynamodb")
+  @ApiModelProperty(value = "Amazon DynamoDB details, must have one of aws_access_key or aws_role.")
   public DynamodbIntegration getDynamodb() {
     return dynamodb;
   }
@@ -290,13 +301,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * GCS details.
+   * 
    * @return gcs
-  **/
+   **/
 
-@JsonProperty("gcs")
-@ApiModelProperty(value = "GCS details.")
+  @JsonProperty("gcs")
+  @ApiModelProperty(value = "GCS details.")
   public GcsIntegration getGcs() {
     return gcs;
   }
@@ -310,13 +322,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Kafka details.
+   * 
    * @return kafka
-  **/
+   **/
 
-@JsonProperty("kafka")
-@ApiModelProperty(value = "Kafka details.")
+  @JsonProperty("kafka")
+  @ApiModelProperty(value = "Kafka details.")
   public KafkaIntegration getKafka() {
     return kafka;
   }
@@ -330,13 +343,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Amazon Kinesis details, must have one of aws_access_key or aws_role.
+   * 
    * @return kinesis
-  **/
+   **/
 
-@JsonProperty("kinesis")
-@ApiModelProperty(value = "Amazon Kinesis details, must have one of aws_access_key or aws_role.")
+  @JsonProperty("kinesis")
+  @ApiModelProperty(value = "Amazon Kinesis details, must have one of aws_access_key or aws_role.")
   public KinesisIntegration getKinesis() {
     return kinesis;
   }
@@ -350,13 +364,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * MongoDb details.
+   * 
    * @return mongodb
-  **/
+   **/
 
-@JsonProperty("mongodb")
-@ApiModelProperty(value = "MongoDb details.")
+  @JsonProperty("mongodb")
+  @ApiModelProperty(value = "MongoDb details.")
   public MongoDbIntegration getMongodb() {
     return mongodb;
   }
@@ -370,13 +385,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Descriptive label and unique identifier.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "event-logs", required = true, value = "Descriptive label and unique identifier.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "event-logs", required = true, value = "Descriptive label and unique identifier.")
   public String getName() {
     return name;
   }
@@ -390,13 +406,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * User that owns this integration.
+   * 
    * @return ownerEmail
-  **/
+   **/
 
-@JsonProperty("owner_email")
-@ApiModelProperty(example = "abc@rockset.com", value = "User that owns this integration.")
+  @JsonProperty("owner_email")
+  @ApiModelProperty(example = "abc@rockset.com", value = "User that owns this integration.")
   public String getOwnerEmail() {
     return ownerEmail;
   }
@@ -410,13 +427,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Amazon S3 details, must have one of aws_access_key or aws_role.
+   * 
    * @return s3
-  **/
+   **/
 
-@JsonProperty("s3")
-@ApiModelProperty(value = "Amazon S3 details, must have one of aws_access_key or aws_role.")
+  @JsonProperty("s3")
+  @ApiModelProperty(value = "Amazon S3 details, must have one of aws_access_key or aws_role.")
   public S3Integration getS3() {
     return s3;
   }
@@ -430,13 +448,14 @@ public class Integration {
     return this;
   }
 
-   /**
+  /**
    * Snowflake details.
+   * 
    * @return snowflake
-  **/
+   **/
 
-@JsonProperty("snowflake")
-@ApiModelProperty(value = "Snowflake details.")
+  @JsonProperty("snowflake")
+  @ApiModelProperty(value = "Snowflake details.")
   public SnowflakeIntegration getSnowflake() {
     return snowflake;
   }
@@ -444,7 +463,6 @@ public class Integration {
   public void setSnowflake(SnowflakeIntegration snowflake) {
     this.snowflake = snowflake;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -476,15 +494,15 @@ public class Integration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlobStorage, azureEventHubs, azureServiceBus, collections, createdAt, createdBy, createdByApikeyName, description, dynamodb, gcs, kafka, kinesis, mongodb, name, ownerEmail, s3, snowflake);
+    return Objects.hash(azureBlobStorage, azureEventHubs, azureServiceBus, collections, createdAt, createdBy,
+        createdByApikeyName, description, dynamodb, gcs, kafka, kinesis, mongodb, name, ownerEmail, s3, snowflake);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Integration {\n");
-    
+
     sb.append("    azureBlobStorage: ").append(toIndentedString(azureBlobStorage)).append("\n");
     sb.append("    azureEventHubs: ").append(toIndentedString(azureEventHubs)).append("\n");
     sb.append("    azureServiceBus: ").append(toIndentedString(azureServiceBus)).append("\n");
@@ -518,4 +536,3 @@ public class Integration {
   }
 
 }
-

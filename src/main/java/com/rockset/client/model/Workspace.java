@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @ApiModel(description = "Workspaces are organizational containers for collections.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Workspace {
   @SerializedName("collection_count")
   private Long collectionCount = null;
@@ -53,13 +54,14 @@ public class Workspace {
     return this;
   }
 
-   /**
+  /**
    * Number of collections that are immediate children of workspace.
+   * 
    * @return collectionCount
-  **/
+   **/
 
-@JsonProperty("collection_count")
-@ApiModelProperty(example = "3", value = "Number of collections that are immediate children of workspace.")
+  @JsonProperty("collection_count")
+  @ApiModelProperty(example = "3", value = "Number of collections that are immediate children of workspace.")
   public Long getCollectionCount() {
     return collectionCount;
   }
@@ -73,13 +75,14 @@ public class Workspace {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of when workspace was created.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when workspace was created.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when workspace was created.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -93,13 +96,14 @@ public class Workspace {
     return this;
   }
 
-   /**
+  /**
    * Email of user who created the workspace.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "hello@rockset.com", value = "Email of user who created the workspace.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "hello@rockset.com", value = "Email of user who created the workspace.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -113,13 +117,14 @@ public class Workspace {
     return this;
   }
 
-   /**
+  /**
    * Longer explanation for the workspace.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "Datasets of system logs for the ops team.", value = "Longer explanation for the workspace.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "Datasets of system logs for the ops team.", value = "Longer explanation for the workspace.")
   public String getDescription() {
     return description;
   }
@@ -133,13 +138,14 @@ public class Workspace {
     return this;
   }
 
-   /**
+  /**
    * Descriptive label and unique identifier.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "event_logs", value = "Descriptive label and unique identifier.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "event_logs", value = "Descriptive label and unique identifier.")
   public String getName() {
     return name;
   }
@@ -147,7 +153,6 @@ public class Workspace {
   public void setName(String name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,12 +175,11 @@ public class Workspace {
     return Objects.hash(collectionCount, createdAt, createdBy, description, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Workspace {\n");
-    
+
     sb.append("    collectionCount: ").append(toIndentedString(collectionCount)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -197,4 +201,3 @@ public class Workspace {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateQueryLambdaTagRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateQueryLambdaTagRequest {
   @SerializedName("tag_name")
   private String tagName = null;
@@ -42,13 +43,14 @@ public class CreateQueryLambdaTagRequest {
     return this;
   }
 
-   /**
+  /**
    * Name of Query Lambda tag.
+   * 
    * @return tagName
-  **/
+   **/
 
-@JsonProperty("tag_name")
-@ApiModelProperty(example = "production", required = true, value = "Name of Query Lambda tag.")
+  @JsonProperty("tag_name")
+  @ApiModelProperty(example = "production", required = true, value = "Name of Query Lambda tag.")
   public String getTagName() {
     return tagName;
   }
@@ -62,13 +64,14 @@ public class CreateQueryLambdaTagRequest {
     return this;
   }
 
-   /**
+  /**
    * Hash identifying a Query Lambda tag.
+   * 
    * @return version
-  **/
+   **/
 
-@JsonProperty("version")
-@ApiModelProperty(example = "123ABC", required = true, value = "Hash identifying a Query Lambda tag.")
+  @JsonProperty("version")
+  @ApiModelProperty(example = "123ABC", required = true, value = "Hash identifying a Query Lambda tag.")
   public String getVersion() {
     return version;
   }
@@ -76,7 +79,6 @@ public class CreateQueryLambdaTagRequest {
   public void setVersion(String version) {
     this.version = version;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class CreateQueryLambdaTagRequest {
     return Objects.hash(tagName, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateQueryLambdaTagRequest {\n");
-    
+
     sb.append("    tagName: ").append(toIndentedString(tagName)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class CreateQueryLambdaTagRequest {
   }
 
 }
-

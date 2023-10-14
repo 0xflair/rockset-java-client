@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * UpdateVirtualInstanceRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UpdateVirtualInstanceRequest {
   @SerializedName("auto_scaling_policy")
   private AutoScalingPolicy autoScalingPolicy = null;
@@ -59,27 +60,27 @@ public class UpdateVirtualInstanceRequest {
   @JsonAdapter(NewSizeEnum.Adapter.class)
   public enum NewSizeEnum {
     FREE("FREE"),
-    
+
     NANO("NANO"),
-    
+
     SHARED("SHARED"),
-    
+
     MILLI("MILLI"),
-    
+
     SMALL("SMALL"),
-    
+
     MEDIUM("MEDIUM"),
-    
+
     LARGE("LARGE"),
-    
+
     XLARGE("XLARGE"),
-    
+
     XLARGE2("XLARGE2"),
-    
+
     XLARGE4("XLARGE4"),
-    
+
     XLARGE8("XLARGE8"),
-    
+
     XLARGE16("XLARGE16");
 
     private String value;
@@ -129,13 +130,14 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Options for configuring auto scaling policy
+   * 
    * @return autoScalingPolicy
-  **/
+   **/
 
-@JsonProperty("auto_scaling_policy")
-@ApiModelProperty(value = "Options for configuring auto scaling policy")
+  @JsonProperty("auto_scaling_policy")
+  @ApiModelProperty(value = "Options for configuring auto scaling policy")
   public AutoScalingPolicy getAutoScalingPolicy() {
     return autoScalingPolicy;
   }
@@ -149,13 +151,14 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Whether auto-suspend should be enabled for this Virtual Instance.
+   * 
    * @return autoSuspendEnabled
-  **/
+   **/
 
-@JsonProperty("auto_suspend_enabled")
-@ApiModelProperty(example = "true", value = "Whether auto-suspend should be enabled for this Virtual Instance.")
+  @JsonProperty("auto_suspend_enabled")
+  @ApiModelProperty(example = "true", value = "Whether auto-suspend should be enabled for this Virtual Instance.")
   public Boolean isAutoSuspendEnabled() {
     return autoSuspendEnabled;
   }
@@ -169,13 +172,14 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds without queries after which the VI is suspended
+   * 
    * @return autoSuspendSeconds
-  **/
+   **/
 
-@JsonProperty("auto_suspend_seconds")
-@ApiModelProperty(example = "3600", value = "Number of seconds without queries after which the VI is suspended")
+  @JsonProperty("auto_suspend_seconds")
+  @ApiModelProperty(example = "3600", value = "Number of seconds without queries after which the VI is suspended")
   public Integer getAutoSuspendSeconds() {
     return autoSuspendSeconds;
   }
@@ -189,13 +193,14 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * New virtual instance description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "VI for prod traffic", value = "New virtual instance description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "VI for prod traffic", value = "New virtual instance description.")
   public String getDescription() {
     return description;
   }
@@ -209,13 +214,15 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
-   * When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.
+  /**
+   * When a Virtual Instance is resumed, it will remount all collections that were
+   * mounted when the Virtual Instance was suspended.
+   * 
    * @return enableRemountOnResume
-  **/
+   **/
 
-@JsonProperty("enable_remount_on_resume")
-@ApiModelProperty(example = "true", value = "When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.")
+  @JsonProperty("enable_remount_on_resume")
+  @ApiModelProperty(example = "true", value = "When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.")
   public Boolean isEnableRemountOnResume() {
     return enableRemountOnResume;
   }
@@ -229,13 +236,16 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
-   * Number of seconds between data refreshes for mounts on this Virtual Instance. A value of 0 means continuous refresh and a value of null means never refresh.
+  /**
+   * Number of seconds between data refreshes for mounts on this Virtual Instance.
+   * A value of 0 means continuous refresh and a value of null means never
+   * refresh.
+   * 
    * @return mountRefreshIntervalSeconds
-  **/
+   **/
 
-@JsonProperty("mount_refresh_interval_seconds")
-@ApiModelProperty(example = "3600", value = "Number of seconds between data refreshes for mounts on this Virtual Instance. A value of 0 means continuous refresh and a value of null means never refresh.")
+  @JsonProperty("mount_refresh_interval_seconds")
+  @ApiModelProperty(example = "3600", value = "Number of seconds between data refreshes for mounts on this Virtual Instance. A value of 0 means continuous refresh and a value of null means never refresh.")
   public Integer getMountRefreshIntervalSeconds() {
     return mountRefreshIntervalSeconds;
   }
@@ -249,13 +259,14 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * New virtual instance name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "prod_vi", value = "New virtual instance name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "prod_vi", value = "New virtual instance name.")
   public String getName() {
     return name;
   }
@@ -269,13 +280,14 @@ public class UpdateVirtualInstanceRequest {
     return this;
   }
 
-   /**
+  /**
    * Requested virtual instance size.
+   * 
    * @return newSize
-  **/
+   **/
 
-@JsonProperty("new_size")
-@ApiModelProperty(example = "LARGE", value = "Requested virtual instance size.")
+  @JsonProperty("new_size")
+  @ApiModelProperty(example = "LARGE", value = "Requested virtual instance size.")
   public NewSizeEnum getNewSize() {
     return newSize;
   }
@@ -283,7 +295,6 @@ public class UpdateVirtualInstanceRequest {
   public void setNewSize(NewSizeEnum newSize) {
     this.newSize = newSize;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -306,15 +317,15 @@ public class UpdateVirtualInstanceRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScalingPolicy, autoSuspendEnabled, autoSuspendSeconds, description, enableRemountOnResume, mountRefreshIntervalSeconds, name, newSize);
+    return Objects.hash(autoScalingPolicy, autoSuspendEnabled, autoSuspendSeconds, description, enableRemountOnResume,
+        mountRefreshIntervalSeconds, name, newSize);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateVirtualInstanceRequest {\n");
-    
+
     sb.append("    autoScalingPolicy: ").append(toIndentedString(autoScalingPolicy)).append("\n");
     sb.append("    autoSuspendEnabled: ").append(toIndentedString(autoSuspendEnabled)).append("\n");
     sb.append("    autoSuspendSeconds: ").append(toIndentedString(autoSuspendSeconds)).append("\n");
@@ -339,4 +350,3 @@ public class UpdateVirtualInstanceRequest {
   }
 
 }
-

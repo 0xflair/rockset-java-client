@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceSystem
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceSystem {
   /**
    * The type of this system source.
@@ -85,13 +86,14 @@ public class SourceSystem {
     return this;
   }
 
-   /**
+  /**
    * The type of this system source.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "QUERY_LOGS", value = "The type of this system source.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "QUERY_LOGS", value = "The type of this system source.")
   public TypeEnum getType() {
     return type;
   }
@@ -99,7 +101,6 @@ public class SourceSystem {
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -118,12 +119,11 @@ public class SourceSystem {
     return Objects.hash(type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceSystem {\n");
-    
+
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -141,4 +141,3 @@ public class SourceSystem {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * VirtualInstance
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class VirtualInstance {
   @SerializedName("auto_scaling_policy")
   private AutoScalingPolicy autoScalingPolicy = null;
@@ -51,27 +52,27 @@ public class VirtualInstance {
   @JsonAdapter(CurrentSizeEnum.Adapter.class)
   public enum CurrentSizeEnum {
     FREE("FREE"),
-    
+
     NANO("NANO"),
-    
+
     SHARED("SHARED"),
-    
+
     MILLI("MILLI"),
-    
+
     SMALL("SMALL"),
-    
+
     MEDIUM("MEDIUM"),
-    
+
     LARGE("LARGE"),
-    
+
     XLARGE("XLARGE"),
-    
+
     XLARGE2("XLARGE2"),
-    
+
     XLARGE4("XLARGE4"),
-    
+
     XLARGE8("XLARGE8"),
-    
+
     XLARGE16("XLARGE16");
 
     private String value;
@@ -131,27 +132,27 @@ public class VirtualInstance {
   @JsonAdapter(DesiredSizeEnum.Adapter.class)
   public enum DesiredSizeEnum {
     FREE("FREE"),
-    
+
     NANO("NANO"),
-    
+
     SHARED("SHARED"),
-    
+
     MILLI("MILLI"),
-    
+
     SMALL("SMALL"),
-    
+
     MEDIUM("MEDIUM"),
-    
+
     LARGE("LARGE"),
-    
+
     XLARGE("XLARGE"),
-    
+
     XLARGE2("XLARGE2"),
-    
+
     XLARGE4("XLARGE4"),
-    
+
     XLARGE8("XLARGE8"),
-    
+
     XLARGE16("XLARGE16");
 
     private String value;
@@ -226,23 +227,23 @@ public class VirtualInstance {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     INITIALIZING("INITIALIZING"),
-    
+
     PROVISIONING_RESOURCES("PROVISIONINGRESOURCES"),
-    
+
     REBALANCING_COLLECTIONS("REBALANCINGCOLLECTIONS"),
-    
+
     ACTIVE("ACTIVE"),
-    
+
     SUSPENDING("SUSPENDING"),
-    
+
     SUSPENDED("SUSPENDED"),
-    
+
     RESUMING("RESUMING"),
-    
+
     DELETED("DELETED"),
-    
+
     ENABLING_DEDICATED_SERVICES("ENABLINGDEDICATEDSERVICES"),
-    
+
     DISABLING_DEDICATED_SERVICES("DISABLINGDEDICATEDSERVICES");
 
     private String value;
@@ -295,13 +296,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Options for configuring auto scaling policy
+   * 
    * @return autoScalingPolicy
-  **/
+   **/
 
-@JsonProperty("auto_scaling_policy")
-@ApiModelProperty(value = "Options for configuring auto scaling policy")
+  @JsonProperty("auto_scaling_policy")
+  @ApiModelProperty(value = "Options for configuring auto scaling policy")
   public AutoScalingPolicy getAutoScalingPolicy() {
     return autoScalingPolicy;
   }
@@ -315,13 +317,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds without queries after which the VI is suspended
+   * 
    * @return autoSuspendSeconds
-  **/
+   **/
 
-@JsonProperty("auto_suspend_seconds")
-@ApiModelProperty(example = "3600", value = "Number of seconds without queries after which the VI is suspended")
+  @JsonProperty("auto_suspend_seconds")
+  @ApiModelProperty(example = "3600", value = "Number of seconds without queries after which the VI is suspended")
   public Integer getAutoSuspendSeconds() {
     return autoSuspendSeconds;
   }
@@ -335,13 +338,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of when virtual instance was created.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when virtual instance was created.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when virtual instance was created.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -355,13 +359,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Creator of requested virtual instance.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "hello@rockset.com", value = "Creator of requested virtual instance.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "hello@rockset.com", value = "Creator of requested virtual instance.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -370,13 +375,14 @@ public class VirtualInstance {
     this.createdBy = createdBy;
   }
 
-   /**
+  /**
    * Virtual instance current size.
+   * 
    * @return currentSize
-  **/
+   **/
 
-@JsonProperty("current_size")
-@ApiModelProperty(example = "MEDIUM", value = "Virtual instance current size.")
+  @JsonProperty("current_size")
+  @ApiModelProperty(example = "MEDIUM", value = "Virtual instance current size.")
   public CurrentSizeEnum getCurrentSize() {
     return currentSize;
   }
@@ -386,13 +392,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Get defaultPodCount
+   * 
    * @return defaultPodCount
-  **/
+   **/
 
-@JsonProperty("default_pod_count")
-@ApiModelProperty(value = "")
+  @JsonProperty("default_pod_count")
+  @ApiModelProperty(value = "")
   public Integer getDefaultPodCount() {
     return defaultPodCount;
   }
@@ -406,13 +413,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Get defaultVi
+   * 
    * @return defaultVi
-  **/
+   **/
 
-@JsonProperty("default_vi")
-@ApiModelProperty(value = "")
+  @JsonProperty("default_vi")
+  @ApiModelProperty(value = "")
   public Boolean isDefaultVi() {
     return defaultVi;
   }
@@ -426,13 +434,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Virtual instance description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "VI for prod traffic", value = "Virtual instance description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "VI for prod traffic", value = "Virtual instance description.")
   public String getDescription() {
     return description;
   }
@@ -441,13 +450,14 @@ public class VirtualInstance {
     this.description = description;
   }
 
-   /**
+  /**
    * Virtual instance desired size.
+   * 
    * @return desiredSize
-  **/
+   **/
 
-@JsonProperty("desired_size")
-@ApiModelProperty(example = "MEDIUM", value = "Virtual instance desired size.")
+  @JsonProperty("desired_size")
+  @ApiModelProperty(example = "MEDIUM", value = "Virtual instance desired size.")
   public DesiredSizeEnum getDesiredSize() {
     return desiredSize;
   }
@@ -457,13 +467,15 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
-   * When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.
+  /**
+   * When a Virtual Instance is resumed, it will remount all collections that were
+   * mounted when the Virtual Instance was suspended.
+   * 
    * @return enableRemountOnResume
-  **/
+   **/
 
-@JsonProperty("enable_remount_on_resume")
-@ApiModelProperty(example = "true", value = "When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.")
+  @JsonProperty("enable_remount_on_resume")
+  @ApiModelProperty(example = "true", value = "When a Virtual Instance is resumed, it will remount all collections that were mounted when the Virtual Instance was suspended.")
   public Boolean isEnableRemountOnResume() {
     return enableRemountOnResume;
   }
@@ -477,13 +489,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Unique identifier for virtual instance.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("id")
-@ApiModelProperty(example = "123e4567-e89b-12d3-a456-556642440000", value = "Unique identifier for virtual instance.")
+  @JsonProperty("id")
+  @ApiModelProperty(example = "123e4567-e89b-12d3-a456-556642440000", value = "Unique identifier for virtual instance.")
   public String getId() {
     return id;
   }
@@ -497,13 +510,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Get monitoringEnabled
+   * 
    * @return monitoringEnabled
-  **/
+   **/
 
-@JsonProperty("monitoring_enabled")
-@ApiModelProperty(value = "")
+  @JsonProperty("monitoring_enabled")
+  @ApiModelProperty(value = "")
   public Boolean isMonitoringEnabled() {
     return monitoringEnabled;
   }
@@ -517,13 +531,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds between data refreshes for mounts on this Virtual Instance
+   * 
    * @return mountRefreshIntervalSeconds
-  **/
+   **/
 
-@JsonProperty("mount_refresh_interval_seconds")
-@ApiModelProperty(example = "3600", value = "Number of seconds between data refreshes for mounts on this Virtual Instance")
+  @JsonProperty("mount_refresh_interval_seconds")
+  @ApiModelProperty(example = "3600", value = "Number of seconds between data refreshes for mounts on this Virtual Instance")
   public Integer getMountRefreshIntervalSeconds() {
     return mountRefreshIntervalSeconds;
   }
@@ -537,13 +552,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Virtual instance name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "prod_vi", required = true, value = "Virtual instance name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "prod_vi", required = true, value = "Virtual instance name.")
   public String getName() {
     return name;
   }
@@ -557,13 +573,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of when virtual instance was created.
+   * 
    * @return resumedAt
-  **/
+   **/
 
-@JsonProperty("resumed_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when virtual instance was created.")
+  @JsonProperty("resumed_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when virtual instance was created.")
   public String getResumedAt() {
     return resumedAt;
   }
@@ -577,13 +594,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Virtual Instance RRN.
+   * 
    * @return rrn
-  **/
+   **/
 
-@JsonProperty("rrn")
-@ApiModelProperty(example = "rrn:vi:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Virtual Instance RRN.")
+  @JsonProperty("rrn")
+  @ApiModelProperty(example = "rrn:vi:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Virtual Instance RRN.")
   public String getRrn() {
     return rrn;
   }
@@ -597,13 +615,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Get scaledPodCount
+   * 
    * @return scaledPodCount
-  **/
+   **/
 
-@JsonProperty("scaled_pod_count")
-@ApiModelProperty(value = "")
+  @JsonProperty("scaled_pod_count")
+  @ApiModelProperty(value = "")
   public Integer getScaledPodCount() {
     return scaledPodCount;
   }
@@ -617,13 +636,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Virtual instance state.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "Virtual instance state.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "Virtual instance state.")
   public StateEnum getState() {
     return state;
   }
@@ -637,13 +657,14 @@ public class VirtualInstance {
     return this;
   }
 
-   /**
+  /**
    * Stats about this VirtualInstance
+   * 
    * @return stats
-  **/
+   **/
 
-@JsonProperty("stats")
-@ApiModelProperty(value = "Stats about this VirtualInstance")
+  @JsonProperty("stats")
+  @ApiModelProperty(value = "Stats about this VirtualInstance")
   public VirtualInstanceStats getStats() {
     return stats;
   }
@@ -651,7 +672,6 @@ public class VirtualInstance {
   public void setStats(VirtualInstanceStats stats) {
     this.stats = stats;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -685,15 +705,16 @@ public class VirtualInstance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScalingPolicy, autoSuspendSeconds, createdAt, createdBy, currentSize, defaultPodCount, defaultVi, description, desiredSize, enableRemountOnResume, id, monitoringEnabled, mountRefreshIntervalSeconds, name, resumedAt, rrn, scaledPodCount, state, stats);
+    return Objects.hash(autoScalingPolicy, autoSuspendSeconds, createdAt, createdBy, currentSize, defaultPodCount,
+        defaultVi, description, desiredSize, enableRemountOnResume, id, monitoringEnabled, mountRefreshIntervalSeconds,
+        name, resumedAt, rrn, scaledPodCount, state, stats);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VirtualInstance {\n");
-    
+
     sb.append("    autoScalingPolicy: ").append(toIndentedString(autoScalingPolicy)).append("\n");
     sb.append("    autoSuspendSeconds: ").append(toIndentedString(autoSuspendSeconds)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -729,4 +750,3 @@ public class VirtualInstance {
   }
 
 }
-

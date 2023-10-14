@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceBase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceBase {
   @SerializedName("azure_blob_storage")
   private SourceAzBlobStorageBase azureBlobStorage = null;
@@ -48,13 +49,14 @@ public class SourceBase {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from Azure Blob Storage.
+   * 
    * @return azureBlobStorage
-  **/
+   **/
 
-@JsonProperty("azure_blob_storage")
-@ApiModelProperty(value = "Configuration for ingestion from Azure Blob Storage.")
+  @JsonProperty("azure_blob_storage")
+  @ApiModelProperty(value = "Configuration for ingestion from Azure Blob Storage.")
   public SourceAzBlobStorageBase getAzureBlobStorage() {
     return azureBlobStorage;
   }
@@ -68,13 +70,14 @@ public class SourceBase {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from GCS.
+   * 
    * @return gcs
-  **/
+   **/
 
-@JsonProperty("gcs")
-@ApiModelProperty(value = "Configuration for ingestion from GCS.")
+  @JsonProperty("gcs")
+  @ApiModelProperty(value = "Configuration for ingestion from GCS.")
   public SourceGcsBase getGcs() {
     return gcs;
   }
@@ -88,13 +91,14 @@ public class SourceBase {
     return this;
   }
 
-   /**
+  /**
    * Configuration for ingestion from S3.
+   * 
    * @return s3
-  **/
+   **/
 
-@JsonProperty("s3")
-@ApiModelProperty(value = "Configuration for ingestion from S3.")
+  @JsonProperty("s3")
+  @ApiModelProperty(value = "Configuration for ingestion from S3.")
   public SourceS3Base getS3() {
     return s3;
   }
@@ -102,7 +106,6 @@ public class SourceBase {
   public void setS3(SourceS3Base s3) {
     this.s3 = s3;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +126,11 @@ public class SourceBase {
     return Objects.hash(azureBlobStorage, gcs, s3);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceBase {\n");
-    
+
     sb.append("    azureBlobStorage: ").append(toIndentedString(azureBlobStorage)).append("\n");
     sb.append("    gcs: ").append(toIndentedString(gcs)).append("\n");
     sb.append("    s3: ").append(toIndentedString(s3)).append("\n");
@@ -148,4 +150,3 @@ public class SourceBase {
   }
 
 }
-

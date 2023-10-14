@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryFieldType
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryFieldType {
   @SerializedName("name")
   private String name = null;
@@ -42,13 +43,14 @@ public class QueryFieldType {
     return this;
   }
 
-   /**
+  /**
    * Name of the field.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "_id", required = true, value = "Name of the field.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "_id", required = true, value = "Name of the field.")
   public String getName() {
     return name;
   }
@@ -62,13 +64,14 @@ public class QueryFieldType {
     return this;
   }
 
-   /**
+  /**
    * Data type of the field.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "string", required = true, value = "Data type of the field.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "string", required = true, value = "Data type of the field.")
   public String getType() {
     return type;
   }
@@ -76,7 +79,6 @@ public class QueryFieldType {
   public void setType(String type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class QueryFieldType {
     return Objects.hash(name, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryFieldType {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class QueryFieldType {
   }
 
 }
-

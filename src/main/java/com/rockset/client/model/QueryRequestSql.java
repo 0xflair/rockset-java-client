@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryRequestSql
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryRequestSql {
   @SerializedName("default_row_limit")
   private Integer defaultRowLimit = null;
@@ -51,13 +52,15 @@ public class QueryRequestSql {
     return this;
   }
 
-   /**
-   * Row limit to use. Limits specified in the query text will override this default.
+  /**
+   * Row limit to use. Limits specified in the query text will override this
+   * default.
+   * 
    * @return defaultRowLimit
-  **/
+   **/
 
-@JsonProperty("default_row_limit")
-@ApiModelProperty(value = "Row limit to use. Limits specified in the query text will override this default.")
+  @JsonProperty("default_row_limit")
+  @ApiModelProperty(value = "Row limit to use. Limits specified in the query text will override this default.")
   public Integer getDefaultRowLimit() {
     return defaultRowLimit;
   }
@@ -71,13 +74,16 @@ public class QueryRequestSql {
     return this;
   }
 
-   /**
-   * [DEPRECATED] Use &#x60;max_initial_results&#x60; instead. Number of documents to return in addition to paginating for this query call. Only relevant if &#x60;paginate&#x60; flag is also set.
+  /**
+   * [DEPRECATED] Use &#x60;max_initial_results&#x60; instead. Number of documents
+   * to return in addition to paginating for this query call. Only relevant if
+   * &#x60;paginate&#x60; flag is also set.
+   * 
    * @return initialPaginateResponseDocCount
-  **/
+   **/
 
-@JsonProperty("initial_paginate_response_doc_count")
-@ApiModelProperty(value = "[DEPRECATED] Use `max_initial_results` instead. Number of documents to return in addition to paginating for this query call. Only relevant if `paginate` flag is also set.")
+  @JsonProperty("initial_paginate_response_doc_count")
+  @ApiModelProperty(value = "[DEPRECATED] Use `max_initial_results` instead. Number of documents to return in addition to paginating for this query call. Only relevant if `paginate` flag is also set.")
   public Integer getInitialPaginateResponseDocCount() {
     return initialPaginateResponseDocCount;
   }
@@ -99,13 +105,14 @@ public class QueryRequestSql {
     return this;
   }
 
-   /**
+  /**
    * List of named parameters.
+   * 
    * @return parameters
-  **/
+   **/
 
-@JsonProperty("parameters")
-@ApiModelProperty(value = "List of named parameters.")
+  @JsonProperty("parameters")
+  @ApiModelProperty(value = "List of named parameters.")
   public List<QueryParameter> getParameters() {
     return parameters;
   }
@@ -119,13 +126,14 @@ public class QueryRequestSql {
     return this;
   }
 
-   /**
+  /**
    * SQL query string.
+   * 
    * @return query
-  **/
+   **/
 
-@JsonProperty("query")
-@ApiModelProperty(example = "SELECT * FROM foo where _id = :_id", required = true, value = "SQL query string.")
+  @JsonProperty("query")
+  @ApiModelProperty(example = "SELECT * FROM foo where _id = :_id", required = true, value = "SQL query string.")
   public String getQuery() {
     return query;
   }
@@ -133,7 +141,6 @@ public class QueryRequestSql {
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -155,14 +162,14 @@ public class QueryRequestSql {
     return Objects.hash(defaultRowLimit, initialPaginateResponseDocCount, parameters, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryRequestSql {\n");
-    
+
     sb.append("    defaultRowLimit: ").append(toIndentedString(defaultRowLimit)).append("\n");
-    sb.append("    initialPaginateResponseDocCount: ").append(toIndentedString(initialPaginateResponseDocCount)).append("\n");
+    sb.append("    initialPaginateResponseDocCount: ").append(toIndentedString(initialPaginateResponseDocCount))
+        .append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
@@ -181,4 +188,3 @@ public class QueryRequestSql {
   }
 
 }
-

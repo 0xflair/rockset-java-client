@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceS3Settings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceS3Settings {
   @SerializedName("s3_scan_frequency")
   private String s3ScanFrequency = null;
@@ -39,13 +40,18 @@ public class SourceS3Settings {
     return this;
   }
 
-   /**
-   * Rockset scans an S3 bucket based on a defined time interval. The scan frequency determines the length of time between a new scan and the previous scan. If the previous scan finds new objects or updates to existing objects, Rockset immediately scans the bucket again after processing changes from the previous scan.
+  /**
+   * Rockset scans an S3 bucket based on a defined time interval. The scan
+   * frequency determines the length of time between a new scan and the previous
+   * scan. If the previous scan finds new objects or updates to existing objects,
+   * Rockset immediately scans the bucket again after processing changes from the
+   * previous scan.
+   * 
    * @return s3ScanFrequency
-  **/
+   **/
 
-@JsonProperty("s3_scan_frequency")
-@ApiModelProperty(example = "5min", value = "Rockset scans an S3 bucket based on a defined time interval. The scan frequency determines the length of time between a new scan and the previous scan. If the previous scan finds new objects or updates to existing objects, Rockset immediately scans the bucket again after processing changes from the previous scan.")
+  @JsonProperty("s3_scan_frequency")
+  @ApiModelProperty(example = "5min", value = "Rockset scans an S3 bucket based on a defined time interval. The scan frequency determines the length of time between a new scan and the previous scan. If the previous scan finds new objects or updates to existing objects, Rockset immediately scans the bucket again after processing changes from the previous scan.")
   public String getS3ScanFrequency() {
     return s3ScanFrequency;
   }
@@ -53,7 +59,6 @@ public class SourceS3Settings {
   public void setS3ScanFrequency(String s3ScanFrequency) {
     this.s3ScanFrequency = s3ScanFrequency;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +77,11 @@ public class SourceS3Settings {
     return Objects.hash(s3ScanFrequency);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceS3Settings {\n");
-    
+
     sb.append("    s3ScanFrequency: ").append(toIndentedString(s3ScanFrequency)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +99,3 @@ public class SourceS3Settings {
   }
 
 }
-

@@ -10,27 +10,28 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
 public class Pair {
     private String name = "";
     private String value = "";
 
-    public Pair (String name, String value) {
+    public Pair(String name, String value) {
         setName(name);
         setValue(value);
     }
 
     private void setName(String name) {
-        if (!isValidString(name)) return;
+        if (!isValidString(name))
+            return;
 
         this.name = name;
     }
 
     private void setValue(String value) {
-        if (!isValidString(value)) return;
+        if (!isValidString(value))
+            return;
 
         this.value = value;
     }
@@ -44,8 +45,10 @@ public class Pair {
     }
 
     private boolean isValidString(String arg) {
-        if (arg == null) return false;
-        if (arg.trim().isEmpty()) return false;
+        if (arg == null)
+            return false;
+        if (arg.trim().isEmpty())
+            return false;
 
         return true;
     }

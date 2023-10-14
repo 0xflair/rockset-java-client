@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -33,7 +32,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryLambdaVersion
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryLambdaVersion {
   @SerializedName("collections")
   private List<String> collections = null;
@@ -65,7 +66,7 @@ public class QueryLambdaVersion {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     ACTIVE("ACTIVE"),
-    
+
     INVALID_SQL("INVALIDSQL");
 
     private String value;
@@ -132,13 +133,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Collections queried by underlying SQL query.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(value = "Collections queried by underlying SQL query.")
+  @JsonProperty("collections")
+  @ApiModelProperty(value = "Collections queried by underlying SQL query.")
   public List<String> getCollections() {
     return collections;
   }
@@ -152,13 +154,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of when Query Lambda was created.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when Query Lambda was created.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when Query Lambda was created.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -172,13 +175,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * User that created this Query Lambda.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "..@rockset.com", value = "User that created this Query Lambda.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "..@rockset.com", value = "User that created this Query Lambda.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -192,13 +196,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key that was used to create this object if one was used.
+   * 
    * @return createdByApikeyName
-  **/
+   **/
 
-@JsonProperty("created_by_apikey_name")
-@ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
+  @JsonProperty("created_by_apikey_name")
+  @ApiModelProperty(value = "Name of the API key that was used to create this object if one was used.")
   public String getCreatedByApikeyName() {
     return createdByApikeyName;
   }
@@ -212,13 +217,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Optional description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "production version foo", value = "Optional description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "production version foo", value = "Optional description.")
   public String getDescription() {
     return description;
   }
@@ -232,13 +238,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "myQuery", value = "Query Lambda name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "myQuery", value = "Query Lambda name.")
   public String getName() {
     return name;
   }
@@ -252,13 +259,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Public access ID associated with this QL version
+   * 
    * @return publicAccessId
-  **/
+   **/
 
-@JsonProperty("public_access_id")
-@ApiModelProperty(value = "Public access ID associated with this QL version")
+  @JsonProperty("public_access_id")
+  @ApiModelProperty(value = "Public access ID associated with this QL version")
   public String getPublicAccessId() {
     return publicAccessId;
   }
@@ -272,13 +280,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda SQL query.
+   * 
    * @return sql
-  **/
+   **/
 
-@JsonProperty("sql")
-@ApiModelProperty(value = "Query Lambda SQL query.")
+  @JsonProperty("sql")
+  @ApiModelProperty(value = "Query Lambda SQL query.")
   public QueryLambdaSql getSql() {
     return sql;
   }
@@ -292,13 +301,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Status of this Query Lambda.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "Status of this Query Lambda.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "Status of this Query Lambda.")
   public StateEnum getState() {
     return state;
   }
@@ -312,13 +322,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Stats related to this Query Lambda.
+   * 
    * @return stats
-  **/
+   **/
 
-@JsonProperty("stats")
-@ApiModelProperty(value = "Stats related to this Query Lambda.")
+  @JsonProperty("stats")
+  @ApiModelProperty(value = "Stats related to this Query Lambda.")
   public QueryLambdaStats getStats() {
     return stats;
   }
@@ -332,13 +343,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda version.
+   * 
    * @return version
-  **/
+   **/
 
-@JsonProperty("version")
-@ApiModelProperty(example = "acb99feg92bcaf", value = "Query Lambda version.")
+  @JsonProperty("version")
+  @ApiModelProperty(example = "acb99feg92bcaf", value = "Query Lambda version.")
   public String getVersion() {
     return version;
   }
@@ -352,13 +364,14 @@ public class QueryLambdaVersion {
     return this;
   }
 
-   /**
+  /**
    * Workspace of this Query Lambda.
+   * 
    * @return workspace
-  **/
+   **/
 
-@JsonProperty("workspace")
-@ApiModelProperty(example = "commons", value = "Workspace of this Query Lambda.")
+  @JsonProperty("workspace")
+  @ApiModelProperty(example = "commons", value = "Workspace of this Query Lambda.")
   public String getWorkspace() {
     return workspace;
   }
@@ -366,7 +379,6 @@ public class QueryLambdaVersion {
   public void setWorkspace(String workspace) {
     this.workspace = workspace;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -393,15 +405,15 @@ public class QueryLambdaVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collections, createdAt, createdBy, createdByApikeyName, description, name, publicAccessId, sql, state, stats, version, workspace);
+    return Objects.hash(collections, createdAt, createdBy, createdByApikeyName, description, name, publicAccessId, sql,
+        state, stats, version, workspace);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryLambdaVersion {\n");
-    
+
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -430,4 +442,3 @@ public class QueryLambdaVersion {
   }
 
 }
-

@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.Objects;
 
 /** ExecuteSavedQueryRequest */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2020-01-24T17:41:10.748Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2020-01-24T17:41:10.748Z")
 public class ExecuteSavedQueryRequest {
   @SerializedName("workspace")
   private String workspace = null;
@@ -208,7 +208,8 @@ public class ExecuteSavedQueryRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

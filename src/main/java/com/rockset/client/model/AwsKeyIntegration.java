@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** AwsKeyIntegration */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2019-06-17T23:04:08.108Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2019-06-17T23:04:08.108Z")
 public class AwsKeyIntegration {
   @SerializedName("aws_access_key_id")
   private String awsAccessKeyId = null;
@@ -98,7 +98,8 @@ public class AwsKeyIntegration {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

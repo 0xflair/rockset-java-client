@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SnowflakeIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SnowflakeIntegration {
   @SerializedName("aws_access_key")
   private AwsAccessKey awsAccessKey = null;
@@ -62,13 +63,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * Credentials for an AWS access key integration.
+   * 
    * @return awsAccessKey
-  **/
+   **/
 
-@JsonProperty("aws_access_key")
-@ApiModelProperty(value = "Credentials for an AWS access key integration.")
+  @JsonProperty("aws_access_key")
+  @ApiModelProperty(value = "Credentials for an AWS access key integration.")
   public AwsAccessKey getAwsAccessKey() {
     return awsAccessKey;
   }
@@ -82,13 +84,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * Details of an AWS cross-account role integration.
+   * 
    * @return awsRole
-  **/
+   **/
 
-@JsonProperty("aws_role")
-@ApiModelProperty(value = "Details of an AWS cross-account role integration.")
+  @JsonProperty("aws_role")
+  @ApiModelProperty(value = "Details of an AWS cross-account role integration.")
   public AwsRole getAwsRole() {
     return awsRole;
   }
@@ -102,13 +105,15 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
-   * default snowflake data warehouse name for query execution. Warehouse name can be overridden in the collection.
+  /**
+   * default snowflake data warehouse name for query execution. Warehouse name can
+   * be overridden in the collection.
+   * 
    * @return defaultWarehouse
-  **/
+   **/
 
-@JsonProperty("default_warehouse")
-@ApiModelProperty(required = true, value = "default snowflake data warehouse name for query execution. Warehouse name can be overridden in the collection.")
+  @JsonProperty("default_warehouse")
+  @ApiModelProperty(required = true, value = "default snowflake data warehouse name for query execution. Warehouse name can be overridden in the collection.")
   public String getDefaultWarehouse() {
     return defaultWarehouse;
   }
@@ -122,13 +127,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * Snowflake database password.
+   * 
    * @return password
-  **/
+   **/
 
-@JsonProperty("password")
-@ApiModelProperty(required = true, value = "Snowflake database password.")
+  @JsonProperty("password")
+  @ApiModelProperty(required = true, value = "Snowflake database password.")
   public String getPassword() {
     return password;
   }
@@ -142,13 +148,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * S3 path used for running &#39;COPY INTO&#39; command on snowflake table.
+   * 
    * @return s3ExportPath
-  **/
+   **/
 
-@JsonProperty("s3_export_path")
-@ApiModelProperty(example = "s3://bucket/prefix", required = true, value = "S3 path used for running 'COPY INTO' command on snowflake table.")
+  @JsonProperty("s3_export_path")
+  @ApiModelProperty(example = "s3://bucket/prefix", required = true, value = "S3 path used for running 'COPY INTO' command on snowflake table.")
   public String getS3ExportPath() {
     return s3ExportPath;
   }
@@ -162,13 +169,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * Snowflake browser url.
+   * 
    * @return snowflakeUrl
-  **/
+   **/
 
-@JsonProperty("snowflake_url")
-@ApiModelProperty(example = "acme-marketing-test-account.snowflakecomputing.com", required = true, value = "Snowflake browser url.")
+  @JsonProperty("snowflake_url")
+  @ApiModelProperty(example = "acme-marketing-test-account.snowflakecomputing.com", required = true, value = "Snowflake browser url.")
   public String getSnowflakeUrl() {
     return snowflakeUrl;
   }
@@ -182,13 +190,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * Snowflake user role. If unspecified, will use the default user role.
+   * 
    * @return userRole
-  **/
+   **/
 
-@JsonProperty("user_role")
-@ApiModelProperty(value = "Snowflake user role. If unspecified, will use the default user role.")
+  @JsonProperty("user_role")
+  @ApiModelProperty(value = "Snowflake user role. If unspecified, will use the default user role.")
   public String getUserRole() {
     return userRole;
   }
@@ -202,13 +211,14 @@ public class SnowflakeIntegration {
     return this;
   }
 
-   /**
+  /**
    * Snowflake database username.
+   * 
    * @return username
-  **/
+   **/
 
-@JsonProperty("username")
-@ApiModelProperty(required = true, value = "Snowflake database username.")
+  @JsonProperty("username")
+  @ApiModelProperty(required = true, value = "Snowflake database username.")
   public String getUsername() {
     return username;
   }
@@ -216,7 +226,6 @@ public class SnowflakeIntegration {
   public void setUsername(String username) {
     this.username = username;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -239,15 +248,15 @@ public class SnowflakeIntegration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsAccessKey, awsRole, defaultWarehouse, password, s3ExportPath, snowflakeUrl, userRole, username);
+    return Objects.hash(awsAccessKey, awsRole, defaultWarehouse, password, s3ExportPath, snowflakeUrl, userRole,
+        username);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SnowflakeIntegration {\n");
-    
+
     sb.append("    awsAccessKey: ").append(toIndentedString(awsAccessKey)).append("\n");
     sb.append("    awsRole: ").append(toIndentedString(awsRole)).append("\n");
     sb.append("    defaultWarehouse: ").append(toIndentedString(defaultWarehouse)).append("\n");
@@ -272,4 +281,3 @@ public class SnowflakeIntegration {
   }
 
 }
-

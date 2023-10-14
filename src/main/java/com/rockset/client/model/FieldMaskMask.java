@@ -20,9 +20,9 @@ import java.util.Objects;
 
 /** Field masking function name + args. The args is a JSON object. */
 @ApiModel(description = "Field masking function name + args. The args is a JSON object.")
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2021-12-09T15:56:21.038-08:00")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2021-12-09T15:56:21.038-08:00")
 public class FieldMaskMask {
   @SerializedName("name")
   private String name = null;
@@ -100,7 +100,8 @@ public class FieldMaskMask {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

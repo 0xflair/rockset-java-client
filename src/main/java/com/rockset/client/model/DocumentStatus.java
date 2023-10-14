@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * DocumentStatus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class DocumentStatus {
   @SerializedName("_collection")
   private String collection = null;
@@ -50,13 +51,13 @@ public class DocumentStatus {
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     ADDED("ADDED"),
-    
+
     REPLACED("REPLACED"),
-    
+
     DELETED("DELETED"),
-    
+
     PATCHED("PATCHED"),
-    
+
     ERROR("ERROR");
 
     private String value;
@@ -106,13 +107,14 @@ public class DocumentStatus {
     return this;
   }
 
-   /**
+  /**
    * Collection name.
+   * 
    * @return collection
-  **/
+   **/
 
-@JsonProperty("_collection")
-@ApiModelProperty(example = "customers", value = "Collection name.")
+  @JsonProperty("_collection")
+  @ApiModelProperty(example = "customers", value = "Collection name.")
   public String getCollection() {
     return collection;
   }
@@ -126,13 +128,14 @@ public class DocumentStatus {
     return this;
   }
 
-   /**
+  /**
    * Unique document ID.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("_id")
-@ApiModelProperty(example = "2cd61e3b", value = "Unique document ID.")
+  @JsonProperty("_id")
+  @ApiModelProperty(example = "2cd61e3b", value = "Unique document ID.")
   public String getId() {
     return id;
   }
@@ -146,13 +149,14 @@ public class DocumentStatus {
     return this;
   }
 
-   /**
+  /**
    * Error message, if any.
+   * 
    * @return error
-  **/
+   **/
 
-@JsonProperty("error")
-@ApiModelProperty(value = "Error message, if any.")
+  @JsonProperty("error")
+  @ApiModelProperty(value = "Error message, if any.")
   public ErrorModel getError() {
     return error;
   }
@@ -166,13 +170,14 @@ public class DocumentStatus {
     return this;
   }
 
-   /**
+  /**
    * Unique id used to represent each patch request.
+   * 
    * @return patchId
-  **/
+   **/
 
-@JsonProperty("patch_id")
-@ApiModelProperty(example = "486gsg8", value = "Unique id used to represent each patch request.")
+  @JsonProperty("patch_id")
+  @ApiModelProperty(example = "486gsg8", value = "Unique id used to represent each patch request.")
   public String getPatchId() {
     return patchId;
   }
@@ -186,13 +191,14 @@ public class DocumentStatus {
     return this;
   }
 
-   /**
+  /**
    * Status of the document.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(example = "ADDED", value = "Status of the document.")
+  @JsonProperty("status")
+  @ApiModelProperty(example = "ADDED", value = "Status of the document.")
   public StatusEnum getStatus() {
     return status;
   }
@@ -200,7 +206,6 @@ public class DocumentStatus {
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -223,12 +228,11 @@ public class DocumentStatus {
     return Objects.hash(collection, id, error, patchId, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentStatus {\n");
-    
+
     sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
@@ -250,4 +254,3 @@ public class DocumentStatus {
   }
 
 }
-

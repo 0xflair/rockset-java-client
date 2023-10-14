@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceSnapshot
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceSnapshot {
   @SerializedName("source_snapshot_rrn")
   private String sourceSnapshotRrn = null;
@@ -39,13 +40,14 @@ public class SourceSnapshot {
     return this;
   }
 
-   /**
+  /**
    * RRN of the snapshot that the new collection will be created from.
+   * 
    * @return sourceSnapshotRrn
-  **/
+   **/
 
-@JsonProperty("source_snapshot_rrn")
-@ApiModelProperty(example = "rrn:snap:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "RRN of the snapshot that the new collection will be created from.")
+  @JsonProperty("source_snapshot_rrn")
+  @ApiModelProperty(example = "rrn:snap:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "RRN of the snapshot that the new collection will be created from.")
   public String getSourceSnapshotRrn() {
     return sourceSnapshotRrn;
   }
@@ -53,7 +55,6 @@ public class SourceSnapshot {
   public void setSourceSnapshotRrn(String sourceSnapshotRrn) {
     this.sourceSnapshotRrn = sourceSnapshotRrn;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class SourceSnapshot {
     return Objects.hash(sourceSnapshotRrn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceSnapshot {\n");
-    
+
     sb.append("    sourceSnapshotRrn: ").append(toIndentedString(sourceSnapshotRrn)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class SourceSnapshot {
   }
 
 }
-

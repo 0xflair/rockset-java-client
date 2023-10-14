@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * UpdateUserRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UpdateUserRequest {
   @SerializedName("first_name")
   private String firstName = null;
@@ -47,13 +48,14 @@ public class UpdateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * User first name.
+   * 
    * @return firstName
-  **/
+   **/
 
-@JsonProperty("first_name")
-@ApiModelProperty(example = "John", value = "User first name.")
+  @JsonProperty("first_name")
+  @ApiModelProperty(example = "John", value = "User first name.")
   public String getFirstName() {
     return firstName;
   }
@@ -67,13 +69,14 @@ public class UpdateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * User last name.
+   * 
    * @return lastName
-  **/
+   **/
 
-@JsonProperty("last_name")
-@ApiModelProperty(example = "Doe", value = "User last name.")
+  @JsonProperty("last_name")
+  @ApiModelProperty(example = "Doe", value = "User last name.")
   public String getLastName() {
     return lastName;
   }
@@ -95,13 +98,14 @@ public class UpdateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * New list of roles for a given user.
+   * 
    * @return roles
-  **/
+   **/
 
-@JsonProperty("roles")
-@ApiModelProperty(example = "\"[\\\"admin\\\", \\\"member\\\", \\\"read-only\\\"]\"", value = "New list of roles for a given user.")
+  @JsonProperty("roles")
+  @ApiModelProperty(example = "\"[\\\"admin\\\", \\\"member\\\", \\\"read-only\\\"]\"", value = "New list of roles for a given user.")
   public List<String> getRoles() {
     return roles;
   }
@@ -109,7 +113,6 @@ public class UpdateUserRequest {
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -130,12 +133,11 @@ public class UpdateUserRequest {
     return Objects.hash(firstName, lastName, roles);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateUserRequest {\n");
-    
+
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
@@ -155,4 +157,3 @@ public class UpdateUserRequest {
   }
 
 }
-

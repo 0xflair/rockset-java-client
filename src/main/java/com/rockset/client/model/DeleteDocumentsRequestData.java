@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * DeleteDocumentsRequestData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class DeleteDocumentsRequestData {
   @SerializedName("_id")
   private String id = null;
@@ -39,13 +40,14 @@ public class DeleteDocumentsRequestData {
     return this;
   }
 
-   /**
+  /**
    * Unique document ID.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("_id")
-@ApiModelProperty(example = "2cd61e3b", required = true, value = "Unique document ID.")
+  @JsonProperty("_id")
+  @ApiModelProperty(example = "2cd61e3b", required = true, value = "Unique document ID.")
   public String getId() {
     return id;
   }
@@ -53,7 +55,6 @@ public class DeleteDocumentsRequestData {
   public void setId(String id) {
     this.id = id;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class DeleteDocumentsRequestData {
     return Objects.hash(id);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDocumentsRequestData {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class DeleteDocumentsRequestData {
   }
 
 }
-

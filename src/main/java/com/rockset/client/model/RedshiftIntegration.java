@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** RedshiftIntegration */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2021-12-09T15:56:21.038-08:00")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2021-12-09T15:56:21.038-08:00")
 public class RedshiftIntegration {
   @SerializedName("aws_access_key")
   private AwsAccessKey awsAccessKey = null;
@@ -71,10 +71,7 @@ public class RedshiftIntegration {
    * @return username
    */
   @JsonProperty("username")
-  @ApiModelProperty(
-      example = "awsuser",
-      required = true,
-      value = "Username associated with Redshift cluster")
+  @ApiModelProperty(example = "awsuser", required = true, value = "Username associated with Redshift cluster")
   public String getUsername() {
     return username;
   }
@@ -94,10 +91,7 @@ public class RedshiftIntegration {
    * @return password
    */
   @JsonProperty("password")
-  @ApiModelProperty(
-      example = "pswd....",
-      required = true,
-      value = "Password associated with Redshift cluster")
+  @ApiModelProperty(example = "pswd....", required = true, value = "Password associated with Redshift cluster")
   public String getPassword() {
     return password;
   }
@@ -117,10 +111,7 @@ public class RedshiftIntegration {
    * @return host
    */
   @JsonProperty("host")
-  @ApiModelProperty(
-      example = "test.yuyugt.us-west-2.redshift.amazonaws.com",
-      required = true,
-      value = "Redshift Cluster host")
+  @ApiModelProperty(example = "test.yuyugt.us-west-2.redshift.amazonaws.com", required = true, value = "Redshift Cluster host")
   public String getHost() {
     return host;
   }
@@ -160,10 +151,7 @@ public class RedshiftIntegration {
    * @return s3BucketPath
    */
   @JsonProperty("s3_bucket_path")
-  @ApiModelProperty(
-      example = "s3://redshift-unload",
-      required = true,
-      value = "unload S3 bucket path")
+  @ApiModelProperty(example = "s3://redshift-unload", required = true, value = "unload S3 bucket path")
   public String getS3BucketPath() {
     return s3BucketPath;
   }
@@ -210,7 +198,8 @@ public class RedshiftIntegration {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * OutputField
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class OutputField {
   @SerializedName("field_name")
   private String fieldName = null;
@@ -41,7 +42,7 @@ public class OutputField {
   @JsonAdapter(OnErrorEnum.Adapter.class)
   public enum OnErrorEnum {
     SKIP("SKIP"),
-    
+
     FAIL("FAIL");
 
     private String value;
@@ -94,13 +95,14 @@ public class OutputField {
     return this;
   }
 
-   /**
+  /**
    * The name of a field, parsed as a SQL qualified name.
+   * 
    * @return fieldName
-  **/
+   **/
 
-@JsonProperty("field_name")
-@ApiModelProperty(example = "zip_hash", value = "The name of a field, parsed as a SQL qualified name.")
+  @JsonProperty("field_name")
+  @ApiModelProperty(example = "zip_hash", value = "The name of a field, parsed as a SQL qualified name.")
   public String getFieldName() {
     return fieldName;
   }
@@ -114,13 +116,14 @@ public class OutputField {
     return this;
   }
 
-   /**
+  /**
    * Error in Mapping execution: &#39;skip&#39; or &#39;fail&#39;.
+   * 
    * @return onError
-  **/
+   **/
 
-@JsonProperty("on_error")
-@ApiModelProperty(example = "SKIP", value = "Error in Mapping execution: 'skip' or 'fail'.")
+  @JsonProperty("on_error")
+  @ApiModelProperty(example = "SKIP", value = "Error in Mapping execution: 'skip' or 'fail'.")
   public OnErrorEnum getOnError() {
     return onError;
   }
@@ -134,13 +137,14 @@ public class OutputField {
     return this;
   }
 
-   /**
+  /**
    * The name of a sql function.
+   * 
    * @return value
-  **/
+   **/
 
-@JsonProperty("value")
-@ApiModelProperty(value = "The name of a sql function.")
+  @JsonProperty("value")
+  @ApiModelProperty(value = "The name of a sql function.")
   public SqlExpression getValue() {
     return value;
   }
@@ -148,7 +152,6 @@ public class OutputField {
   public void setValue(SqlExpression value) {
     this.value = value;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,12 +172,11 @@ public class OutputField {
     return Objects.hash(fieldName, onError, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OutputField {\n");
-    
+
     sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
     sb.append("    onError: ").append(toIndentedString(onError)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
@@ -194,4 +196,3 @@ public class OutputField {
   }
 
 }
-

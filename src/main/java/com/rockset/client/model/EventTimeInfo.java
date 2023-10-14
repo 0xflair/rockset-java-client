@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * EventTimeInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class EventTimeInfo {
   @SerializedName("field")
   private String field = null;
@@ -45,13 +46,14 @@ public class EventTimeInfo {
     return this;
   }
 
-   /**
+  /**
    * Name of the field containing event time.
+   * 
    * @return field
-  **/
+   **/
 
-@JsonProperty("field")
-@ApiModelProperty(example = "timestamp", required = true, value = "Name of the field containing event time.")
+  @JsonProperty("field")
+  @ApiModelProperty(example = "timestamp", required = true, value = "Name of the field containing event time.")
   public String getField() {
     return field;
   }
@@ -65,13 +67,15 @@ public class EventTimeInfo {
     return this;
   }
 
-   /**
-   * Format of time field, can be one of: milliseconds_since_epoch, seconds_since_epoch.
+  /**
+   * Format of time field, can be one of: milliseconds_since_epoch,
+   * seconds_since_epoch.
+   * 
    * @return format
-  **/
+   **/
 
-@JsonProperty("format")
-@ApiModelProperty(example = "seconds_since_epoch", value = "Format of time field, can be one of: milliseconds_since_epoch, seconds_since_epoch.")
+  @JsonProperty("format")
+  @ApiModelProperty(example = "seconds_since_epoch", value = "Format of time field, can be one of: milliseconds_since_epoch, seconds_since_epoch.")
   public String getFormat() {
     return format;
   }
@@ -85,13 +89,14 @@ public class EventTimeInfo {
     return this;
   }
 
-   /**
+  /**
    * Default time zone, in standard IANA format.
+   * 
    * @return timeZone
-  **/
+   **/
 
-@JsonProperty("time_zone")
-@ApiModelProperty(example = "UTC", value = "Default time zone, in standard IANA format.")
+  @JsonProperty("time_zone")
+  @ApiModelProperty(example = "UTC", value = "Default time zone, in standard IANA format.")
   public String getTimeZone() {
     return timeZone;
   }
@@ -99,7 +104,6 @@ public class EventTimeInfo {
   public void setTimeZone(String timeZone) {
     this.timeZone = timeZone;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +124,11 @@ public class EventTimeInfo {
     return Objects.hash(field, format, timeZone);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventTimeInfo {\n");
-    
+
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
@@ -145,4 +148,3 @@ public class EventTimeInfo {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SqlExpression
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SqlExpression {
   @SerializedName("sql")
   private String sql = null;
@@ -39,13 +40,14 @@ public class SqlExpression {
     return this;
   }
 
-   /**
+  /**
    * The name of a sql function.
+   * 
    * @return sql
-  **/
+   **/
 
-@JsonProperty("sql")
-@ApiModelProperty(example = "SHA256()", value = "The name of a sql function.")
+  @JsonProperty("sql")
+  @ApiModelProperty(example = "SHA256()", value = "The name of a sql function.")
   public String getSql() {
     return sql;
   }
@@ -53,7 +55,6 @@ public class SqlExpression {
   public void setSql(String sql) {
     this.sql = sql;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class SqlExpression {
     return Objects.hash(sql);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SqlExpression {\n");
-    
+
     sb.append("    sql: ").append(toIndentedString(sql)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class SqlExpression {
   }
 
 }
-

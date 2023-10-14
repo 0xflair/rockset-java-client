@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateQueryLambdaRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateQueryLambdaRequest {
   @SerializedName("description")
   private String description = null;
@@ -49,13 +50,14 @@ public class CreateQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Optional description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "production version foo", value = "Optional description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "production version foo", value = "Optional description.")
   public String getDescription() {
     return description;
   }
@@ -69,13 +71,14 @@ public class CreateQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Get isPublic
+   * 
    * @return isPublic
-  **/
+   **/
 
-@JsonProperty("is_public")
-@ApiModelProperty(value = "")
+  @JsonProperty("is_public")
+  @ApiModelProperty(value = "")
   public Boolean isIsPublic() {
     return isPublic;
   }
@@ -89,13 +92,14 @@ public class CreateQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "myQueryLambda", required = true, value = "Query Lambda name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "myQueryLambda", required = true, value = "Query Lambda name.")
   public String getName() {
     return name;
   }
@@ -109,13 +113,14 @@ public class CreateQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda SQL query.
+   * 
    * @return sql
-  **/
+   **/
 
-@JsonProperty("sql")
-@ApiModelProperty(required = true, value = "Query Lambda SQL query.")
+  @JsonProperty("sql")
+  @ApiModelProperty(required = true, value = "Query Lambda SQL query.")
   public QueryLambdaSql getSql() {
     return sql;
   }
@@ -123,7 +128,6 @@ public class CreateQueryLambdaRequest {
   public void setSql(QueryLambdaSql sql) {
     this.sql = sql;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -145,12 +149,11 @@ public class CreateQueryLambdaRequest {
     return Objects.hash(description, isPublic, name, sql);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateQueryLambdaRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -171,4 +174,3 @@ public class CreateQueryLambdaRequest {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryLambdaStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryLambdaStats {
   @SerializedName("last_executed")
   private String lastExecuted = null;
@@ -48,13 +49,14 @@ public class QueryLambdaStats {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return lastExecuted
-  **/
+   **/
 
-@JsonProperty("last_executed")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("last_executed")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getLastExecuted() {
     return lastExecuted;
   }
@@ -68,13 +70,14 @@ public class QueryLambdaStats {
     return this;
   }
 
-   /**
+  /**
    * User who last executed Query Lambda.
+   * 
    * @return lastExecutedBy
-  **/
+   **/
 
-@JsonProperty("last_executed_by")
-@ApiModelProperty(example = "...@rockset.com", value = "User who last executed Query Lambda.")
+  @JsonProperty("last_executed_by")
+  @ApiModelProperty(example = "...@rockset.com", value = "User who last executed Query Lambda.")
   public String getLastExecutedBy() {
     return lastExecutedBy;
   }
@@ -88,13 +91,14 @@ public class QueryLambdaStats {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of last execution failure.
+   * 
    * @return lastExecutionError
-  **/
+   **/
 
-@JsonProperty("last_execution_error")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of last execution failure.")
+  @JsonProperty("last_execution_error")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of last execution failure.")
   public String getLastExecutionError() {
     return lastExecutionError;
   }
@@ -108,13 +112,14 @@ public class QueryLambdaStats {
     return this;
   }
 
-   /**
+  /**
    * Error message associated with last failed execution.
+   * 
    * @return lastExecutionErrorMessage
-  **/
+   **/
 
-@JsonProperty("last_execution_error_message")
-@ApiModelProperty(example = "[error message]", value = "Error message associated with last failed execution.")
+  @JsonProperty("last_execution_error_message")
+  @ApiModelProperty(example = "[error message]", value = "Error message associated with last failed execution.")
   public String getLastExecutionErrorMessage() {
     return lastExecutionErrorMessage;
   }
@@ -122,7 +127,6 @@ public class QueryLambdaStats {
   public void setLastExecutionErrorMessage(String lastExecutionErrorMessage) {
     this.lastExecutionErrorMessage = lastExecutionErrorMessage;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,12 +148,11 @@ public class QueryLambdaStats {
     return Objects.hash(lastExecuted, lastExecutedBy, lastExecutionError, lastExecutionErrorMessage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryLambdaStats {\n");
-    
+
     sb.append("    lastExecuted: ").append(toIndentedString(lastExecuted)).append("\n");
     sb.append("    lastExecutedBy: ").append(toIndentedString(lastExecutedBy)).append("\n");
     sb.append("    lastExecutionError: ").append(toIndentedString(lastExecutionError)).append("\n");
@@ -170,4 +173,3 @@ public class QueryLambdaStats {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceMongoDb
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceMongoDb {
   @SerializedName("collection_name")
   private String collectionName = null;
@@ -49,13 +50,14 @@ public class SourceMongoDb {
     return this;
   }
 
-   /**
+  /**
    * MongoDB collection name.
+   * 
    * @return collectionName
-  **/
+   **/
 
-@JsonProperty("collection_name")
-@ApiModelProperty(example = "my_collection", required = true, value = "MongoDB collection name.")
+  @JsonProperty("collection_name")
+  @ApiModelProperty(example = "my_collection", required = true, value = "MongoDB collection name.")
   public String getCollectionName() {
     return collectionName;
   }
@@ -69,13 +71,14 @@ public class SourceMongoDb {
     return this;
   }
 
-   /**
+  /**
    * MongoDB database name containing this collection.
+   * 
    * @return databaseName
-  **/
+   **/
 
-@JsonProperty("database_name")
-@ApiModelProperty(example = "my_database", required = true, value = "MongoDB database name containing this collection.")
+  @JsonProperty("database_name")
+  @ApiModelProperty(example = "my_database", required = true, value = "MongoDB database name containing this collection.")
   public String getDatabaseName() {
     return databaseName;
   }
@@ -89,13 +92,16 @@ public class SourceMongoDb {
     return this;
   }
 
-   /**
-   * Whether to get the full document from the MongoDB change stream to enable multi-field expression transformations. Selecting this option will increase load on your upstream MongoDB database.
+  /**
+   * Whether to get the full document from the MongoDB change stream to enable
+   * multi-field expression transformations. Selecting this option will increase
+   * load on your upstream MongoDB database.
+   * 
    * @return retrieveFullDocument
-  **/
+   **/
 
-@JsonProperty("retrieve_full_document")
-@ApiModelProperty(value = "Whether to get the full document from the MongoDB change stream to enable multi-field expression transformations. Selecting this option will increase load on your upstream MongoDB database.")
+  @JsonProperty("retrieve_full_document")
+  @ApiModelProperty(value = "Whether to get the full document from the MongoDB change stream to enable multi-field expression transformations. Selecting this option will increase load on your upstream MongoDB database.")
   public Boolean isRetrieveFullDocument() {
     return retrieveFullDocument;
   }
@@ -104,17 +110,17 @@ public class SourceMongoDb {
     this.retrieveFullDocument = retrieveFullDocument;
   }
 
-   /**
+  /**
    * MongoDB source status.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(value = "MongoDB source status.")
+  @JsonProperty("status")
+  @ApiModelProperty(value = "MongoDB source status.")
   public StatusMongoDb getStatus() {
     return status;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,12 +142,11 @@ public class SourceMongoDb {
     return Objects.hash(collectionName, databaseName, retrieveFullDocument, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceMongoDb {\n");
-    
+
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
     sb.append("    retrieveFullDocument: ").append(toIndentedString(retrieveFullDocument)).append("\n");
@@ -162,4 +167,3 @@ public class SourceMongoDb {
   }
 
 }
-

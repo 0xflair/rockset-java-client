@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Status
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Status {
   @SerializedName("detected_size_bytes")
   private Long detectedSizeBytes = null;
@@ -49,15 +50,15 @@ public class Status {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     INITIALIZING("INITIALIZING"),
-    
+
     WATCHING("WATCHING"),
-    
+
     PROCESSING("PROCESSING"),
-    
+
     COMPLETED("COMPLETED"),
-    
+
     ERROR("ERROR"),
-    
+
     SUSPENDED("SUSPENDED");
 
     private String value;
@@ -110,13 +111,15 @@ public class Status {
     return this;
   }
 
-   /**
-   * Size in bytes detected for the source at collection initialization. This size can be 0 or null for event stream sources.
+  /**
+   * Size in bytes detected for the source at collection initialization. This size
+   * can be 0 or null for event stream sources.
+   * 
    * @return detectedSizeBytes
-  **/
+   **/
 
-@JsonProperty("detected_size_bytes")
-@ApiModelProperty(value = "Size in bytes detected for the source at collection initialization. This size can be 0 or null for event stream sources.")
+  @JsonProperty("detected_size_bytes")
+  @ApiModelProperty(value = "Size in bytes detected for the source at collection initialization. This size can be 0 or null for event stream sources.")
   public Long getDetectedSizeBytes() {
     return detectedSizeBytes;
   }
@@ -130,13 +133,14 @@ public class Status {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date when source was last processed.
+   * 
    * @return lastProcessedAt
-  **/
+   **/
 
-@JsonProperty("last_processed_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was last processed.")
+  @JsonProperty("last_processed_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was last processed.")
   public String getLastProcessedAt() {
     return lastProcessedAt;
   }
@@ -150,13 +154,14 @@ public class Status {
     return this;
   }
 
-   /**
+  /**
    * Last source item processed by ingester.
+   * 
    * @return lastProcessedItem
-  **/
+   **/
 
-@JsonProperty("last_processed_item")
-@ApiModelProperty(example = "/path/to/some/object", value = "Last source item processed by ingester.")
+  @JsonProperty("last_processed_item")
+  @ApiModelProperty(example = "/path/to/some/object", value = "Last source item processed by ingester.")
   public String getLastProcessedItem() {
     return lastProcessedItem;
   }
@@ -170,13 +175,14 @@ public class Status {
     return this;
   }
 
-   /**
+  /**
    * State message.
+   * 
    * @return message
-  **/
+   **/
 
-@JsonProperty("message")
-@ApiModelProperty(example = "error 403 forbidden", value = "State message.")
+  @JsonProperty("message")
+  @ApiModelProperty(example = "error 403 forbidden", value = "State message.")
   public String getMessage() {
     return message;
   }
@@ -190,13 +196,14 @@ public class Status {
     return this;
   }
 
-   /**
+  /**
    * Status of the Source&#39;s ingestion.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "INITIALIZING", value = "Status of the Source's ingestion.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "INITIALIZING", value = "Status of the Source's ingestion.")
   public StateEnum getState() {
     return state;
   }
@@ -210,13 +217,14 @@ public class Status {
     return this;
   }
 
-   /**
+  /**
    * Total items processed of source.
+   * 
    * @return totalProcessedItems
-  **/
+   **/
 
-@JsonProperty("total_processed_items")
-@ApiModelProperty(example = "32849023", value = "Total items processed of source.")
+  @JsonProperty("total_processed_items")
+  @ApiModelProperty(example = "32849023", value = "Total items processed of source.")
   public Long getTotalProcessedItems() {
     return totalProcessedItems;
   }
@@ -224,7 +232,6 @@ public class Status {
   public void setTotalProcessedItems(Long totalProcessedItems) {
     this.totalProcessedItems = totalProcessedItems;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -248,12 +255,11 @@ public class Status {
     return Objects.hash(detectedSizeBytes, lastProcessedAt, lastProcessedItem, message, state, totalProcessedItems);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Status {\n");
-    
+
     sb.append("    detectedSizeBytes: ").append(toIndentedString(detectedSizeBytes)).append("\n");
     sb.append("    lastProcessedAt: ").append(toIndentedString(lastProcessedAt)).append("\n");
     sb.append("    lastProcessedItem: ").append(toIndentedString(lastProcessedItem)).append("\n");
@@ -276,4 +282,3 @@ public class Status {
   }
 
 }
-

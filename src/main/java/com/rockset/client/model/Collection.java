@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -38,7 +37,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Collection
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Collection {
   @SerializedName("aliases")
   private List<Alias> aliases = null;
@@ -94,27 +95,27 @@ public class Collection {
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     INITIALIZED("INITIALIZED"),
-    
+
     CREATED("CREATED"),
-    
+
     READY("READY"),
-    
+
     PAUSED("PAUSED"),
-    
+
     DELETED("DELETED"),
-    
+
     PAUSING("PAUSING"),
-    
+
     RESUMING("RESUMING"),
-    
+
     PREPARING_BULK("PREPARINGBULK"),
-    
+
     BULK_INGEST_MODE("BULKINGESTMODE"),
-    
+
     EXITING_BULK_INGEST_MODE("EXITINGBULKINGESTMODE"),
-    
+
     ENCRYPTION_KEY_ERROR("ENCRYPTIONKEYERROR"),
-    
+
     UNKNOWN("UNKNOWN");
 
     private String value;
@@ -165,9 +166,9 @@ public class Collection {
   @JsonAdapter(StorageCompressionTypeEnum.Adapter.class)
   public enum StorageCompressionTypeEnum {
     LZ4("LZ4"),
-    
+
     ZSTD("ZSTD"),
-    
+
     UNKNOWN("UNKNOWN");
 
     private String value;
@@ -228,13 +229,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * List of aliases for a collection.
+   * 
    * @return aliases
-  **/
+   **/
 
-@JsonProperty("aliases")
-@ApiModelProperty(value = "List of aliases for a collection.")
+  @JsonProperty("aliases")
+  @ApiModelProperty(value = "List of aliases for a collection.")
   public List<Alias> getAliases() {
     return aliases;
   }
@@ -256,13 +258,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Get bulkStats
+   * 
    * @return bulkStats
-  **/
+   **/
 
-@JsonProperty("bulk_stats")
-@ApiModelProperty(value = "")
+  @JsonProperty("bulk_stats")
+  @ApiModelProperty(value = "")
   public List<BulkStats> getBulkStats() {
     return bulkStats;
   }
@@ -284,13 +287,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * List of clustering fields for a collection.
+   * 
    * @return clusteringKey
-  **/
+   **/
 
-@JsonProperty("clustering_key")
-@ApiModelProperty(value = "List of clustering fields for a collection.")
+  @JsonProperty("clustering_key")
+  @ApiModelProperty(value = "List of clustering fields for a collection.")
   public List<FieldPartition> getClusteringKey() {
     return clusteringKey;
   }
@@ -304,13 +308,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -324,13 +329,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Email of user who created the collection.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "hello@rockset.com", value = "Email of user who created the collection.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "hello@rockset.com", value = "Email of user who created the collection.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -344,13 +350,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Name of the API key that was used to create this collection if one was used.
+   * 
    * @return createdByApikeyName
-  **/
+   **/
 
-@JsonProperty("created_by_apikey_name")
-@ApiModelProperty(value = "Name of the API key that was used to create this collection if one was used.")
+  @JsonProperty("created_by_apikey_name")
+  @ApiModelProperty(value = "Name of the API key that was used to create this collection if one was used.")
   public String getCreatedByApikeyName() {
     return createdByApikeyName;
   }
@@ -364,13 +371,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Text describing the collection.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "transactions from stores worldwide", value = "Text describing the collection.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "transactions from stores worldwide", value = "Text describing the collection.")
   public String getDescription() {
     return description;
   }
@@ -384,13 +392,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Field mapping for a collection.
+   * 
    * @return fieldMappingQuery
-  **/
+   **/
 
-@JsonProperty("field_mapping_query")
-@ApiModelProperty(value = "Field mapping for a collection.")
+  @JsonProperty("field_mapping_query")
+  @ApiModelProperty(value = "Field mapping for a collection.")
   public FieldMappingQuery getFieldMappingQuery() {
     return fieldMappingQuery;
   }
@@ -412,13 +421,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * List of mappings applied on all documents in a collection.
+   * 
    * @return fieldMappings
-  **/
+   **/
 
-@JsonProperty("field_mappings")
-@ApiModelProperty(value = "List of mappings applied on all documents in a collection.")
+  @JsonProperty("field_mappings")
+  @ApiModelProperty(value = "List of mappings applied on all documents in a collection.")
   public List<FieldMappingV2> getFieldMappings() {
     return fieldMappings;
   }
@@ -432,13 +442,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Whether the collection is insert only or not.
+   * 
    * @return insertOnly
-  **/
+   **/
 
-@JsonProperty("insert_only")
-@ApiModelProperty(value = "Whether the collection is insert only or not.")
+  @JsonProperty("insert_only")
+  @ApiModelProperty(value = "Whether the collection is insert only or not.")
   public Boolean isInsertOnly() {
     return insertOnly;
   }
@@ -452,13 +463,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Unique identifer for collection, can contain alphanumeric or dash characters.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "global-transactions", value = "Unique identifer for collection, can contain alphanumeric or dash characters.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "global-transactions", value = "Unique identifer for collection, can contain alphanumeric or dash characters.")
   public String getName() {
     return name;
   }
@@ -472,13 +484,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Whether the collection is read-only or not.
+   * 
    * @return readOnly
-  **/
+   **/
 
-@JsonProperty("read_only")
-@ApiModelProperty(value = "Whether the collection is read-only or not.")
+  @JsonProperty("read_only")
+  @ApiModelProperty(value = "Whether the collection is read-only or not.")
   public Boolean isReadOnly() {
     return readOnly;
   }
@@ -492,13 +505,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds after which data is purged based on event time.
+   * 
    * @return retentionSecs
-  **/
+   **/
 
-@JsonProperty("retention_secs")
-@ApiModelProperty(example = "2592000", value = "Number of seconds after which data is purged based on event time.")
+  @JsonProperty("retention_secs")
+  @ApiModelProperty(example = "2592000", value = "Number of seconds after which data is purged based on event time.")
   public Long getRetentionSecs() {
     return retentionSecs;
   }
@@ -512,13 +526,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Collection RRN.
+   * 
    * @return rrn
-  **/
+   **/
 
-@JsonProperty("rrn")
-@ApiModelProperty(example = "rrn:col:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Collection RRN.")
+  @JsonProperty("rrn")
+  @ApiModelProperty(example = "rrn:col:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Collection RRN.")
   public String getRrn() {
     return rrn;
   }
@@ -540,13 +555,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * List of sources from which collection ingests.
+   * 
    * @return sources
-  **/
+   **/
 
-@JsonProperty("sources")
-@ApiModelProperty(value = "List of sources from which collection ingests.")
+  @JsonProperty("sources")
+  @ApiModelProperty(value = "List of sources from which collection ingests.")
   public List<Source> getSources() {
     return sources;
   }
@@ -560,13 +576,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Metrics about the collection.
+   * 
    * @return stats
-  **/
+   **/
 
-@JsonProperty("stats")
-@ApiModelProperty(value = "Metrics about the collection.")
+  @JsonProperty("stats")
+  @ApiModelProperty(value = "Metrics about the collection.")
   public CollectionStats getStats() {
     return stats;
   }
@@ -580,13 +597,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Current status of collection.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(example = "READY", value = "Current status of collection.")
+  @JsonProperty("status")
+  @ApiModelProperty(example = "READY", value = "Current status of collection.")
   public StatusEnum getStatus() {
     return status;
   }
@@ -600,13 +618,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * RocksDB storage compression type.
+   * 
    * @return storageCompressionType
-  **/
+   **/
 
-@JsonProperty("storage_compression_type")
-@ApiModelProperty(value = "RocksDB storage compression type.")
+  @JsonProperty("storage_compression_type")
+  @ApiModelProperty(value = "RocksDB storage compression type.")
   public StorageCompressionTypeEnum getStorageCompressionType() {
     return storageCompressionType;
   }
@@ -620,13 +639,14 @@ public class Collection {
     return this;
   }
 
-   /**
+  /**
    * Name of the workspace that the collection is in.
+   * 
    * @return workspace
-  **/
+   **/
 
-@JsonProperty("workspace")
-@ApiModelProperty(example = "commons", value = "Name of the workspace that the collection is in.")
+  @JsonProperty("workspace")
+  @ApiModelProperty(example = "commons", value = "Name of the workspace that the collection is in.")
   public String getWorkspace() {
     return workspace;
   }
@@ -634,7 +654,6 @@ public class Collection {
   public void setWorkspace(String workspace) {
     this.workspace = workspace;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -668,15 +687,16 @@ public class Collection {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aliases, bulkStats, clusteringKey, createdAt, createdBy, createdByApikeyName, description, fieldMappingQuery, fieldMappings, insertOnly, name, readOnly, retentionSecs, rrn, sources, stats, status, storageCompressionType, workspace);
+    return Objects.hash(aliases, bulkStats, clusteringKey, createdAt, createdBy, createdByApikeyName, description,
+        fieldMappingQuery, fieldMappings, insertOnly, name, readOnly, retentionSecs, rrn, sources, stats, status,
+        storageCompressionType, workspace);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Collection {\n");
-    
+
     sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("    bulkStats: ").append(toIndentedString(bulkStats)).append("\n");
     sb.append("    clusteringKey: ").append(toIndentedString(clusteringKey)).append("\n");
@@ -712,4 +732,3 @@ public class Collection {
   }
 
 }
-

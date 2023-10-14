@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * RpcSourceStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class RpcSourceStats {
   @SerializedName("worker")
   private String worker = null;
@@ -69,13 +70,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the worker this operator ran on
+   * 
    * @return worker
-  **/
+   **/
 
-@JsonProperty("worker")
-@ApiModelProperty(example = "aggregator", value = "The id of the worker this operator ran on")
+  @JsonProperty("worker")
+  @ApiModelProperty(example = "aggregator", value = "The id of the worker this operator ran on")
   public String getWorker() {
     return worker;
   }
@@ -89,13 +91,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the fragment this operator belonged to
+   * 
    * @return fragment
-  **/
+   **/
 
-@JsonProperty("fragment")
-@ApiModelProperty(example = "13", value = "The id of the fragment this operator belonged to")
+  @JsonProperty("fragment")
+  @ApiModelProperty(example = "13", value = "The id of the fragment this operator belonged to")
   public Long getFragment() {
     return fragment;
   }
@@ -109,13 +112,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the task this operator belonged to
+   * 
    * @return task
-  **/
+   **/
 
-@JsonProperty("task")
-@ApiModelProperty(example = "2", value = "The id of the task this operator belonged to")
+  @JsonProperty("task")
+  @ApiModelProperty(example = "2", value = "The id of the task this operator belonged to")
   public String getTask() {
     return task;
   }
@@ -129,13 +133,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * The id of this operator in the task
+   * 
    * @return operatorId
-  **/
+   **/
 
-@JsonProperty("operator_id")
-@ApiModelProperty(example = "3", value = "The id of this operator in the task")
+  @JsonProperty("operator_id")
+  @ApiModelProperty(example = "3", value = "The id of this operator in the task")
   public Long getOperatorId() {
     return operatorId;
   }
@@ -149,13 +154,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * The class name of downstream operator
+   * 
    * @return destOperatorName
-  **/
+   **/
 
-@JsonProperty("dest_operator_name")
-@ApiModelProperty(example = "AllGather", value = "The class name of downstream operator")
+  @JsonProperty("dest_operator_name")
+  @ApiModelProperty(example = "AllGather", value = "The class name of downstream operator")
   public String getDestOperatorName() {
     return destOperatorName;
   }
@@ -169,13 +175,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * Total bytes received from the input
+   * 
    * @return inputBytes
-  **/
+   **/
 
-@JsonProperty("input_bytes")
-@ApiModelProperty(example = "48004800", value = "Total bytes received from the input")
+  @JsonProperty("input_bytes")
+  @ApiModelProperty(example = "48004800", value = "Total bytes received from the input")
   public Long getInputBytes() {
     return inputBytes;
   }
@@ -189,13 +196,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * Maximum bytes received in one data chunk
+   * 
    * @return maxInputBytes
-  **/
+   **/
 
-@JsonProperty("max_input_bytes")
-@ApiModelProperty(example = "48004800", value = "Maximum bytes received in one data chunk")
+  @JsonProperty("max_input_bytes")
+  @ApiModelProperty(example = "48004800", value = "Maximum bytes received in one data chunk")
   public Long getMaxInputBytes() {
     return maxInputBytes;
   }
@@ -209,13 +217,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * Total rows received from the input
+   * 
    * @return inputRows
-  **/
+   **/
 
-@JsonProperty("input_rows")
-@ApiModelProperty(example = "1000100", value = "Total rows received from the input")
+  @JsonProperty("input_rows")
+  @ApiModelProperty(example = "1000100", value = "Total rows received from the input")
   public Long getInputRows() {
     return inputRows;
   }
@@ -229,13 +238,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * Total data chunks received from the input
+   * 
    * @return inputDataChunks
-  **/
+   **/
 
-@JsonProperty("input_data_chunks")
-@ApiModelProperty(example = "1000100", value = "Total data chunks received from the input")
+  @JsonProperty("input_data_chunks")
+  @ApiModelProperty(example = "1000100", value = "Total data chunks received from the input")
   public Long getInputDataChunks() {
     return inputDataChunks;
   }
@@ -249,13 +259,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * Total messages received from the input
+   * 
    * @return inputMessages
-  **/
+   **/
 
-@JsonProperty("input_messages")
-@ApiModelProperty(example = "1000100", value = "Total messages received from the input")
+  @JsonProperty("input_messages")
+  @ApiModelProperty(example = "1000100", value = "Total messages received from the input")
   public Long getInputMessages() {
     return inputMessages;
   }
@@ -269,13 +280,14 @@ public class RpcSourceStats {
     return this;
   }
 
-   /**
+  /**
    * Total time in microseconds spent doing useful work
+   * 
    * @return processingTimeUs
-  **/
+   **/
 
-@JsonProperty("processing_time_us")
-@ApiModelProperty(example = "2500", value = "Total time in microseconds spent doing useful work")
+  @JsonProperty("processing_time_us")
+  @ApiModelProperty(example = "2500", value = "Total time in microseconds spent doing useful work")
   public Long getProcessingTimeUs() {
     return processingTimeUs;
   }
@@ -283,7 +295,6 @@ public class RpcSourceStats {
   public void setProcessingTimeUs(Long processingTimeUs) {
     this.processingTimeUs = processingTimeUs;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -309,15 +320,15 @@ public class RpcSourceStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(worker, fragment, task, operatorId, destOperatorName, inputBytes, maxInputBytes, inputRows, inputDataChunks, inputMessages, processingTimeUs);
+    return Objects.hash(worker, fragment, task, operatorId, destOperatorName, inputBytes, maxInputBytes, inputRows,
+        inputDataChunks, inputMessages, processingTimeUs);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RpcSourceStats {\n");
-    
+
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("    fragment: ").append(toIndentedString(fragment)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
@@ -345,4 +356,3 @@ public class RpcSourceStats {
   }
 
 }
-

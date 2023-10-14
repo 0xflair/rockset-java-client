@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceKinesis
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceKinesis {
   @SerializedName("aws_region")
   private String awsRegion = null;
@@ -40,12 +41,13 @@ public class SourceKinesis {
   private List<String> dmsPrimaryKey = null;
 
   /**
-   * For non-DMS streams, Rockset can tail from the earliest end or latest end of kinesis source.
+   * For non-DMS streams, Rockset can tail from the earliest end or latest end of
+   * kinesis source.
    */
   @JsonAdapter(OffsetResetPolicyEnum.Adapter.class)
   public enum OffsetResetPolicyEnum {
     LATEST("LATEST"),
-    
+
     EARLIEST("EARLIEST");
 
     private String value;
@@ -98,13 +100,14 @@ public class SourceKinesis {
     return this;
   }
 
-   /**
+  /**
    * AWS region name of Kinesis stream, by default us-west-2 is used.
+   * 
    * @return awsRegion
-  **/
+   **/
 
-@JsonProperty("aws_region")
-@ApiModelProperty(example = "us-east-2", value = "AWS region name of Kinesis stream, by default us-west-2 is used.")
+  @JsonProperty("aws_region")
+  @ApiModelProperty(example = "us-east-2", value = "AWS region name of Kinesis stream, by default us-west-2 is used.")
   public String getAwsRegion() {
     return awsRegion;
   }
@@ -126,13 +129,14 @@ public class SourceKinesis {
     return this;
   }
 
-   /**
+  /**
    * Set of fields that correspond to a DMS primary key.
+   * 
    * @return dmsPrimaryKey
-  **/
+   **/
 
-@JsonProperty("dms_primary_key")
-@ApiModelProperty(value = "Set of fields that correspond to a DMS primary key.")
+  @JsonProperty("dms_primary_key")
+  @ApiModelProperty(value = "Set of fields that correspond to a DMS primary key.")
   public List<String> getDmsPrimaryKey() {
     return dmsPrimaryKey;
   }
@@ -146,13 +150,15 @@ public class SourceKinesis {
     return this;
   }
 
-   /**
-   * For non-DMS streams, Rockset can tail from the earliest end or latest end of kinesis source.
+  /**
+   * For non-DMS streams, Rockset can tail from the earliest end or latest end of
+   * kinesis source.
+   * 
    * @return offsetResetPolicy
-  **/
+   **/
 
-@JsonProperty("offset_reset_policy")
-@ApiModelProperty(example = "EARLIEST", value = "For non-DMS streams, Rockset can tail from the earliest end or latest end of kinesis source.")
+  @JsonProperty("offset_reset_policy")
+  @ApiModelProperty(example = "EARLIEST", value = "For non-DMS streams, Rockset can tail from the earliest end or latest end of kinesis source.")
   public OffsetResetPolicyEnum getOffsetResetPolicy() {
     return offsetResetPolicy;
   }
@@ -166,13 +172,14 @@ public class SourceKinesis {
     return this;
   }
 
-   /**
+  /**
    * Name of kinesis stream.
+   * 
    * @return streamName
-  **/
+   **/
 
-@JsonProperty("stream_name")
-@ApiModelProperty(example = "click_stream", required = true, value = "Name of kinesis stream.")
+  @JsonProperty("stream_name")
+  @ApiModelProperty(example = "click_stream", required = true, value = "Name of kinesis stream.")
   public String getStreamName() {
     return streamName;
   }
@@ -180,7 +187,6 @@ public class SourceKinesis {
   public void setStreamName(String streamName) {
     this.streamName = streamName;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,12 +208,11 @@ public class SourceKinesis {
     return Objects.hash(awsRegion, dmsPrimaryKey, offsetResetPolicy, streamName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceKinesis {\n");
-    
+
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    dmsPrimaryKey: ").append(toIndentedString(dmsPrimaryKey)).append("\n");
     sb.append("    offsetResetPolicy: ").append(toIndentedString(offsetResetPolicy)).append("\n");
@@ -228,4 +233,3 @@ public class SourceKinesis {
   }
 
 }
-

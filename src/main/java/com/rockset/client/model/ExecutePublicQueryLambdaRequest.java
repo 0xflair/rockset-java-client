@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ExecutePublicQueryLambdaRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class ExecutePublicQueryLambdaRequest {
   @SerializedName("default_row_limit")
   private Integer defaultRowLimit = null;
@@ -45,13 +46,14 @@ public class ExecutePublicQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Row limit to use if no limit specified in the SQL query text.
+   * 
    * @return defaultRowLimit
-  **/
+   **/
 
-@JsonProperty("default_row_limit")
-@ApiModelProperty(value = "Row limit to use if no limit specified in the SQL query text.")
+  @JsonProperty("default_row_limit")
+  @ApiModelProperty(value = "Row limit to use if no limit specified in the SQL query text.")
   public Integer getDefaultRowLimit() {
     return defaultRowLimit;
   }
@@ -73,13 +75,14 @@ public class ExecutePublicQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * List of named parameters.
+   * 
    * @return parameters
-  **/
+   **/
 
-@JsonProperty("parameters")
-@ApiModelProperty(value = "List of named parameters.")
+  @JsonProperty("parameters")
+  @ApiModelProperty(value = "List of named parameters.")
   public List<QueryParameter> getParameters() {
     return parameters;
   }
@@ -87,7 +90,6 @@ public class ExecutePublicQueryLambdaRequest {
   public void setParameters(List<QueryParameter> parameters) {
     this.parameters = parameters;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +109,11 @@ public class ExecutePublicQueryLambdaRequest {
     return Objects.hash(defaultRowLimit, parameters);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutePublicQueryLambdaRequest {\n");
-    
+
     sb.append("    defaultRowLimit: ").append(toIndentedString(defaultRowLimit)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
@@ -131,4 +132,3 @@ public class ExecutePublicQueryLambdaRequest {
   }
 
 }
-

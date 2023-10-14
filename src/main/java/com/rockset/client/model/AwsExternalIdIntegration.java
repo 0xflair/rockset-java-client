@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** AwsExternalIdIntegration */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2019-06-17T23:04:08.108Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2019-06-17T23:04:08.108Z")
 public class AwsExternalIdIntegration {
   @SerializedName("aws_role_arn")
   private String awsRoleArn = null;
@@ -42,10 +42,7 @@ public class AwsExternalIdIntegration {
    * @return awsRoleArn
    */
   @JsonProperty("aws_role_arn")
-  @ApiModelProperty(
-      example = "arn:aws:iam::2378964092:role/rockset-role",
-      required = true,
-      value = "ARN of rockset-role created in your account")
+  @ApiModelProperty(example = "arn:aws:iam::2378964092:role/rockset-role", required = true, value = "ARN of rockset-role created in your account")
   public String getAwsRoleArn() {
     return awsRoleArn;
   }
@@ -108,7 +105,8 @@ public class AwsExternalIdIntegration {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

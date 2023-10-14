@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @ApiModel(description = "Notification preferences for the user.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UnsubscribePreference {
   @SerializedName("notificationType")
   private String notificationType = null;
@@ -41,13 +42,14 @@ public class UnsubscribePreference {
     return this;
   }
 
-   /**
+  /**
    * The type of notification to be unsubscribed from.
+   * 
    * @return notificationType
-  **/
+   **/
 
-@JsonProperty("notificationType")
-@ApiModelProperty(example = "create_apikey", required = true, value = "The type of notification to be unsubscribed from.")
+  @JsonProperty("notificationType")
+  @ApiModelProperty(example = "create_apikey", required = true, value = "The type of notification to be unsubscribed from.")
   public String getNotificationType() {
     return notificationType;
   }
@@ -55,7 +57,6 @@ public class UnsubscribePreference {
   public void setNotificationType(String notificationType) {
     this.notificationType = notificationType;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -74,12 +75,11 @@ public class UnsubscribePreference {
     return Objects.hash(notificationType);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnsubscribePreference {\n");
-    
+
     sb.append("    notificationType: ").append(toIndentedString(notificationType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -97,4 +97,3 @@ public class UnsubscribePreference {
   }
 
 }
-

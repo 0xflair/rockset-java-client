@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusKafka
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusKafka {
   @SerializedName("kafka_partitions")
   private List<StatusKafkaPartition> kafkaPartitions = null;
@@ -49,9 +50,9 @@ public class StatusKafka {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     NO_DOCS_YET("NODOCSYET"),
-    
+
     ACTIVE("ACTIVE"),
-    
+
     DORMANT("DORMANT");
 
     private String value;
@@ -109,13 +110,14 @@ public class StatusKafka {
     return this;
   }
 
-   /**
+  /**
    * Status info per partition.
+   * 
    * @return kafkaPartitions
-  **/
+   **/
 
-@JsonProperty("kafka_partitions")
-@ApiModelProperty(value = "Status info per partition.")
+  @JsonProperty("kafka_partitions")
+  @ApiModelProperty(value = "Status info per partition.")
   public List<StatusKafkaPartition> getKafkaPartitions() {
     return kafkaPartitions;
   }
@@ -129,13 +131,14 @@ public class StatusKafka {
     return this;
   }
 
-   /**
+  /**
    * Time at which the last document was consumed from Kafka.
+   * 
    * @return lastConsumedTime
-  **/
+   **/
 
-@JsonProperty("last_consumed_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time at which the last document was consumed from Kafka.")
+  @JsonProperty("last_consumed_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time at which the last document was consumed from Kafka.")
   public String getLastConsumedTime() {
     return lastConsumedTime;
   }
@@ -149,13 +152,14 @@ public class StatusKafka {
     return this;
   }
 
-   /**
+  /**
    * Number of documents consumed by this Kafka topic.
+   * 
    * @return numDocumentsProcessed
-  **/
+   **/
 
-@JsonProperty("num_documents_processed")
-@ApiModelProperty(example = "1337", value = "Number of documents consumed by this Kafka topic.")
+  @JsonProperty("num_documents_processed")
+  @ApiModelProperty(example = "1337", value = "Number of documents consumed by this Kafka topic.")
   public Long getNumDocumentsProcessed() {
     return numDocumentsProcessed;
   }
@@ -169,13 +173,14 @@ public class StatusKafka {
     return this;
   }
 
-   /**
+  /**
    * State of the Kafka source.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "State of the Kafka source.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "State of the Kafka source.")
   public StateEnum getState() {
     return state;
   }
@@ -183,7 +188,6 @@ public class StatusKafka {
   public void setState(StateEnum state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -205,12 +209,11 @@ public class StatusKafka {
     return Objects.hash(kafkaPartitions, lastConsumedTime, numDocumentsProcessed, state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusKafka {\n");
-    
+
     sb.append("    kafkaPartitions: ").append(toIndentedString(kafkaPartitions)).append("\n");
     sb.append("    lastConsumedTime: ").append(toIndentedString(lastConsumedTime)).append("\n");
     sb.append("    numDocumentsProcessed: ").append(toIndentedString(numDocumentsProcessed)).append("\n");
@@ -231,4 +234,3 @@ public class StatusKafka {
   }
 
 }
-

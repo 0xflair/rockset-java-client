@@ -15,9 +15,9 @@ package com.rockset.client.model;
 import java.util.Objects;
 
 /** CommitMark */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2019-11-21T00:10:08.979Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2019-11-21T00:10:08.979Z")
 public class CommitMark {
 
   @Override
@@ -46,7 +46,8 @@ public class CommitMark {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

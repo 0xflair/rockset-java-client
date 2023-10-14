@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryPaginationResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryPaginationResponse {
   @SerializedName("pagination")
   private PaginationInfo pagination = null;
@@ -48,13 +49,14 @@ public class QueryPaginationResponse {
     return this;
   }
 
-   /**
+  /**
    * Pagination metadata.
+   * 
    * @return pagination
-  **/
+   **/
 
-@JsonProperty("pagination")
-@ApiModelProperty(value = "Pagination metadata.")
+  @JsonProperty("pagination")
+  @ApiModelProperty(value = "Pagination metadata.")
   public PaginationInfo getPagination() {
     return pagination;
   }
@@ -76,13 +78,14 @@ public class QueryPaginationResponse {
     return this;
   }
 
-   /**
+  /**
    * List of documents returned by the query.
+   * 
    * @return results
-  **/
+   **/
 
-@JsonProperty("results")
-@ApiModelProperty(value = "List of documents returned by the query.")
+  @JsonProperty("results")
+  @ApiModelProperty(value = "List of documents returned by the query.")
   public List<Object> getResults() {
     return results;
   }
@@ -96,13 +99,14 @@ public class QueryPaginationResponse {
     return this;
   }
 
-   /**
+  /**
    * Total documents returned by the query.
+   * 
    * @return resultsTotalDocCount
-  **/
+   **/
 
-@JsonProperty("results_total_doc_count")
-@ApiModelProperty(value = "Total documents returned by the query.")
+  @JsonProperty("results_total_doc_count")
+  @ApiModelProperty(value = "Total documents returned by the query.")
   public Long getResultsTotalDocCount() {
     return resultsTotalDocCount;
   }
@@ -110,7 +114,6 @@ public class QueryPaginationResponse {
   public void setResultsTotalDocCount(Long resultsTotalDocCount) {
     this.resultsTotalDocCount = resultsTotalDocCount;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,12 +134,11 @@ public class QueryPaginationResponse {
     return Objects.hash(pagination, results, resultsTotalDocCount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryPaginationResponse {\n");
-    
+
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("    resultsTotalDocCount: ").append(toIndentedString(resultsTotalDocCount)).append("\n");
@@ -156,4 +158,3 @@ public class QueryPaginationResponse {
   }
 
 }
-

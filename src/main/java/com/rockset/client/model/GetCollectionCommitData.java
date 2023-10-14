@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * GetCollectionCommitData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class GetCollectionCommitData {
   @SerializedName("fence")
   private String fence = null;
@@ -42,13 +43,15 @@ public class GetCollectionCommitData {
     return this;
   }
 
-   /**
-   * The max offset passed in the request which is the latest offset that was compared to the commit.
+  /**
+   * The max offset passed in the request which is the latest offset that was
+   * compared to the commit.
+   * 
    * @return fence
-  **/
+   **/
 
-@JsonProperty("fence")
-@ApiModelProperty(example = "f1:0:14:9:7093", value = "The max offset passed in the request which is the latest offset that was compared to the commit.")
+  @JsonProperty("fence")
+  @ApiModelProperty(example = "f1:0:14:9:7093", value = "The max offset passed in the request which is the latest offset that was compared to the commit.")
   public String getFence() {
     return fence;
   }
@@ -62,13 +65,15 @@ public class GetCollectionCommitData {
     return this;
   }
 
-   /**
-   * True if all the data in the offsets are available to be queried. False if one or more of the offsets is still behind the request offsets.
+  /**
+   * True if all the data in the offsets are available to be queried. False if one
+   * or more of the offsets is still behind the request offsets.
+   * 
    * @return passed
-  **/
+   **/
 
-@JsonProperty("passed")
-@ApiModelProperty(example = "true", value = "True if all the data in the offsets are available to be queried. False if one or more of the offsets is still behind the request offsets.")
+  @JsonProperty("passed")
+  @ApiModelProperty(example = "true", value = "True if all the data in the offsets are available to be queried. False if one or more of the offsets is still behind the request offsets.")
   public Boolean isPassed() {
     return passed;
   }
@@ -76,7 +81,6 @@ public class GetCollectionCommitData {
   public void setPassed(Boolean passed) {
     this.passed = passed;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +100,11 @@ public class GetCollectionCommitData {
     return Objects.hash(fence, passed);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCollectionCommitData {\n");
-    
+
     sb.append("    fence: ").append(toIndentedString(fence)).append("\n");
     sb.append("    passed: ").append(toIndentedString(passed)).append("\n");
     sb.append("}");
@@ -120,4 +123,3 @@ public class GetCollectionCommitData {
   }
 
 }
-

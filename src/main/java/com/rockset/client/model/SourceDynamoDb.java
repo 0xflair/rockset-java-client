@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceDynamoDb
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceDynamoDb {
   @SerializedName("aws_region")
   private String awsRegion = null;
@@ -56,13 +57,14 @@ public class SourceDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * AWS region name of DynamoDB table, by default us-west-2 is used.
+   * 
    * @return awsRegion
-  **/
+   **/
 
-@JsonProperty("aws_region")
-@ApiModelProperty(example = "us-east-2", value = "AWS region name of DynamoDB table, by default us-west-2 is used.")
+  @JsonProperty("aws_region")
+  @ApiModelProperty(example = "us-east-2", value = "AWS region name of DynamoDB table, by default us-west-2 is used.")
   public String getAwsRegion() {
     return awsRegion;
   }
@@ -71,13 +73,14 @@ public class SourceDynamoDb {
     this.awsRegion = awsRegion;
   }
 
-   /**
+  /**
    * DynamoDB source status v2.
+   * 
    * @return currentStatus
-  **/
+   **/
 
-@JsonProperty("current_status")
-@ApiModelProperty(value = "DynamoDB source status v2.")
+  @JsonProperty("current_status")
+  @ApiModelProperty(value = "DynamoDB source status v2.")
   public StatusDynamoDbV2 getCurrentStatus() {
     return currentStatus;
   }
@@ -87,13 +90,14 @@ public class SourceDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * Max RCU usage for scan.
+   * 
    * @return rcu
-  **/
+   **/
 
-@JsonProperty("rcu")
-@ApiModelProperty(example = "1000", value = "Max RCU usage for scan.")
+  @JsonProperty("rcu")
+  @ApiModelProperty(example = "1000", value = "Max RCU usage for scan.")
   public Long getRcu() {
     return rcu;
   }
@@ -102,13 +106,14 @@ public class SourceDynamoDb {
     this.rcu = rcu;
   }
 
-   /**
+  /**
    * DynamoDB source status.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(value = "DynamoDB source status.")
+  @JsonProperty("status")
+  @ApiModelProperty(value = "DynamoDB source status.")
   public StatusDynamoDb getStatus() {
     return status;
   }
@@ -118,13 +123,14 @@ public class SourceDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * Name of DynamoDB table containing data.
+   * 
    * @return tableName
-  **/
+   **/
 
-@JsonProperty("table_name")
-@ApiModelProperty(example = "dynamodb_table_name", required = true, value = "Name of DynamoDB table containing data.")
+  @JsonProperty("table_name")
+  @ApiModelProperty(example = "dynamodb_table_name", required = true, value = "Name of DynamoDB table containing data.")
   public String getTableName() {
     return tableName;
   }
@@ -138,13 +144,14 @@ public class SourceDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * Whether to use DynamoDB Scan API for the initial scan.
+   * 
    * @return useScanApi
-  **/
+   **/
 
-@JsonProperty("use_scan_api")
-@ApiModelProperty(value = "Whether to use DynamoDB Scan API for the initial scan.")
+  @JsonProperty("use_scan_api")
+  @ApiModelProperty(value = "Whether to use DynamoDB Scan API for the initial scan.")
   public Boolean isUseScanApi() {
     return useScanApi;
   }
@@ -152,7 +159,6 @@ public class SourceDynamoDb {
   public void setUseScanApi(Boolean useScanApi) {
     this.useScanApi = useScanApi;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,12 +182,11 @@ public class SourceDynamoDb {
     return Objects.hash(awsRegion, currentStatus, rcu, status, tableName, useScanApi);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceDynamoDb {\n");
-    
+
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    currentStatus: ").append(toIndentedString(currentStatus)).append("\n");
     sb.append("    rcu: ").append(toIndentedString(rcu)).append("\n");
@@ -204,4 +209,3 @@ public class SourceDynamoDb {
   }
 
 }
-

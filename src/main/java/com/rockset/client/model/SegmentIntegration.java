@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,22 +28,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SegmentIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-16T12:14:16.934-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-16T12:14:16.934-04:00")
 public class SegmentIntegration {
   @SerializedName("connection_string")
   private String connectionString = null;
 
-   /**
+  /**
    * segment connection string
+   * 
    * @return connectionString
-  **/
+   **/
 
-@JsonProperty("connection_string")
-@ApiModelProperty(value = "segment connection string")
+  @JsonProperty("connection_string")
+  @ApiModelProperty(value = "segment connection string")
   public String getConnectionString() {
     return connectionString;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,12 +64,11 @@ public class SegmentIntegration {
     return Objects.hash(connectionString);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SegmentIntegration {\n");
-    
+
     sb.append("    connectionString: ").append(toIndentedString(connectionString)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -86,4 +86,3 @@ public class SegmentIntegration {
   }
 
 }
-

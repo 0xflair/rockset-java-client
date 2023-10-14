@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryError
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryError {
   @SerializedName("message")
   private String message = null;
@@ -45,13 +46,14 @@ public class QueryError {
     return this;
   }
 
-   /**
+  /**
    * A message associated with the error, containing more information about it.
+   * 
    * @return message
-  **/
+   **/
 
-@JsonProperty("message")
-@ApiModelProperty(example = "Too many rows", value = "A message associated with the error, containing more information about it.")
+  @JsonProperty("message")
+  @ApiModelProperty(example = "Too many rows", value = "A message associated with the error, containing more information about it.")
   public String getMessage() {
     return message;
   }
@@ -65,13 +67,15 @@ public class QueryError {
     return this;
   }
 
-   /**
-   * The HTTP status code associated with this error, had it been sent as the response status code
+  /**
+   * The HTTP status code associated with this error, had it been sent as the
+   * response status code
+   * 
    * @return statusCode
-  **/
+   **/
 
-@JsonProperty("status_code")
-@ApiModelProperty(example = "429", value = "The HTTP status code associated with this error, had it been sent as the response status code")
+  @JsonProperty("status_code")
+  @ApiModelProperty(example = "429", value = "The HTTP status code associated with this error, had it been sent as the response status code")
   public Integer getStatusCode() {
     return statusCode;
   }
@@ -85,13 +89,14 @@ public class QueryError {
     return this;
   }
 
-   /**
+  /**
    * The type of error.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "ResourceExceeded", value = "The type of error.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "ResourceExceeded", value = "The type of error.")
   public String getType() {
     return type;
   }
@@ -99,7 +104,6 @@ public class QueryError {
   public void setType(String type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +124,11 @@ public class QueryError {
     return Objects.hash(message, statusCode, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryError {\n");
-    
+
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -145,4 +148,3 @@ public class QueryError {
   }
 
 }
-

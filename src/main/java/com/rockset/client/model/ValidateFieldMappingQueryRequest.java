@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ValidateFieldMappingQueryRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class ValidateFieldMappingQueryRequest {
   @SerializedName("sql")
   private String sql = null;
@@ -45,13 +46,14 @@ public class ValidateFieldMappingQueryRequest {
     return this;
   }
 
-   /**
+  /**
    * Field mapping query to be validated
+   * 
    * @return sql
-  **/
+   **/
 
-@JsonProperty("sql")
-@ApiModelProperty(example = "SELECT * EXCEPT (name), SHA256(name) AS name_anon FROM _input", value = "Field mapping query to be validated")
+  @JsonProperty("sql")
+  @ApiModelProperty(example = "SELECT * EXCEPT (name), SHA256(name) AS name_anon FROM _input", value = "Field mapping query to be validated")
   public String getSql() {
     return sql;
   }
@@ -65,13 +67,14 @@ public class ValidateFieldMappingQueryRequest {
     return this;
   }
 
-   /**
+  /**
    * is field mapping for an insert only collection
+   * 
    * @return insertOnly
-  **/
+   **/
 
-@JsonProperty("insert_only")
-@ApiModelProperty(value = "is field mapping for an insert only collection")
+  @JsonProperty("insert_only")
+  @ApiModelProperty(value = "is field mapping for an insert only collection")
   public Boolean isInsertOnly() {
     return insertOnly;
   }
@@ -85,13 +88,14 @@ public class ValidateFieldMappingQueryRequest {
     return this;
   }
 
-   /**
+  /**
    * does the CDC stream contain updated fields only
+   * 
    * @return updatedFieldsCdcOnly
-  **/
+   **/
 
-@JsonProperty("updated_fields_cdc_only")
-@ApiModelProperty(value = "does the CDC stream contain updated fields only")
+  @JsonProperty("updated_fields_cdc_only")
+  @ApiModelProperty(value = "does the CDC stream contain updated fields only")
   public Boolean isUpdatedFieldsCdcOnly() {
     return updatedFieldsCdcOnly;
   }
@@ -99,7 +103,6 @@ public class ValidateFieldMappingQueryRequest {
   public void setUpdatedFieldsCdcOnly(Boolean updatedFieldsCdcOnly) {
     this.updatedFieldsCdcOnly = updatedFieldsCdcOnly;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class ValidateFieldMappingQueryRequest {
     return Objects.hash(sql, insertOnly, updatedFieldsCdcOnly);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateFieldMappingQueryRequest {\n");
-    
+
     sb.append("    sql: ").append(toIndentedString(sql)).append("\n");
     sb.append("    insertOnly: ").append(toIndentedString(insertOnly)).append("\n");
     sb.append("    updatedFieldsCdcOnly: ").append(toIndentedString(updatedFieldsCdcOnly)).append("\n");
@@ -145,4 +147,3 @@ public class ValidateFieldMappingQueryRequest {
   }
 
 }
-

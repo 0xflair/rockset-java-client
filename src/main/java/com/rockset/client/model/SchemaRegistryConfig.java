@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SchemaRegistryConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SchemaRegistryConfig {
   @SerializedName("key")
   private String key = null;
@@ -45,13 +46,14 @@ public class SchemaRegistryConfig {
     return this;
   }
 
-   /**
+  /**
    * The secure API key for schema registry.
+   * 
    * @return key
-  **/
+   **/
 
-@JsonProperty("key")
-@ApiModelProperty(value = "The secure API key for schema registry.")
+  @JsonProperty("key")
+  @ApiModelProperty(value = "The secure API key for schema registry.")
   public String getKey() {
     return key;
   }
@@ -65,13 +67,14 @@ public class SchemaRegistryConfig {
     return this;
   }
 
-   /**
+  /**
    * The secure API password registry.
+   * 
    * @return secret
-  **/
+   **/
 
-@JsonProperty("secret")
-@ApiModelProperty(value = "The secure API password registry.")
+  @JsonProperty("secret")
+  @ApiModelProperty(value = "The secure API password registry.")
   public String getSecret() {
     return secret;
   }
@@ -85,13 +88,14 @@ public class SchemaRegistryConfig {
     return this;
   }
 
-   /**
+  /**
    * Schema registry URL.
+   * 
    * @return url
-  **/
+   **/
 
-@JsonProperty("url")
-@ApiModelProperty(value = "Schema registry URL.")
+  @JsonProperty("url")
+  @ApiModelProperty(value = "Schema registry URL.")
   public String getUrl() {
     return url;
   }
@@ -99,7 +103,6 @@ public class SchemaRegistryConfig {
   public void setUrl(String url) {
     this.url = url;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class SchemaRegistryConfig {
     return Objects.hash(key, secret, url);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SchemaRegistryConfig {\n");
-    
+
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -145,4 +147,3 @@ public class SchemaRegistryConfig {
   }
 
 }
-

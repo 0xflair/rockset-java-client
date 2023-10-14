@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * KinesisIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class KinesisIntegration {
   @SerializedName("aws_access_key")
   private AwsAccessKey awsAccessKey = null;
@@ -44,13 +45,14 @@ public class KinesisIntegration {
     return this;
   }
 
-   /**
+  /**
    * Credentials for an AWS access key integration.
+   * 
    * @return awsAccessKey
-  **/
+   **/
 
-@JsonProperty("aws_access_key")
-@ApiModelProperty(value = "Credentials for an AWS access key integration.")
+  @JsonProperty("aws_access_key")
+  @ApiModelProperty(value = "Credentials for an AWS access key integration.")
   public AwsAccessKey getAwsAccessKey() {
     return awsAccessKey;
   }
@@ -64,13 +66,14 @@ public class KinesisIntegration {
     return this;
   }
 
-   /**
+  /**
    * Details of an AWS cross-account role integration.
+   * 
    * @return awsRole
-  **/
+   **/
 
-@JsonProperty("aws_role")
-@ApiModelProperty(value = "Details of an AWS cross-account role integration.")
+  @JsonProperty("aws_role")
+  @ApiModelProperty(value = "Details of an AWS cross-account role integration.")
   public AwsRole getAwsRole() {
     return awsRole;
   }
@@ -78,7 +81,6 @@ public class KinesisIntegration {
   public void setAwsRole(AwsRole awsRole) {
     this.awsRole = awsRole;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,12 +100,11 @@ public class KinesisIntegration {
     return Objects.hash(awsAccessKey, awsRole);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KinesisIntegration {\n");
-    
+
     sb.append("    awsAccessKey: ").append(toIndentedString(awsAccessKey)).append("\n");
     sb.append("    awsRole: ").append(toIndentedString(awsRole)).append("\n");
     sb.append("}");
@@ -122,4 +123,3 @@ public class KinesisIntegration {
   }
 
 }
-

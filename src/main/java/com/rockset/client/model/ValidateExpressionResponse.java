@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ValidateExpressionResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class ValidateExpressionResponse {
   @SerializedName("parameters")
   private List<String> parameters = null;
@@ -49,13 +50,14 @@ public class ValidateExpressionResponse {
     return this;
   }
 
-   /**
+  /**
    * input parameters of validated SQL expression
+   * 
    * @return parameters
-  **/
+   **/
 
-@JsonProperty("parameters")
-@ApiModelProperty(example = "\"[:field, :name]\"", value = "input parameters of validated SQL expression")
+  @JsonProperty("parameters")
+  @ApiModelProperty(example = "\"[:field, :name]\"", value = "input parameters of validated SQL expression")
   public List<String> getParameters() {
     return parameters;
   }
@@ -63,7 +65,6 @@ public class ValidateExpressionResponse {
   public void setParameters(List<String> parameters) {
     this.parameters = parameters;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +83,11 @@ public class ValidateExpressionResponse {
     return Objects.hash(parameters);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateExpressionResponse {\n");
-    
+
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -105,4 +105,3 @@ public class ValidateExpressionResponse {
   }
 
 }
-

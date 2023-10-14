@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * GetCollectionCommitRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class GetCollectionCommitRequest {
   @SerializedName("name")
   private List<String> name = null;
@@ -49,13 +50,14 @@ public class GetCollectionCommitRequest {
     return this;
   }
 
-   /**
+  /**
    * a list of zero or more collection offset fences
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "\"[\\\"f1:0:14:9:7092\\\",\\\"f1:0:14:9:7093\\\"]\"", value = "a list of zero or more collection offset fences")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "\"[\\\"f1:0:14:9:7092\\\",\\\"f1:0:14:9:7093\\\"]\"", value = "a list of zero or more collection offset fences")
   public List<String> getName() {
     return name;
   }
@@ -63,7 +65,6 @@ public class GetCollectionCommitRequest {
   public void setName(List<String> name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +83,11 @@ public class GetCollectionCommitRequest {
     return Objects.hash(name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCollectionCommitRequest {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -105,4 +105,3 @@ public class GetCollectionCommitRequest {
   }
 
 }
-

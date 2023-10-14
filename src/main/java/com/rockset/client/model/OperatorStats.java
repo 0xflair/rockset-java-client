@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * OperatorStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class OperatorStats {
   @SerializedName("worker")
   private String worker = null;
@@ -93,13 +94,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the worker this operator ran on
+   * 
    * @return worker
-  **/
+   **/
 
-@JsonProperty("worker")
-@ApiModelProperty(example = "aggregator", value = "The id of the worker this operator ran on")
+  @JsonProperty("worker")
+  @ApiModelProperty(example = "aggregator", value = "The id of the worker this operator ran on")
   public String getWorker() {
     return worker;
   }
@@ -113,13 +115,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the fragment this operator belonged to
+   * 
    * @return fragment
-  **/
+   **/
 
-@JsonProperty("fragment")
-@ApiModelProperty(example = "13", value = "The id of the fragment this operator belonged to")
+  @JsonProperty("fragment")
+  @ApiModelProperty(example = "13", value = "The id of the fragment this operator belonged to")
   public Long getFragment() {
     return fragment;
   }
@@ -133,13 +136,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the task this operator belonged to
+   * 
    * @return task
-  **/
+   **/
 
-@JsonProperty("task")
-@ApiModelProperty(example = "2", value = "The id of the task this operator belonged to")
+  @JsonProperty("task")
+  @ApiModelProperty(example = "2", value = "The id of the task this operator belonged to")
   public String getTask() {
     return task;
   }
@@ -153,13 +157,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * The id of this operator in the task
+   * 
    * @return operatorId
-  **/
+   **/
 
-@JsonProperty("operator_id")
-@ApiModelProperty(example = "3", value = "The id of this operator in the task")
+  @JsonProperty("operator_id")
+  @ApiModelProperty(example = "3", value = "The id of this operator in the task")
   public Long getOperatorId() {
     return operatorId;
   }
@@ -173,13 +178,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * The class name of this operator
+   * 
    * @return operatorName
-  **/
+   **/
 
-@JsonProperty("operator_name")
-@ApiModelProperty(example = "ColumnScan", value = "The class name of this operator")
+  @JsonProperty("operator_name")
+  @ApiModelProperty(example = "ColumnScan", value = "The class name of this operator")
   public String getOperatorName() {
     return operatorName;
   }
@@ -193,13 +199,15 @@ public class OperatorStats {
     return this;
   }
 
-   /**
-   * Microseconds since UNIX epoch of the first time data was received from any of this operator&#39;s inputs
+  /**
+   * Microseconds since UNIX epoch of the first time data was received from any of
+   * this operator&#39;s inputs
+   * 
    * @return startTimeUs
-  **/
+   **/
 
-@JsonProperty("start_time_us")
-@ApiModelProperty(example = "1579631642603344", value = "Microseconds since UNIX epoch of the first time data was received from any of this operator's inputs")
+  @JsonProperty("start_time_us")
+  @ApiModelProperty(example = "1579631642603344", value = "Microseconds since UNIX epoch of the first time data was received from any of this operator's inputs")
   public Long getStartTimeUs() {
     return startTimeUs;
   }
@@ -213,13 +221,15 @@ public class OperatorStats {
     return this;
   }
 
-   /**
-   * Microseconds since UNIX epoch of the last time data was sent to any of this operator&#39;s outputs
+  /**
+   * Microseconds since UNIX epoch of the last time data was sent to any of this
+   * operator&#39;s outputs
+   * 
    * @return endTimeUs
-  **/
+   **/
 
-@JsonProperty("end_time_us")
-@ApiModelProperty(example = "1579631642603346", value = "Microseconds since UNIX epoch of the last time data was sent to any of this operator's outputs")
+  @JsonProperty("end_time_us")
+  @ApiModelProperty(example = "1579631642603346", value = "Microseconds since UNIX epoch of the last time data was sent to any of this operator's outputs")
   public Long getEndTimeUs() {
     return endTimeUs;
   }
@@ -233,13 +243,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Maximum memory used by this operator during execution
+   * 
    * @return maxMemory
-  **/
+   **/
 
-@JsonProperty("max_memory")
-@ApiModelProperty(example = "14928", value = "Maximum memory used by this operator during execution")
+  @JsonProperty("max_memory")
+  @ApiModelProperty(example = "14928", value = "Maximum memory used by this operator during execution")
   public Long getMaxMemory() {
     return maxMemory;
   }
@@ -253,13 +264,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Total bytes received across all inputs
+   * 
    * @return inputBytes
-  **/
+   **/
 
-@JsonProperty("input_bytes")
-@ApiModelProperty(example = "48004800", value = "Total bytes received across all inputs")
+  @JsonProperty("input_bytes")
+  @ApiModelProperty(example = "48004800", value = "Total bytes received across all inputs")
   public Long getInputBytes() {
     return inputBytes;
   }
@@ -273,13 +285,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Total rows received across all inputs
+   * 
    * @return inputRows
-  **/
+   **/
 
-@JsonProperty("input_rows")
-@ApiModelProperty(example = "1000100", value = "Total rows received across all inputs")
+  @JsonProperty("input_rows")
+  @ApiModelProperty(example = "1000100", value = "Total rows received across all inputs")
   public Long getInputRows() {
     return inputRows;
   }
@@ -293,13 +306,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Total bytes sent across all outputs
+   * 
    * @return outputBytes
-  **/
+   **/
 
-@JsonProperty("output_bytes")
-@ApiModelProperty(example = "1600", value = "Total bytes sent across all outputs")
+  @JsonProperty("output_bytes")
+  @ApiModelProperty(example = "1600", value = "Total bytes sent across all outputs")
   public Long getOutputBytes() {
     return outputBytes;
   }
@@ -313,13 +327,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Total rows sent across all outputs
+   * 
    * @return outputRows
-  **/
+   **/
 
-@JsonProperty("output_rows")
-@ApiModelProperty(example = "100", value = "Total rows sent across all outputs")
+  @JsonProperty("output_rows")
+  @ApiModelProperty(example = "100", value = "Total rows sent across all outputs")
   public Long getOutputRows() {
     return outputRows;
   }
@@ -333,13 +348,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Total time in microseconds spent doing useful work
+   * 
    * @return processingTimeUs
-  **/
+   **/
 
-@JsonProperty("processing_time_us")
-@ApiModelProperty(example = "2500", value = "Total time in microseconds spent doing useful work")
+  @JsonProperty("processing_time_us")
+  @ApiModelProperty(example = "2500", value = "Total time in microseconds spent doing useful work")
   public Long getProcessingTimeUs() {
     return processingTimeUs;
   }
@@ -353,13 +369,15 @@ public class OperatorStats {
     return this;
   }
 
-   /**
-   * Number of times InvertedIndexLazyMergeOperator is invoked to perform lazy merge
+  /**
+   * Number of times InvertedIndexLazyMergeOperator is invoked to perform lazy
+   * merge
+   * 
    * @return termIteratorMergeCount
-  **/
+   **/
 
-@JsonProperty("term_iterator_merge_count")
-@ApiModelProperty(example = "10", value = "Number of times InvertedIndexLazyMergeOperator is invoked to perform lazy merge")
+  @JsonProperty("term_iterator_merge_count")
+  @ApiModelProperty(example = "10", value = "Number of times InvertedIndexLazyMergeOperator is invoked to perform lazy merge")
   public Long getTermIteratorMergeCount() {
     return termIteratorMergeCount;
   }
@@ -373,13 +391,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Number of operands InvertedIndexLazyMergeOperator merged in total
+   * 
    * @return termIteratorMergeOperandCount
-  **/
+   **/
 
-@JsonProperty("term_iterator_merge_operand_count")
-@ApiModelProperty(example = "10", value = "Number of operands InvertedIndexLazyMergeOperator merged in total")
+  @JsonProperty("term_iterator_merge_operand_count")
+  @ApiModelProperty(example = "10", value = "Number of operands InvertedIndexLazyMergeOperator merged in total")
   public Long getTermIteratorMergeOperandCount() {
     return termIteratorMergeOperandCount;
   }
@@ -393,13 +412,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Time spent in the merge operation in InvertedIndexLazyMergeOperator
+   * 
    * @return termIteratorMergeDurationSecs
-  **/
+   **/
 
-@JsonProperty("term_iterator_merge_duration_secs")
-@ApiModelProperty(example = "10", value = "Time spent in the merge operation in InvertedIndexLazyMergeOperator")
+  @JsonProperty("term_iterator_merge_duration_secs")
+  @ApiModelProperty(example = "10", value = "Time spent in the merge operation in InvertedIndexLazyMergeOperator")
   public Long getTermIteratorMergeDurationSecs() {
     return termIteratorMergeDurationSecs;
   }
@@ -413,13 +433,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Max size of value merged by InvertedIndexLazyMergeOperator
+   * 
    * @return termIteratorMaxMergedValueSize
-  **/
+   **/
 
-@JsonProperty("term_iterator_max_merged_value_size")
-@ApiModelProperty(example = "10", value = "Max size of value merged by InvertedIndexLazyMergeOperator")
+  @JsonProperty("term_iterator_max_merged_value_size")
+  @ApiModelProperty(example = "10", value = "Max size of value merged by InvertedIndexLazyMergeOperator")
   public Long getTermIteratorMaxMergedValueSize() {
     return termIteratorMaxMergedValueSize;
   }
@@ -433,13 +454,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Number of RPCs made to disagg layer
+   * 
    * @return disaggReadCount
-  **/
+   **/
 
-@JsonProperty("disagg_read_count")
-@ApiModelProperty(example = "1", value = "Number of RPCs made to disagg layer")
+  @JsonProperty("disagg_read_count")
+  @ApiModelProperty(example = "1", value = "Number of RPCs made to disagg layer")
   public Long getDisaggReadCount() {
     return disaggReadCount;
   }
@@ -453,13 +475,14 @@ public class OperatorStats {
     return this;
   }
 
-   /**
+  /**
    * Total bytes read from disagg layer
+   * 
    * @return disaggReadBytes
-  **/
+   **/
 
-@JsonProperty("disagg_read_bytes")
-@ApiModelProperty(example = "1", value = "Total bytes read from disagg layer")
+  @JsonProperty("disagg_read_bytes")
+  @ApiModelProperty(example = "1", value = "Total bytes read from disagg layer")
   public Long getDisaggReadBytes() {
     return disaggReadBytes;
   }
@@ -467,7 +490,6 @@ public class OperatorStats {
   public void setDisaggReadBytes(Long disaggReadBytes) {
     this.disaggReadBytes = disaggReadBytes;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -501,15 +523,16 @@ public class OperatorStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(worker, fragment, task, operatorId, operatorName, startTimeUs, endTimeUs, maxMemory, inputBytes, inputRows, outputBytes, outputRows, processingTimeUs, termIteratorMergeCount, termIteratorMergeOperandCount, termIteratorMergeDurationSecs, termIteratorMaxMergedValueSize, disaggReadCount, disaggReadBytes);
+    return Objects.hash(worker, fragment, task, operatorId, operatorName, startTimeUs, endTimeUs, maxMemory, inputBytes,
+        inputRows, outputBytes, outputRows, processingTimeUs, termIteratorMergeCount, termIteratorMergeOperandCount,
+        termIteratorMergeDurationSecs, termIteratorMaxMergedValueSize, disaggReadCount, disaggReadBytes);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OperatorStats {\n");
-    
+
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("    fragment: ").append(toIndentedString(fragment)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
@@ -524,9 +547,12 @@ public class OperatorStats {
     sb.append("    outputRows: ").append(toIndentedString(outputRows)).append("\n");
     sb.append("    processingTimeUs: ").append(toIndentedString(processingTimeUs)).append("\n");
     sb.append("    termIteratorMergeCount: ").append(toIndentedString(termIteratorMergeCount)).append("\n");
-    sb.append("    termIteratorMergeOperandCount: ").append(toIndentedString(termIteratorMergeOperandCount)).append("\n");
-    sb.append("    termIteratorMergeDurationSecs: ").append(toIndentedString(termIteratorMergeDurationSecs)).append("\n");
-    sb.append("    termIteratorMaxMergedValueSize: ").append(toIndentedString(termIteratorMaxMergedValueSize)).append("\n");
+    sb.append("    termIteratorMergeOperandCount: ").append(toIndentedString(termIteratorMergeOperandCount))
+        .append("\n");
+    sb.append("    termIteratorMergeDurationSecs: ").append(toIndentedString(termIteratorMergeDurationSecs))
+        .append("\n");
+    sb.append("    termIteratorMaxMergedValueSize: ").append(toIndentedString(termIteratorMaxMergedValueSize))
+        .append("\n");
     sb.append("    disaggReadCount: ").append(toIndentedString(disaggReadCount)).append("\n");
     sb.append("    disaggReadBytes: ").append(toIndentedString(disaggReadBytes)).append("\n");
     sb.append("}");
@@ -545,4 +571,3 @@ public class OperatorStats {
   }
 
 }
-

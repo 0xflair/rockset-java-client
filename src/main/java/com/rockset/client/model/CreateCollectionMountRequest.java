@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateCollectionMountRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateCollectionMountRequest {
   @SerializedName("collection_paths")
   private List<String> collectionPaths = null;
@@ -49,13 +50,14 @@ public class CreateCollectionMountRequest {
     return this;
   }
 
-   /**
+  /**
    * Collections to mount.
+   * 
    * @return collectionPaths
-  **/
+   **/
 
-@JsonProperty("collection_paths")
-@ApiModelProperty(example = "\"[\\\"commons.foo\\\", \\\"commons.bar\\\"]\"", value = "Collections to mount.")
+  @JsonProperty("collection_paths")
+  @ApiModelProperty(example = "\"[\\\"commons.foo\\\", \\\"commons.bar\\\"]\"", value = "Collections to mount.")
   public List<String> getCollectionPaths() {
     return collectionPaths;
   }
@@ -63,7 +65,6 @@ public class CreateCollectionMountRequest {
   public void setCollectionPaths(List<String> collectionPaths) {
     this.collectionPaths = collectionPaths;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +83,11 @@ public class CreateCollectionMountRequest {
     return Objects.hash(collectionPaths);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCollectionMountRequest {\n");
-    
+
     sb.append("    collectionPaths: ").append(toIndentedString(collectionPaths)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -105,4 +105,3 @@ public class CreateCollectionMountRequest {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ValidateExpressionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class ValidateExpressionRequest {
   @SerializedName("sql_expression")
   private String sqlExpression = null;
@@ -39,13 +40,14 @@ public class ValidateExpressionRequest {
     return this;
   }
 
-   /**
+  /**
    * SQL expression to be validated
+   * 
    * @return sqlExpression
-  **/
+   **/
 
-@JsonProperty("sql_expression")
-@ApiModelProperty(example = "CAST(:field as int)", value = "SQL expression to be validated")
+  @JsonProperty("sql_expression")
+  @ApiModelProperty(example = "CAST(:field as int)", value = "SQL expression to be validated")
   public String getSqlExpression() {
     return sqlExpression;
   }
@@ -53,7 +55,6 @@ public class ValidateExpressionRequest {
   public void setSqlExpression(String sqlExpression) {
     this.sqlExpression = sqlExpression;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class ValidateExpressionRequest {
     return Objects.hash(sqlExpression);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateExpressionRequest {\n");
-    
+
     sb.append("    sqlExpression: ").append(toIndentedString(sqlExpression)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class ValidateExpressionRequest {
   }
 
 }
-

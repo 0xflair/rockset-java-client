@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Role
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Role {
   @SerializedName("created_at")
   private String createdAt = null;
@@ -57,13 +58,14 @@ public class Role {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of when the role was created.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when the role was created.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when the role was created.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -77,13 +79,14 @@ public class Role {
     return this;
   }
 
-   /**
+  /**
    * Email of the user who created the role.
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(example = "hello@rockset.com", value = "Email of the user who created the role.")
+  @JsonProperty("created_by")
+  @ApiModelProperty(example = "hello@rockset.com", value = "Email of the user who created the role.")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -97,13 +100,14 @@ public class Role {
     return this;
   }
 
-   /**
+  /**
    * Description for the role.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "Role with read and write privileges to all collections.", value = "Description for the role.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "Role with read and write privileges to all collections.", value = "Description for the role.")
   public String getDescription() {
     return description;
   }
@@ -117,13 +121,14 @@ public class Role {
     return this;
   }
 
-   /**
+  /**
    * Email of the user who currently owns the role.
+   * 
    * @return ownerEmail
-  **/
+   **/
 
-@JsonProperty("owner_email")
-@ApiModelProperty(example = "hello@rockset.com", value = "Email of the user who currently owns the role.")
+  @JsonProperty("owner_email")
+  @ApiModelProperty(example = "hello@rockset.com", value = "Email of the user who currently owns the role.")
   public String getOwnerEmail() {
     return ownerEmail;
   }
@@ -145,13 +150,14 @@ public class Role {
     return this;
   }
 
-   /**
+  /**
    * List of privileges associated with the role.
+   * 
    * @return privileges
-  **/
+   **/
 
-@JsonProperty("privileges")
-@ApiModelProperty(value = "List of privileges associated with the role.")
+  @JsonProperty("privileges")
+  @ApiModelProperty(value = "List of privileges associated with the role.")
   public List<Privilege> getPrivileges() {
     return privileges;
   }
@@ -165,13 +171,14 @@ public class Role {
     return this;
   }
 
-   /**
+  /**
    * Unique identifier for the role.
+   * 
    * @return roleName
-  **/
+   **/
 
-@JsonProperty("role_name")
-@ApiModelProperty(example = "read_write", value = "Unique identifier for the role.")
+  @JsonProperty("role_name")
+  @ApiModelProperty(example = "read_write", value = "Unique identifier for the role.")
   public String getRoleName() {
     return roleName;
   }
@@ -179,7 +186,6 @@ public class Role {
   public void setRoleName(String roleName) {
     this.roleName = roleName;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -203,12 +209,11 @@ public class Role {
     return Objects.hash(createdAt, createdBy, description, ownerEmail, privileges, roleName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Role {\n");
-    
+
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -231,4 +236,3 @@ public class Role {
   }
 
 }
-

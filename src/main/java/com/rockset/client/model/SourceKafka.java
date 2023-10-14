@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceKafka
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceKafka {
   @SerializedName("consumer_group_id")
   private String consumerGroupId = null;
@@ -44,7 +45,7 @@ public class SourceKafka {
   @JsonAdapter(OffsetResetPolicyEnum.Adapter.class)
   public enum OffsetResetPolicyEnum {
     LATEST("LATEST"),
-    
+
     EARLIEST("EARLIEST");
 
     private String value;
@@ -100,13 +101,14 @@ public class SourceKafka {
     return this;
   }
 
-   /**
+  /**
    * The Kafka consumer group Id being used.
+   * 
    * @return consumerGroupId
-  **/
+   **/
 
-@JsonProperty("consumer_group_id")
-@ApiModelProperty(example = "org-collection", value = "The Kafka consumer group Id being used.")
+  @JsonProperty("consumer_group_id")
+  @ApiModelProperty(example = "org-collection", value = "The Kafka consumer group Id being used.")
   public String getConsumerGroupId() {
     return consumerGroupId;
   }
@@ -120,13 +122,14 @@ public class SourceKafka {
     return this;
   }
 
-   /**
+  /**
    * The Kafka topic to be tailed.
+   * 
    * @return kafkaTopicName
-  **/
+   **/
 
-@JsonProperty("kafka_topic_name")
-@ApiModelProperty(example = "example-topic", value = "The Kafka topic to be tailed.")
+  @JsonProperty("kafka_topic_name")
+  @ApiModelProperty(example = "example-topic", value = "The Kafka topic to be tailed.")
   public String getKafkaTopicName() {
     return kafkaTopicName;
   }
@@ -140,13 +143,14 @@ public class SourceKafka {
     return this;
   }
 
-   /**
+  /**
    * The offset reset policy.
+   * 
    * @return offsetResetPolicy
-  **/
+   **/
 
-@JsonProperty("offset_reset_policy")
-@ApiModelProperty(example = "EARLIEST", value = "The offset reset policy.")
+  @JsonProperty("offset_reset_policy")
+  @ApiModelProperty(example = "EARLIEST", value = "The offset reset policy.")
   public OffsetResetPolicyEnum getOffsetResetPolicy() {
     return offsetResetPolicy;
   }
@@ -155,13 +159,14 @@ public class SourceKafka {
     this.offsetResetPolicy = offsetResetPolicy;
   }
 
-   /**
+  /**
    * Kafka source status.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(value = "Kafka source status.")
+  @JsonProperty("status")
+  @ApiModelProperty(value = "Kafka source status.")
   public StatusKafka getStatus() {
     return status;
   }
@@ -171,13 +176,14 @@ public class SourceKafka {
     return this;
   }
 
-   /**
+  /**
    * Whether to use v3 integration.
+   * 
    * @return useV3
-  **/
+   **/
 
-@JsonProperty("use_v3")
-@ApiModelProperty(value = "Whether to use v3 integration.")
+  @JsonProperty("use_v3")
+  @ApiModelProperty(value = "Whether to use v3 integration.")
   public Boolean isUseV3() {
     return useV3;
   }
@@ -185,7 +191,6 @@ public class SourceKafka {
   public void setUseV3(Boolean useV3) {
     this.useV3 = useV3;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -208,12 +213,11 @@ public class SourceKafka {
     return Objects.hash(consumerGroupId, kafkaTopicName, offsetResetPolicy, status, useV3);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceKafka {\n");
-    
+
     sb.append("    consumerGroupId: ").append(toIndentedString(consumerGroupId)).append("\n");
     sb.append("    kafkaTopicName: ").append(toIndentedString(kafkaTopicName)).append("\n");
     sb.append("    offsetResetPolicy: ").append(toIndentedString(offsetResetPolicy)).append("\n");
@@ -235,4 +239,3 @@ public class SourceKafka {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -21,7 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * FieldMapping
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-11-22T11:16:43.952-05:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-11-22T11:16:43.952-05:00")
 public class FieldMapping {
 
   @Override
@@ -40,12 +41,11 @@ public class FieldMapping {
     return Objects.hash();
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldMapping {\n");
-    
+
     sb.append("}");
     return sb.toString();
   }
@@ -62,4 +62,3 @@ public class FieldMapping {
   }
 
 }
-

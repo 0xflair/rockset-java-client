@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryLambdaVersionResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryLambdaVersionResponse {
   @SerializedName("data")
   private QueryLambdaVersion data = null;
@@ -40,13 +41,14 @@ public class QueryLambdaVersionResponse {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda version details.
+   * 
    * @return data
-  **/
+   **/
 
-@JsonProperty("data")
-@ApiModelProperty(value = "Query Lambda version details.")
+  @JsonProperty("data")
+  @ApiModelProperty(value = "Query Lambda version details.")
   public QueryLambdaVersion getData() {
     return data;
   }
@@ -54,7 +56,6 @@ public class QueryLambdaVersionResponse {
   public void setData(QueryLambdaVersion data) {
     this.data = data;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +74,11 @@ public class QueryLambdaVersionResponse {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryLambdaVersionResponse {\n");
-    
+
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -96,4 +96,3 @@ public class QueryLambdaVersionResponse {
   }
 
 }
-

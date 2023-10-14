@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** ExecuteSavedQueryParameter */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2020-01-24T17:41:10.748Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2020-01-24T17:41:10.748Z")
 public class ExecuteSavedQueryParameter {
   @SerializedName("name")
   private String name = null;
@@ -98,7 +98,8 @@ public class ExecuteSavedQueryParameter {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

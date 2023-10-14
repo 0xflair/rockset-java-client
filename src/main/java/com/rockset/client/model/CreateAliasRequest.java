@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateAliasRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateAliasRequest {
   @SerializedName("collections")
   private List<String> collections = new ArrayList<String>();
@@ -52,13 +53,14 @@ public class CreateAliasRequest {
     return this;
   }
 
-   /**
+  /**
    * List of fully qualified collection names referenced by alias.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(example = "\"[\\\"commons.foo\\\", \\\"prod.demo\\\"]\"", required = true, value = "List of fully qualified collection names referenced by alias.")
+  @JsonProperty("collections")
+  @ApiModelProperty(example = "\"[\\\"commons.foo\\\", \\\"prod.demo\\\"]\"", required = true, value = "List of fully qualified collection names referenced by alias.")
   public List<String> getCollections() {
     return collections;
   }
@@ -72,13 +74,14 @@ public class CreateAliasRequest {
     return this;
   }
 
-   /**
+  /**
    * Optional description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "version alias", value = "Optional description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "version alias", value = "Optional description.")
   public String getDescription() {
     return description;
   }
@@ -92,13 +95,14 @@ public class CreateAliasRequest {
     return this;
   }
 
-   /**
+  /**
    * Alias name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "aliasName", required = true, value = "Alias name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "aliasName", required = true, value = "Alias name.")
   public String getName() {
     return name;
   }
@@ -106,7 +110,6 @@ public class CreateAliasRequest {
   public void setName(String name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -127,12 +130,11 @@ public class CreateAliasRequest {
     return Objects.hash(collections, description, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAliasRequest {\n");
-    
+
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -152,4 +154,3 @@ public class CreateAliasRequest {
   }
 
 }
-

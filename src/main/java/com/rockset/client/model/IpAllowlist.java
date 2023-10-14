@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** IpAllowlist */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2021-02-26T17:46:04.637Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2021-02-26T17:46:04.637Z")
 public class IpAllowlist {
   @SerializedName("name")
   private String name = null;
@@ -108,10 +108,7 @@ public class IpAllowlist {
    * @return ipAddress
    */
   @JsonProperty("ip_address")
-  @ApiModelProperty(
-      example = "82.217.192.0/18",
-      required = true,
-      value = "individual IP address or range of IP addresses in CIDR notation")
+  @ApiModelProperty(example = "82.217.192.0/18", required = true, value = "individual IP address or range of IP addresses in CIDR notation")
   public String getIpAddress() {
     return ipAddress;
   }
@@ -176,7 +173,8 @@ public class IpAllowlist {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -33,7 +32,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ExecuteQueryLambdaRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class ExecuteQueryLambdaRequest {
   @SerializedName("async")
   private Boolean async = null;
@@ -70,13 +71,19 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
-   * If true, the query will run asynchronously for up to 30 minutes. The query request will immediately return with a query id that can be used to retrieve the query status and results. If false or not specified, the query will return with results once completed or timeout after 2 minutes. (To return results directly for shorter queries while still allowing a timeout of up to 30 minutes, set &#x60;async_options.client_timeout_ms&#x60;.) 
+  /**
+   * If true, the query will run asynchronously for up to 30 minutes. The query
+   * request will immediately return with a query id that can be used to retrieve
+   * the query status and results. If false or not specified, the query will
+   * return with results once completed or timeout after 2 minutes. (To return
+   * results directly for shorter queries while still allowing a timeout of up to
+   * 30 minutes, set &#x60;async_options.client_timeout_ms&#x60;.)
+   * 
    * @return async
-  **/
+   **/
 
-@JsonProperty("async")
-@ApiModelProperty(value = "If true, the query will run asynchronously for up to 30 minutes. The query request will immediately return with a query id that can be used to retrieve the query status and results. If false or not specified, the query will return with results once completed or timeout after 2 minutes. (To return results directly for shorter queries while still allowing a timeout of up to 30 minutes, set `async_options.client_timeout_ms`.) ")
+  @JsonProperty("async")
+  @ApiModelProperty(value = "If true, the query will run asynchronously for up to 30 minutes. The query request will immediately return with a query id that can be used to retrieve the query status and results. If false or not specified, the query will return with results once completed or timeout after 2 minutes. (To return results directly for shorter queries while still allowing a timeout of up to 30 minutes, set `async_options.client_timeout_ms`.) ")
   public Boolean isAsync() {
     return async;
   }
@@ -90,13 +97,14 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Options for configuring Asynchronous Query Mode.
+   * 
    * @return asyncOptions
-  **/
+   **/
 
-@JsonProperty("async_options")
-@ApiModelProperty(value = "Options for configuring Asynchronous Query Mode.")
+  @JsonProperty("async_options")
+  @ApiModelProperty(value = "Options for configuring Asynchronous Query Mode.")
   public AsyncQueryOptions getAsyncOptions() {
     return asyncOptions;
   }
@@ -110,13 +118,16 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
-   * If query execution takes longer than this value, debug information will be logged. If the query text includes the DEBUG hint and this parameter is also provided, only this value will be used and the DEBUG hint will be ignored.
+  /**
+   * If query execution takes longer than this value, debug information will be
+   * logged. If the query text includes the DEBUG hint and this parameter is also
+   * provided, only this value will be used and the DEBUG hint will be ignored.
+   * 
    * @return debugThresholdMs
-  **/
+   **/
 
-@JsonProperty("debug_threshold_ms")
-@ApiModelProperty(value = "If query execution takes longer than this value, debug information will be logged. If the query text includes the DEBUG hint and this parameter is also provided, only this value will be used and the DEBUG hint will be ignored.")
+  @JsonProperty("debug_threshold_ms")
+  @ApiModelProperty(value = "If query execution takes longer than this value, debug information will be logged. If the query text includes the DEBUG hint and this parameter is also provided, only this value will be used and the DEBUG hint will be ignored.")
   public Long getDebugThresholdMs() {
     return debugThresholdMs;
   }
@@ -130,13 +141,14 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Row limit to use if no limit specified in the SQL query text.
+   * 
    * @return defaultRowLimit
-  **/
+   **/
 
-@JsonProperty("default_row_limit")
-@ApiModelProperty(value = "Row limit to use if no limit specified in the SQL query text.")
+  @JsonProperty("default_row_limit")
+  @ApiModelProperty(value = "Row limit to use if no limit specified in the SQL query text.")
   public Integer getDefaultRowLimit() {
     return defaultRowLimit;
   }
@@ -150,13 +162,16 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
-   * [DEPRECATED] Use &#x60;max_initial_results&#x60; instead. Number of documents to return in addition to paginating for this query call. Only relevant if &#x60;paginate&#x60; flag is also set.
+  /**
+   * [DEPRECATED] Use &#x60;max_initial_results&#x60; instead. Number of documents
+   * to return in addition to paginating for this query call. Only relevant if
+   * &#x60;paginate&#x60; flag is also set.
+   * 
    * @return initialPaginateResponseDocCount
-  **/
+   **/
 
-@JsonProperty("initial_paginate_response_doc_count")
-@ApiModelProperty(value = "[DEPRECATED] Use `max_initial_results` instead. Number of documents to return in addition to paginating for this query call. Only relevant if `paginate` flag is also set.")
+  @JsonProperty("initial_paginate_response_doc_count")
+  @ApiModelProperty(value = "[DEPRECATED] Use `max_initial_results` instead. Number of documents to return in addition to paginating for this query call. Only relevant if `paginate` flag is also set.")
   public Integer getInitialPaginateResponseDocCount() {
     return initialPaginateResponseDocCount;
   }
@@ -170,13 +185,21 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
-   * This limits the maximum number of results in the initial response. A pagination cursor is returned if the number of results exceeds &#x60;max_initial_results&#x60;. If &#x60;max_initial_results&#x60; is not set, all results will be returned in the initial response up to 4 million. If &#x60;max_initial_results&#x60; is set, the value must be between 0 and 100,000. If the query is async and &#x60;client_timeout_ms&#x60; is exceeded, &#x60;max_initial_results&#x60; does not apply since none of the results will be returned with the initial response.
+  /**
+   * This limits the maximum number of results in the initial response. A
+   * pagination cursor is returned if the number of results exceeds
+   * &#x60;max_initial_results&#x60;. If &#x60;max_initial_results&#x60; is not
+   * set, all results will be returned in the initial response up to 4 million. If
+   * &#x60;max_initial_results&#x60; is set, the value must be between 0 and
+   * 100,000. If the query is async and &#x60;client_timeout_ms&#x60; is exceeded,
+   * &#x60;max_initial_results&#x60; does not apply since none of the results will
+   * be returned with the initial response.
+   * 
    * @return maxInitialResults
-  **/
+   **/
 
-@JsonProperty("max_initial_results")
-@ApiModelProperty(value = "This limits the maximum number of results in the initial response. A pagination cursor is returned if the number of results exceeds `max_initial_results`. If `max_initial_results` is not set, all results will be returned in the initial response up to 4 million. If `max_initial_results` is set, the value must be between 0 and 100,000. If the query is async and `client_timeout_ms` is exceeded, `max_initial_results` does not apply since none of the results will be returned with the initial response.")
+  @JsonProperty("max_initial_results")
+  @ApiModelProperty(value = "This limits the maximum number of results in the initial response. A pagination cursor is returned if the number of results exceeds `max_initial_results`. If `max_initial_results` is not set, all results will be returned in the initial response up to 4 million. If `max_initial_results` is set, the value must be between 0 and 100,000. If the query is async and `client_timeout_ms` is exceeded, `max_initial_results` does not apply since none of the results will be returned with the initial response.")
   public Long getMaxInitialResults() {
     return maxInitialResults;
   }
@@ -190,13 +213,15 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
-   * Flag to paginate and store the results of this query for later / sequential retrieval.
+  /**
+   * Flag to paginate and store the results of this query for later / sequential
+   * retrieval.
+   * 
    * @return paginate
-  **/
+   **/
 
-@JsonProperty("paginate")
-@ApiModelProperty(value = "Flag to paginate and store the results of this query for later / sequential retrieval.")
+  @JsonProperty("paginate")
+  @ApiModelProperty(value = "Flag to paginate and store the results of this query for later / sequential retrieval.")
   public Boolean isPaginate() {
     return paginate;
   }
@@ -218,13 +243,14 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * List of named parameters.
+   * 
    * @return parameters
-  **/
+   **/
 
-@JsonProperty("parameters")
-@ApiModelProperty(value = "List of named parameters.")
+  @JsonProperty("parameters")
+  @ApiModelProperty(value = "List of named parameters.")
   public List<QueryParameter> getParameters() {
     return parameters;
   }
@@ -238,13 +264,17 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
-   * If a query exceeds the specified timeout, the query will automatically stop and return an error. The query timeout defaults to a maximum of 2 minutes. If &#x60;async&#x60; is true, the query timeout defaults to a maximum of 30 minutes.
+  /**
+   * If a query exceeds the specified timeout, the query will automatically stop
+   * and return an error. The query timeout defaults to a maximum of 2 minutes. If
+   * &#x60;async&#x60; is true, the query timeout defaults to a maximum of 30
+   * minutes.
+   * 
    * @return timeoutMs
-  **/
+   **/
 
-@JsonProperty("timeout_ms")
-@ApiModelProperty(value = "If a query exceeds the specified timeout, the query will automatically stop and return an error. The query timeout defaults to a maximum of 2 minutes. If `async` is true, the query timeout defaults to a maximum of 30 minutes.")
+  @JsonProperty("timeout_ms")
+  @ApiModelProperty(value = "If a query exceeds the specified timeout, the query will automatically stop and return an error. The query timeout defaults to a maximum of 2 minutes. If `async` is true, the query timeout defaults to a maximum of 30 minutes.")
   public Long getTimeoutMs() {
     return timeoutMs;
   }
@@ -258,13 +288,14 @@ public class ExecuteQueryLambdaRequest {
     return this;
   }
 
-   /**
+  /**
    * Virtual instance on which to run the query.
+   * 
    * @return virtualInstanceId
-  **/
+   **/
 
-@JsonProperty("virtual_instance_id")
-@ApiModelProperty(value = "Virtual instance on which to run the query.")
+  @JsonProperty("virtual_instance_id")
+  @ApiModelProperty(value = "Virtual instance on which to run the query.")
   public String getVirtualInstanceId() {
     return virtualInstanceId;
   }
@@ -272,7 +303,6 @@ public class ExecuteQueryLambdaRequest {
   public void setVirtualInstanceId(String virtualInstanceId) {
     this.virtualInstanceId = virtualInstanceId;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -287,7 +317,8 @@ public class ExecuteQueryLambdaRequest {
         Objects.equals(this.asyncOptions, executeQueryLambdaRequest.asyncOptions) &&
         Objects.equals(this.debugThresholdMs, executeQueryLambdaRequest.debugThresholdMs) &&
         Objects.equals(this.defaultRowLimit, executeQueryLambdaRequest.defaultRowLimit) &&
-        Objects.equals(this.initialPaginateResponseDocCount, executeQueryLambdaRequest.initialPaginateResponseDocCount) &&
+        Objects.equals(this.initialPaginateResponseDocCount, executeQueryLambdaRequest.initialPaginateResponseDocCount)
+        &&
         Objects.equals(this.maxInitialResults, executeQueryLambdaRequest.maxInitialResults) &&
         Objects.equals(this.paginate, executeQueryLambdaRequest.paginate) &&
         Objects.equals(this.parameters, executeQueryLambdaRequest.parameters) &&
@@ -297,20 +328,21 @@ public class ExecuteQueryLambdaRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(async, asyncOptions, debugThresholdMs, defaultRowLimit, initialPaginateResponseDocCount, maxInitialResults, paginate, parameters, timeoutMs, virtualInstanceId);
+    return Objects.hash(async, asyncOptions, debugThresholdMs, defaultRowLimit, initialPaginateResponseDocCount,
+        maxInitialResults, paginate, parameters, timeoutMs, virtualInstanceId);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecuteQueryLambdaRequest {\n");
-    
+
     sb.append("    async: ").append(toIndentedString(async)).append("\n");
     sb.append("    asyncOptions: ").append(toIndentedString(asyncOptions)).append("\n");
     sb.append("    debugThresholdMs: ").append(toIndentedString(debugThresholdMs)).append("\n");
     sb.append("    defaultRowLimit: ").append(toIndentedString(defaultRowLimit)).append("\n");
-    sb.append("    initialPaginateResponseDocCount: ").append(toIndentedString(initialPaginateResponseDocCount)).append("\n");
+    sb.append("    initialPaginateResponseDocCount: ").append(toIndentedString(initialPaginateResponseDocCount))
+        .append("\n");
     sb.append("    maxInitialResults: ").append(toIndentedString(maxInitialResults)).append("\n");
     sb.append("    paginate: ").append(toIndentedString(paginate)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
@@ -332,4 +364,3 @@ public class ExecuteQueryLambdaRequest {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceAzureBlobStorage
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceAzureBlobStorage {
   @SerializedName("blob_bytes_total")
   private Long blobBytesTotal = null;
@@ -53,35 +54,38 @@ public class SourceAzureBlobStorage {
   @SerializedName("settings")
   private SourceAzBlobStorageSettings settings = null;
 
-   /**
+  /**
    * Get blobBytesTotal
+   * 
    * @return blobBytesTotal
-  **/
+   **/
 
-@JsonProperty("blob_bytes_total")
-@ApiModelProperty(value = "")
+  @JsonProperty("blob_bytes_total")
+  @ApiModelProperty(value = "")
   public Long getBlobBytesTotal() {
     return blobBytesTotal;
   }
 
-   /**
+  /**
    * Get blobCountDownloaded
+   * 
    * @return blobCountDownloaded
-  **/
+   **/
 
-@JsonProperty("blob_count_downloaded")
-@ApiModelProperty(value = "")
+  @JsonProperty("blob_count_downloaded")
+  @ApiModelProperty(value = "")
   public Long getBlobCountDownloaded() {
     return blobCountDownloaded;
   }
 
-   /**
+  /**
    * Get blobCountTotal
+   * 
    * @return blobCountTotal
-  **/
+   **/
 
-@JsonProperty("blob_count_total")
-@ApiModelProperty(value = "")
+  @JsonProperty("blob_count_total")
+  @ApiModelProperty(value = "")
   public Long getBlobCountTotal() {
     return blobCountTotal;
   }
@@ -91,13 +95,14 @@ public class SourceAzureBlobStorage {
     return this;
   }
 
-   /**
+  /**
    * Name of Azure blob Storage container you want to ingest from.
+   * 
    * @return container
-  **/
+   **/
 
-@JsonProperty("container")
-@ApiModelProperty(example = "server-logs", value = "Name of Azure blob Storage container you want to ingest from.")
+  @JsonProperty("container")
+  @ApiModelProperty(example = "server-logs", value = "Name of Azure blob Storage container you want to ingest from.")
   public String getContainer() {
     return container;
   }
@@ -111,13 +116,15 @@ public class SourceAzureBlobStorage {
     return this;
   }
 
-   /**
-   * Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.
+  /**
+   * Glob-style pattern that selects keys to ingest. Only either prefix or pattern
+   * can be specified.
+   * 
    * @return pattern
-  **/
+   **/
 
-@JsonProperty("pattern")
-@ApiModelProperty(example = "prefix/to/_**_/keys/_*.format", value = "Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.")
+  @JsonProperty("pattern")
+  @ApiModelProperty(example = "prefix/to/_**_/keys/_*.format", value = "Glob-style pattern that selects keys to ingest. Only either prefix or pattern can be specified.")
   public String getPattern() {
     return pattern;
   }
@@ -131,13 +138,14 @@ public class SourceAzureBlobStorage {
     return this;
   }
 
-   /**
+  /**
    * Prefix that selects blobs to ingest.
+   * 
    * @return prefix
-  **/
+   **/
 
-@JsonProperty("prefix")
-@ApiModelProperty(example = "prefix/to/blobs", value = "Prefix that selects blobs to ingest.")
+  @JsonProperty("prefix")
+  @ApiModelProperty(example = "prefix/to/blobs", value = "Prefix that selects blobs to ingest.")
   public String getPrefix() {
     return prefix;
   }
@@ -151,13 +159,14 @@ public class SourceAzureBlobStorage {
     return this;
   }
 
-   /**
+  /**
    * custom settings for Azure blob Storage source
+   * 
    * @return settings
-  **/
+   **/
 
-@JsonProperty("settings")
-@ApiModelProperty(value = "custom settings for Azure blob Storage source")
+  @JsonProperty("settings")
+  @ApiModelProperty(value = "custom settings for Azure blob Storage source")
   public SourceAzBlobStorageSettings getSettings() {
     return settings;
   }
@@ -165,7 +174,6 @@ public class SourceAzureBlobStorage {
   public void setSettings(SourceAzBlobStorageSettings settings) {
     this.settings = settings;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -190,12 +198,11 @@ public class SourceAzureBlobStorage {
     return Objects.hash(blobBytesTotal, blobCountDownloaded, blobCountTotal, container, pattern, prefix, settings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceAzureBlobStorage {\n");
-    
+
     sb.append("    blobBytesTotal: ").append(toIndentedString(blobBytesTotal)).append("\n");
     sb.append("    blobCountDownloaded: ").append(toIndentedString(blobCountDownloaded)).append("\n");
     sb.append("    blobCountTotal: ").append(toIndentedString(blobCountTotal)).append("\n");
@@ -219,4 +226,3 @@ public class SourceAzureBlobStorage {
   }
 
 }
-

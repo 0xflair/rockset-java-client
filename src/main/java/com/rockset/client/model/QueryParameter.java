@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryParameter
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryParameter {
   @SerializedName("name")
   private String name = null;
@@ -45,13 +46,14 @@ public class QueryParameter {
     return this;
   }
 
-   /**
+  /**
    * Name of the field.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "_id", required = true, value = "Name of the field.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "_id", required = true, value = "Name of the field.")
   public String getName() {
     return name;
   }
@@ -65,13 +67,14 @@ public class QueryParameter {
     return this;
   }
 
-   /**
+  /**
    * Deprecated. Data type of the field.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "string", required = true, value = "Deprecated. Data type of the field.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "string", required = true, value = "Deprecated. Data type of the field.")
   public String getType() {
     return type;
   }
@@ -85,13 +88,14 @@ public class QueryParameter {
     return this;
   }
 
-   /**
+  /**
    * Literal value of the field.
+   * 
    * @return value
-  **/
+   **/
 
-@JsonProperty("value")
-@ApiModelProperty(example = "85beb391", required = true, value = "Literal value of the field.")
+  @JsonProperty("value")
+  @ApiModelProperty(example = "85beb391", required = true, value = "Literal value of the field.")
   public String getValue() {
     return value;
   }
@@ -99,7 +103,6 @@ public class QueryParameter {
   public void setValue(String value) {
     this.value = value;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class QueryParameter {
     return Objects.hash(name, type, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryParameter {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
@@ -145,4 +147,3 @@ public class QueryParameter {
   }
 
 }
-

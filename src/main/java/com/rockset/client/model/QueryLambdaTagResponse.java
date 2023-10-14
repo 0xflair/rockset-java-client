@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryLambdaTagResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryLambdaTagResponse {
   @SerializedName("data")
   private QueryLambdaTag data = null;
@@ -40,13 +41,14 @@ public class QueryLambdaTagResponse {
     return this;
   }
 
-   /**
+  /**
    * Updated Query Lambda tag.
+   * 
    * @return data
-  **/
+   **/
 
-@JsonProperty("data")
-@ApiModelProperty(value = "Updated Query Lambda tag.")
+  @JsonProperty("data")
+  @ApiModelProperty(value = "Updated Query Lambda tag.")
   public QueryLambdaTag getData() {
     return data;
   }
@@ -54,7 +56,6 @@ public class QueryLambdaTagResponse {
   public void setData(QueryLambdaTag data) {
     this.data = data;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +74,11 @@ public class QueryLambdaTagResponse {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryLambdaTagResponse {\n");
-    
+
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -96,4 +96,3 @@ public class QueryLambdaTagResponse {
   }
 
 }
-

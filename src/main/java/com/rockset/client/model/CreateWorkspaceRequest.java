@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateWorkspaceRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateWorkspaceRequest {
   @SerializedName("description")
   private String description = null;
@@ -42,13 +43,14 @@ public class CreateWorkspaceRequest {
     return this;
   }
 
-   /**
+  /**
    * Longer explanation for the workspace.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "Datasets of system logs for the ops team.", value = "Longer explanation for the workspace.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "Datasets of system logs for the ops team.", value = "Longer explanation for the workspace.")
   public String getDescription() {
     return description;
   }
@@ -62,13 +64,14 @@ public class CreateWorkspaceRequest {
     return this;
   }
 
-   /**
+  /**
    * Descriptive label and unique identifier.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "event_logs", required = true, value = "Descriptive label and unique identifier.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "event_logs", required = true, value = "Descriptive label and unique identifier.")
   public String getName() {
     return name;
   }
@@ -76,7 +79,6 @@ public class CreateWorkspaceRequest {
   public void setName(String name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class CreateWorkspaceRequest {
     return Objects.hash(description, name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWorkspaceRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class CreateWorkspaceRequest {
   }
 
 }
-

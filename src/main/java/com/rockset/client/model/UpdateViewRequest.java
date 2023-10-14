@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * UpdateViewRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UpdateViewRequest {
   @SerializedName("description")
   private String description = null;
@@ -42,13 +43,14 @@ public class UpdateViewRequest {
     return this;
   }
 
-   /**
+  /**
    * Optional description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "view of awesome collection", value = "Optional description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "view of awesome collection", value = "Optional description.")
   public String getDescription() {
     return description;
   }
@@ -62,13 +64,14 @@ public class UpdateViewRequest {
     return this;
   }
 
-   /**
+  /**
    * SQL for this view.
+   * 
    * @return query
-  **/
+   **/
 
-@JsonProperty("query")
-@ApiModelProperty(example = "SELECT * FROM foo", required = true, value = "SQL for this view.")
+  @JsonProperty("query")
+  @ApiModelProperty(example = "SELECT * FROM foo", required = true, value = "SQL for this view.")
   public String getQuery() {
     return query;
   }
@@ -76,7 +79,6 @@ public class UpdateViewRequest {
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class UpdateViewRequest {
     return Objects.hash(description, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateViewRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class UpdateViewRequest {
   }
 
 }
-

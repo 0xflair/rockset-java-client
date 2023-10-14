@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -34,7 +33,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryInfo {
   @SerializedName("executed_by")
   private String executedBy = null;
@@ -66,13 +67,13 @@ public class QueryInfo {
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     QUEUED("QUEUED"),
-    
+
     RUNNING("RUNNING"),
-    
+
     COMPLETED("COMPLETED"),
-    
+
     ERROR("ERROR"),
-    
+
     CANCELLED("CANCELLED");
 
     private String value;
@@ -125,13 +126,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * User ID who executed the query.
+   * 
    * @return executedBy
-  **/
+   **/
 
-@JsonProperty("executed_by")
-@ApiModelProperty(example = "xyz@rockset.com", value = "User ID who executed the query.")
+  @JsonProperty("executed_by")
+  @ApiModelProperty(example = "xyz@rockset.com", value = "User ID who executed the query.")
   public String getExecutedBy() {
     return executedBy;
   }
@@ -145,13 +147,15 @@ public class QueryInfo {
     return this;
   }
 
-   /**
-   * Time (UTC) that query results expire. Only populated if &#x60;status&#x60; is &#x60;COMPLETE&#x60;.
+  /**
+   * Time (UTC) that query results expire. Only populated if &#x60;status&#x60; is
+   * &#x60;COMPLETE&#x60;.
+   * 
    * @return expiresAt
-  **/
+   **/
 
-@JsonProperty("expires_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time (UTC) that query results expire. Only populated if `status` is `COMPLETE`.")
+  @JsonProperty("expires_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time (UTC) that query results expire. Only populated if `status` is `COMPLETE`.")
   public String getExpiresAt() {
     return expiresAt;
   }
@@ -165,13 +169,15 @@ public class QueryInfo {
     return this;
   }
 
-   /**
-   * The log offset that query results were written to in the destination collection. Only populated for INSERT INTO queries.
+  /**
+   * The log offset that query results were written to in the destination
+   * collection. Only populated for INSERT INTO queries.
+   * 
    * @return lastOffset
-  **/
+   **/
 
-@JsonProperty("last_offset")
-@ApiModelProperty(value = "The log offset that query results were written to in the destination collection. Only populated for INSERT INTO queries.")
+  @JsonProperty("last_offset")
+  @ApiModelProperty(value = "The log offset that query results were written to in the destination collection. Only populated for INSERT INTO queries.")
   public String getLastOffset() {
     return lastOffset;
   }
@@ -185,13 +191,15 @@ public class QueryInfo {
     return this;
   }
 
-   /**
-   * Information for fetching query results pages. Only populated if &#x60;status&#x60; is &#x60;COMPLETE&#x60;.
+  /**
+   * Information for fetching query results pages. Only populated if
+   * &#x60;status&#x60; is &#x60;COMPLETE&#x60;.
+   * 
    * @return pagination
-  **/
+   **/
 
-@JsonProperty("pagination")
-@ApiModelProperty(value = "Information for fetching query results pages. Only populated if `status` is `COMPLETE`.")
+  @JsonProperty("pagination")
+  @ApiModelProperty(value = "Information for fetching query results pages. Only populated if `status` is `COMPLETE`.")
   public Pagination getPagination() {
     return pagination;
   }
@@ -213,13 +221,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * Errors encountered while executing the query.
+   * 
    * @return queryErrors
-  **/
+   **/
 
-@JsonProperty("query_errors")
-@ApiModelProperty(value = "Errors encountered while executing the query.")
+  @JsonProperty("query_errors")
+  @ApiModelProperty(value = "Errors encountered while executing the query.")
   public List<QueryError> getQueryErrors() {
     return queryErrors;
   }
@@ -233,13 +242,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * Unique Query ID.
+   * 
    * @return queryId
-  **/
+   **/
 
-@JsonProperty("query_id")
-@ApiModelProperty(example = "5b596206-c632-4a08-8343-0c560f7ef7f1", value = "Unique Query ID.")
+  @JsonProperty("query_id")
+  @ApiModelProperty(example = "5b596206-c632-4a08-8343-0c560f7ef7f1", value = "Unique Query ID.")
   public String getQueryId() {
     return queryId;
   }
@@ -253,13 +263,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * The SQL query for this request
+   * 
    * @return sql
-  **/
+   **/
 
-@JsonProperty("sql")
-@ApiModelProperty(value = "The SQL query for this request")
+  @JsonProperty("sql")
+  @ApiModelProperty(value = "The SQL query for this request")
   public String getSql() {
     return sql;
   }
@@ -273,13 +284,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * Various stats about the query&#39;s execution.
+   * 
    * @return stats
-  **/
+   **/
 
-@JsonProperty("stats")
-@ApiModelProperty(value = "Various stats about the query's execution.")
+  @JsonProperty("stats")
+  @ApiModelProperty(value = "Various stats about the query's execution.")
   public Stats getStats() {
     return stats;
   }
@@ -293,13 +305,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * Status of the query.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(example = "RUNNING", value = "Status of the query.")
+  @JsonProperty("status")
+  @ApiModelProperty(example = "RUNNING", value = "Status of the query.")
   public StatusEnum getStatus() {
     return status;
   }
@@ -313,13 +326,14 @@ public class QueryInfo {
     return this;
   }
 
-   /**
+  /**
    * Time (UTC) the query request was first received and queued for execution.
+   * 
    * @return submittedAt
-  **/
+   **/
 
-@JsonProperty("submitted_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time (UTC) the query request was first received and queued for execution.")
+  @JsonProperty("submitted_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time (UTC) the query request was first received and queued for execution.")
   public String getSubmittedAt() {
     return submittedAt;
   }
@@ -327,7 +341,6 @@ public class QueryInfo {
   public void setSubmittedAt(String submittedAt) {
     this.submittedAt = submittedAt;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -352,15 +365,15 @@ public class QueryInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(executedBy, expiresAt, lastOffset, pagination, queryErrors, queryId, sql, stats, status, submittedAt);
+    return Objects.hash(executedBy, expiresAt, lastOffset, pagination, queryErrors, queryId, sql, stats, status,
+        submittedAt);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryInfo {\n");
-    
+
     sb.append("    executedBy: ").append(toIndentedString(executedBy)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
@@ -387,4 +400,3 @@ public class QueryInfo {
   }
 
 }
-

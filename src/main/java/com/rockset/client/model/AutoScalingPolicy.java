@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,38 +28,42 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * AutoScalingPolicy
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class AutoScalingPolicy {
   @SerializedName("enabled")
   private Boolean enabled = null;
 
   /**
-   * Maximum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes greater than or same as the min_size and lower than or same as the current size.
+   * Maximum size Rockset can auto scale the Virtual Instance to. This value
+   * should be one of the dedicated sizes greater than or same as the min_size and
+   * lower than or same as the current size.
    */
   @JsonAdapter(MaxSizeEnum.Adapter.class)
   public enum MaxSizeEnum {
     FREE("FREE"),
-    
+
     NANO("NANO"),
-    
+
     SHARED("SHARED"),
-    
+
     MILLI("MILLI"),
-    
+
     SMALL("SMALL"),
-    
+
     MEDIUM("MEDIUM"),
-    
+
     LARGE("LARGE"),
-    
+
     XLARGE("XLARGE"),
-    
+
     XLARGE2("XLARGE2"),
-    
+
     XLARGE4("XLARGE4"),
-    
+
     XLARGE8("XLARGE8"),
-    
+
     XLARGE16("XLARGE16");
 
     private String value;
@@ -106,32 +109,34 @@ public class AutoScalingPolicy {
   private MaxSizeEnum maxSize = null;
 
   /**
-   * Minimum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes lower than or same as the max_size and greater than or same as the current size.
+   * Minimum size Rockset can auto scale the Virtual Instance to. This value
+   * should be one of the dedicated sizes lower than or same as the max_size and
+   * greater than or same as the current size.
    */
   @JsonAdapter(MinSizeEnum.Adapter.class)
   public enum MinSizeEnum {
     FREE("FREE"),
-    
+
     NANO("NANO"),
-    
+
     SHARED("SHARED"),
-    
+
     MILLI("MILLI"),
-    
+
     SMALL("SMALL"),
-    
+
     MEDIUM("MEDIUM"),
-    
+
     LARGE("LARGE"),
-    
+
     XLARGE("XLARGE"),
-    
+
     XLARGE2("XLARGE2"),
-    
+
     XLARGE4("XLARGE4"),
-    
+
     XLARGE8("XLARGE8"),
-    
+
     XLARGE16("XLARGE16");
 
     private String value;
@@ -181,13 +186,14 @@ public class AutoScalingPolicy {
     return this;
   }
 
-   /**
+  /**
    * Whether auto scaling policy is enabled.
+   * 
    * @return enabled
-  **/
+   **/
 
-@JsonProperty("enabled")
-@ApiModelProperty(example = "true", value = "Whether auto scaling policy is enabled.")
+  @JsonProperty("enabled")
+  @ApiModelProperty(example = "true", value = "Whether auto scaling policy is enabled.")
   public Boolean isEnabled() {
     return enabled;
   }
@@ -201,13 +207,16 @@ public class AutoScalingPolicy {
     return this;
   }
 
-   /**
-   * Maximum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes greater than or same as the min_size and lower than or same as the current size.
+  /**
+   * Maximum size Rockset can auto scale the Virtual Instance to. This value
+   * should be one of the dedicated sizes greater than or same as the min_size and
+   * lower than or same as the current size.
+   * 
    * @return maxSize
-  **/
+   **/
 
-@JsonProperty("max_size")
-@ApiModelProperty(example = "XLARGE2", value = "Maximum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes greater than or same as the min_size and lower than or same as the current size.")
+  @JsonProperty("max_size")
+  @ApiModelProperty(example = "XLARGE2", value = "Maximum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes greater than or same as the min_size and lower than or same as the current size.")
   public MaxSizeEnum getMaxSize() {
     return maxSize;
   }
@@ -221,13 +230,16 @@ public class AutoScalingPolicy {
     return this;
   }
 
-   /**
-   * Minimum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes lower than or same as the max_size and greater than or same as the current size.
+  /**
+   * Minimum size Rockset can auto scale the Virtual Instance to. This value
+   * should be one of the dedicated sizes lower than or same as the max_size and
+   * greater than or same as the current size.
+   * 
    * @return minSize
-  **/
+   **/
 
-@JsonProperty("min_size")
-@ApiModelProperty(example = "LARGE", value = "Minimum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes lower than or same as the max_size and greater than or same as the current size.")
+  @JsonProperty("min_size")
+  @ApiModelProperty(example = "LARGE", value = "Minimum size Rockset can auto scale the Virtual Instance to. This value should be one of the dedicated sizes lower than or same as the max_size and greater than or same as the current size.")
   public MinSizeEnum getMinSize() {
     return minSize;
   }
@@ -235,7 +247,6 @@ public class AutoScalingPolicy {
   public void setMinSize(MinSizeEnum minSize) {
     this.minSize = minSize;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -256,12 +267,11 @@ public class AutoScalingPolicy {
     return Objects.hash(enabled, maxSize, minSize);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoScalingPolicy {\n");
-    
+
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    maxSize: ").append(toIndentedString(maxSize)).append("\n");
     sb.append("    minSize: ").append(toIndentedString(minSize)).append("\n");
@@ -281,4 +291,3 @@ public class AutoScalingPolicy {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Pagination
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Pagination {
   @SerializedName("start_cursor")
   private String startCursor = null;
@@ -39,13 +40,14 @@ public class Pagination {
     return this;
   }
 
-   /**
+  /**
    * Use this cursor to fetch the first page of results for this query.
+   * 
    * @return startCursor
-  **/
+   **/
 
-@JsonProperty("start_cursor")
-@ApiModelProperty(example = "vZNDIBi_E_cIwjo8ZbFl7XcxXxd4VfwjB7Q5CF6tplw0RqNgyG7q4sPuHUTBhYnrg", value = "Use this cursor to fetch the first page of results for this query.")
+  @JsonProperty("start_cursor")
+  @ApiModelProperty(example = "vZNDIBi_E_cIwjo8ZbFl7XcxXxd4VfwjB7Q5CF6tplw0RqNgyG7q4sPuHUTBhYnrg", value = "Use this cursor to fetch the first page of results for this query.")
   public String getStartCursor() {
     return startCursor;
   }
@@ -53,7 +55,6 @@ public class Pagination {
   public void setStartCursor(String startCursor) {
     this.startCursor = startCursor;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class Pagination {
     return Objects.hash(startCursor);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pagination {\n");
-    
+
     sb.append("    startCursor: ").append(toIndentedString(startCursor)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class Pagination {
   }
 
 }
-

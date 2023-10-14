@@ -10,10 +10,9 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

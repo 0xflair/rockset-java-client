@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -33,7 +32,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * FieldMappingV2
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class FieldMappingV2 {
   @SerializedName("input_fields")
   private List<InputField> inputFields = null;
@@ -60,13 +61,14 @@ public class FieldMappingV2 {
     return this;
   }
 
-   /**
+  /**
    * A List of InputField for this mapping.
+   * 
    * @return inputFields
-  **/
+   **/
 
-@JsonProperty("input_fields")
-@ApiModelProperty(value = "A List of InputField for this mapping.")
+  @JsonProperty("input_fields")
+  @ApiModelProperty(value = "A List of InputField for this mapping.")
   public List<InputField> getInputFields() {
     return inputFields;
   }
@@ -80,13 +82,15 @@ public class FieldMappingV2 {
     return this;
   }
 
-   /**
-   * A boolean that determines whether to drop all fields in this document. If set, input and output fields should not be set
+  /**
+   * A boolean that determines whether to drop all fields in this document. If
+   * set, input and output fields should not be set
+   * 
    * @return isDropAllFields
-  **/
+   **/
 
-@JsonProperty("is_drop_all_fields")
-@ApiModelProperty(example = "true", value = "A boolean that determines whether to drop all fields in this document. If set, input and output fields should not be set")
+  @JsonProperty("is_drop_all_fields")
+  @ApiModelProperty(example = "true", value = "A boolean that determines whether to drop all fields in this document. If set, input and output fields should not be set")
   public Boolean isIsDropAllFields() {
     return isDropAllFields;
   }
@@ -100,13 +104,14 @@ public class FieldMappingV2 {
     return this;
   }
 
-   /**
+  /**
    * A user specified string that is a name for this mapping.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "myTestMapping", value = "A user specified string that is a name for this mapping.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "myTestMapping", value = "A user specified string that is a name for this mapping.")
   public String getName() {
     return name;
   }
@@ -120,13 +125,14 @@ public class FieldMappingV2 {
     return this;
   }
 
-   /**
+  /**
    * An OutputField for this mapping.
+   * 
    * @return outputField
-  **/
+   **/
 
-@JsonProperty("output_field")
-@ApiModelProperty(value = "An OutputField for this mapping.")
+  @JsonProperty("output_field")
+  @ApiModelProperty(value = "An OutputField for this mapping.")
   public OutputField getOutputField() {
     return outputField;
   }
@@ -134,7 +140,6 @@ public class FieldMappingV2 {
   public void setOutputField(OutputField outputField) {
     this.outputField = outputField;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,12 +161,11 @@ public class FieldMappingV2 {
     return Objects.hash(inputFields, isDropAllFields, name, outputField);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldMappingV2 {\n");
-    
+
     sb.append("    inputFields: ").append(toIndentedString(inputFields)).append("\n");
     sb.append("    isDropAllFields: ").append(toIndentedString(isDropAllFields)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -182,4 +186,3 @@ public class FieldMappingV2 {
   }
 
 }
-

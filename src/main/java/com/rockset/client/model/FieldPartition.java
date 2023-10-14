@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * FieldPartition
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class FieldPartition {
   @SerializedName("field_name")
   private String fieldName = null;
@@ -93,13 +94,14 @@ public class FieldPartition {
     return this;
   }
 
-   /**
+  /**
    * The name of a field, parsed as a SQL qualified name.
+   * 
    * @return fieldName
-  **/
+   **/
 
-@JsonProperty("field_name")
-@ApiModelProperty(example = "address.city.zipcode", value = "The name of a field, parsed as a SQL qualified name.")
+  @JsonProperty("field_name")
+  @ApiModelProperty(example = "address.city.zipcode", value = "The name of a field, parsed as a SQL qualified name.")
   public String getFieldName() {
     return fieldName;
   }
@@ -121,13 +123,15 @@ public class FieldPartition {
     return this;
   }
 
-   /**
-   * The values for partitioning of a field. Unneeded if the partition type is AUTO.
+  /**
+   * The values for partitioning of a field. Unneeded if the partition type is
+   * AUTO.
+   * 
    * @return keys
-  **/
+   **/
 
-@JsonProperty("keys")
-@ApiModelProperty(example = "\"[\\\"value1\\\", \\\"value2\\\"]\"", value = "The values for partitioning of a field. Unneeded if the partition type is AUTO.")
+  @JsonProperty("keys")
+  @ApiModelProperty(example = "\"[\\\"value1\\\", \\\"value2\\\"]\"", value = "The values for partitioning of a field. Unneeded if the partition type is AUTO.")
   public List<String> getKeys() {
     return keys;
   }
@@ -141,13 +145,14 @@ public class FieldPartition {
     return this;
   }
 
-   /**
+  /**
    * The type of partitions on a field.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "AUTO", value = "The type of partitions on a field.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "AUTO", value = "The type of partitions on a field.")
   public TypeEnum getType() {
     return type;
   }
@@ -155,7 +160,6 @@ public class FieldPartition {
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -176,12 +180,11 @@ public class FieldPartition {
     return Objects.hash(fieldName, keys, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FieldPartition {\n");
-    
+
     sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
     sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -201,4 +204,3 @@ public class FieldPartition {
   }
 
 }
-

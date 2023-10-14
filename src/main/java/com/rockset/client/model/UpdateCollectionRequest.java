@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * UpdateCollectionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UpdateCollectionRequest {
   @SerializedName("description")
   private String description = null;
@@ -43,13 +44,14 @@ public class UpdateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * Updated text describing the collection.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "transactions from stores worldwide", value = "Updated text describing the collection.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "transactions from stores worldwide", value = "Updated text describing the collection.")
   public String getDescription() {
     return description;
   }
@@ -63,13 +65,15 @@ public class UpdateCollectionRequest {
     return this;
   }
 
-   /**
-   * Updated ingest transformation query. Note that updating the transformation will lead to a brief interruption in ingestion.
+  /**
+   * Updated ingest transformation query. Note that updating the transformation
+   * will lead to a brief interruption in ingestion.
+   * 
    * @return fieldMappingQuery
-  **/
+   **/
 
-@JsonProperty("field_mapping_query")
-@ApiModelProperty(value = "Updated ingest transformation query. Note that updating the transformation will lead to a brief interruption in ingestion.")
+  @JsonProperty("field_mapping_query")
+  @ApiModelProperty(value = "Updated ingest transformation query. Note that updating the transformation will lead to a brief interruption in ingestion.")
   public FieldMappingQuery getFieldMappingQuery() {
     return fieldMappingQuery;
   }
@@ -77,7 +81,6 @@ public class UpdateCollectionRequest {
   public void setFieldMappingQuery(FieldMappingQuery fieldMappingQuery) {
     this.fieldMappingQuery = fieldMappingQuery;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,12 +100,11 @@ public class UpdateCollectionRequest {
     return Objects.hash(description, fieldMappingQuery);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateCollectionRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fieldMappingQuery: ").append(toIndentedString(fieldMappingQuery)).append("\n");
     sb.append("}");
@@ -121,4 +123,3 @@ public class UpdateCollectionRequest {
   }
 
 }
-

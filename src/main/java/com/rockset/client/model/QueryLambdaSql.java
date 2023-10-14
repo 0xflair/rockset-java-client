@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryLambdaSql
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryLambdaSql {
   @SerializedName("default_parameters")
   private List<QueryParameter> defaultParameters = null;
@@ -53,13 +54,14 @@ public class QueryLambdaSql {
     return this;
   }
 
-   /**
+  /**
    * Default parameters for this Query Lambda.
+   * 
    * @return defaultParameters
-  **/
+   **/
 
-@JsonProperty("default_parameters")
-@ApiModelProperty(value = "Default parameters for this Query Lambda.")
+  @JsonProperty("default_parameters")
+  @ApiModelProperty(value = "Default parameters for this Query Lambda.")
   public List<QueryParameter> getDefaultParameters() {
     return defaultParameters;
   }
@@ -73,13 +75,14 @@ public class QueryLambdaSql {
     return this;
   }
 
-   /**
+  /**
    * SQL text.
+   * 
    * @return query
-  **/
+   **/
 
-@JsonProperty("query")
-@ApiModelProperty(example = "SELECT 'Foo'", required = true, value = "SQL text.")
+  @JsonProperty("query")
+  @ApiModelProperty(example = "SELECT 'Foo'", required = true, value = "SQL text.")
   public String getQuery() {
     return query;
   }
@@ -87,7 +90,6 @@ public class QueryLambdaSql {
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +109,11 @@ public class QueryLambdaSql {
     return Objects.hash(defaultParameters, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryLambdaSql {\n");
-    
+
     sb.append("    defaultParameters: ").append(toIndentedString(defaultParameters)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
@@ -131,4 +132,3 @@ public class QueryLambdaSql {
   }
 
 }
-

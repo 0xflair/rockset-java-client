@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusMongoDb
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusMongoDb {
   @SerializedName("scan_end_time")
   private String scanEndTime = null;
@@ -49,9 +50,9 @@ public class StatusMongoDb {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     INITIALIZING("INITIALIZING"),
-    
+
     SCANNING_TABLE("SCANNINGTABLE"),
-    
+
     PROCESSING_STREAM("PROCESSINGSTREAM");
 
     private String value;
@@ -119,13 +120,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * MongoDB scan end time.
+   * 
    * @return scanEndTime
-  **/
+   **/
 
-@JsonProperty("scan_end_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "MongoDB scan end time.")
+  @JsonProperty("scan_end_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "MongoDB scan end time.")
   public String getScanEndTime() {
     return scanEndTime;
   }
@@ -139,13 +141,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of records inserted using scan.
+   * 
    * @return scanRecordsProcessed
-  **/
+   **/
 
-@JsonProperty("scan_records_processed")
-@ApiModelProperty(example = "1000", value = "Number of records inserted using scan.")
+  @JsonProperty("scan_records_processed")
+  @ApiModelProperty(example = "1000", value = "Number of records inserted using scan.")
   public Long getScanRecordsProcessed() {
     return scanRecordsProcessed;
   }
@@ -159,13 +162,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * MongoDB scan start time.
+   * 
    * @return scanStartTime
-  **/
+   **/
 
-@JsonProperty("scan_start_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "MongoDB scan start time.")
+  @JsonProperty("scan_start_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "MongoDB scan start time.")
   public String getScanStartTime() {
     return scanStartTime;
   }
@@ -179,13 +183,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of records in MongoDB table at time of scan.
+   * 
    * @return scanTotalRecords
-  **/
+   **/
 
-@JsonProperty("scan_total_records")
-@ApiModelProperty(example = "2000", value = "Number of records in MongoDB table at time of scan.")
+  @JsonProperty("scan_total_records")
+  @ApiModelProperty(example = "2000", value = "Number of records in MongoDB table at time of scan.")
   public Long getScanTotalRecords() {
     return scanTotalRecords;
   }
@@ -199,13 +204,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * State of current ingest for this table.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "SCANNING_TABLE", value = "State of current ingest for this table.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "SCANNING_TABLE", value = "State of current ingest for this table.")
   public StateEnum getState() {
     return state;
   }
@@ -219,13 +225,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date when delete from source was last processed.
+   * 
    * @return streamLastDeleteProcessedAt
-  **/
+   **/
 
-@JsonProperty("stream_last_delete_processed_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when delete from source was last processed.")
+  @JsonProperty("stream_last_delete_processed_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when delete from source was last processed.")
   public String getStreamLastDeleteProcessedAt() {
     return streamLastDeleteProcessedAt;
   }
@@ -239,13 +246,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date when new insert from source was last processed.
+   * 
    * @return streamLastInsertProcessedAt
-  **/
+   **/
 
-@JsonProperty("stream_last_insert_processed_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when new insert from source was last processed.")
+  @JsonProperty("stream_last_insert_processed_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when new insert from source was last processed.")
   public String getStreamLastInsertProcessedAt() {
     return streamLastInsertProcessedAt;
   }
@@ -259,13 +267,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date when update from source was last processed.
+   * 
    * @return streamLastUpdateProcessedAt
-  **/
+   **/
 
-@JsonProperty("stream_last_update_processed_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when update from source was last processed.")
+  @JsonProperty("stream_last_update_processed_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when update from source was last processed.")
   public String getStreamLastUpdateProcessedAt() {
     return streamLastUpdateProcessedAt;
   }
@@ -279,13 +288,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of new records deleted using stream.
+   * 
    * @return streamRecordsDeleted
-  **/
+   **/
 
-@JsonProperty("stream_records_deleted")
-@ApiModelProperty(example = "100", value = "Number of new records deleted using stream.")
+  @JsonProperty("stream_records_deleted")
+  @ApiModelProperty(example = "100", value = "Number of new records deleted using stream.")
   public Long getStreamRecordsDeleted() {
     return streamRecordsDeleted;
   }
@@ -299,13 +309,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of new records inserted using stream.
+   * 
    * @return streamRecordsInserted
-  **/
+   **/
 
-@JsonProperty("stream_records_inserted")
-@ApiModelProperty(example = "10000", value = "Number of new records inserted using stream.")
+  @JsonProperty("stream_records_inserted")
+  @ApiModelProperty(example = "10000", value = "Number of new records inserted using stream.")
   public Long getStreamRecordsInserted() {
     return streamRecordsInserted;
   }
@@ -319,13 +330,14 @@ public class StatusMongoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of new records updated using stream.
+   * 
    * @return streamRecordsUpdated
-  **/
+   **/
 
-@JsonProperty("stream_records_updated")
-@ApiModelProperty(example = "1000", value = "Number of new records updated using stream.")
+  @JsonProperty("stream_records_updated")
+  @ApiModelProperty(example = "1000", value = "Number of new records updated using stream.")
   public Long getStreamRecordsUpdated() {
     return streamRecordsUpdated;
   }
@@ -333,7 +345,6 @@ public class StatusMongoDb {
   public void setStreamRecordsUpdated(Long streamRecordsUpdated) {
     this.streamRecordsUpdated = streamRecordsUpdated;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -359,15 +370,16 @@ public class StatusMongoDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(scanEndTime, scanRecordsProcessed, scanStartTime, scanTotalRecords, state, streamLastDeleteProcessedAt, streamLastInsertProcessedAt, streamLastUpdateProcessedAt, streamRecordsDeleted, streamRecordsInserted, streamRecordsUpdated);
+    return Objects.hash(scanEndTime, scanRecordsProcessed, scanStartTime, scanTotalRecords, state,
+        streamLastDeleteProcessedAt, streamLastInsertProcessedAt, streamLastUpdateProcessedAt, streamRecordsDeleted,
+        streamRecordsInserted, streamRecordsUpdated);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusMongoDb {\n");
-    
+
     sb.append("    scanEndTime: ").append(toIndentedString(scanEndTime)).append("\n");
     sb.append("    scanRecordsProcessed: ").append(toIndentedString(scanRecordsProcessed)).append("\n");
     sb.append("    scanStartTime: ").append(toIndentedString(scanStartTime)).append("\n");
@@ -395,4 +407,3 @@ public class StatusMongoDb {
   }
 
 }
-

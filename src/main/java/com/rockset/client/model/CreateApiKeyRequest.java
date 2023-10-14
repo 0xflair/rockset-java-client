@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateApiKeyRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateApiKeyRequest {
   @SerializedName("created_by")
   private String createdBy = null;
@@ -45,13 +46,14 @@ public class CreateApiKeyRequest {
     return this;
   }
 
-   /**
+  /**
    * Get createdBy
+   * 
    * @return createdBy
-  **/
+   **/
 
-@JsonProperty("created_by")
-@ApiModelProperty(value = "")
+  @JsonProperty("created_by")
+  @ApiModelProperty(value = "")
   public String getCreatedBy() {
     return createdBy;
   }
@@ -65,13 +67,14 @@ public class CreateApiKeyRequest {
     return this;
   }
 
-   /**
+  /**
    * Name for this API key.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "my-app", required = true, value = "Name for this API key.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "my-app", required = true, value = "Name for this API key.")
   public String getName() {
     return name;
   }
@@ -85,13 +88,14 @@ public class CreateApiKeyRequest {
     return this;
   }
 
-   /**
+  /**
    * Get role
+   * 
    * @return role
-  **/
+   **/
 
-@JsonProperty("role")
-@ApiModelProperty(value = "")
+  @JsonProperty("role")
+  @ApiModelProperty(value = "")
   public String getRole() {
     return role;
   }
@@ -99,7 +103,6 @@ public class CreateApiKeyRequest {
   public void setRole(String role) {
     this.role = role;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class CreateApiKeyRequest {
     return Objects.hash(createdBy, name, role);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateApiKeyRequest {\n");
-    
+
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
@@ -145,4 +147,3 @@ public class CreateApiKeyRequest {
   }
 
 }
-

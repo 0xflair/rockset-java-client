@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryResponseStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryResponseStats {
   @SerializedName("elapsed_time_ms")
   private Long elapsedTimeMs = null;
@@ -42,13 +43,14 @@ public class QueryResponseStats {
     return this;
   }
 
-   /**
+  /**
    * Query time in milliseconds.
+   * 
    * @return elapsedTimeMs
-  **/
+   **/
 
-@JsonProperty("elapsed_time_ms")
-@ApiModelProperty(example = "126", value = "Query time in milliseconds.")
+  @JsonProperty("elapsed_time_ms")
+  @ApiModelProperty(example = "126", value = "Query time in milliseconds.")
   public Long getElapsedTimeMs() {
     return elapsedTimeMs;
   }
@@ -62,13 +64,14 @@ public class QueryResponseStats {
     return this;
   }
 
-   /**
+  /**
    * Time query was throttled by admission control.
+   * 
    * @return throttledTimeMicros
-  **/
+   **/
 
-@JsonProperty("throttled_time_micros")
-@ApiModelProperty(example = "126", value = "Time query was throttled by admission control.")
+  @JsonProperty("throttled_time_micros")
+  @ApiModelProperty(example = "126", value = "Time query was throttled by admission control.")
   public Long getThrottledTimeMicros() {
     return throttledTimeMicros;
   }
@@ -76,7 +79,6 @@ public class QueryResponseStats {
   public void setThrottledTimeMicros(Long throttledTimeMicros) {
     this.throttledTimeMicros = throttledTimeMicros;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class QueryResponseStats {
     return Objects.hash(elapsedTimeMs, throttledTimeMicros);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryResponseStats {\n");
-    
+
     sb.append("    elapsedTimeMs: ").append(toIndentedString(elapsedTimeMs)).append("\n");
     sb.append("    throttledTimeMicros: ").append(toIndentedString(throttledTimeMicros)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class QueryResponseStats {
   }
 
 }
-

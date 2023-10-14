@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateCollectionMountsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateCollectionMountsResponse {
   @SerializedName("data")
   private List<CollectionMount> data = null;
@@ -50,13 +51,14 @@ public class CreateCollectionMountsResponse {
     return this;
   }
 
-   /**
+  /**
    * Mounts created.
+   * 
    * @return data
-  **/
+   **/
 
-@JsonProperty("data")
-@ApiModelProperty(value = "Mounts created.")
+  @JsonProperty("data")
+  @ApiModelProperty(value = "Mounts created.")
   public List<CollectionMount> getData() {
     return data;
   }
@@ -64,7 +66,6 @@ public class CreateCollectionMountsResponse {
   public void setData(List<CollectionMount> data) {
     this.data = data;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -83,12 +84,11 @@ public class CreateCollectionMountsResponse {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCollectionMountsResponse {\n");
-    
+
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -106,4 +106,3 @@ public class CreateCollectionMountsResponse {
   }
 
 }
-

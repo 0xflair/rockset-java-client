@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusDynamoDbV2
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusDynamoDbV2 {
   @SerializedName("initial_dump_completion_percentage")
   private Double initialDumpCompletionPercentage = null;
@@ -40,13 +41,13 @@ public class StatusDynamoDbV2 {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     INITIALIZING("INITIALIZING"),
-    
+
     SCANNING("SCANNING"),
-    
+
     EXPORTING_TO_S3("EXPORTINGTOS3"),
-    
+
     DOWNLOADING_FROM_S3("DOWNLOADINGFROMS3"),
-    
+
     PROCESSING_STREAM("PROCESSINGSTREAM");
 
     private String value;
@@ -99,13 +100,14 @@ public class StatusDynamoDbV2 {
     return this;
   }
 
-   /**
+  /**
    * Get initialDumpCompletionPercentage
+   * 
    * @return initialDumpCompletionPercentage
-  **/
+   **/
 
-@JsonProperty("initial_dump_completion_percentage")
-@ApiModelProperty(example = "0.73", value = "")
+  @JsonProperty("initial_dump_completion_percentage")
+  @ApiModelProperty(example = "0.73", value = "")
   public Double getInitialDumpCompletionPercentage() {
     return initialDumpCompletionPercentage;
   }
@@ -119,13 +121,14 @@ public class StatusDynamoDbV2 {
     return this;
   }
 
-   /**
+  /**
    * State of current ingest for this table.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "PROCESSING_STREAM", value = "State of current ingest for this table.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "PROCESSING_STREAM", value = "State of current ingest for this table.")
   public StateEnum getState() {
     return state;
   }
@@ -139,13 +142,14 @@ public class StatusDynamoDbV2 {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date when source was last processed.
+   * 
    * @return streamLastProcessedAt
-  **/
+   **/
 
-@JsonProperty("stream_last_processed_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was last processed.")
+  @JsonProperty("stream_last_processed_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was last processed.")
   public String getStreamLastProcessedAt() {
     return streamLastProcessedAt;
   }
@@ -153,7 +157,6 @@ public class StatusDynamoDbV2 {
   public void setStreamLastProcessedAt(String streamLastProcessedAt) {
     this.streamLastProcessedAt = streamLastProcessedAt;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -174,13 +177,13 @@ public class StatusDynamoDbV2 {
     return Objects.hash(initialDumpCompletionPercentage, state, streamLastProcessedAt);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusDynamoDbV2 {\n");
-    
-    sb.append("    initialDumpCompletionPercentage: ").append(toIndentedString(initialDumpCompletionPercentage)).append("\n");
+
+    sb.append("    initialDumpCompletionPercentage: ").append(toIndentedString(initialDumpCompletionPercentage))
+        .append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    streamLastProcessedAt: ").append(toIndentedString(streamLastProcessedAt)).append("\n");
     sb.append("}");
@@ -199,4 +202,3 @@ public class StatusDynamoDbV2 {
   }
 
 }
-

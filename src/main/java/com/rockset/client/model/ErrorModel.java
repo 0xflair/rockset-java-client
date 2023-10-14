@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @ApiModel(description = "Describes details about an error")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class ErrorModel {
   @SerializedName("column")
   private Integer column = null;
@@ -57,53 +58,53 @@ public class ErrorModel {
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
     AUTHEXCEPTION("AUTHEXCEPTION"),
-    
+
     VERSIONEXCEPTION("VERSIONEXCEPTION"),
-    
+
     INTERNALERROR("INTERNALERROR"),
-    
+
     INVALIDINPUT("INVALIDINPUT"),
-    
+
     NOTIMPLEMENTEDYET("NOTIMPLEMENTEDYET"),
-    
+
     RESOURCEEXCEEDED("RESOURCEEXCEEDED"),
-    
+
     ALREADYEXISTS("ALREADYEXISTS"),
-    
+
     NOTALLOWED("NOTALLOWED"),
-    
+
     NOTACCEPTABLE("NOTACCEPTABLE"),
-    
+
     NOTSUPPORTED("NOTSUPPORTED"),
-    
+
     NOTFOUND("NOTFOUND"),
-    
+
     DEPENDENTRESOURCES("DEPENDENTRESOURCES"),
-    
+
     QUERY_ERROR("QUERYERROR"),
-    
+
     NOT_READY("NOTREADY"),
-    
+
     FORBIDDEN("FORBIDDEN"),
-    
+
     QUERY_TIMEOUT("QUERYTIMEOUT"),
-    
+
     CONNECTION_ERROR("CONNECTIONERROR"),
-    
+
     CONTENTTOOLARGE("CONTENTTOOLARGE"),
-    
+
     CREATING("CREATING"),
-    
+
     BADREQUEST("BADREQUEST"),
-    
+
     SERVICEUNAVAILABLE("SERVICEUNAVAILABLE"),
-    
+
     CONFLICT("CONFLICT"),
-    
+
     RATELIMITEXCEEDED("RATELIMITEXCEEDED"),
-    
+
     QUERY_CANCELLED("QUERYCANCELLED"),
-    
+
     CLIENT_CONNECTION_ERROR("CLIENTCONNECTIONERROR");
 
     private String value;
@@ -153,13 +154,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * Column where the error happened (if applicable).
+   * 
    * @return column
-  **/
+   **/
 
-@JsonProperty("column")
-@ApiModelProperty(value = "Column where the error happened (if applicable).")
+  @JsonProperty("column")
+  @ApiModelProperty(value = "Column where the error happened (if applicable).")
   public Integer getColumn() {
     return column;
   }
@@ -173,13 +175,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * ID of the error.
+   * 
    * @return errorId
-  **/
+   **/
 
-@JsonProperty("error_id")
-@ApiModelProperty(value = "ID of the error.")
+  @JsonProperty("error_id")
+  @ApiModelProperty(value = "ID of the error.")
   public String getErrorId() {
     return errorId;
   }
@@ -193,13 +196,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * Line where the error happened (if applicable).
+   * 
    * @return line
-  **/
+   **/
 
-@JsonProperty("line")
-@ApiModelProperty(value = "Line where the error happened (if applicable).")
+  @JsonProperty("line")
+  @ApiModelProperty(value = "Line where the error happened (if applicable).")
   public Integer getLine() {
     return line;
   }
@@ -213,13 +217,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * Descriptive message about the error.
+   * 
    * @return message
-  **/
+   **/
 
-@JsonProperty("message")
-@ApiModelProperty(example = "collection not found", value = "Descriptive message about the error.")
+  @JsonProperty("message")
+  @ApiModelProperty(example = "collection not found", value = "Descriptive message about the error.")
   public String getMessage() {
     return message;
   }
@@ -233,13 +238,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * ID of the query (if applicable).
+   * 
    * @return queryId
-  **/
+   **/
 
-@JsonProperty("query_id")
-@ApiModelProperty(value = "ID of the query (if applicable).")
+  @JsonProperty("query_id")
+  @ApiModelProperty(value = "ID of the query (if applicable).")
   public String getQueryId() {
     return queryId;
   }
@@ -253,13 +259,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * Internal trace ID to help with debugging.
+   * 
    * @return traceId
-  **/
+   **/
 
-@JsonProperty("trace_id")
-@ApiModelProperty(value = "Internal trace ID to help with debugging.")
+  @JsonProperty("trace_id")
+  @ApiModelProperty(value = "Internal trace ID to help with debugging.")
   public String getTraceId() {
     return traceId;
   }
@@ -273,13 +280,14 @@ public class ErrorModel {
     return this;
   }
 
-   /**
+  /**
    * Category of the error.
+   * 
    * @return type
-  **/
+   **/
 
-@JsonProperty("type")
-@ApiModelProperty(example = "INVALIDINPUT", value = "Category of the error.")
+  @JsonProperty("type")
+  @ApiModelProperty(example = "INVALIDINPUT", value = "Category of the error.")
   public TypeEnum getType() {
     return type;
   }
@@ -287,7 +295,6 @@ public class ErrorModel {
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -312,12 +319,11 @@ public class ErrorModel {
     return Objects.hash(column, errorId, line, message, queryId, traceId, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ErrorModel {\n");
-    
+
     sb.append("    column: ").append(toIndentedString(column)).append("\n");
     sb.append("    errorId: ").append(toIndentedString(errorId)).append("\n");
     sb.append("    line: ").append(toIndentedString(line)).append("\n");
@@ -341,4 +347,3 @@ public class ErrorModel {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * GcpServiceAccount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class GcpServiceAccount {
   @SerializedName("service_account_key_file_json")
   private String serviceAccountKeyFileJson = null;
@@ -39,13 +40,14 @@ public class GcpServiceAccount {
     return this;
   }
 
-   /**
+  /**
    * Contents of JSON Service Account key file.
+   * 
    * @return serviceAccountKeyFileJson
-  **/
+   **/
 
-@JsonProperty("service_account_key_file_json")
-@ApiModelProperty(required = true, value = "Contents of JSON Service Account key file.")
+  @JsonProperty("service_account_key_file_json")
+  @ApiModelProperty(required = true, value = "Contents of JSON Service Account key file.")
   public String getServiceAccountKeyFileJson() {
     return serviceAccountKeyFileJson;
   }
@@ -53,7 +55,6 @@ public class GcpServiceAccount {
   public void setServiceAccountKeyFileJson(String serviceAccountKeyFileJson) {
     this.serviceAccountKeyFileJson = serviceAccountKeyFileJson;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class GcpServiceAccount {
     return Objects.hash(serviceAccountKeyFileJson);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GcpServiceAccount {\n");
-    
+
     sb.append("    serviceAccountKeyFileJson: ").append(toIndentedString(serviceAccountKeyFileJson)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class GcpServiceAccount {
   }
 
 }
-

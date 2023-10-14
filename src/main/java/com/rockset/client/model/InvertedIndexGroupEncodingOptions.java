@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** InvertedIndexGroupEncodingOptions */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2021-12-09T15:56:21.038-08:00")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2021-12-09T15:56:21.038-08:00")
 public class InvertedIndexGroupEncodingOptions {
   @SerializedName("format_version")
   private Long formatVersion = null;
@@ -145,8 +145,7 @@ public class InvertedIndexGroupEncodingOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InvertedIndexGroupEncodingOptions invertedIndexGroupEncodingOptions =
-        (InvertedIndexGroupEncodingOptions) o;
+    InvertedIndexGroupEncodingOptions invertedIndexGroupEncodingOptions = (InvertedIndexGroupEncodingOptions) o;
     return Objects.equals(this.formatVersion, invertedIndexGroupEncodingOptions.formatVersion)
         && Objects.equals(this.groupSize, invertedIndexGroupEncodingOptions.groupSize)
         && Objects.equals(this.restartLength, invertedIndexGroupEncodingOptions.restartLength)
@@ -174,7 +173,8 @@ public class InvertedIndexGroupEncodingOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

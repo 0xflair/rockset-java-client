@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** FieldSchema */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2021-12-09T15:56:21.038-08:00")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2021-12-09T15:56:21.038-08:00")
 public class FieldSchema {
   @SerializedName("field_name")
   private String fieldName = null;
@@ -39,9 +39,7 @@ public class FieldSchema {
    * @return fieldName
    */
   @JsonProperty("field_name")
-  @ApiModelProperty(
-      example = "address.city.zipcode",
-      value = "The name of a field, parsed as a SQL qualified name")
+  @ApiModelProperty(example = "address.city.zipcode", value = "The name of a field, parsed as a SQL qualified name")
   public String getFieldName() {
     return fieldName;
   }
@@ -100,7 +98,8 @@ public class FieldSchema {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

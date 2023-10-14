@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** SavedQueryStats */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2020-01-24T17:41:10.748Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2020-01-24T17:41:10.748Z")
 public class SavedQueryStats {
   @SerializedName("last_executed")
   private String lastExecuted = null;
@@ -85,9 +85,7 @@ public class SavedQueryStats {
    * @return lastExecutionError
    */
   @JsonProperty("last_execution_error")
-  @ApiModelProperty(
-      example = "2001-08-28T00:23:41Z",
-      value = "ISO-8601 date of last execution failure")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of last execution failure")
   public String getLastExecutionError() {
     return lastExecutionError;
   }
@@ -107,9 +105,7 @@ public class SavedQueryStats {
    * @return lastExecutionErrorMessage
    */
   @JsonProperty("last_execution_error_message")
-  @ApiModelProperty(
-      example = "[error message]",
-      value = "error message associated with last failed query execution")
+  @ApiModelProperty(example = "[error message]", value = "error message associated with last failed query execution")
   public String getLastExecutionErrorMessage() {
     return lastExecutionErrorMessage;
   }
@@ -156,7 +152,8 @@ public class SavedQueryStats {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

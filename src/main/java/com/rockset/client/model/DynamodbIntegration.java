@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * DynamodbIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class DynamodbIntegration {
   @SerializedName("aws_access_key")
   private AwsAccessKey awsAccessKey = null;
@@ -47,13 +48,14 @@ public class DynamodbIntegration {
     return this;
   }
 
-   /**
+  /**
    * Credentials for an AWS access key integration.
+   * 
    * @return awsAccessKey
-  **/
+   **/
 
-@JsonProperty("aws_access_key")
-@ApiModelProperty(value = "Credentials for an AWS access key integration.")
+  @JsonProperty("aws_access_key")
+  @ApiModelProperty(value = "Credentials for an AWS access key integration.")
   public AwsAccessKey getAwsAccessKey() {
     return awsAccessKey;
   }
@@ -67,13 +69,14 @@ public class DynamodbIntegration {
     return this;
   }
 
-   /**
+  /**
    * Role used for external id type authentication.
+   * 
    * @return awsRole
-  **/
+   **/
 
-@JsonProperty("aws_role")
-@ApiModelProperty(value = "Role used for external id type authentication.")
+  @JsonProperty("aws_role")
+  @ApiModelProperty(value = "Role used for external id type authentication.")
   public AwsRole getAwsRole() {
     return awsRole;
   }
@@ -87,13 +90,14 @@ public class DynamodbIntegration {
     return this;
   }
 
-   /**
+  /**
    * S3 bucket used for export during collection initial dump.
+   * 
    * @return s3ExportBucketName
-  **/
+   **/
 
-@JsonProperty("s3_export_bucket_name")
-@ApiModelProperty(value = "S3 bucket used for export during collection initial dump.")
+  @JsonProperty("s3_export_bucket_name")
+  @ApiModelProperty(value = "S3 bucket used for export during collection initial dump.")
   public String getS3ExportBucketName() {
     return s3ExportBucketName;
   }
@@ -101,7 +105,6 @@ public class DynamodbIntegration {
   public void setS3ExportBucketName(String s3ExportBucketName) {
     this.s3ExportBucketName = s3ExportBucketName;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -122,12 +125,11 @@ public class DynamodbIntegration {
     return Objects.hash(awsAccessKey, awsRole, s3ExportBucketName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamodbIntegration {\n");
-    
+
     sb.append("    awsAccessKey: ").append(toIndentedString(awsAccessKey)).append("\n");
     sb.append("    awsRole: ").append(toIndentedString(awsRole)).append("\n");
     sb.append("    s3ExportBucketName: ").append(toIndentedString(s3ExportBucketName)).append("\n");
@@ -147,4 +149,3 @@ public class DynamodbIntegration {
   }
 
 }
-

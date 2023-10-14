@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * User
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class User {
   @SerializedName("created_at")
   private String createdAt = null;
@@ -56,13 +57,14 @@ public class User {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -76,13 +78,14 @@ public class User {
     return this;
   }
 
-   /**
+  /**
    * User email.
+   * 
    * @return email
-  **/
+   **/
 
-@JsonProperty("email")
-@ApiModelProperty(example = "hello@rockset.com", required = true, value = "User email.")
+  @JsonProperty("email")
+  @ApiModelProperty(example = "hello@rockset.com", required = true, value = "User email.")
   public String getEmail() {
     return email;
   }
@@ -96,13 +99,14 @@ public class User {
     return this;
   }
 
-   /**
+  /**
    * User first name.
+   * 
    * @return firstName
-  **/
+   **/
 
-@JsonProperty("first_name")
-@ApiModelProperty(example = "John", value = "User first name.")
+  @JsonProperty("first_name")
+  @ApiModelProperty(example = "John", value = "User first name.")
   public String getFirstName() {
     return firstName;
   }
@@ -116,13 +120,14 @@ public class User {
     return this;
   }
 
-   /**
+  /**
    * User last name.
+   * 
    * @return lastName
-  **/
+   **/
 
-@JsonProperty("last_name")
-@ApiModelProperty(example = "Doe", value = "User last name.")
+  @JsonProperty("last_name")
+  @ApiModelProperty(example = "Doe", value = "User last name.")
   public String getLastName() {
     return lastName;
   }
@@ -144,13 +149,14 @@ public class User {
     return this;
   }
 
-   /**
+  /**
    * List of roles for a given user.
+   * 
    * @return roles
-  **/
+   **/
 
-@JsonProperty("roles")
-@ApiModelProperty(example = "\"[\\\"admin\\\", \\\"member\\\", \\\"read-only\\\"]\"", value = "List of roles for a given user.")
+  @JsonProperty("roles")
+  @ApiModelProperty(example = "\"[\\\"admin\\\", \\\"member\\\", \\\"read-only\\\"]\"", value = "List of roles for a given user.")
   public List<String> getRoles() {
     return roles;
   }
@@ -164,13 +170,14 @@ public class User {
     return this;
   }
 
-   /**
+  /**
    * State of user - NEW / ACTIVE.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "State of user - NEW / ACTIVE.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "State of user - NEW / ACTIVE.")
   public String getState() {
     return state;
   }
@@ -178,7 +185,6 @@ public class User {
   public void setState(String state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,12 +208,11 @@ public class User {
     return Objects.hash(createdAt, email, firstName, lastName, roles, state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
-    
+
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
@@ -230,4 +235,3 @@ public class User {
   }
 
 }
-

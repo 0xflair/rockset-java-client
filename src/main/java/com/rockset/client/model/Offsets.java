@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Offsets
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Offsets {
   @SerializedName("commit")
   private String commit = null;
@@ -39,13 +40,16 @@ public class Offsets {
     return this;
   }
 
-   /**
-   * An encoded value representing the most recent offsets that have been committed. If the fence offset is less than or equal to the commit, then passed is true.
+  /**
+   * An encoded value representing the most recent offsets that have been
+   * committed. If the fence offset is less than or equal to the commit, then
+   * passed is true.
+   * 
    * @return commit
-  **/
+   **/
 
-@JsonProperty("commit")
-@ApiModelProperty(example = "f1:0:14:9:7093", value = "An encoded value representing the most recent offsets that have been committed. If the fence offset is less than or equal to the commit, then passed is true.")
+  @JsonProperty("commit")
+  @ApiModelProperty(example = "f1:0:14:9:7093", value = "An encoded value representing the most recent offsets that have been committed. If the fence offset is less than or equal to the commit, then passed is true.")
   public String getCommit() {
     return commit;
   }
@@ -53,7 +57,6 @@ public class Offsets {
   public void setCommit(String commit) {
     this.commit = commit;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +75,11 @@ public class Offsets {
     return Objects.hash(commit);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Offsets {\n");
-    
+
     sb.append("    commit: ").append(toIndentedString(commit)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +97,3 @@ public class Offsets {
   }
 
 }
-

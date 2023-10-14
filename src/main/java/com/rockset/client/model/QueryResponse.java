@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -35,7 +34,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryResponse {
   @SerializedName("collections")
   private List<String> collections = null;
@@ -68,16 +69,17 @@ public class QueryResponse {
   private QueryResponseStats stats = null;
 
   /**
-   * Status of query execution. Possible values: &#x60;QUEUED&#x60;, &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;ERROR&#x60;.
+   * Status of query execution. Possible values: &#x60;QUEUED&#x60;,
+   * &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;ERROR&#x60;.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
     QUEUED("QUEUED"),
-    
+
     RUNNING("RUNNING"),
-    
+
     COMPLETED("COMPLETED"),
-    
+
     ERROR("ERROR");
 
     private String value;
@@ -138,13 +140,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * List of collections referenced in the query.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(value = "List of collections referenced in the query.")
+  @JsonProperty("collections")
+  @ApiModelProperty(value = "List of collections referenced in the query.")
   public List<String> getCollections() {
     return collections;
   }
@@ -166,13 +169,15 @@ public class QueryResponse {
     return this;
   }
 
-   /**
-   * Meta information about each column in the result set. Not populated in &#x60;SELECT *&#x60; queries.
+  /**
+   * Meta information about each column in the result set. Not populated in
+   * &#x60;SELECT *&#x60; queries.
+   * 
    * @return columnFields
-  **/
+   **/
 
-@JsonProperty("column_fields")
-@ApiModelProperty(value = "Meta information about each column in the result set. Not populated in `SELECT *` queries.")
+  @JsonProperty("column_fields")
+  @ApiModelProperty(value = "Meta information about each column in the result set. Not populated in `SELECT *` queries.")
   public List<QueryFieldType> getColumnFields() {
     return columnFields;
   }
@@ -186,13 +191,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * If this was a write query, this is the log offset the query was written to.
+   * 
    * @return lastOffset
-  **/
+   **/
 
-@JsonProperty("last_offset")
-@ApiModelProperty(value = "If this was a write query, this is the log offset the query was written to.")
+  @JsonProperty("last_offset")
+  @ApiModelProperty(value = "If this was a write query, this is the log offset the query was written to.")
   public String getLastOffset() {
     return lastOffset;
   }
@@ -206,13 +212,15 @@ public class QueryResponse {
     return this;
   }
 
-   /**
-   * Pagination information. Only populated if &#x60;paginate&#x60; is specified in the query request.
+  /**
+   * Pagination information. Only populated if &#x60;paginate&#x60; is specified
+   * in the query request.
+   * 
    * @return pagination
-  **/
+   **/
 
-@JsonProperty("pagination")
-@ApiModelProperty(value = "Pagination information. Only populated if `paginate` is specified in the query request.")
+  @JsonProperty("pagination")
+  @ApiModelProperty(value = "Pagination information. Only populated if `paginate` is specified in the query request.")
   public PaginationInfo getPagination() {
     return pagination;
   }
@@ -234,13 +242,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Errors encountered while executing the query.
+   * 
    * @return queryErrors
-  **/
+   **/
 
-@JsonProperty("query_errors")
-@ApiModelProperty(value = "Errors encountered while executing the query.")
+  @JsonProperty("query_errors")
+  @ApiModelProperty(value = "Errors encountered while executing the query.")
   public List<QueryError> getQueryErrors() {
     return queryErrors;
   }
@@ -254,13 +263,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Unique ID for this query.
+   * 
    * @return queryId
-  **/
+   **/
 
-@JsonProperty("query_id")
-@ApiModelProperty(value = "Unique ID for this query.")
+  @JsonProperty("query_id")
+  @ApiModelProperty(value = "Unique ID for this query.")
   public String getQueryId() {
     return queryId;
   }
@@ -274,13 +284,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * The full path of the executed query lambda. Includes version information.
+   * 
    * @return queryLambdaPath
-  **/
+   **/
 
-@JsonProperty("query_lambda_path")
-@ApiModelProperty(value = "The full path of the executed query lambda. Includes version information.")
+  @JsonProperty("query_lambda_path")
+  @ApiModelProperty(value = "The full path of the executed query lambda. Includes version information.")
   public String getQueryLambdaPath() {
     return queryLambdaPath;
   }
@@ -302,13 +313,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Results from the query.
+   * 
    * @return results
-  **/
+   **/
 
-@JsonProperty("results")
-@ApiModelProperty(value = "Results from the query.")
+  @JsonProperty("results")
+  @ApiModelProperty(value = "Results from the query.")
   public List<Object> getResults() {
     return results;
   }
@@ -322,13 +334,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of results generated by the query.
+   * 
    * @return resultsTotalDocCount
-  **/
+   **/
 
-@JsonProperty("results_total_doc_count")
-@ApiModelProperty(value = "Number of results generated by the query.")
+  @JsonProperty("results_total_doc_count")
+  @ApiModelProperty(value = "Number of results generated by the query.")
   public Long getResultsTotalDocCount() {
     return resultsTotalDocCount;
   }
@@ -342,13 +355,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Meta information about the query including execution latencies.
+   * 
    * @return stats
-  **/
+   **/
 
-@JsonProperty("stats")
-@ApiModelProperty(value = "Meta information about the query including execution latencies.")
+  @JsonProperty("stats")
+  @ApiModelProperty(value = "Meta information about the query including execution latencies.")
   public QueryResponseStats getStats() {
     return stats;
   }
@@ -362,13 +376,15 @@ public class QueryResponse {
     return this;
   }
 
-   /**
-   * Status of query execution. Possible values: &#x60;QUEUED&#x60;, &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;ERROR&#x60;.
+  /**
+   * Status of query execution. Possible values: &#x60;QUEUED&#x60;,
+   * &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;ERROR&#x60;.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(example = "RUNNING", value = "Status of query execution. Possible values: `QUEUED`, `RUNNING`, `COMPLETED`, `ERROR`.")
+  @JsonProperty("status")
+  @ApiModelProperty(example = "RUNNING", value = "Status of query execution. Possible values: `QUEUED`, `RUNNING`, `COMPLETED`, `ERROR`.")
   public StatusEnum getStatus() {
     return status;
   }
@@ -390,13 +406,14 @@ public class QueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Get warnings
+   * 
    * @return warnings
-  **/
+   **/
 
-@JsonProperty("warnings")
-@ApiModelProperty(value = "")
+  @JsonProperty("warnings")
+  @ApiModelProperty(value = "")
   public List<String> getWarnings() {
     return warnings;
   }
@@ -404,7 +421,6 @@ public class QueryResponse {
   public void setWarnings(List<String> warnings) {
     this.warnings = warnings;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -431,15 +447,15 @@ public class QueryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collections, columnFields, lastOffset, pagination, queryErrors, queryId, queryLambdaPath, results, resultsTotalDocCount, stats, status, warnings);
+    return Objects.hash(collections, columnFields, lastOffset, pagination, queryErrors, queryId, queryLambdaPath,
+        results, resultsTotalDocCount, stats, status, warnings);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryResponse {\n");
-    
+
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    columnFields: ").append(toIndentedString(columnFields)).append("\n");
     sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
@@ -468,4 +484,3 @@ public class QueryResponse {
   }
 
 }
-

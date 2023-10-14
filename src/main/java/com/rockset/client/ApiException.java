@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client;
 
 import com.rockset.client.model.ErrorModel;
@@ -18,14 +17,15 @@ import com.rockset.client.model.ErrorModel;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;
     private ErrorModel errorModel = null;
 
-    public ApiException() {}
+    public ApiException() {
+    }
 
     public ApiException(Throwable throwable) {
         super(throwable);
@@ -35,7 +35,8 @@ public class ApiException extends Exception {
         super(message);
     }
 
-    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders, String responseBody) {
+    public ApiException(String message, Throwable throwable, int code, Map<String, List<String>> responseHeaders,
+            String responseBody) {
         super(message, throwable);
         this.code = code;
         this.responseHeaders = responseHeaders;
@@ -64,7 +65,6 @@ public class ApiException extends Exception {
         this.responseHeaders = responseHeaders;
         this.responseBody = responseBody;
     }
-
 
     public ApiException(int code, ErrorModel errorModel) {
         this(code, errorModel.getMessage());

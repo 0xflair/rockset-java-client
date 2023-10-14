@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * DeleteDocumentsRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class DeleteDocumentsRequest {
   @SerializedName("data")
   private List<DeleteDocumentsRequestData> data = new ArrayList<DeleteDocumentsRequestData>();
@@ -47,13 +48,14 @@ public class DeleteDocumentsRequest {
     return this;
   }
 
-   /**
+  /**
    * Array of IDs of documents to be deleted.
+   * 
    * @return data
-  **/
+   **/
 
-@JsonProperty("data")
-@ApiModelProperty(required = true, value = "Array of IDs of documents to be deleted.")
+  @JsonProperty("data")
+  @ApiModelProperty(required = true, value = "Array of IDs of documents to be deleted.")
   public List<DeleteDocumentsRequestData> getData() {
     return data;
   }
@@ -61,7 +63,6 @@ public class DeleteDocumentsRequest {
   public void setData(List<DeleteDocumentsRequestData> data) {
     this.data = data;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,12 +81,11 @@ public class DeleteDocumentsRequest {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDocumentsRequest {\n");
-    
+
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -103,4 +103,3 @@ public class DeleteDocumentsRequest {
   }
 
 }
-

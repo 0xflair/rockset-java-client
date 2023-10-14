@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * GcsIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class GcsIntegration {
   @SerializedName("gcp_service_account")
   private GcpServiceAccount gcpServiceAccount = null;
@@ -40,13 +41,14 @@ public class GcsIntegration {
     return this;
   }
 
-   /**
+  /**
    * Credentials for an GCP key integration.
+   * 
    * @return gcpServiceAccount
-  **/
+   **/
 
-@JsonProperty("gcp_service_account")
-@ApiModelProperty(value = "Credentials for an GCP key integration.")
+  @JsonProperty("gcp_service_account")
+  @ApiModelProperty(value = "Credentials for an GCP key integration.")
   public GcpServiceAccount getGcpServiceAccount() {
     return gcpServiceAccount;
   }
@@ -54,7 +56,6 @@ public class GcsIntegration {
   public void setGcpServiceAccount(GcpServiceAccount gcpServiceAccount) {
     this.gcpServiceAccount = gcpServiceAccount;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +74,11 @@ public class GcsIntegration {
     return Objects.hash(gcpServiceAccount);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GcsIntegration {\n");
-    
+
     sb.append("    gcpServiceAccount: ").append(toIndentedString(gcpServiceAccount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -96,4 +96,3 @@ public class GcsIntegration {
   }
 
 }
-

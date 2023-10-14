@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateUserRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateUserRequest {
   @SerializedName("email")
   private String email = null;
@@ -50,13 +51,14 @@ public class CreateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * User email, must be unique.
+   * 
    * @return email
-  **/
+   **/
 
-@JsonProperty("email")
-@ApiModelProperty(example = "hello@rockset.com", required = true, value = "User email, must be unique.")
+  @JsonProperty("email")
+  @ApiModelProperty(example = "hello@rockset.com", required = true, value = "User email, must be unique.")
   public String getEmail() {
     return email;
   }
@@ -70,13 +72,14 @@ public class CreateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * User first name.
+   * 
    * @return firstName
-  **/
+   **/
 
-@JsonProperty("first_name")
-@ApiModelProperty(example = "John", value = "User first name.")
+  @JsonProperty("first_name")
+  @ApiModelProperty(example = "John", value = "User first name.")
   public String getFirstName() {
     return firstName;
   }
@@ -90,13 +93,14 @@ public class CreateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * User last name.
+   * 
    * @return lastName
-  **/
+   **/
 
-@JsonProperty("last_name")
-@ApiModelProperty(example = "Doe", value = "User last name.")
+  @JsonProperty("last_name")
+  @ApiModelProperty(example = "Doe", value = "User last name.")
   public String getLastName() {
     return lastName;
   }
@@ -115,13 +119,14 @@ public class CreateUserRequest {
     return this;
   }
 
-   /**
+  /**
    * List of roles for a given user.
+   * 
    * @return roles
-  **/
+   **/
 
-@JsonProperty("roles")
-@ApiModelProperty(example = "\"[\\\"admin\\\", \\\"member\\\", \\\"read-only\\\"]\"", required = true, value = "List of roles for a given user.")
+  @JsonProperty("roles")
+  @ApiModelProperty(example = "\"[\\\"admin\\\", \\\"member\\\", \\\"read-only\\\"]\"", required = true, value = "List of roles for a given user.")
   public List<String> getRoles() {
     return roles;
   }
@@ -129,7 +134,6 @@ public class CreateUserRequest {
   public void setRoles(List<String> roles) {
     this.roles = roles;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +155,11 @@ public class CreateUserRequest {
     return Objects.hash(email, firstName, lastName, roles);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUserRequest {\n");
-    
+
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
@@ -177,4 +180,3 @@ public class CreateUserRequest {
   }
 
 }
-

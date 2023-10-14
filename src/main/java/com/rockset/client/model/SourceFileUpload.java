@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceFileUpload
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceFileUpload {
   @SerializedName("file_name")
   private String fileName = null;
@@ -45,13 +46,14 @@ public class SourceFileUpload {
     return this;
   }
 
-   /**
+  /**
    * Name of the file.
+   * 
    * @return fileName
-  **/
+   **/
 
-@JsonProperty("file_name")
-@ApiModelProperty(example = "file1.json", required = true, value = "Name of the file.")
+  @JsonProperty("file_name")
+  @ApiModelProperty(example = "file1.json", required = true, value = "Name of the file.")
   public String getFileName() {
     return fileName;
   }
@@ -65,13 +67,14 @@ public class SourceFileUpload {
     return this;
   }
 
-   /**
+  /**
    * Size of the file in bytes.
+   * 
    * @return fileSize
-  **/
+   **/
 
-@JsonProperty("file_size")
-@ApiModelProperty(example = "12345", required = true, value = "Size of the file in bytes.")
+  @JsonProperty("file_size")
+  @ApiModelProperty(example = "12345", required = true, value = "Size of the file in bytes.")
   public Long getFileSize() {
     return fileSize;
   }
@@ -85,13 +88,14 @@ public class SourceFileUpload {
     return this;
   }
 
-   /**
+  /**
    * Time of file upload.
+   * 
    * @return fileUploadTime
-  **/
+   **/
 
-@JsonProperty("file_upload_time")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", required = true, value = "Time of file upload.")
+  @JsonProperty("file_upload_time")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", required = true, value = "Time of file upload.")
   public String getFileUploadTime() {
     return fileUploadTime;
   }
@@ -99,7 +103,6 @@ public class SourceFileUpload {
   public void setFileUploadTime(String fileUploadTime) {
     this.fileUploadTime = fileUploadTime;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class SourceFileUpload {
     return Objects.hash(fileName, fileSize, fileUploadTime);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceFileUpload {\n");
-    
+
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
     sb.append("    fileUploadTime: ").append(toIndentedString(fileUploadTime)).append("\n");
@@ -145,4 +147,3 @@ public class SourceFileUpload {
   }
 
 }
-

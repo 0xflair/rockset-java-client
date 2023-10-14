@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Stats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Stats {
   @SerializedName("elapsed_time_ms")
   private Long elapsedTimeMs = null;
@@ -48,13 +49,14 @@ public class Stats {
     return this;
   }
 
-   /**
+  /**
    * Total execution time (including time queued) of the query, in milliseconds.
+   * 
    * @return elapsedTimeMs
-  **/
+   **/
 
-@JsonProperty("elapsed_time_ms")
-@ApiModelProperty(example = "128", value = "Total execution time (including time queued) of the query, in milliseconds.")
+  @JsonProperty("elapsed_time_ms")
+  @ApiModelProperty(example = "128", value = "Total execution time (including time queued) of the query, in milliseconds.")
   public Long getElapsedTimeMs() {
     return elapsedTimeMs;
   }
@@ -68,13 +70,15 @@ public class Stats {
     return this;
   }
 
-   /**
-   * Number of bytes in the query result set. Only populated if &#x60;status&#x60; is &#x60;COMPLETE&#x60;. Not populated for INSERT INTO queries.
+  /**
+   * Number of bytes in the query result set. Only populated if &#x60;status&#x60;
+   * is &#x60;COMPLETE&#x60;. Not populated for INSERT INTO queries.
+   * 
    * @return resultSetBytesSize
-  **/
+   **/
 
-@JsonProperty("result_set_bytes_size")
-@ApiModelProperty(example = "1235", value = "Number of bytes in the query result set. Only populated if `status` is `COMPLETE`. Not populated for INSERT INTO queries.")
+  @JsonProperty("result_set_bytes_size")
+  @ApiModelProperty(example = "1235", value = "Number of bytes in the query result set. Only populated if `status` is `COMPLETE`. Not populated for INSERT INTO queries.")
   public Long getResultSetBytesSize() {
     return resultSetBytesSize;
   }
@@ -88,13 +92,15 @@ public class Stats {
     return this;
   }
 
-   /**
-   * Number of documents returned by the query. Only populated if &#x60;status&#x60; is &#x60;COMPLETE&#x60;.
+  /**
+   * Number of documents returned by the query. Only populated if
+   * &#x60;status&#x60; is &#x60;COMPLETE&#x60;.
+   * 
    * @return resultSetDocumentCount
-  **/
+   **/
 
-@JsonProperty("result_set_document_count")
-@ApiModelProperty(example = "1235", value = "Number of documents returned by the query. Only populated if `status` is `COMPLETE`.")
+  @JsonProperty("result_set_document_count")
+  @ApiModelProperty(example = "1235", value = "Number of documents returned by the query. Only populated if `status` is `COMPLETE`.")
   public Long getResultSetDocumentCount() {
     return resultSetDocumentCount;
   }
@@ -108,13 +114,14 @@ public class Stats {
     return this;
   }
 
-   /**
+  /**
    * Time query spent queued, in milliseconds.
+   * 
    * @return throttledTimeMs
-  **/
+   **/
 
-@JsonProperty("throttled_time_ms")
-@ApiModelProperty(example = "16", value = "Time query spent queued, in milliseconds.")
+  @JsonProperty("throttled_time_ms")
+  @ApiModelProperty(example = "16", value = "Time query spent queued, in milliseconds.")
   public Long getThrottledTimeMs() {
     return throttledTimeMs;
   }
@@ -122,7 +129,6 @@ public class Stats {
   public void setThrottledTimeMs(Long throttledTimeMs) {
     this.throttledTimeMs = throttledTimeMs;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,12 +150,11 @@ public class Stats {
     return Objects.hash(elapsedTimeMs, resultSetBytesSize, resultSetDocumentCount, throttledTimeMs);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Stats {\n");
-    
+
     sb.append("    elapsedTimeMs: ").append(toIndentedString(elapsedTimeMs)).append("\n");
     sb.append("    resultSetBytesSize: ").append(toIndentedString(resultSetBytesSize)).append("\n");
     sb.append("    resultSetDocumentCount: ").append(toIndentedString(resultSetDocumentCount)).append("\n");
@@ -170,4 +175,3 @@ public class Stats {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryLambda
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class QueryLambda {
   @SerializedName("collections")
   private List<String> collections = null;
@@ -68,13 +69,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * Collections/aliases queried by underlying SQL query.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(value = "Collections/aliases queried by underlying SQL query.")
+  @JsonProperty("collections")
+  @ApiModelProperty(value = "Collections/aliases queried by underlying SQL query.")
   public List<String> getCollections() {
     return collections;
   }
@@ -88,13 +90,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date of when Query Lambda was last updated.
+   * 
    * @return lastUpdated
-  **/
+   **/
 
-@JsonProperty("last_updated")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when Query Lambda was last updated.")
+  @JsonProperty("last_updated")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date of when Query Lambda was last updated.")
   public String getLastUpdated() {
     return lastUpdated;
   }
@@ -108,13 +111,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * User that created this Query Lambda.
+   * 
    * @return lastUpdatedBy
-  **/
+   **/
 
-@JsonProperty("last_updated_by")
-@ApiModelProperty(example = "..@rockset.com", value = "User that created this Query Lambda.")
+  @JsonProperty("last_updated_by")
+  @ApiModelProperty(example = "..@rockset.com", value = "User that created this Query Lambda.")
   public String getLastUpdatedBy() {
     return lastUpdatedBy;
   }
@@ -128,13 +132,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda version details for most recently created version.
+   * 
    * @return latestVersion
-  **/
+   **/
 
-@JsonProperty("latest_version")
-@ApiModelProperty(value = "Query Lambda version details for most recently created version.")
+  @JsonProperty("latest_version")
+  @ApiModelProperty(value = "Query Lambda version details for most recently created version.")
   public QueryLambdaVersion getLatestVersion() {
     return latestVersion;
   }
@@ -148,13 +153,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * Query Lambda name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "myQuery", value = "Query Lambda name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "myQuery", value = "Query Lambda name.")
   public String getName() {
     return name;
   }
@@ -168,13 +174,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * Number of Query Lambda versions.
+   * 
    * @return versionCount
-  **/
+   **/
 
-@JsonProperty("version_count")
-@ApiModelProperty(example = "1", value = "Number of Query Lambda versions.")
+  @JsonProperty("version_count")
+  @ApiModelProperty(example = "1", value = "Number of Query Lambda versions.")
   public Integer getVersionCount() {
     return versionCount;
   }
@@ -188,13 +195,14 @@ public class QueryLambda {
     return this;
   }
 
-   /**
+  /**
    * Workspace of this Query Lambda.
+   * 
    * @return workspace
-  **/
+   **/
 
-@JsonProperty("workspace")
-@ApiModelProperty(example = "commons", value = "Workspace of this Query Lambda.")
+  @JsonProperty("workspace")
+  @ApiModelProperty(example = "commons", value = "Workspace of this Query Lambda.")
   public String getWorkspace() {
     return workspace;
   }
@@ -202,7 +210,6 @@ public class QueryLambda {
   public void setWorkspace(String workspace) {
     this.workspace = workspace;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -227,12 +234,11 @@ public class QueryLambda {
     return Objects.hash(collections, lastUpdated, lastUpdatedBy, latestVersion, name, versionCount, workspace);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class QueryLambda {\n");
-    
+
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
     sb.append("    lastUpdatedBy: ").append(toIndentedString(lastUpdatedBy)).append("\n");
@@ -256,4 +262,3 @@ public class QueryLambda {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -33,7 +32,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusAzureServiceBus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusAzureServiceBus {
   @SerializedName("first_processed_at")
   private String firstProcessedAt = null;
@@ -49,13 +50,14 @@ public class StatusAzureServiceBus {
     return this;
   }
 
-   /**
+  /**
    * Service Bus first message processed time in ISO-8601 format.
+   * 
    * @return firstProcessedAt
-  **/
+   **/
 
-@JsonProperty("first_processed_at")
-@ApiModelProperty(example = "2021-08-28T00:23:41Z", value = "Service Bus first message processed time in ISO-8601 format.")
+  @JsonProperty("first_processed_at")
+  @ApiModelProperty(example = "2021-08-28T00:23:41Z", value = "Service Bus first message processed time in ISO-8601 format.")
   public String getFirstProcessedAt() {
     return firstProcessedAt;
   }
@@ -69,13 +71,14 @@ public class StatusAzureServiceBus {
     return this;
   }
 
-   /**
+  /**
    * Number of records processed.
+   * 
    * @return recordsProcessed
-  **/
+   **/
 
-@JsonProperty("records_processed")
-@ApiModelProperty(example = "1000", value = "Number of records processed.")
+  @JsonProperty("records_processed")
+  @ApiModelProperty(example = "1000", value = "Number of records processed.")
   public Long getRecordsProcessed() {
     return recordsProcessed;
   }
@@ -97,13 +100,14 @@ public class StatusAzureServiceBus {
     return this;
   }
 
-   /**
+  /**
    * Sessions processed.
+   * 
    * @return sessions
-  **/
+   **/
 
-@JsonProperty("sessions")
-@ApiModelProperty(value = "Sessions processed.")
+  @JsonProperty("sessions")
+  @ApiModelProperty(value = "Sessions processed.")
   public Map<String, StatusAzureServiceBusSession> getSessions() {
     return sessions;
   }
@@ -111,7 +115,6 @@ public class StatusAzureServiceBus {
   public void setSessions(Map<String, StatusAzureServiceBusSession> sessions) {
     this.sessions = sessions;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -132,12 +135,11 @@ public class StatusAzureServiceBus {
     return Objects.hash(firstProcessedAt, recordsProcessed, sessions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusAzureServiceBus {\n");
-    
+
     sb.append("    firstProcessedAt: ").append(toIndentedString(firstProcessedAt)).append("\n");
     sb.append("    recordsProcessed: ").append(toIndentedString(recordsProcessed)).append("\n");
     sb.append("    sessions: ").append(toIndentedString(sessions)).append("\n");
@@ -157,4 +159,3 @@ public class StatusAzureServiceBus {
   }
 
 }
-

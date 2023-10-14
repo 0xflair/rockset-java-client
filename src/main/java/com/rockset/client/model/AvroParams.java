@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -21,7 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * AvroParams
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class AvroParams {
 
   @Override
@@ -40,12 +41,11 @@ public class AvroParams {
     return Objects.hash();
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AvroParams {\n");
-    
+
     sb.append("}");
     return sb.toString();
   }
@@ -62,4 +62,3 @@ public class AvroParams {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * PaginationInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class PaginationInfo {
   @SerializedName("current_page_doc_count")
   private Long currentPageDocCount = null;
@@ -51,13 +52,14 @@ public class PaginationInfo {
     return this;
   }
 
-   /**
+  /**
    * Number of documents returned in this result set.
+   * 
    * @return currentPageDocCount
-  **/
+   **/
 
-@JsonProperty("current_page_doc_count")
-@ApiModelProperty(example = "1000", value = "Number of documents returned in this result set.")
+  @JsonProperty("current_page_doc_count")
+  @ApiModelProperty(example = "1000", value = "Number of documents returned in this result set.")
   public Long getCurrentPageDocCount() {
     return currentPageDocCount;
   }
@@ -71,13 +73,14 @@ public class PaginationInfo {
     return this;
   }
 
-   /**
+  /**
    * Cursor to use to get the list of documents.
+   * 
    * @return nextCursor
-  **/
+   **/
 
-@JsonProperty("next_cursor")
-@ApiModelProperty(example = "testnextcursor", value = "Cursor to use to get the list of documents.")
+  @JsonProperty("next_cursor")
+  @ApiModelProperty(example = "testnextcursor", value = "Cursor to use to get the list of documents.")
   public String getNextCursor() {
     return nextCursor;
   }
@@ -91,13 +94,14 @@ public class PaginationInfo {
     return this;
   }
 
-   /**
+  /**
    * The doc offset that next_cursor starts at.
+   * 
    * @return nextCursorOffset
-  **/
+   **/
 
-@JsonProperty("next_cursor_offset")
-@ApiModelProperty(example = "2000", value = "The doc offset that next_cursor starts at.")
+  @JsonProperty("next_cursor_offset")
+  @ApiModelProperty(example = "2000", value = "The doc offset that next_cursor starts at.")
   public Long getNextCursorOffset() {
     return nextCursorOffset;
   }
@@ -106,13 +110,14 @@ public class PaginationInfo {
     this.nextCursorOffset = nextCursorOffset;
   }
 
-   /**
+  /**
    * Direct link to the next page of results.
+   * 
    * @return nextPageLink
-  **/
+   **/
 
-@JsonProperty("next_page_link")
-@ApiModelProperty(example = "https://api.rs2.usw2.rockset.com/....", value = "Direct link to the next page of results.")
+  @JsonProperty("next_page_link")
+  @ApiModelProperty(example = "https://api.rs2.usw2.rockset.com/....", value = "Direct link to the next page of results.")
   public String getNextPageLink() {
     return nextPageLink;
   }
@@ -122,13 +127,14 @@ public class PaginationInfo {
     return this;
   }
 
-   /**
+  /**
    * Cursor used to retrieve the first set of documents.
+   * 
    * @return startCursor
-  **/
+   **/
 
-@JsonProperty("start_cursor")
-@ApiModelProperty(example = "startcursor", value = "Cursor used to retrieve the first set of documents.")
+  @JsonProperty("start_cursor")
+  @ApiModelProperty(example = "startcursor", value = "Cursor used to retrieve the first set of documents.")
   public String getStartCursor() {
     return startCursor;
   }
@@ -136,7 +142,6 @@ public class PaginationInfo {
   public void setStartCursor(String startCursor) {
     this.startCursor = startCursor;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -159,12 +164,11 @@ public class PaginationInfo {
     return Objects.hash(currentPageDocCount, nextCursor, nextCursorOffset, nextPageLink, startCursor);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginationInfo {\n");
-    
+
     sb.append("    currentPageDocCount: ").append(toIndentedString(currentPageDocCount)).append("\n");
     sb.append("    nextCursor: ").append(toIndentedString(nextCursor)).append("\n");
     sb.append("    nextCursorOffset: ").append(toIndentedString(nextCursorOffset)).append("\n");
@@ -186,4 +190,3 @@ public class PaginationInfo {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusDynamoDb
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusDynamoDb {
   @SerializedName("scan_end_time")
   private String scanEndTime = null;
@@ -49,9 +50,9 @@ public class StatusDynamoDb {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     INITIALIZING("INITIALIZING"),
-    
+
     SCANNING_TABLE("SCANNINGTABLE"),
-    
+
     PROCESSING_STREAM("PROCESSINGSTREAM");
 
     private String value;
@@ -104,13 +105,14 @@ public class StatusDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * DynamoDb scan end time.
+   * 
    * @return scanEndTime
-  **/
+   **/
 
-@JsonProperty("scan_end_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "DynamoDb scan end time.")
+  @JsonProperty("scan_end_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "DynamoDb scan end time.")
   public String getScanEndTime() {
     return scanEndTime;
   }
@@ -124,13 +126,14 @@ public class StatusDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of records inserted using scan.
+   * 
    * @return scanRecordsProcessed
-  **/
+   **/
 
-@JsonProperty("scan_records_processed")
-@ApiModelProperty(example = "1000", value = "Number of records inserted using scan.")
+  @JsonProperty("scan_records_processed")
+  @ApiModelProperty(example = "1000", value = "Number of records inserted using scan.")
   public Long getScanRecordsProcessed() {
     return scanRecordsProcessed;
   }
@@ -144,13 +147,14 @@ public class StatusDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * DynamoDB scan start time.
+   * 
    * @return scanStartTime
-  **/
+   **/
 
-@JsonProperty("scan_start_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "DynamoDB scan start time.")
+  @JsonProperty("scan_start_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "DynamoDB scan start time.")
   public String getScanStartTime() {
     return scanStartTime;
   }
@@ -164,13 +168,14 @@ public class StatusDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * Number of records in DynamoDB table at time of scan.
+   * 
    * @return scanTotalRecords
-  **/
+   **/
 
-@JsonProperty("scan_total_records")
-@ApiModelProperty(example = "2000", value = "Number of records in DynamoDB table at time of scan.")
+  @JsonProperty("scan_total_records")
+  @ApiModelProperty(example = "2000", value = "Number of records in DynamoDB table at time of scan.")
   public Long getScanTotalRecords() {
     return scanTotalRecords;
   }
@@ -184,13 +189,14 @@ public class StatusDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * State of current ingest for this table.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "SCANNING_TABLE", value = "State of current ingest for this table.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "SCANNING_TABLE", value = "State of current ingest for this table.")
   public StateEnum getState() {
     return state;
   }
@@ -204,13 +210,14 @@ public class StatusDynamoDb {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date when source was last processed.
+   * 
    * @return streamLastProcessedAt
-  **/
+   **/
 
-@JsonProperty("stream_last_processed_at")
-@ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was last processed.")
+  @JsonProperty("stream_last_processed_at")
+  @ApiModelProperty(example = "2019-01-15T21:48:23Z", value = "ISO-8601 date when source was last processed.")
   public String getStreamLastProcessedAt() {
     return streamLastProcessedAt;
   }
@@ -218,7 +225,6 @@ public class StatusDynamoDb {
   public void setStreamLastProcessedAt(String streamLastProcessedAt) {
     this.streamLastProcessedAt = streamLastProcessedAt;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -239,15 +245,15 @@ public class StatusDynamoDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(scanEndTime, scanRecordsProcessed, scanStartTime, scanTotalRecords, state, streamLastProcessedAt);
+    return Objects.hash(scanEndTime, scanRecordsProcessed, scanStartTime, scanTotalRecords, state,
+        streamLastProcessedAt);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusDynamoDb {\n");
-    
+
     sb.append("    scanEndTime: ").append(toIndentedString(scanEndTime)).append("\n");
     sb.append("    scanRecordsProcessed: ").append(toIndentedString(scanRecordsProcessed)).append("\n");
     sb.append("    scanStartTime: ").append(toIndentedString(scanStartTime)).append("\n");
@@ -270,4 +276,3 @@ public class StatusDynamoDb {
   }
 
 }
-

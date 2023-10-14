@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusAzureEventHubs
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusAzureEventHubs {
   @SerializedName("last_consumed_time")
   private String lastConsumedTime = null;
@@ -49,9 +50,9 @@ public class StatusAzureEventHubs {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     NO_DOCS_YET("NODOCSYET"),
-    
+
     ACTIVE("ACTIVE"),
-    
+
     DORMANT("DORMANT");
 
     private String value;
@@ -101,13 +102,14 @@ public class StatusAzureEventHubs {
     return this;
   }
 
-   /**
+  /**
    * Time at which the last document was consumed.
+   * 
    * @return lastConsumedTime
-  **/
+   **/
 
-@JsonProperty("last_consumed_time")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time at which the last document was consumed.")
+  @JsonProperty("last_consumed_time")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "Time at which the last document was consumed.")
   public String getLastConsumedTime() {
     return lastConsumedTime;
   }
@@ -121,13 +123,14 @@ public class StatusAzureEventHubs {
     return this;
   }
 
-   /**
+  /**
    * Number of documents consumed.
+   * 
    * @return numDocumentsProcessed
-  **/
+   **/
 
-@JsonProperty("num_documents_processed")
-@ApiModelProperty(example = "1337", value = "Number of documents consumed.")
+  @JsonProperty("num_documents_processed")
+  @ApiModelProperty(example = "1337", value = "Number of documents consumed.")
   public Long getNumDocumentsProcessed() {
     return numDocumentsProcessed;
   }
@@ -149,13 +152,14 @@ public class StatusAzureEventHubs {
     return this;
   }
 
-   /**
+  /**
    * Status info per partition.
+   * 
    * @return partitions
-  **/
+   **/
 
-@JsonProperty("partitions")
-@ApiModelProperty(value = "Status info per partition.")
+  @JsonProperty("partitions")
+  @ApiModelProperty(value = "Status info per partition.")
   public List<StatusAzureEventHubsPartition> getPartitions() {
     return partitions;
   }
@@ -169,13 +173,14 @@ public class StatusAzureEventHubs {
     return this;
   }
 
-   /**
+  /**
    * State of the source.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "State of the source.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "State of the source.")
   public StateEnum getState() {
     return state;
   }
@@ -183,7 +188,6 @@ public class StatusAzureEventHubs {
   public void setState(StateEnum state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -205,12 +209,11 @@ public class StatusAzureEventHubs {
     return Objects.hash(lastConsumedTime, numDocumentsProcessed, partitions, state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusAzureEventHubs {\n");
-    
+
     sb.append("    lastConsumedTime: ").append(toIndentedString(lastConsumedTime)).append("\n");
     sb.append("    numDocumentsProcessed: ").append(toIndentedString(numDocumentsProcessed)).append("\n");
     sb.append("    partitions: ").append(toIndentedString(partitions)).append("\n");
@@ -231,4 +234,3 @@ public class StatusAzureEventHubs {
   }
 
 }
-

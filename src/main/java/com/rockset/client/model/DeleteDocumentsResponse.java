@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * DeleteDocumentsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class DeleteDocumentsResponse {
   @SerializedName("data")
   private List<DocumentStatus> data = null;
@@ -53,13 +54,14 @@ public class DeleteDocumentsResponse {
     return this;
   }
 
-   /**
+  /**
    * Information about deleted documents.
+   * 
    * @return data
-  **/
+   **/
 
-@JsonProperty("data")
-@ApiModelProperty(value = "Information about deleted documents.")
+  @JsonProperty("data")
+  @ApiModelProperty(value = "Information about deleted documents.")
   public List<DocumentStatus> getData() {
     return data;
   }
@@ -73,13 +75,14 @@ public class DeleteDocumentsResponse {
     return this;
   }
 
-   /**
+  /**
    * A string representing the collection offset after completing the deletes.
+   * 
    * @return lastOffset
-  **/
+   **/
 
-@JsonProperty("last_offset")
-@ApiModelProperty(example = "f1:0:0:0:0", value = "A string representing the collection offset after completing the deletes.")
+  @JsonProperty("last_offset")
+  @ApiModelProperty(example = "f1:0:0:0:0", value = "A string representing the collection offset after completing the deletes.")
   public String getLastOffset() {
     return lastOffset;
   }
@@ -87,7 +90,6 @@ public class DeleteDocumentsResponse {
   public void setLastOffset(String lastOffset) {
     this.lastOffset = lastOffset;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,12 +109,11 @@ public class DeleteDocumentsResponse {
     return Objects.hash(data, lastOffset);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDocumentsResponse {\n");
-    
+
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    lastOffset: ").append(toIndentedString(lastOffset)).append("\n");
     sb.append("}");
@@ -131,4 +132,3 @@ public class DeleteDocumentsResponse {
   }
 
 }
-

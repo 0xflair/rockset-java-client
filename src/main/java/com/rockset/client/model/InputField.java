@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * InputField
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class InputField {
   @SerializedName("field_name")
   private String fieldName = null;
@@ -40,7 +41,7 @@ public class InputField {
   @JsonAdapter(IfMissingEnum.Adapter.class)
   public enum IfMissingEnum {
     SKIP("SKIP"),
-    
+
     PASS("PASS");
 
     private String value;
@@ -96,13 +97,14 @@ public class InputField {
     return this;
   }
 
-   /**
+  /**
    * The name of a field, parsed as a SQL qualified name.
+   * 
    * @return fieldName
-  **/
+   **/
 
-@JsonProperty("field_name")
-@ApiModelProperty(example = "address.city.zipcode", value = "The name of a field, parsed as a SQL qualified name.")
+  @JsonProperty("field_name")
+  @ApiModelProperty(example = "address.city.zipcode", value = "The name of a field, parsed as a SQL qualified name.")
   public String getFieldName() {
     return fieldName;
   }
@@ -116,13 +118,14 @@ public class InputField {
     return this;
   }
 
-   /**
+  /**
    * Define the behaviour if fieldName is missing or is null.
+   * 
    * @return ifMissing
-  **/
+   **/
 
-@JsonProperty("if_missing")
-@ApiModelProperty(example = "SKIP", value = "Define the behaviour if fieldName is missing or is null.")
+  @JsonProperty("if_missing")
+  @ApiModelProperty(example = "SKIP", value = "Define the behaviour if fieldName is missing or is null.")
   public IfMissingEnum getIfMissing() {
     return ifMissing;
   }
@@ -136,13 +139,14 @@ public class InputField {
     return this;
   }
 
-   /**
+  /**
    * If true, then drop fieldName from the document.
+   * 
    * @return isDrop
-  **/
+   **/
 
-@JsonProperty("is_drop")
-@ApiModelProperty(example = "true", value = "If true, then drop fieldName from the document.")
+  @JsonProperty("is_drop")
+  @ApiModelProperty(example = "true", value = "If true, then drop fieldName from the document.")
   public Boolean isIsDrop() {
     return isDrop;
   }
@@ -156,13 +160,14 @@ public class InputField {
     return this;
   }
 
-   /**
+  /**
    * Sql parameter name.
+   * 
    * @return param
-  **/
+   **/
 
-@JsonProperty("param")
-@ApiModelProperty(example = "zip", value = "Sql parameter name.")
+  @JsonProperty("param")
+  @ApiModelProperty(example = "zip", value = "Sql parameter name.")
   public String getParam() {
     return param;
   }
@@ -170,7 +175,6 @@ public class InputField {
   public void setParam(String param) {
     this.param = param;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +196,11 @@ public class InputField {
     return Objects.hash(fieldName, ifMissing, isDrop, param);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InputField {\n");
-    
+
     sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
     sb.append("    ifMissing: ").append(toIndentedString(ifMissing)).append("\n");
     sb.append("    isDrop: ").append(toIndentedString(isDrop)).append("\n");
@@ -218,4 +221,3 @@ public class InputField {
   }
 
 }
-

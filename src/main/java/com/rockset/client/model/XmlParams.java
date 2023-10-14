@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * XmlParams
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class XmlParams {
   @SerializedName("attribute_prefix")
   private String attributePrefix = null;
@@ -51,13 +52,14 @@ public class XmlParams {
     return this;
   }
 
-   /**
+  /**
    * Tag to differentiate between attributes and elements.
+   * 
    * @return attributePrefix
-  **/
+   **/
 
-@JsonProperty("attribute_prefix")
-@ApiModelProperty(example = "_attr", value = "Tag to differentiate between attributes and elements.")
+  @JsonProperty("attribute_prefix")
+  @ApiModelProperty(example = "_attr", value = "Tag to differentiate between attributes and elements.")
   public String getAttributePrefix() {
     return attributePrefix;
   }
@@ -71,13 +73,14 @@ public class XmlParams {
     return this;
   }
 
-   /**
+  /**
    * Tags with which documents are identified.
+   * 
    * @return docTag
-  **/
+   **/
 
-@JsonProperty("doc_tag")
-@ApiModelProperty(example = "row", value = "Tags with which documents are identified.")
+  @JsonProperty("doc_tag")
+  @ApiModelProperty(example = "row", value = "Tags with which documents are identified.")
   public String getDocTag() {
     return docTag;
   }
@@ -91,13 +94,14 @@ public class XmlParams {
     return this;
   }
 
-   /**
+  /**
    * Encoding in which data source is encoded.
+   * 
    * @return encoding
-  **/
+   **/
 
-@JsonProperty("encoding")
-@ApiModelProperty(example = "UTF-8", value = "Encoding in which data source is encoded.")
+  @JsonProperty("encoding")
+  @ApiModelProperty(example = "UTF-8", value = "Encoding in which data source is encoded.")
   public String getEncoding() {
     return encoding;
   }
@@ -111,13 +115,14 @@ public class XmlParams {
     return this;
   }
 
-   /**
+  /**
    * Tag until which xml is ignored.
+   * 
    * @return rootTag
-  **/
+   **/
 
-@JsonProperty("root_tag")
-@ApiModelProperty(example = "root", value = "Tag until which xml is ignored.")
+  @JsonProperty("root_tag")
+  @ApiModelProperty(example = "root", value = "Tag until which xml is ignored.")
   public String getRootTag() {
     return rootTag;
   }
@@ -131,13 +136,15 @@ public class XmlParams {
     return this;
   }
 
-   /**
-   * tag used for the value when there are attributes in the element having no child
+  /**
+   * tag used for the value when there are attributes in the element having no
+   * child
+   * 
    * @return valueTag
-  **/
+   **/
 
-@JsonProperty("value_tag")
-@ApiModelProperty(example = "value", value = "tag used for the value when there are attributes in the element having no child")
+  @JsonProperty("value_tag")
+  @ApiModelProperty(example = "value", value = "tag used for the value when there are attributes in the element having no child")
   public String getValueTag() {
     return valueTag;
   }
@@ -145,7 +152,6 @@ public class XmlParams {
   public void setValueTag(String valueTag) {
     this.valueTag = valueTag;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -168,12 +174,11 @@ public class XmlParams {
     return Objects.hash(attributePrefix, docTag, encoding, rootTag, valueTag);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XmlParams {\n");
-    
+
     sb.append("    attributePrefix: ").append(toIndentedString(attributePrefix)).append("\n");
     sb.append("    docTag: ").append(toIndentedString(docTag)).append("\n");
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
@@ -195,4 +200,3 @@ public class XmlParams {
   }
 
 }
-

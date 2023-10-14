@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.api;
 
 import com.rockset.client.ApiCallback;
@@ -24,7 +23,6 @@ import com.rockset.client.ProgressResponseBody;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-
 
 import com.rockset.client.model.CancelQueryResponse;
 import com.rockset.client.model.ErrorModel;
@@ -62,18 +60,20 @@ public class QueriesApi {
 
     /**
      * Build call for cancel
-     * @param queryId  (required)
-     * @param progressListener Progress listener
+     * 
+     * @param queryId                 (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws Exception If fail to serialize the request body object
      */
-    public okhttp3.Call cancelCall(String queryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+    public okhttp3.Call cancelCall(String queryId, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v1/orgs/self/queries/{queryId}"
-            .replaceAll("\\{" + "queryId" + "\\}", apiClient.escapeString(queryId.toString()));
+                .replaceAll("\\{" + "queryId" + "\\}", apiClient.escapeString(queryId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -83,41 +83,44 @@ public class QueriesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             }).build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams,
+                localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelValidateBeforeCall(String queryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
-        
+    private okhttp3.Call cancelValidateBeforeCall(String queryId,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+
         // verify the required parameter 'queryId' is set
         if (queryId == null) {
             throw new Exception("Missing the required parameter 'queryId' when calling cancel(Async)");
         }
-        
 
         okhttp3.Call call = cancelCall(queryId, progressListener, progressRequestListener);
         return call;
@@ -127,9 +130,11 @@ public class QueriesApi {
     /**
      * Cancel Query
      * Attempts to cancel an actively-running query.
-     * @param queryId  (required)
+     * 
+     * @param queryId (required)
      * @return CancelQueryResponse
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public CancelQueryResponse cancel(String queryId) throws Exception {
         ApiResponse<CancelQueryResponse> resp = cancelWithHttpInfo(queryId);
@@ -139,23 +144,28 @@ public class QueriesApi {
     /**
      * Cancel Query
      * Attempts to cancel an actively-running query.
-     * @param queryId  (required)
+     * 
+     * @param queryId (required)
      * @return ApiResponse&lt;CancelQueryResponse&gt;
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ApiResponse<CancelQueryResponse> cancelWithHttpInfo(String queryId) throws Exception {
         okhttp3.Call call = cancelValidateBeforeCall(queryId, null, null);
-        Type localVarReturnType = new TypeToken<CancelQueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CancelQueryResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Cancel Query (asynchronously)
      * Attempts to cancel an actively-running query.
+     * 
      * @param queryId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws Exception If fail to process the API call, e.g. serializing the request body object
+     * @throws Exception If fail to process the API call, e.g. serializing the
+     *                   request body object
      */
     public okhttp3.Call cancelAsync(String queryId, final ApiCallback<CancelQueryResponse> callback) throws Exception {
 
@@ -179,24 +189,28 @@ public class QueriesApi {
         }
 
         okhttp3.Call call = cancelValidateBeforeCall(queryId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CancelQueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<CancelQueryResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for get
-     * @param queryId  (required)
-     * @param progressListener Progress listener
+     * 
+     * @param queryId                 (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws Exception If fail to serialize the request body object
      */
-    public okhttp3.Call getCall(String queryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+    public okhttp3.Call getCall(String queryId, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v1/orgs/self/queries/{queryId}"
-            .replaceAll("\\{" + "queryId" + "\\}", apiClient.escapeString(queryId.toString()));
+                .replaceAll("\\{" + "queryId" + "\\}", apiClient.escapeString(queryId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -206,41 +220,44 @@ public class QueriesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             }).build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams,
+                localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(String queryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
-        
+    private okhttp3.Call getValidateBeforeCall(String queryId,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+
         // verify the required parameter 'queryId' is set
         if (queryId == null) {
             throw new Exception("Missing the required parameter 'queryId' when calling get(Async)");
         }
-        
 
         okhttp3.Call call = getCall(queryId, progressListener, progressRequestListener);
         return call;
@@ -250,9 +267,11 @@ public class QueriesApi {
     /**
      * Retrieve Query
      * Returns information about a query.
-     * @param queryId  (required)
+     * 
+     * @param queryId (required)
      * @return GetQueryResponse
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public GetQueryResponse get(String queryId) throws Exception {
         ApiResponse<GetQueryResponse> resp = getWithHttpInfo(queryId);
@@ -262,23 +281,28 @@ public class QueriesApi {
     /**
      * Retrieve Query
      * Returns information about a query.
-     * @param queryId  (required)
+     * 
+     * @param queryId (required)
      * @return ApiResponse&lt;GetQueryResponse&gt;
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ApiResponse<GetQueryResponse> getWithHttpInfo(String queryId) throws Exception {
         okhttp3.Call call = getValidateBeforeCall(queryId, null, null);
-        Type localVarReturnType = new TypeToken<GetQueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQueryResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieve Query (asynchronously)
      * Returns information about a query.
+     * 
      * @param queryId  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws Exception If fail to process the API call, e.g. serializing the request body object
+     * @throws Exception If fail to process the API call, e.g. serializing the
+     *                   request body object
      */
     public okhttp3.Call getAsync(String queryId, final ApiCallback<GetQueryResponse> callback) throws Exception {
 
@@ -302,77 +326,87 @@ public class QueriesApi {
         }
 
         okhttp3.Call call = getValidateBeforeCall(queryId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<GetQueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQueryResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for get_0
-     * @param queryId  (required)
-     * @param cursor Cursor to current page. If unset, will default to the first page. (optional)
-     * @param docs Number of documents to fetch. (optional)
-     * @param offset Offset from the cursor of the first document to be returned (optional)
-     * @param progressListener Progress listener
+     * 
+     * @param queryId                 (required)
+     * @param cursor                  Cursor to current page. If unset, will default
+     *                                to the first page. (optional)
+     * @param docs                    Number of documents to fetch. (optional)
+     * @param offset                  Offset from the cursor of the first document
+     *                                to be returned (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws Exception If fail to serialize the request body object
      */
-    public okhttp3.Call get_0Call(String queryId, String cursor, Integer docs, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+    public okhttp3.Call get_0Call(String queryId, String cursor, Integer docs, Integer offset,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v1/orgs/self/queries/{queryId}/pages"
-            .replaceAll("\\{" + "queryId" + "\\}", apiClient.escapeString(queryId.toString()));
+                .replaceAll("\\{" + "queryId" + "\\}", apiClient.escapeString(queryId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (cursor != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("cursor", cursor));
+            localVarQueryParams.addAll(apiClient.parameterToPair("cursor", cursor));
         if (docs != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("docs", docs));
+            localVarQueryParams.addAll(apiClient.parameterToPair("docs", docs));
         if (offset != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             }).build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams,
+                localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call get_0ValidateBeforeCall(String queryId, String cursor, Integer docs, Integer offset, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
-        
+    private okhttp3.Call get_0ValidateBeforeCall(String queryId, String cursor, Integer docs, Integer offset,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+
         // verify the required parameter 'queryId' is set
         if (queryId == null) {
             throw new Exception("Missing the required parameter 'queryId' when calling get_0(Async)");
         }
-        
 
         okhttp3.Call call = get_0Call(queryId, cursor, docs, offset, progressListener, progressRequestListener);
         return call;
@@ -382,12 +416,16 @@ public class QueriesApi {
     /**
      * Retrieve Query Results Page
      * Returns a page of query results.
-     * @param queryId  (required)
-     * @param cursor Cursor to current page. If unset, will default to the first page. (optional)
-     * @param docs Number of documents to fetch. (optional)
-     * @param offset Offset from the cursor of the first document to be returned (optional)
+     * 
+     * @param queryId (required)
+     * @param cursor  Cursor to current page. If unset, will default to the first
+     *                page. (optional)
+     * @param docs    Number of documents to fetch. (optional)
+     * @param offset  Offset from the cursor of the first document to be returned
+     *                (optional)
      * @return QueryPaginationResponse
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public QueryPaginationResponse get_0(String queryId, String cursor, Integer docs, Integer offset) throws Exception {
         ApiResponse<QueryPaginationResponse> resp = get_0WithHttpInfo(queryId, cursor, docs, offset);
@@ -397,31 +435,42 @@ public class QueriesApi {
     /**
      * Retrieve Query Results Page
      * Returns a page of query results.
-     * @param queryId  (required)
-     * @param cursor Cursor to current page. If unset, will default to the first page. (optional)
-     * @param docs Number of documents to fetch. (optional)
-     * @param offset Offset from the cursor of the first document to be returned (optional)
+     * 
+     * @param queryId (required)
+     * @param cursor  Cursor to current page. If unset, will default to the first
+     *                page. (optional)
+     * @param docs    Number of documents to fetch. (optional)
+     * @param offset  Offset from the cursor of the first document to be returned
+     *                (optional)
      * @return ApiResponse&lt;QueryPaginationResponse&gt;
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
-    public ApiResponse<QueryPaginationResponse> get_0WithHttpInfo(String queryId, String cursor, Integer docs, Integer offset) throws Exception {
+    public ApiResponse<QueryPaginationResponse> get_0WithHttpInfo(String queryId, String cursor, Integer docs,
+            Integer offset) throws Exception {
         okhttp3.Call call = get_0ValidateBeforeCall(queryId, cursor, docs, offset, null, null);
-        Type localVarReturnType = new TypeToken<QueryPaginationResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QueryPaginationResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieve Query Results Page (asynchronously)
      * Returns a page of query results.
+     * 
      * @param queryId  (required)
-     * @param cursor Cursor to current page. If unset, will default to the first page. (optional)
-     * @param docs Number of documents to fetch. (optional)
-     * @param offset Offset from the cursor of the first document to be returned (optional)
+     * @param cursor   Cursor to current page. If unset, will default to the first
+     *                 page. (optional)
+     * @param docs     Number of documents to fetch. (optional)
+     * @param offset   Offset from the cursor of the first document to be returned
+     *                 (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws Exception If fail to process the API call, e.g. serializing the request body object
+     * @throws Exception If fail to process the API call, e.g. serializing the
+     *                   request body object
      */
-    public okhttp3.Call get_0Async(String queryId, String cursor, Integer docs, Integer offset, final ApiCallback<QueryPaginationResponse> callback) throws Exception {
+    public okhttp3.Call get_0Async(String queryId, String cursor, Integer docs, Integer offset,
+            final ApiCallback<QueryPaginationResponse> callback) throws Exception {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -442,19 +491,24 @@ public class QueriesApi {
             };
         }
 
-        okhttp3.Call call = get_0ValidateBeforeCall(queryId, cursor, docs, offset, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QueryPaginationResponse>(){}.getType();
+        okhttp3.Call call = get_0ValidateBeforeCall(queryId, cursor, docs, offset, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<QueryPaginationResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for list
-     * @param progressListener Progress listener
+     * 
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws Exception If fail to serialize the request body object
      */
-    public okhttp3.Call listCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+    public okhttp3.Call listCall(final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -468,36 +522,38 @@ public class QueriesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             }).build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams,
+                localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
-        
+    private okhttp3.Call listValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
 
         okhttp3.Call call = listCall(progressListener, progressRequestListener);
         return call;
@@ -507,8 +563,10 @@ public class QueriesApi {
     /**
      * List Queries
      * Lists actively queued and running queries.
+     * 
      * @return ListQueriesResponse
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ListQueriesResponse list() throws Exception {
         ApiResponse<ListQueriesResponse> resp = listWithHttpInfo();
@@ -518,21 +576,26 @@ public class QueriesApi {
     /**
      * List Queries
      * Lists actively queued and running queries.
+     * 
      * @return ApiResponse&lt;ListQueriesResponse&gt;
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ApiResponse<ListQueriesResponse> listWithHttpInfo() throws Exception {
         okhttp3.Call call = listValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ListQueriesResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListQueriesResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List Queries (asynchronously)
      * Lists actively queued and running queries.
+     * 
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws Exception If fail to process the API call, e.g. serializing the request body object
+     * @throws Exception If fail to process the API call, e.g. serializing the
+     *                   request body object
      */
     public okhttp3.Call listAsync(final ApiCallback<ListQueriesResponse> callback) throws Exception {
 
@@ -556,19 +619,23 @@ public class QueriesApi {
         }
 
         okhttp3.Call call = listValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListQueriesResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListQueriesResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for query
-     * @param body JSON object (required)
-     * @param progressListener Progress listener
+     * 
+     * @param body                    JSON object (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws Exception If fail to serialize the request body object
      */
-    public okhttp3.Call queryCall(QueryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+    public okhttp3.Call queryCall(QueryRequest body, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -582,41 +649,44 @@ public class QueriesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             }).build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams,
+                localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call queryValidateBeforeCall(QueryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
-        
+    private okhttp3.Call queryValidateBeforeCall(QueryRequest body,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new Exception("Missing the required parameter 'body' when calling query(Async)");
         }
-        
 
         okhttp3.Call call = queryCall(body, progressListener, progressRequestListener);
         return call;
@@ -626,11 +696,14 @@ public class QueriesApi {
     /**
      * Execute SQL Query
      * Make a SQL query to Rockset.
+     * 
      * @param body JSON object (required)
      * @return QueryResponse
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public QueryResponse query(QueryRequest body) throws Exception {
+        System.out.println("RocksetQueryRequest getQuery(): " + body.getSql().getQuery());
         ApiResponse<QueryResponse> resp = queryWithHttpInfo(body);
         return resp.getData();
     }
@@ -638,23 +711,33 @@ public class QueriesApi {
     /**
      * Execute SQL Query
      * Make a SQL query to Rockset.
+     * 
      * @param body JSON object (required)
      * @return ApiResponse&lt;QueryResponse&gt;
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ApiResponse<QueryResponse> queryWithHttpInfo(QueryRequest body) throws Exception {
         okhttp3.Call call = queryValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<QueryResponse>(){}.getType();
+
+        System.out.println("queryWithHttpInfo call url(): " + call.request().url());
+        System.out.println("queryWithHttpInfo call headers: " + call.request().headers());
+        System.out.println("queryWithHttpInfo call header Authorization: " + call.request().header("Authorization"));
+
+        Type localVarReturnType = new TypeToken<QueryResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Execute SQL Query (asynchronously)
      * Make a SQL query to Rockset.
-     * @param body JSON object (required)
+     * 
+     * @param body     JSON object (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws Exception If fail to process the API call, e.g. serializing the request body object
+     * @throws Exception If fail to process the API call, e.g. serializing the
+     *                   request body object
      */
     public okhttp3.Call queryAsync(QueryRequest body, final ApiCallback<QueryResponse> callback) throws Exception {
 
@@ -678,19 +761,23 @@ public class QueriesApi {
         }
 
         okhttp3.Call call = queryValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<QueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<QueryResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for validate
-     * @param body JSON object (required)
-     * @param progressListener Progress listener
+     * 
+     * @param body                    JSON object (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws Exception If fail to serialize the request body object
      */
-    public okhttp3.Call validateCall(QueryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+    public okhttp3.Call validateCall(QueryRequest body, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -704,41 +791,44 @@ public class QueriesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             }).build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams,
+                localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call validateValidateBeforeCall(QueryRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
-        
+    private okhttp3.Call validateValidateBeforeCall(QueryRequest body,
+            final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws Exception {
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new Exception("Missing the required parameter 'body' when calling validate(Async)");
         }
-        
 
         okhttp3.Call call = validateCall(body, progressListener, progressRequestListener);
         return call;
@@ -748,9 +838,11 @@ public class QueriesApi {
     /**
      * Validate Query
      * Validate a SQL query with Rockset&#39;s parser and planner.
+     * 
      * @param body JSON object (required)
      * @return ValidateQueryResponse
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ValidateQueryResponse validate(QueryRequest body) throws Exception {
         ApiResponse<ValidateQueryResponse> resp = validateWithHttpInfo(body);
@@ -760,25 +852,31 @@ public class QueriesApi {
     /**
      * Validate Query
      * Validate a SQL query with Rockset&#39;s parser and planner.
+     * 
      * @param body JSON object (required)
      * @return ApiResponse&lt;ValidateQueryResponse&gt;
-     * @throws Exception If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws Exception If fail to call the API, e.g. server error or cannot
+     *                   deserialize the response body
      */
     public ApiResponse<ValidateQueryResponse> validateWithHttpInfo(QueryRequest body) throws Exception {
         okhttp3.Call call = validateValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ValidateQueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ValidateQueryResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Validate Query (asynchronously)
      * Validate a SQL query with Rockset&#39;s parser and planner.
-     * @param body JSON object (required)
+     * 
+     * @param body     JSON object (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws Exception If fail to process the API call, e.g. serializing the request body object
+     * @throws Exception If fail to process the API call, e.g. serializing the
+     *                   request body object
      */
-    public okhttp3.Call validateAsync(QueryRequest body, final ApiCallback<ValidateQueryResponse> callback) throws Exception {
+    public okhttp3.Call validateAsync(QueryRequest body, final ApiCallback<ValidateQueryResponse> callback)
+            throws Exception {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -800,7 +898,8 @@ public class QueriesApi {
         }
 
         okhttp3.Call call = validateValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ValidateQueryResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ValidateQueryResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

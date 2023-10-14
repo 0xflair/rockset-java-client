@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ValidateFieldMappingQueryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class ValidateFieldMappingQueryResponse {
   @SerializedName("valid")
   private Boolean valid = null;
@@ -48,13 +49,14 @@ public class ValidateFieldMappingQueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Whether the field mapping query is valid
+   * 
    * @return valid
-  **/
+   **/
 
-@JsonProperty("valid")
-@ApiModelProperty(example = "true", value = "Whether the field mapping query is valid")
+  @JsonProperty("valid")
+  @ApiModelProperty(example = "true", value = "Whether the field mapping query is valid")
   public Boolean isValid() {
     return valid;
   }
@@ -68,13 +70,14 @@ public class ValidateFieldMappingQueryResponse {
     return this;
   }
 
-   /**
+  /**
    * The reason if field mapping query is invalid
+   * 
    * @return reason
-  **/
+   **/
 
-@JsonProperty("reason")
-@ApiModelProperty(example = "Invalid SQL expression. Incorrect SQL syntax near..", value = "The reason if field mapping query is invalid")
+  @JsonProperty("reason")
+  @ApiModelProperty(example = "Invalid SQL expression. Incorrect SQL syntax near..", value = "The reason if field mapping query is invalid")
   public String getReason() {
     return reason;
   }
@@ -88,13 +91,14 @@ public class ValidateFieldMappingQueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Get isRollup
+   * 
    * @return isRollup
-  **/
+   **/
 
-@JsonProperty("is_rollup")
-@ApiModelProperty(value = "")
+  @JsonProperty("is_rollup")
+  @ApiModelProperty(value = "")
   public Boolean isIsRollup() {
     return isRollup;
   }
@@ -108,13 +112,14 @@ public class ValidateFieldMappingQueryResponse {
     return this;
   }
 
-   /**
+  /**
    * Get hasIdMapping
+   * 
    * @return hasIdMapping
-  **/
+   **/
 
-@JsonProperty("has_id_mapping")
-@ApiModelProperty(value = "")
+  @JsonProperty("has_id_mapping")
+  @ApiModelProperty(value = "")
   public Boolean isHasIdMapping() {
     return hasIdMapping;
   }
@@ -122,7 +127,6 @@ public class ValidateFieldMappingQueryResponse {
   public void setHasIdMapping(Boolean hasIdMapping) {
     this.hasIdMapping = hasIdMapping;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,12 +148,11 @@ public class ValidateFieldMappingQueryResponse {
     return Objects.hash(valid, reason, isRollup, hasIdMapping);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateFieldMappingQueryResponse {\n");
-    
+
     sb.append("    valid: ").append(toIndentedString(valid)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    isRollup: ").append(toIndentedString(isRollup)).append("\n");
@@ -170,4 +173,3 @@ public class ValidateFieldMappingQueryResponse {
   }
 
 }
-

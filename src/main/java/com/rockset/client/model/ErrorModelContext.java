@@ -17,9 +17,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** ErrorModelContext */
-@javax.annotation.Generated(
-    value = "io.swagger.codegen.languages.JavaClientCodegen",
-    date = "2019-01-24T01:18:37.603Z")
+// @javax.annotation.Generated(
+// value = "io.swagger.codegen.languages.JavaClientCodegen",
+// date = "2019-01-24T01:18:37.603Z")
 public class ErrorModelContext {
   @SerializedName("lineinfo")
   private String lineinfo = null;
@@ -34,9 +34,7 @@ public class ErrorModelContext {
    *
    * @return lineinfo
    */
-  @ApiModelProperty(
-      example = "could not add documents to paused collection",
-      value = "additional error message")
+  @ApiModelProperty(example = "could not add documents to paused collection", value = "additional error message")
   public String getLineinfo() {
     return lineinfo;
   }
@@ -73,7 +71,8 @@ public class ErrorModelContext {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

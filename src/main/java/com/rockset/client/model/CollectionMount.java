@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CollectionMount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CollectionMount {
   @SerializedName("collection_path")
   private String collectionPath = null;
@@ -56,19 +57,19 @@ public class CollectionMount {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     CREATING("CREATING"),
-    
+
     ACTIVE("ACTIVE"),
-    
+
     REFRESHING("REFRESHING"),
-    
+
     EXPIRED("EXPIRED"),
-    
+
     DELETING("DELETING"),
-    
+
     SWITCHING_REFRESH_TYPE("SWITCHINGREFRESHTYPE"),
-    
+
     SUSPENDED("SUSPENDED"),
-    
+
     SUSPENDING("SUSPENDING");
 
     private String value;
@@ -127,13 +128,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Collection path.
+   * 
    * @return collectionPath
-  **/
+   **/
 
-@JsonProperty("collection_path")
-@ApiModelProperty(example = "commons.foo", value = "Collection path.")
+  @JsonProperty("collection_path")
+  @ApiModelProperty(example = "commons.foo", value = "Collection path.")
   public String getCollectionPath() {
     return collectionPath;
   }
@@ -147,13 +149,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -167,13 +170,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Mount ID.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("id")
-@ApiModelProperty(example = "5ac23....", value = "Mount ID.")
+  @JsonProperty("id")
+  @ApiModelProperty(example = "5ac23....", value = "Mount ID.")
   public String getId() {
     return id;
   }
@@ -187,13 +191,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Unix timestamp of most recent refresh. Not applicable for live mounts.
+   * 
    * @return lastRefreshTimeMillis
-  **/
+   **/
 
-@JsonProperty("last_refresh_time_millis")
-@ApiModelProperty(example = "123123764", value = "Unix timestamp of most recent refresh. Not applicable for live mounts.")
+  @JsonProperty("last_refresh_time_millis")
+  @ApiModelProperty(example = "123123764", value = "Unix timestamp of most recent refresh. Not applicable for live mounts.")
   public Long getLastRefreshTimeMillis() {
     return lastRefreshTimeMillis;
   }
@@ -207,13 +212,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Mount RRN.
+   * 
    * @return rrn
-  **/
+   **/
 
-@JsonProperty("rrn")
-@ApiModelProperty(example = "rrn:mnt:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Mount RRN.")
+  @JsonProperty("rrn")
+  @ApiModelProperty(example = "rrn:mnt:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Mount RRN.")
   public String getRrn() {
     return rrn;
   }
@@ -227,13 +233,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Time in millis at which the snapshot expires.
+   * 
    * @return snapshotExpirationTimeMillis
-  **/
+   **/
 
-@JsonProperty("snapshot_expiration_time_millis")
-@ApiModelProperty(example = "864000000", value = "Time in millis at which the snapshot expires.")
+  @JsonProperty("snapshot_expiration_time_millis")
+  @ApiModelProperty(example = "864000000", value = "Time in millis at which the snapshot expires.")
   public Long getSnapshotExpirationTimeMillis() {
     return snapshotExpirationTimeMillis;
   }
@@ -247,13 +254,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Mount type.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "ACTIVE", value = "Mount type.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "ACTIVE", value = "Mount type.")
   public StateEnum getState() {
     return state;
   }
@@ -267,13 +275,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Stats about this Collection Mount
+   * 
    * @return stats
-  **/
+   **/
 
-@JsonProperty("stats")
-@ApiModelProperty(value = "Stats about this Collection Mount")
+  @JsonProperty("stats")
+  @ApiModelProperty(value = "Stats about this Collection Mount")
   public CollectionMountStats getStats() {
     return stats;
   }
@@ -287,13 +296,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Virtual instance ID.
+   * 
    * @return virtualInstanceId
-  **/
+   **/
 
-@JsonProperty("virtual_instance_id")
-@ApiModelProperty(example = "5ac23....", value = "Virtual instance ID.")
+  @JsonProperty("virtual_instance_id")
+  @ApiModelProperty(example = "5ac23....", value = "Virtual instance ID.")
   public String getVirtualInstanceId() {
     return virtualInstanceId;
   }
@@ -307,13 +317,14 @@ public class CollectionMount {
     return this;
   }
 
-   /**
+  /**
    * Virtual Instance RRN.
+   * 
    * @return virtualInstanceRrn
-  **/
+   **/
 
-@JsonProperty("virtual_instance_rrn")
-@ApiModelProperty(example = "rrn:vi:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Virtual Instance RRN.")
+  @JsonProperty("virtual_instance_rrn")
+  @ApiModelProperty(example = "rrn:vi:use1a1:123e4567-e89b-12d3-a456-556642440000", value = "Virtual Instance RRN.")
   public String getVirtualInstanceRrn() {
     return virtualInstanceRrn;
   }
@@ -321,7 +332,6 @@ public class CollectionMount {
   public void setVirtualInstanceRrn(String virtualInstanceRrn) {
     this.virtualInstanceRrn = virtualInstanceRrn;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -346,15 +356,15 @@ public class CollectionMount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionPath, createdAt, id, lastRefreshTimeMillis, rrn, snapshotExpirationTimeMillis, state, stats, virtualInstanceId, virtualInstanceRrn);
+    return Objects.hash(collectionPath, createdAt, id, lastRefreshTimeMillis, rrn, snapshotExpirationTimeMillis, state,
+        stats, virtualInstanceId, virtualInstanceRrn);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionMount {\n");
-    
+
     sb.append("    collectionPath: ").append(toIndentedString(collectionPath)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -381,4 +391,3 @@ public class CollectionMount {
   }
 
 }
-

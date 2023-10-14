@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -39,7 +38,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * UpdateIntegrationRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class UpdateIntegrationRequest {
   @SerializedName("azure_blob_storage")
   private AzureBlobStorageIntegration azureBlobStorage = null;
@@ -79,13 +80,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Azure Blob Storage details.
+   * 
    * @return azureBlobStorage
-  **/
+   **/
 
-@JsonProperty("azure_blob_storage")
-@ApiModelProperty(value = "Azure Blob Storage details.")
+  @JsonProperty("azure_blob_storage")
+  @ApiModelProperty(value = "Azure Blob Storage details.")
   public AzureBlobStorageIntegration getAzureBlobStorage() {
     return azureBlobStorage;
   }
@@ -99,13 +101,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Azure Event Hubs details.
+   * 
    * @return azureEventHubs
-  **/
+   **/
 
-@JsonProperty("azure_event_hubs")
-@ApiModelProperty(value = "Azure Event Hubs details.")
+  @JsonProperty("azure_event_hubs")
+  @ApiModelProperty(value = "Azure Event Hubs details.")
   public AzureEventHubsIntegration getAzureEventHubs() {
     return azureEventHubs;
   }
@@ -119,13 +122,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Azure Service Bus details.
+   * 
    * @return azureServiceBus
-  **/
+   **/
 
-@JsonProperty("azure_service_bus")
-@ApiModelProperty(value = "Azure Service Bus details.")
+  @JsonProperty("azure_service_bus")
+  @ApiModelProperty(value = "Azure Service Bus details.")
   public AzureServiceBusIntegration getAzureServiceBus() {
     return azureServiceBus;
   }
@@ -139,13 +143,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Longer explanation for the integration.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "AWS account with event data for the data science team.", value = "Longer explanation for the integration.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "AWS account with event data for the data science team.", value = "Longer explanation for the integration.")
   public String getDescription() {
     return description;
   }
@@ -159,13 +164,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Amazon DynamoDB details, must have one of aws_access_key or aws_role.
+   * 
    * @return dynamodb
-  **/
+   **/
 
-@JsonProperty("dynamodb")
-@ApiModelProperty(value = "Amazon DynamoDB details, must have one of aws_access_key or aws_role.")
+  @JsonProperty("dynamodb")
+  @ApiModelProperty(value = "Amazon DynamoDB details, must have one of aws_access_key or aws_role.")
   public DynamodbIntegration getDynamodb() {
     return dynamodb;
   }
@@ -179,13 +185,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * GCS details.
+   * 
    * @return gcs
-  **/
+   **/
 
-@JsonProperty("gcs")
-@ApiModelProperty(value = "GCS details.")
+  @JsonProperty("gcs")
+  @ApiModelProperty(value = "GCS details.")
   public GcsIntegration getGcs() {
     return gcs;
   }
@@ -199,13 +206,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Get kafka
+   * 
    * @return kafka
-  **/
+   **/
 
-@JsonProperty("kafka")
-@ApiModelProperty(value = "")
+  @JsonProperty("kafka")
+  @ApiModelProperty(value = "")
   public KafkaIntegration getKafka() {
     return kafka;
   }
@@ -219,13 +227,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Amazon Kinesis details, must have one of aws_access_key or aws_role.
+   * 
    * @return kinesis
-  **/
+   **/
 
-@JsonProperty("kinesis")
-@ApiModelProperty(value = "Amazon Kinesis details, must have one of aws_access_key or aws_role.")
+  @JsonProperty("kinesis")
+  @ApiModelProperty(value = "Amazon Kinesis details, must have one of aws_access_key or aws_role.")
   public KinesisIntegration getKinesis() {
     return kinesis;
   }
@@ -239,13 +248,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * MongoDb details.
+   * 
    * @return mongodb
-  **/
+   **/
 
-@JsonProperty("mongodb")
-@ApiModelProperty(value = "MongoDb details.")
+  @JsonProperty("mongodb")
+  @ApiModelProperty(value = "MongoDb details.")
   public MongoDbIntegration getMongodb() {
     return mongodb;
   }
@@ -259,13 +269,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Amazon S3 details, must have one of aws_access_key or aws_role.
+   * 
    * @return s3
-  **/
+   **/
 
-@JsonProperty("s3")
-@ApiModelProperty(value = "Amazon S3 details, must have one of aws_access_key or aws_role.")
+  @JsonProperty("s3")
+  @ApiModelProperty(value = "Amazon S3 details, must have one of aws_access_key or aws_role.")
   public S3Integration getS3() {
     return s3;
   }
@@ -279,13 +290,14 @@ public class UpdateIntegrationRequest {
     return this;
   }
 
-   /**
+  /**
    * Snowflake details.
+   * 
    * @return snowflake
-  **/
+   **/
 
-@JsonProperty("snowflake")
-@ApiModelProperty(value = "Snowflake details.")
+  @JsonProperty("snowflake")
+  @ApiModelProperty(value = "Snowflake details.")
   public SnowflakeIntegration getSnowflake() {
     return snowflake;
   }
@@ -293,7 +305,6 @@ public class UpdateIntegrationRequest {
   public void setSnowflake(SnowflakeIntegration snowflake) {
     this.snowflake = snowflake;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -319,15 +330,15 @@ public class UpdateIntegrationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureBlobStorage, azureEventHubs, azureServiceBus, description, dynamodb, gcs, kafka, kinesis, mongodb, s3, snowflake);
+    return Objects.hash(azureBlobStorage, azureEventHubs, azureServiceBus, description, dynamodb, gcs, kafka, kinesis,
+        mongodb, s3, snowflake);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateIntegrationRequest {\n");
-    
+
     sb.append("    azureBlobStorage: ").append(toIndentedString(azureBlobStorage)).append("\n");
     sb.append("    azureEventHubs: ").append(toIndentedString(azureEventHubs)).append("\n");
     sb.append("    azureServiceBus: ").append(toIndentedString(azureServiceBus)).append("\n");
@@ -355,4 +366,3 @@ public class UpdateIntegrationRequest {
   }
 
 }
-

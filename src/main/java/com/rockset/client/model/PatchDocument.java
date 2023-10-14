@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * PatchDocument
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class PatchDocument {
   @SerializedName("_id")
   private String id = null;
@@ -45,13 +46,14 @@ public class PatchDocument {
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the document to be patched.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("_id")
-@ApiModelProperty(example = "ca2d6832-1bfd-f88f-0620-d2aa27a5d86c", required = true, value = "Unique ID of the document to be patched.")
+  @JsonProperty("_id")
+  @ApiModelProperty(example = "ca2d6832-1bfd-f88f-0620-d2aa27a5d86c", required = true, value = "Unique ID of the document to be patched.")
   public String getId() {
     return id;
   }
@@ -70,13 +72,14 @@ public class PatchDocument {
     return this;
   }
 
-   /**
+  /**
    * List of patch operations.
+   * 
    * @return patch
-  **/
+   **/
 
-@JsonProperty("patch")
-@ApiModelProperty(required = true, value = "List of patch operations.")
+  @JsonProperty("patch")
+  @ApiModelProperty(required = true, value = "List of patch operations.")
   public List<PatchOperation> getPatch() {
     return patch;
   }
@@ -84,7 +87,6 @@ public class PatchDocument {
   public void setPatch(List<PatchOperation> patch) {
     this.patch = patch;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,12 +106,11 @@ public class PatchDocument {
     return Objects.hash(id, patch);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PatchDocument {\n");
-    
+
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    patch: ").append(toIndentedString(patch)).append("\n");
     sb.append("}");
@@ -128,4 +129,3 @@ public class PatchDocument {
   }
 
 }
-

@@ -145,13 +145,20 @@ public class RocksetStatement implements Statement {
   }
 
   /**
-   * Given query response, it returns the next cursor. The data format is as below:
-   * https://rockset.com/docs/query-results-pagination/#gatsby-focus-wrapper { "query_id":
-   * "5b596206-c632-4a08-8343-0c560f7ef7f1", "results": [ { ... } ], ... "results_total_doc_count":
-   * 10000000, // This is the total number of documents included in the results. "pagination": {
-   * "current_page_doc_count": 1000, // This will be fewer if there are no more results.
-   * "start_cursor": "dfasdgaaasdfad2x" // This will be null if there are no results returned by the
-   * query. "next_cursor": "aabawe153wtea352" // This will be null if there are no more results than
+   * Given query response, it returns the next cursor. The data format is as
+   * below:
+   * https://rockset.com/docs/query-results-pagination/#gatsby-focus-wrapper {
+   * "query_id":
+   * "5b596206-c632-4a08-8343-0c560f7ef7f1", "results": [ { ... } ], ...
+   * "results_total_doc_count":
+   * 10000000, // This is the total number of documents included in the results.
+   * "pagination": {
+   * "current_page_doc_count": 1000, // This will be fewer if there are no more
+   * results.
+   * "start_cursor": "dfasdgaaasdfad2x" // This will be null if there are no
+   * results returned by the
+   * query. "next_cursor": "aabawe153wtea352" // This will be null if there are no
+   * more results than
    * those returned in this response. } }
    *
    * @param response
@@ -167,12 +174,18 @@ public class RocksetStatement implements Statement {
 
   /**
    * Given query response, it returns the query Id. The data format is as below:
-   * https://rockset.com/docs/query-results-pagination/#gatsby-focus-wrapper { "query_id":
-   * "5b596206-c632-4a08-8343-0c560f7ef7f1", "results": [ { ... } ], ... "results_total_doc_count":
-   * 10000000, // This is the total number of documents included in the results. "pagination": {
-   * "current_page_doc_count": 1000, // This will be fewer if there are no more results.
-   * "start_cursor": "dfasdgaaasdfad2x" // This will be null if there are no results returned by the
-   * query. "next_cursor": "aabawe153wtea352" // This will be null if there are no more results than
+   * https://rockset.com/docs/query-results-pagination/#gatsby-focus-wrapper {
+   * "query_id":
+   * "5b596206-c632-4a08-8343-0c560f7ef7f1", "results": [ { ... } ], ...
+   * "results_total_doc_count":
+   * 10000000, // This is the total number of documents included in the results.
+   * "pagination": {
+   * "current_page_doc_count": 1000, // This will be fewer if there are no more
+   * results.
+   * "start_cursor": "dfasdgaaasdfad2x" // This will be null if there are no
+   * results returned by the
+   * query. "next_cursor": "aabawe153wtea352" // This will be null if there are no
+   * more results than
    * those returned in this response. } }
    *
    * @param response
@@ -190,22 +203,20 @@ public class RocksetStatement implements Statement {
     try {
       // Make query to rockset service. We do not use queryTimeoutSeconds
       // because rockset queries do not yet have a client-side timeout.
-      QueryResponse resp =
-          connection()
-              .startQuery(sql, this.fetchSize.get(), params, getStatementSessionProperties());
+      QueryResponse resp = connection()
+          .startQuery(sql, this.fetchSize.get(), params, getStatementSessionProperties());
 
       // store resuts in memory
-      resultSet =
-          new RocksetResultSet(
-              sql,
-              resp,
-              this.maxRows.get(),
-              RocksetResultSetPaginationParams.builder()
-                  .connection(connection())
-                  .fetchSize(this.fetchSize.get())
-                  .lastQueryId(getQueryIdFromQueryResponse(resp))
-                  .currentCursor(getNextCursorFromQueryResponse(resp))
-                  .build());
+      resultSet = new RocksetResultSet(
+          sql,
+          resp,
+          this.maxRows.get(),
+          RocksetResultSetPaginationParams.builder()
+              .connection(connection())
+              .fetchSize(this.fetchSize.get())
+              .lastQueryId(getQueryIdFromQueryResponse(resp))
+              .currentCursor(getNextCursorFromQueryResponse(resp))
+              .build());
 
       this.currentResult.set(resultSet);
       return true;
@@ -444,12 +455,14 @@ public class RocksetStatement implements Statement {
 
   private RocksetConnection connection() throws SQLException {
     RocksetConnection connection = this.connection.get();
+
     if (connection == null) {
       throw new SQLException("Statement is closed");
     }
     if (connection.isClosed()) {
       throw new SQLException("Connection is closed");
     }
+
     return connection;
   }
 

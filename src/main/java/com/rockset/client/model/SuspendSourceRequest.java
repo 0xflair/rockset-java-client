@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SuspendSourceRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SuspendSourceRequest {
   @SerializedName("resume_after_duration")
   private String resumeAfterDuration = null;
@@ -39,13 +40,14 @@ public class SuspendSourceRequest {
     return this;
   }
 
-   /**
+  /**
    * duration to suspend source; 1h is the default
+   * 
    * @return resumeAfterDuration
-  **/
+   **/
 
-@JsonProperty("resume_after_duration")
-@ApiModelProperty(example = "30min", value = "duration to suspend source; 1h is the default")
+  @JsonProperty("resume_after_duration")
+  @ApiModelProperty(example = "30min", value = "duration to suspend source; 1h is the default")
   public String getResumeAfterDuration() {
     return resumeAfterDuration;
   }
@@ -53,7 +55,6 @@ public class SuspendSourceRequest {
   public void setResumeAfterDuration(String resumeAfterDuration) {
     this.resumeAfterDuration = resumeAfterDuration;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class SuspendSourceRequest {
     return Objects.hash(resumeAfterDuration);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuspendSourceRequest {\n");
-    
+
     sb.append("    resumeAfterDuration: ").append(toIndentedString(resumeAfterDuration)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class SuspendSourceRequest {
   }
 
 }
-

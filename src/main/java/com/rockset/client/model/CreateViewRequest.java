@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateViewRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateViewRequest {
   @SerializedName("description")
   private String description = null;
@@ -45,13 +46,14 @@ public class CreateViewRequest {
     return this;
   }
 
-   /**
+  /**
    * Optional description.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "view of awesome collection", value = "Optional description.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "view of awesome collection", value = "Optional description.")
   public String getDescription() {
     return description;
   }
@@ -65,13 +67,14 @@ public class CreateViewRequest {
     return this;
   }
 
-   /**
+  /**
    * View name.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "myAwesomeView", required = true, value = "View name.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "myAwesomeView", required = true, value = "View name.")
   public String getName() {
     return name;
   }
@@ -85,13 +88,14 @@ public class CreateViewRequest {
     return this;
   }
 
-   /**
+  /**
    * SQL for this view.
+   * 
    * @return query
-  **/
+   **/
 
-@JsonProperty("query")
-@ApiModelProperty(example = "SELECT * FROM foo", required = true, value = "SQL for this view.")
+  @JsonProperty("query")
+  @ApiModelProperty(example = "SELECT * FROM foo", required = true, value = "SQL for this view.")
   public String getQuery() {
     return query;
   }
@@ -99,7 +103,6 @@ public class CreateViewRequest {
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +123,11 @@ public class CreateViewRequest {
     return Objects.hash(description, name, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateViewRequest {\n");
-    
+
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
@@ -145,4 +147,3 @@ public class CreateViewRequest {
   }
 
 }
-

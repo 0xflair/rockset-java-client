@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * RpcSinkStats
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-04-15T10:38:36.284-04:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2022-04-15T10:38:36.284-04:00")
 public class RpcSinkStats {
   @SerializedName("worker")
   private String worker = null;
@@ -72,13 +73,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the worker this operator ran on
+   * 
    * @return worker
-  **/
+   **/
 
-@JsonProperty("worker")
-@ApiModelProperty(example = "aggregator", value = "The id of the worker this operator ran on")
+  @JsonProperty("worker")
+  @ApiModelProperty(example = "aggregator", value = "The id of the worker this operator ran on")
   public String getWorker() {
     return worker;
   }
@@ -92,13 +94,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the fragment this operator belonged to
+   * 
    * @return fragment
-  **/
+   **/
 
-@JsonProperty("fragment")
-@ApiModelProperty(example = "13", value = "The id of the fragment this operator belonged to")
+  @JsonProperty("fragment")
+  @ApiModelProperty(example = "13", value = "The id of the fragment this operator belonged to")
   public Long getFragment() {
     return fragment;
   }
@@ -112,13 +115,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * The id of the task this operator belonged to
+   * 
    * @return task
-  **/
+   **/
 
-@JsonProperty("task")
-@ApiModelProperty(example = "2", value = "The id of the task this operator belonged to")
+  @JsonProperty("task")
+  @ApiModelProperty(example = "2", value = "The id of the task this operator belonged to")
   public String getTask() {
     return task;
   }
@@ -132,13 +136,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * The id of this operator in the task
+   * 
    * @return operatorId
-  **/
+   **/
 
-@JsonProperty("operator_id")
-@ApiModelProperty(example = "3", value = "The id of this operator in the task")
+  @JsonProperty("operator_id")
+  @ApiModelProperty(example = "3", value = "The id of this operator in the task")
   public Long getOperatorId() {
     return operatorId;
   }
@@ -152,13 +157,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * The class name of upstream operator
+   * 
    * @return srcOperatorName
-  **/
+   **/
 
-@JsonProperty("src_operator_name")
-@ApiModelProperty(example = "AllGather", value = "The class name of upstream operator")
+  @JsonProperty("src_operator_name")
+  @ApiModelProperty(example = "AllGather", value = "The class name of upstream operator")
   public String getSrcOperatorName() {
     return srcOperatorName;
   }
@@ -172,13 +178,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Total bytes received from the input
+   * 
    * @return inputBytes
-  **/
+   **/
 
-@JsonProperty("input_bytes")
-@ApiModelProperty(example = "48004800", value = "Total bytes received from the input")
+  @JsonProperty("input_bytes")
+  @ApiModelProperty(example = "48004800", value = "Total bytes received from the input")
   public Long getInputBytes() {
     return inputBytes;
   }
@@ -192,13 +199,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Maximum bytes received in one data chunk
+   * 
    * @return maxInputBytes
-  **/
+   **/
 
-@JsonProperty("max_input_bytes")
-@ApiModelProperty(example = "48004800", value = "Maximum bytes received in one data chunk")
+  @JsonProperty("max_input_bytes")
+  @ApiModelProperty(example = "48004800", value = "Maximum bytes received in one data chunk")
   public Long getMaxInputBytes() {
     return maxInputBytes;
   }
@@ -212,13 +220,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Total rows received from the input
+   * 
    * @return inputRows
-  **/
+   **/
 
-@JsonProperty("input_rows")
-@ApiModelProperty(example = "1000100", value = "Total rows received from the input")
+  @JsonProperty("input_rows")
+  @ApiModelProperty(example = "1000100", value = "Total rows received from the input")
   public Long getInputRows() {
     return inputRows;
   }
@@ -232,13 +241,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Total data chunks received from the input
+   * 
    * @return inputDataChunks
-  **/
+   **/
 
-@JsonProperty("input_data_chunks")
-@ApiModelProperty(example = "1000100", value = "Total data chunks received from the input")
+  @JsonProperty("input_data_chunks")
+  @ApiModelProperty(example = "1000100", value = "Total data chunks received from the input")
   public Long getInputDataChunks() {
     return inputDataChunks;
   }
@@ -252,13 +262,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Total data chunks sent to the output
+   * 
    * @return outputDataChunks
-  **/
+   **/
 
-@JsonProperty("output_data_chunks")
-@ApiModelProperty(example = "1000100", value = "Total data chunks sent to the output")
+  @JsonProperty("output_data_chunks")
+  @ApiModelProperty(example = "1000100", value = "Total data chunks sent to the output")
   public Long getOutputDataChunks() {
     return outputDataChunks;
   }
@@ -272,13 +283,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Total messages sent to the output
+   * 
    * @return outputMessages
-  **/
+   **/
 
-@JsonProperty("output_messages")
-@ApiModelProperty(example = "1000100", value = "Total messages sent to the output")
+  @JsonProperty("output_messages")
+  @ApiModelProperty(example = "1000100", value = "Total messages sent to the output")
   public Long getOutputMessages() {
     return outputMessages;
   }
@@ -292,13 +304,14 @@ public class RpcSinkStats {
     return this;
   }
 
-   /**
+  /**
    * Total time in microseconds spent doing useful work
+   * 
    * @return processingTimeUs
-  **/
+   **/
 
-@JsonProperty("processing_time_us")
-@ApiModelProperty(example = "2500", value = "Total time in microseconds spent doing useful work")
+  @JsonProperty("processing_time_us")
+  @ApiModelProperty(example = "2500", value = "Total time in microseconds spent doing useful work")
   public Long getProcessingTimeUs() {
     return processingTimeUs;
   }
@@ -306,7 +319,6 @@ public class RpcSinkStats {
   public void setProcessingTimeUs(Long processingTimeUs) {
     this.processingTimeUs = processingTimeUs;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -333,15 +345,15 @@ public class RpcSinkStats {
 
   @Override
   public int hashCode() {
-    return Objects.hash(worker, fragment, task, operatorId, srcOperatorName, inputBytes, maxInputBytes, inputRows, inputDataChunks, outputDataChunks, outputMessages, processingTimeUs);
+    return Objects.hash(worker, fragment, task, operatorId, srcOperatorName, inputBytes, maxInputBytes, inputRows,
+        inputDataChunks, outputDataChunks, outputMessages, processingTimeUs);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RpcSinkStats {\n");
-    
+
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("    fragment: ").append(toIndentedString(fragment)).append("\n");
     sb.append("    task: ").append(toIndentedString(task)).append("\n");
@@ -370,4 +382,3 @@ public class RpcSinkStats {
   }
 
 }
-

@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceGcsSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceGcsSettings {
   @SerializedName("gcs_scan_frequency")
   private String gcsScanFrequency = null;
@@ -39,13 +40,18 @@ public class SourceGcsSettings {
     return this;
   }
 
-   /**
-   * Rockset scans a GCS bucket based on a defined time interval. The scan frequency determines the length of time between a new scan and the previous scan. If the previous scan finds new objects or updates to existing objects, Rockset immediately scans the bucket again after processing changes from the previous scan.
+  /**
+   * Rockset scans a GCS bucket based on a defined time interval. The scan
+   * frequency determines the length of time between a new scan and the previous
+   * scan. If the previous scan finds new objects or updates to existing objects,
+   * Rockset immediately scans the bucket again after processing changes from the
+   * previous scan.
+   * 
    * @return gcsScanFrequency
-  **/
+   **/
 
-@JsonProperty("gcs_scan_frequency")
-@ApiModelProperty(example = "5min", value = "Rockset scans a GCS bucket based on a defined time interval. The scan frequency determines the length of time between a new scan and the previous scan. If the previous scan finds new objects or updates to existing objects, Rockset immediately scans the bucket again after processing changes from the previous scan.")
+  @JsonProperty("gcs_scan_frequency")
+  @ApiModelProperty(example = "5min", value = "Rockset scans a GCS bucket based on a defined time interval. The scan frequency determines the length of time between a new scan and the previous scan. If the previous scan finds new objects or updates to existing objects, Rockset immediately scans the bucket again after processing changes from the previous scan.")
   public String getGcsScanFrequency() {
     return gcsScanFrequency;
   }
@@ -53,7 +59,6 @@ public class SourceGcsSettings {
   public void setGcsScanFrequency(String gcsScanFrequency) {
     this.gcsScanFrequency = gcsScanFrequency;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +77,11 @@ public class SourceGcsSettings {
     return Objects.hash(gcsScanFrequency);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceGcsSettings {\n");
-    
+
     sb.append("    gcsScanFrequency: ").append(toIndentedString(gcsScanFrequency)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +99,3 @@ public class SourceGcsSettings {
   }
 
 }
-

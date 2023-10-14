@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,28 +28,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * PatchOperation
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class PatchOperation {
   @SerializedName("from")
   private String from = null;
 
   /**
-   * [JSON Patch operation](https://datatracker.ietf.org/doc/html/rfc6902#page-4) to be performed in this patch. Case insensitive.
+   * [JSON Patch operation](https://datatracker.ietf.org/doc/html/rfc6902#page-4)
+   * to be performed in this patch. Case insensitive.
    */
   @JsonAdapter(OpEnum.Adapter.class)
   public enum OpEnum {
     ADD("ADD"),
-    
+
     REPLACE("REPLACE"),
-    
+
     REMOVE("REMOVE"),
-    
+
     COPY("COPY"),
-    
+
     MOVE("MOVE"),
-    
+
     TEST("TEST"),
-    
+
     INCREMENT("INCREMENT");
 
     private String value;
@@ -106,13 +108,16 @@ public class PatchOperation {
     return this;
   }
 
-   /**
-   * [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a location in the target document. Required for &#x60;COPY&#x60; and &#x60;MOVE&#x60; operations.
+  /**
+   * [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a
+   * location in the target document. Required for &#x60;COPY&#x60; and
+   * &#x60;MOVE&#x60; operations.
+   * 
    * @return from
-  **/
+   **/
 
-@JsonProperty("from")
-@ApiModelProperty(value = "[JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a location in the target document. Required for `COPY` and `MOVE` operations.")
+  @JsonProperty("from")
+  @ApiModelProperty(value = "[JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a location in the target document. Required for `COPY` and `MOVE` operations.")
   public String getFrom() {
     return from;
   }
@@ -126,13 +131,15 @@ public class PatchOperation {
     return this;
   }
 
-   /**
-   * [JSON Patch operation](https://datatracker.ietf.org/doc/html/rfc6902#page-4) to be performed in this patch. Case insensitive.
+  /**
+   * [JSON Patch operation](https://datatracker.ietf.org/doc/html/rfc6902#page-4)
+   * to be performed in this patch. Case insensitive.
+   * 
    * @return op
-  **/
+   **/
 
-@JsonProperty("op")
-@ApiModelProperty(example = "ADD", required = true, value = "[JSON Patch operation](https://datatracker.ietf.org/doc/html/rfc6902#page-4) to be performed in this patch. Case insensitive.")
+  @JsonProperty("op")
+  @ApiModelProperty(example = "ADD", required = true, value = "[JSON Patch operation](https://datatracker.ietf.org/doc/html/rfc6902#page-4) to be performed in this patch. Case insensitive.")
   public OpEnum getOp() {
     return op;
   }
@@ -146,13 +153,15 @@ public class PatchOperation {
     return this;
   }
 
-   /**
-   * [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a location in the target document where the operation is performed
+  /**
+   * [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a
+   * location in the target document where the operation is performed
+   * 
    * @return path
-  **/
+   **/
 
-@JsonProperty("path")
-@ApiModelProperty(example = "/foo/bar", required = true, value = "[JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a location in the target document where the operation is performed")
+  @JsonProperty("path")
+  @ApiModelProperty(example = "/foo/bar", required = true, value = "[JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) referencing a location in the target document where the operation is performed")
   public String getPath() {
     return path;
   }
@@ -166,13 +175,15 @@ public class PatchOperation {
     return this;
   }
 
-   /**
-   * Value used in the patch operation. Required for &#x60;ADD&#x60;, &#x60;REPLACE&#x60;, &#x60;TEST&#x60;, and &#x60;INCREMENT&#x60; operations.
+  /**
+   * Value used in the patch operation. Required for &#x60;ADD&#x60;,
+   * &#x60;REPLACE&#x60;, &#x60;TEST&#x60;, and &#x60;INCREMENT&#x60; operations.
+   * 
    * @return value
-  **/
+   **/
 
-@JsonProperty("value")
-@ApiModelProperty(example = "\"baz\"", value = "Value used in the patch operation. Required for `ADD`, `REPLACE`, `TEST`, and `INCREMENT` operations.")
+  @JsonProperty("value")
+  @ApiModelProperty(example = "\"baz\"", value = "Value used in the patch operation. Required for `ADD`, `REPLACE`, `TEST`, and `INCREMENT` operations.")
   public Object getValue() {
     return value;
   }
@@ -180,7 +191,6 @@ public class PatchOperation {
   public void setValue(Object value) {
     this.value = value;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,12 +212,11 @@ public class PatchOperation {
     return Objects.hash(from, op, path, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PatchOperation {\n");
-    
+
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
@@ -228,4 +237,3 @@ public class PatchOperation {
   }
 
 }
-

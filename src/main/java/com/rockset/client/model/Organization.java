@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -34,7 +33,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @ApiModel(description = "An organization in Rockset is a container for users and collections.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Organization {
   @SerializedName("clusters")
   private List<Cluster> clusters = null;
@@ -73,13 +74,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * List of clusters associated with this org.
+   * 
    * @return clusters
-  **/
+   **/
 
-@JsonProperty("clusters")
-@ApiModelProperty(example = "\"[{ ... }]\"", value = "List of clusters associated with this org.")
+  @JsonProperty("clusters")
+  @ApiModelProperty(example = "\"[{ ... }]\"", value = "List of clusters associated with this org.")
   public List<Cluster> getClusters() {
     return clusters;
   }
@@ -93,13 +95,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * ISO-8601 date.
+   * 
    * @return createdAt
-  **/
+   **/
 
-@JsonProperty("created_at")
-@ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
+  @JsonProperty("created_at")
+  @ApiModelProperty(example = "2001-08-28T00:23:41Z", value = "ISO-8601 date.")
   public String getCreatedAt() {
     return createdAt;
   }
@@ -113,13 +116,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * Name of the organization.
+   * 
    * @return displayName
-  **/
+   **/
 
-@JsonProperty("display_name")
-@ApiModelProperty(example = "Rockset, Inc", value = "Name of the organization.")
+  @JsonProperty("display_name")
+  @ApiModelProperty(example = "Rockset, Inc", value = "Name of the organization.")
   public String getDisplayName() {
     return displayName;
   }
@@ -133,13 +137,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * Organization&#39;s unique external ID within Rockset.
+   * 
    * @return externalId
-  **/
+   **/
 
-@JsonProperty("external_id")
-@ApiModelProperty(example = "<hash>", value = "Organization's unique external ID within Rockset.")
+  @JsonProperty("external_id")
+  @ApiModelProperty(example = "<hash>", value = "Organization's unique external ID within Rockset.")
   public String getExternalId() {
     return externalId;
   }
@@ -153,13 +158,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * Unique identifier for the organization.
+   * 
    * @return id
-  **/
+   **/
 
-@JsonProperty("id")
-@ApiModelProperty(example = "rockset", value = "Unique identifier for the organization.")
+  @JsonProperty("id")
+  @ApiModelProperty(example = "rockset", value = "Unique identifier for the organization.")
   public String getId() {
     return id;
   }
@@ -173,13 +179,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * Rockset&#39;s global AWS user.
+   * 
    * @return rocksetUser
-  **/
+   **/
 
-@JsonProperty("rockset_user")
-@ApiModelProperty(example = "<id>", value = "Rockset's global AWS user.")
+  @JsonProperty("rockset_user")
+  @ApiModelProperty(example = "<id>", value = "Rockset's global AWS user.")
   public String getRocksetUser() {
     return rocksetUser;
   }
@@ -193,13 +200,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * Connection name of SSO connection.
+   * 
    * @return ssoConnection
-  **/
+   **/
 
-@JsonProperty("sso_connection")
-@ApiModelProperty(example = "rockset", value = "Connection name of SSO connection.")
+  @JsonProperty("sso_connection")
+  @ApiModelProperty(example = "rockset", value = "Connection name of SSO connection.")
   public String getSsoConnection() {
     return ssoConnection;
   }
@@ -213,13 +221,14 @@ public class Organization {
     return this;
   }
 
-   /**
+  /**
    * Whether or not SSO is the only permitted form of auth.
+   * 
    * @return ssoOnly
-  **/
+   **/
 
-@JsonProperty("sso_only")
-@ApiModelProperty(example = "true", value = "Whether or not SSO is the only permitted form of auth.")
+  @JsonProperty("sso_only")
+  @ApiModelProperty(example = "true", value = "Whether or not SSO is the only permitted form of auth.")
   public Boolean isSsoOnly() {
     return ssoOnly;
   }
@@ -227,7 +236,6 @@ public class Organization {
   public void setSsoOnly(Boolean ssoOnly) {
     this.ssoOnly = ssoOnly;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -253,12 +261,11 @@ public class Organization {
     return Objects.hash(clusters, createdAt, displayName, externalId, id, rocksetUser, ssoConnection, ssoOnly);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Organization {\n");
-    
+
     sb.append("    clusters: ").append(toIndentedString(clusters)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
@@ -283,4 +290,3 @@ public class Organization {
   }
 
 }
-

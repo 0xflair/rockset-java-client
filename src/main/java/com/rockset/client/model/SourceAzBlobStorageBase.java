@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceAzBlobStorageBase
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceAzBlobStorageBase {
   @SerializedName("settings")
   private SourceAzBlobStorageSettings settings = null;
@@ -40,13 +41,14 @@ public class SourceAzBlobStorageBase {
     return this;
   }
 
-   /**
+  /**
    * custom settings for Azure blob Storage source
+   * 
    * @return settings
-  **/
+   **/
 
-@JsonProperty("settings")
-@ApiModelProperty(value = "custom settings for Azure blob Storage source")
+  @JsonProperty("settings")
+  @ApiModelProperty(value = "custom settings for Azure blob Storage source")
   public SourceAzBlobStorageSettings getSettings() {
     return settings;
   }
@@ -54,7 +56,6 @@ public class SourceAzBlobStorageBase {
   public void setSettings(SourceAzBlobStorageSettings settings) {
     this.settings = settings;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +74,11 @@ public class SourceAzBlobStorageBase {
     return Objects.hash(settings);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceAzBlobStorageBase {\n");
-    
+
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -96,4 +96,3 @@ public class SourceAzBlobStorageBase {
   }
 
 }
-

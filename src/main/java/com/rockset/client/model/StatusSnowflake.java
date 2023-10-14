@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * StatusSnowflake
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class StatusSnowflake {
   /**
    * State of current ingest for this table.
@@ -37,11 +38,11 @@ public class StatusSnowflake {
   @JsonAdapter(StateEnum.Adapter.class)
   public enum StateEnum {
     INITIALIZING("INITIALIZING"),
-    
+
     EXPORTING_TO_S3("EXPORTINGTOS3"),
-    
+
     DOWNLOADING_FROM_S3("DOWNLOADINGFROMS3"),
-    
+
     COMPLETED("COMPLETED");
 
     private String value;
@@ -91,13 +92,14 @@ public class StatusSnowflake {
     return this;
   }
 
-   /**
+  /**
    * State of current ingest for this table.
+   * 
    * @return state
-  **/
+   **/
 
-@JsonProperty("state")
-@ApiModelProperty(example = "EXPORTING_TO_S3", value = "State of current ingest for this table.")
+  @JsonProperty("state")
+  @ApiModelProperty(example = "EXPORTING_TO_S3", value = "State of current ingest for this table.")
   public StateEnum getState() {
     return state;
   }
@@ -105,7 +107,6 @@ public class StatusSnowflake {
   public void setState(StateEnum state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,12 +125,11 @@ public class StatusSnowflake {
     return Objects.hash(state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusSnowflake {\n");
-    
+
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -147,4 +147,3 @@ public class StatusSnowflake {
   }
 
 }
-

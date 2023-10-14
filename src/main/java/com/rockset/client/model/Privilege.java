@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Privilege
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class Privilege {
   /**
    * The action allowed by this privilege.
@@ -37,107 +38,107 @@ public class Privilege {
   @JsonAdapter(ActionEnum.Adapter.class)
   public enum ActionEnum {
     ALL_GLOBAL_ACTIONS("ALLGLOBALACTIONS"),
-    
+
     GET_ORG_GLOBAL("GETORGGLOBAL"),
-    
+
     GET_CURRENT_USER_GLOBAL("GETCURRENTUSERGLOBAL"),
-    
+
     INVITE_USER_GLOBAL("INVITEUSERGLOBAL"),
-    
+
     DELETE_USER_GLOBAL("DELETEUSERGLOBAL"),
-    
+
     LIST_USERS_GLOBAL("LISTUSERSGLOBAL"),
-    
+
     GET_BILLING_GLOBAL("GETBILLINGGLOBAL"),
-    
+
     UPDATE_BILLING_GLOBAL("UPDATEBILLINGGLOBAL"),
-    
+
     UPDATE_SETTINGS_GLOBAL("UPDATESETTINGSGLOBAL"),
-    
+
     GET_METRICS_GLOBAL("GETMETRICSGLOBAL"),
-    
+
     CREATE_VI_GLOBAL("CREATEVIGLOBAL"),
-    
+
     UPDATE_VI_GLOBAL("UPDATEVIGLOBAL"),
-    
+
     LIST_VI_GLOBAL("LISTVIGLOBAL"),
-    
+
     CREATE_WS_GLOBAL("CREATEWSGLOBAL"),
-    
+
     LIST_WS_GLOBAL("LISTWSGLOBAL"),
-    
+
     CREATE_INTEGRATION_GLOBAL("CREATEINTEGRATIONGLOBAL"),
-    
+
     DELETE_INTEGRATION_GLOBAL("DELETEINTEGRATIONGLOBAL"),
-    
+
     LIST_INTEGRATIONS_GLOBAL("LISTINTEGRATIONSGLOBAL"),
-    
+
     UPDATE_RESOURCE_OWNER_GLOBAL("UPDATERESOURCEOWNERGLOBAL"),
-    
+
     CREATE_API_KEY_GLOBAL("CREATEAPIKEYGLOBAL"),
-    
+
     CREATE_ROLE_GLOBAL("CREATEROLEGLOBAL"),
-    
+
     UPDATE_ROLE_GLOBAL("UPDATEROLEGLOBAL"),
-    
+
     DELETE_ROLE_GLOBAL("DELETEROLEGLOBAL"),
-    
+
     LIST_ROLES_GLOBAL("LISTROLESGLOBAL"),
-    
+
     GRANT_REVOKE_ROLE_GLOBAL("GRANTREVOKEROLEGLOBAL"),
-    
+
     CREATE_QUERY_LOGS_COLLECTION_GLOBAL("CREATEQUERYLOGSCOLLECTIONGLOBAL"),
-    
+
     ALL_INTEGRATION_ACTIONS("ALLINTEGRATIONACTIONS"),
-    
+
     CREATE_COLLECTION_INTEGRATION("CREATECOLLECTIONINTEGRATION"),
-    
+
     ALL_WORKSPACE_ACTIONS("ALLWORKSPACEACTIONS"),
-    
+
     DELETE_WS("DELETEWS"),
-    
+
     QUERY_DATA_WS("QUERYDATAWS"),
-    
+
     WRITE_DATA_WS("WRITEDATAWS"),
-    
+
     CREATE_COLLECTION_WS("CREATECOLLECTIONWS"),
-    
+
     DELETE_COLLECTION_WS("DELETECOLLECTIONWS"),
-    
+
     CREATE_ALIAS_WS("CREATEALIASWS"),
-    
+
     DELETE_ALIAS_WS("DELETEALIASWS"),
-    
+
     CREATE_SNAPSHOT_WS("CREATESNAPSHOTWS"),
-    
+
     LIST_RESOURCES_WS("LISTRESOURCESWS"),
-    
+
     CREATE_QUERY_LAMBDA_WS("CREATEQUERYLAMBDAWS"),
-    
+
     DELETE_QUERY_LAMBDA_WS("DELETEQUERYLAMBDAWS"),
-    
+
     EXECUTE_QUERY_LAMBDA_WS("EXECUTEQUERYLAMBDAWS"),
-    
+
     CREATE_SCHEDULED_LAMBDA_WS("CREATESCHEDULEDLAMBDAWS"),
-    
+
     DELETE_SCHEDULED_LAMBDA_WS("DELETESCHEDULEDLAMBDAWS"),
-    
+
     CREATE_VIEW_WS("CREATEVIEWWS"),
-    
+
     DELETE_VIEW_WS("DELETEVIEWWS"),
-    
+
     ALL_VI_ACTIONS("ALLVIACTIONS"),
-    
+
     QUERY_VI("QUERYVI"),
-    
+
     UPDATE_VI("UPDATEVI"),
-    
+
     SUSPEND_RESUME_VI("SUSPENDRESUMEVI"),
-    
+
     DELETE_VI("DELETEVI"),
-    
+
     CREATE_SIMILARITY_INDEX_WS("CREATESIMILARITYINDEXWS"),
-    
+
     DELETE_SIMILARITY_INDEX_WS("DELETESIMILARITYINDEXWS");
 
     private String value;
@@ -193,13 +194,14 @@ public class Privilege {
     return this;
   }
 
-   /**
+  /**
    * The action allowed by this privilege.
+   * 
    * @return action
-  **/
+   **/
 
-@JsonProperty("action")
-@ApiModelProperty(example = "CREATE_COLLECTION_WS", value = "The action allowed by this privilege.")
+  @JsonProperty("action")
+  @ApiModelProperty(example = "CREATE_COLLECTION_WS", value = "The action allowed by this privilege.")
   public ActionEnum getAction() {
     return action;
   }
@@ -213,13 +215,16 @@ public class Privilege {
     return this;
   }
 
-   /**
-   * Cluster ID (&#x60;usw2a1&#x60; for us-west-2, &#x60;use1a1&#x60; for us-east-1, &#x60;euc1a1&#x60; for eu-central-1) for which the action is allowed. Defaults to &#39;*All*&#39; if not specified.
+  /**
+   * Cluster ID (&#x60;usw2a1&#x60; for us-west-2, &#x60;use1a1&#x60; for
+   * us-east-1, &#x60;euc1a1&#x60; for eu-central-1) for which the action is
+   * allowed. Defaults to &#39;*All*&#39; if not specified.
+   * 
    * @return cluster
-  **/
+   **/
 
-@JsonProperty("cluster")
-@ApiModelProperty(example = "*ALL*", value = "Cluster ID (`usw2a1` for us-west-2, `use1a1` for us-east-1, `euc1a1` for eu-central-1) for which the action is allowed. Defaults to '*All*' if not specified.")
+  @JsonProperty("cluster")
+  @ApiModelProperty(example = "*ALL*", value = "Cluster ID (`usw2a1` for us-west-2, `use1a1` for us-east-1, `euc1a1` for eu-central-1) for which the action is allowed. Defaults to '*All*' if not specified.")
   public String getCluster() {
     return cluster;
   }
@@ -233,13 +238,15 @@ public class Privilege {
     return this;
   }
 
-   /**
-   * The resources on which the action is allowed. Defaults to &#39;*All*&#39; if not specified.
+  /**
+   * The resources on which the action is allowed. Defaults to &#39;*All*&#39; if
+   * not specified.
+   * 
    * @return resourceName
-  **/
+   **/
 
-@JsonProperty("resource_name")
-@ApiModelProperty(example = "commons", value = "The resources on which the action is allowed. Defaults to '*All*' if not specified.")
+  @JsonProperty("resource_name")
+  @ApiModelProperty(example = "commons", value = "The resources on which the action is allowed. Defaults to '*All*' if not specified.")
   public String getResourceName() {
     return resourceName;
   }
@@ -247,7 +254,6 @@ public class Privilege {
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -268,12 +274,11 @@ public class Privilege {
     return Objects.hash(action, cluster, resourceName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Privilege {\n");
-    
+
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
@@ -293,4 +298,3 @@ public class Privilege {
   }
 
 }
-

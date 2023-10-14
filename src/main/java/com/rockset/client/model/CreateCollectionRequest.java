@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -35,7 +34,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * CreateCollectionRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class CreateCollectionRequest {
   @SerializedName("clustering_key")
   private List<FieldPartition> clusteringKey = null;
@@ -67,7 +68,7 @@ public class CreateCollectionRequest {
   @JsonAdapter(StorageCompressionTypeEnum.Adapter.class)
   public enum StorageCompressionTypeEnum {
     LZ4("LZ4"),
-    
+
     ZSTD("ZSTD");
 
     private String value;
@@ -125,13 +126,15 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
-   * Deprecated. List of clustering fields. Use CLUSTER BY clause in &#x60;field_mapping_query&#x60; instead.
+  /**
+   * Deprecated. List of clustering fields. Use CLUSTER BY clause in
+   * &#x60;field_mapping_query&#x60; instead.
+   * 
    * @return clusteringKey
-  **/
+   **/
 
-@JsonProperty("clustering_key")
-@ApiModelProperty(value = "Deprecated. List of clustering fields. Use CLUSTER BY clause in `field_mapping_query` instead.")
+  @JsonProperty("clustering_key")
+  @ApiModelProperty(value = "Deprecated. List of clustering fields. Use CLUSTER BY clause in `field_mapping_query` instead.")
   public List<FieldPartition> getClusteringKey() {
     return clusteringKey;
   }
@@ -145,13 +148,14 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * Text describing the collection.
+   * 
    * @return description
-  **/
+   **/
 
-@JsonProperty("description")
-@ApiModelProperty(example = "transactions from stores worldwide", value = "Text describing the collection.")
+  @JsonProperty("description")
+  @ApiModelProperty(example = "transactions from stores worldwide", value = "Text describing the collection.")
   public String getDescription() {
     return description;
   }
@@ -165,13 +169,15 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
-   * Deprecated. Configuration for event data. Use an _event_time mapping in &#x60;field_mapping_query&#x60; instead.
+  /**
+   * Deprecated. Configuration for event data. Use an _event_time mapping in
+   * &#x60;field_mapping_query&#x60; instead.
+   * 
    * @return eventTimeInfo
-  **/
+   **/
 
-@JsonProperty("event_time_info")
-@ApiModelProperty(value = "Deprecated. Configuration for event data. Use an _event_time mapping in `field_mapping_query` instead.")
+  @JsonProperty("event_time_info")
+  @ApiModelProperty(value = "Deprecated. Configuration for event data. Use an _event_time mapping in `field_mapping_query` instead.")
   public EventTimeInfo getEventTimeInfo() {
     return eventTimeInfo;
   }
@@ -185,13 +191,14 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * Ingest transformation query.
+   * 
    * @return fieldMappingQuery
-  **/
+   **/
 
-@JsonProperty("field_mapping_query")
-@ApiModelProperty(value = "Ingest transformation query.")
+  @JsonProperty("field_mapping_query")
+  @ApiModelProperty(value = "Ingest transformation query.")
   public FieldMappingQuery getFieldMappingQuery() {
     return fieldMappingQuery;
   }
@@ -205,13 +212,15 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
-   * Unique identifier for collection, can contain alphanumeric or dash characters.
+  /**
+   * Unique identifier for collection, can contain alphanumeric or dash
+   * characters.
+   * 
    * @return name
-  **/
+   **/
 
-@JsonProperty("name")
-@ApiModelProperty(example = "global-transactions", value = "Unique identifier for collection, can contain alphanumeric or dash characters.")
+  @JsonProperty("name")
+  @ApiModelProperty(example = "global-transactions", value = "Unique identifier for collection, can contain alphanumeric or dash characters.")
   public String getName() {
     return name;
   }
@@ -225,14 +234,15 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * Number of seconds after which data is purged, based on event time.
    * minimum: 3600
+   * 
    * @return retentionSecs
-  **/
+   **/
 
-@JsonProperty("retention_secs")
-@ApiModelProperty(example = "1000000", value = "Number of seconds after which data is purged, based on event time.")
+  @JsonProperty("retention_secs")
+  @ApiModelProperty(example = "1000000", value = "Number of seconds after which data is purged, based on event time.")
   public Long getRetentionSecs() {
     return retentionSecs;
   }
@@ -246,13 +256,14 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * Soft ingest limit for this collection.
+   * 
    * @return sourceDownloadSoftLimitBytes
-  **/
+   **/
 
-@JsonProperty("source_download_soft_limit_bytes")
-@ApiModelProperty(value = "Soft ingest limit for this collection.")
+  @JsonProperty("source_download_soft_limit_bytes")
+  @ApiModelProperty(value = "Soft ingest limit for this collection.")
   public Long getSourceDownloadSoftLimitBytes() {
     return sourceDownloadSoftLimitBytes;
   }
@@ -274,13 +285,14 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * List of sources from which to ingest data.
+   * 
    * @return sources
-  **/
+   **/
 
-@JsonProperty("sources")
-@ApiModelProperty(value = "List of sources from which to ingest data.")
+  @JsonProperty("sources")
+  @ApiModelProperty(value = "List of sources from which to ingest data.")
   public List<Source> getSources() {
     return sources;
   }
@@ -294,13 +306,14 @@ public class CreateCollectionRequest {
     return this;
   }
 
-   /**
+  /**
    * RocksDB storage compression type.
+   * 
    * @return storageCompressionType
-  **/
+   **/
 
-@JsonProperty("storage_compression_type")
-@ApiModelProperty(example = "LZ4", value = "RocksDB storage compression type.")
+  @JsonProperty("storage_compression_type")
+  @ApiModelProperty(example = "LZ4", value = "RocksDB storage compression type.")
   public StorageCompressionTypeEnum getStorageCompressionType() {
     return storageCompressionType;
   }
@@ -308,7 +321,6 @@ public class CreateCollectionRequest {
   public void setStorageCompressionType(StorageCompressionTypeEnum storageCompressionType) {
     this.storageCompressionType = storageCompressionType;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -332,15 +344,15 @@ public class CreateCollectionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusteringKey, description, eventTimeInfo, fieldMappingQuery, name, retentionSecs, sourceDownloadSoftLimitBytes, sources, storageCompressionType);
+    return Objects.hash(clusteringKey, description, eventTimeInfo, fieldMappingQuery, name, retentionSecs,
+        sourceDownloadSoftLimitBytes, sources, storageCompressionType);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCollectionRequest {\n");
-    
+
     sb.append("    clusteringKey: ").append(toIndentedString(clusteringKey)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eventTimeInfo: ").append(toIndentedString(eventTimeInfo)).append("\n");
@@ -366,4 +378,3 @@ public class CreateCollectionRequest {
   }
 
 }
-

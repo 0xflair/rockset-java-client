@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -32,7 +31,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * FormatParams
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class FormatParams {
   @SerializedName("avro")
   private AvroParams avro = null;
@@ -63,13 +64,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get avro
+   * 
    * @return avro
-  **/
+   **/
 
-@JsonProperty("avro")
-@ApiModelProperty(value = "")
+  @JsonProperty("avro")
+  @ApiModelProperty(value = "")
   public AvroParams getAvro() {
     return avro;
   }
@@ -83,13 +85,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get csv
+   * 
    * @return csv
-  **/
+   **/
 
-@JsonProperty("csv")
-@ApiModelProperty(value = "")
+  @JsonProperty("csv")
+  @ApiModelProperty(value = "")
   public CsvParams getCsv() {
     return csv;
   }
@@ -103,13 +106,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Source data is in json format.
+   * 
    * @return json
-  **/
+   **/
 
-@JsonProperty("json")
-@ApiModelProperty(example = "true", value = "Source data is in json format.")
+  @JsonProperty("json")
+  @ApiModelProperty(example = "true", value = "Source data is in json format.")
   public Boolean isJson() {
     return json;
   }
@@ -123,13 +127,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get mssqlDms
+   * 
    * @return mssqlDms
-  **/
+   **/
 
-@JsonProperty("mssql_dms")
-@ApiModelProperty(value = "")
+  @JsonProperty("mssql_dms")
+  @ApiModelProperty(value = "")
   public Boolean isMssqlDms() {
     return mssqlDms;
   }
@@ -143,13 +148,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get mysqlDms
+   * 
    * @return mysqlDms
-  **/
+   **/
 
-@JsonProperty("mysql_dms")
-@ApiModelProperty(value = "")
+  @JsonProperty("mysql_dms")
+  @ApiModelProperty(value = "")
   public Boolean isMysqlDms() {
     return mysqlDms;
   }
@@ -163,13 +169,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get oracleDms
+   * 
    * @return oracleDms
-  **/
+   **/
 
-@JsonProperty("oracle_dms")
-@ApiModelProperty(value = "")
+  @JsonProperty("oracle_dms")
+  @ApiModelProperty(value = "")
   public Boolean isOracleDms() {
     return oracleDms;
   }
@@ -183,13 +190,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get postgresDms
+   * 
    * @return postgresDms
-  **/
+   **/
 
-@JsonProperty("postgres_dms")
-@ApiModelProperty(value = "")
+  @JsonProperty("postgres_dms")
+  @ApiModelProperty(value = "")
   public Boolean isPostgresDms() {
     return postgresDms;
   }
@@ -203,13 +211,14 @@ public class FormatParams {
     return this;
   }
 
-   /**
+  /**
    * Get xml
+   * 
    * @return xml
-  **/
+   **/
 
-@JsonProperty("xml")
-@ApiModelProperty(value = "")
+  @JsonProperty("xml")
+  @ApiModelProperty(value = "")
   public XmlParams getXml() {
     return xml;
   }
@@ -217,7 +226,6 @@ public class FormatParams {
   public void setXml(XmlParams xml) {
     this.xml = xml;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -243,12 +251,11 @@ public class FormatParams {
     return Objects.hash(avro, csv, json, mssqlDms, mysqlDms, oracleDms, postgresDms, xml);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormatParams {\n");
-    
+
     sb.append("    avro: ").append(toIndentedString(avro)).append("\n");
     sb.append("    csv: ").append(toIndentedString(csv)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -273,4 +280,3 @@ public class FormatParams {
   }
 
 }
-

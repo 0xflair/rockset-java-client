@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * KafkaV3SecurityConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class KafkaV3SecurityConfig {
   @SerializedName("api_key")
   private String apiKey = null;
@@ -42,13 +43,14 @@ public class KafkaV3SecurityConfig {
     return this;
   }
 
-   /**
+  /**
    * Get apiKey
+   * 
    * @return apiKey
-  **/
+   **/
 
-@JsonProperty("api_key")
-@ApiModelProperty(value = "")
+  @JsonProperty("api_key")
+  @ApiModelProperty(value = "")
   public String getApiKey() {
     return apiKey;
   }
@@ -62,13 +64,14 @@ public class KafkaV3SecurityConfig {
     return this;
   }
 
-   /**
+  /**
    * Get secret
+   * 
    * @return secret
-  **/
+   **/
 
-@JsonProperty("secret")
-@ApiModelProperty(value = "")
+  @JsonProperty("secret")
+  @ApiModelProperty(value = "")
   public String getSecret() {
     return secret;
   }
@@ -76,7 +79,6 @@ public class KafkaV3SecurityConfig {
   public void setSecret(String secret) {
     this.secret = secret;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +98,11 @@ public class KafkaV3SecurityConfig {
     return Objects.hash(apiKey, secret);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KafkaV3SecurityConfig {\n");
-    
+
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
     sb.append("}");
@@ -120,4 +121,3 @@ public class KafkaV3SecurityConfig {
   }
 
 }
-

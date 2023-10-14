@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -29,7 +28,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * MongoDbIntegration
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class MongoDbIntegration {
   @SerializedName("connection_uri")
   private String connectionUri = null;
@@ -39,13 +40,14 @@ public class MongoDbIntegration {
     return this;
   }
 
-   /**
+  /**
    * MongoDB connection URI string.
+   * 
    * @return connectionUri
-  **/
+   **/
 
-@JsonProperty("connection_uri")
-@ApiModelProperty(example = "mongodb+srv://<username>:<password>@server.example.com/", required = true, value = "MongoDB connection URI string.")
+  @JsonProperty("connection_uri")
+  @ApiModelProperty(example = "mongodb+srv://<username>:<password>@server.example.com/", required = true, value = "MongoDB connection URI string.")
   public String getConnectionUri() {
     return connectionUri;
   }
@@ -53,7 +55,6 @@ public class MongoDbIntegration {
   public void setConnectionUri(String connectionUri) {
     this.connectionUri = connectionUri;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,12 +73,11 @@ public class MongoDbIntegration {
     return Objects.hash(connectionUri);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MongoDbIntegration {\n");
-    
+
     sb.append("    connectionUri: ").append(toIndentedString(connectionUri)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -95,4 +95,3 @@ public class MongoDbIntegration {
   }
 
 }
-

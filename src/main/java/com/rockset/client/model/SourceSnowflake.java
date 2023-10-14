@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -30,7 +29,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * SourceSnowflake
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class SourceSnowflake {
   @SerializedName("database")
   private String database = null;
@@ -52,13 +53,14 @@ public class SourceSnowflake {
     return this;
   }
 
-   /**
+  /**
    * Name of the snowflake database.
+   * 
    * @return database
-  **/
+   **/
 
-@JsonProperty("database")
-@ApiModelProperty(example = "NASDAQ", required = true, value = "Name of the snowflake database.")
+  @JsonProperty("database")
+  @ApiModelProperty(example = "NASDAQ", required = true, value = "Name of the snowflake database.")
   public String getDatabase() {
     return database;
   }
@@ -72,13 +74,14 @@ public class SourceSnowflake {
     return this;
   }
 
-   /**
+  /**
    * Name of the snowflake database schema.
+   * 
    * @return schema
-  **/
+   **/
 
-@JsonProperty("schema")
-@ApiModelProperty(example = "PUBLIC", required = true, value = "Name of the snowflake database schema.")
+  @JsonProperty("schema")
+  @ApiModelProperty(example = "PUBLIC", required = true, value = "Name of the snowflake database schema.")
   public String getSchema() {
     return schema;
   }
@@ -87,13 +90,14 @@ public class SourceSnowflake {
     this.schema = schema;
   }
 
-   /**
+  /**
    * Snowflake source status.
+   * 
    * @return status
-  **/
+   **/
 
-@JsonProperty("status")
-@ApiModelProperty(value = "Snowflake source status.")
+  @JsonProperty("status")
+  @ApiModelProperty(value = "Snowflake source status.")
   public StatusSnowflake getStatus() {
     return status;
   }
@@ -103,13 +107,14 @@ public class SourceSnowflake {
     return this;
   }
 
-   /**
+  /**
    * Name of the snowflake table.
+   * 
    * @return tableName
-  **/
+   **/
 
-@JsonProperty("table_name")
-@ApiModelProperty(example = "COMPANIES", required = true, value = "Name of the snowflake table.")
+  @JsonProperty("table_name")
+  @ApiModelProperty(example = "COMPANIES", required = true, value = "Name of the snowflake table.")
   public String getTableName() {
     return tableName;
   }
@@ -123,13 +128,14 @@ public class SourceSnowflake {
     return this;
   }
 
-   /**
+  /**
    * Name of the data warehouse to be used.
+   * 
    * @return warehouse
-  **/
+   **/
 
-@JsonProperty("warehouse")
-@ApiModelProperty(example = "COMPUTE_XL", value = "Name of the data warehouse to be used.")
+  @JsonProperty("warehouse")
+  @ApiModelProperty(example = "COMPUTE_XL", value = "Name of the data warehouse to be used.")
   public String getWarehouse() {
     return warehouse;
   }
@@ -137,7 +143,6 @@ public class SourceSnowflake {
   public void setWarehouse(String warehouse) {
     this.warehouse = warehouse;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +165,11 @@ public class SourceSnowflake {
     return Objects.hash(database, schema, status, tableName, warehouse);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SourceSnowflake {\n");
-    
+
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -187,4 +191,3 @@ public class SourceSnowflake {
   }
 
 }
-

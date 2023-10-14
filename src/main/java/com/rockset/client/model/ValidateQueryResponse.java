@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-
 package com.rockset.client.model;
 
 import java.util.Objects;
@@ -31,7 +30,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * ValidateQueryResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value =
+// "io.swagger.codegen.languages.JavaClientCodegen", date =
+// "2023-09-19T15:55:29.974-07:00")
 public class ValidateQueryResponse {
   @SerializedName("collections")
   private List<String> collections = new ArrayList<String>();
@@ -49,13 +50,14 @@ public class ValidateQueryResponse {
     return this;
   }
 
-   /**
+  /**
    * List of collections specified in query.
+   * 
    * @return collections
-  **/
+   **/
 
-@JsonProperty("collections")
-@ApiModelProperty(example = "\"[\\\"commons.foo\\\"]\"", required = true, value = "List of collections specified in query.")
+  @JsonProperty("collections")
+  @ApiModelProperty(example = "\"[\\\"commons.foo\\\"]\"", required = true, value = "List of collections specified in query.")
   public List<String> getCollections() {
     return collections;
   }
@@ -74,13 +76,14 @@ public class ValidateQueryResponse {
     return this;
   }
 
-   /**
+  /**
    * List of parameters specified in query.
+   * 
    * @return parameters
-  **/
+   **/
 
-@JsonProperty("parameters")
-@ApiModelProperty(example = "\"[\\\"foo\\\"]\"", required = true, value = "List of parameters specified in query.")
+  @JsonProperty("parameters")
+  @ApiModelProperty(example = "\"[\\\"foo\\\"]\"", required = true, value = "List of parameters specified in query.")
   public List<String> getParameters() {
     return parameters;
   }
@@ -88,7 +91,6 @@ public class ValidateQueryResponse {
   public void setParameters(List<String> parameters) {
     this.parameters = parameters;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,12 +110,11 @@ public class ValidateQueryResponse {
     return Objects.hash(collections, parameters);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ValidateQueryResponse {\n");
-    
+
     sb.append("    collections: ").append(toIndentedString(collections)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
     sb.append("}");
@@ -132,4 +133,3 @@ public class ValidateQueryResponse {
   }
 
 }
-
