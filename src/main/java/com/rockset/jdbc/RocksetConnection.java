@@ -6,6 +6,7 @@ import static java.nio.charset.StandardCharsets.US_ASCII;
 import static java.util.Objects.requireNonNull;
 
 import com.rockset.client.RocksetClient;
+import com.rockset.client.model.AsyncQueryOptions;
 import com.rockset.client.model.Collection;
 import com.rockset.client.model.QueryPaginationResponse;
 import com.rockset.client.model.QueryParameter;
@@ -455,7 +456,7 @@ public class RocksetConnection implements Connection {
   /**
    * Adds a session property (experimental).
    *
-   * @param name Name
+   * @param name  Name
    * @param value Value
    */
   public void setSessionProperty(String name, String value) {
@@ -525,8 +526,15 @@ public class RocksetConnection implements Connection {
       throws Exception {
     final QueryRequestSql q = new QueryRequestSql().query(sql);
 
+    System.out.println("RocksetConnection startQuery fetchSize: " + fetchSize);
+
     if (fetchSize > 0) {
       q.initialPaginateResponseDocCount(fetchSize);
+      // q.asyncOptions(new AsyncQueryOptions().clientTimeoutMs(
+      //     1000 * 60 * 10L // 10 minutes
+      // ));
+      // q.defaultRowLimit(fetchSize);
+      // q.defaultRowLimit(1000000000);
     }
 
     // Append any specified queries
@@ -580,10 +588,9 @@ public class RocksetConnection implements Connection {
   //
   QueryResponse describeTable(String schema, String name) throws Exception {
     RocksetDriver.log("Entry: describeTable " + name);
-    String sql =
-        String.format(
-            "describe %s.%s OPTION(max_field_depth=1)",
-            quoteIdentifier(schema), quoteIdentifier(name));
+    String sql = String.format(
+        "describe %s.%s OPTION(max_field_depth=1)",
+        quoteIdentifier(schema), quoteIdentifier(name));
     QueryResponse resp = startQuery(sql, 0, null, null);
     RocksetDriver.log("Exit: describeTable " + name);
     return resp;
@@ -616,7 +623,8 @@ public class RocksetConnection implements Connection {
   }
 
   private static String getApiKey(Properties info) {
-    // TODO: We should stop supporting 'apikey' property after we are certain that no customer would
+    // TODO: We should stop supporting 'apikey' property after we are certain that
+    // no customer would
     // ever use an older version.
     String apiKey = info.getProperty("apiKey");
     if (apiKey == null) {
@@ -631,7 +639,8 @@ public class RocksetConnection implements Connection {
   }
 
   private static String getApiServer(URI uri, Properties info) {
-    // TODO: We should stop supporting 'apiserver' and 'endpoint' properties after we are certain
+    // TODO: We should stop supporting 'apiserver' and 'endpoint' properties after
+    // we are certain
     // that no customer would ever use an older version.
     String apiServer = "";
     try {

@@ -67,32 +67,29 @@ public class RocksetResultSet implements ResultSet {
   static final DateTimeFormatter DATE_FORMATTER = ISODateTimeFormat.date();
 
   static final DateTimeParser MICROSECOND_PARSER = new DateTimeFormatterBuilder()
-          .appendPattern(".")
-          .appendFractionOfSecond(1, 6)
-          .toParser();
+      .appendPattern(".")
+      .appendFractionOfSecond(1, 6)
+      .toParser();
 
   static final DateTimeParser SECOND_PARSER = new DateTimeFormatterBuilder()
-          .appendPattern(":ss")
-          .appendOptional(MICROSECOND_PARSER)
-          .toParser();
+      .appendPattern(":ss")
+      .appendOptional(MICROSECOND_PARSER)
+      .toParser();
 
   static final DateTimeFormatter TIME_FORMATTER = new DateTimeFormatterBuilder().appendPattern("HH:mm")
-                                                                                .appendOptional(SECOND_PARSER)
-                                                                                .toFormatter();
-  static final DateTimeFormatter TIMESTAMP_FORMATTER =
-      DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSS");
+      .appendOptional(SECOND_PARSER)
+      .toFormatter();
+  static final DateTimeFormatter TIMESTAMP_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
-  static final java.time.format.DateTimeFormatter DATETIME_PARSE_FORMAT =
-      new java.time.format.DateTimeFormatterBuilder()
-          .appendPattern("uuuu-MM-dd'T'HH:mm:ss")
-          .appendFraction(ChronoField.MICRO_OF_SECOND, 0, 6, true)
-          .toFormatter();
-  static final java.time.format.DateTimeFormatter TIMESTAMP_PARSE_FORMAT =
-      new java.time.format.DateTimeFormatterBuilder()
-          .appendPattern("uuuu-MM-dd'T'HH:mm:ss")
-          .appendFraction(ChronoField.MICRO_OF_SECOND, 0, 6, true)
-          .appendPattern("'Z'")
-          .toFormatter();
+  static final java.time.format.DateTimeFormatter DATETIME_PARSE_FORMAT = new java.time.format.DateTimeFormatterBuilder()
+      .appendPattern("uuuu-MM-dd'T'HH:mm:ss")
+      .appendFraction(ChronoField.MICRO_OF_SECOND, 0, 6, true)
+      .toFormatter();
+  static final java.time.format.DateTimeFormatter TIMESTAMP_PARSE_FORMAT = new java.time.format.DateTimeFormatterBuilder()
+      .appendPattern("uuuu-MM-dd'T'HH:mm:ss")
+      .appendFraction(ChronoField.MICRO_OF_SECOND, 0, 6, true)
+      .appendPattern("'Z'")
+      .toFormatter();
 
   private static final int YEAR_FIELD = 0;
   private static final int MONTH_FIELD = 1;
@@ -115,8 +112,10 @@ public class RocksetResultSet implements ResultSet {
   private final ResultSetMetaData resultSetMetaData;
   private final AtomicInteger rowIndex = new AtomicInteger(-1);
 
-  // see next() and parseCurrentDocRootNode() -> we eagerly deserialize the raw Maps in the resultSet collection
-  // into JsonNodes whenever next() is called. On wide rows and large resultsets, this yields measurable performance benefit.
+  // see next() and parseCurrentDocRootNode() -> we eagerly deserialize the raw
+  // Maps in the resultSet collection
+  // into JsonNodes whenever next() is called. On wide rows and large resultsets,
+  // this yields measurable performance benefit.
   private JsonNode currentDocRootNode;
   private final long maxRows;
 
@@ -199,27 +198,35 @@ public class RocksetResultSet implements ResultSet {
   }
 
   private List<Object> getPaginationResults() throws SQLException {
+    if (this.rocksetResultSetPaginationParams != null) {
+      RocksetDriver.log("Rockset getPaginationResults lastQueryId = "
+          + this.rocksetResultSetPaginationParams.getLastQueryId()
+          + " currentCursor = "
+          + this.rocksetResultSetPaginationParams.getCurrentCursor()
+          + " fetchSize = "
+          + this.rocksetResultSetPaginationParams.getFetchSize());
+    } else {
+      RocksetDriver.log("Rockset getPaginationResults rocksetResultSetPaginationParams is null");
+    }
 
     try {
-      QueryPaginationResponse response =
-          this.rocksetResultSetPaginationParams
-              .getConnection()
-              .getQueryPaginationResults(
-                  this.rocksetResultSetPaginationParams.getLastQueryId(),
-                  this.rocksetResultSetPaginationParams.getCurrentCursor(),
-                  this.rocksetResultSetPaginationParams.getFetchSize());
+      QueryPaginationResponse response = this.rocksetResultSetPaginationParams
+          .getConnection()
+          .getQueryPaginationResults(
+              this.rocksetResultSetPaginationParams.getLastQueryId(),
+              this.rocksetResultSetPaginationParams.getCurrentCursor(),
+              this.rocksetResultSetPaginationParams.getFetchSize());
 
       this.rocksetResultSetPaginationParams.setCurrentCursor(
           response.getPagination().getNextCursor());
 
       return response.getResults();
     } catch (RuntimeException e) {
-      String msg =
-          "Error retriving pagination info from query Id '"
-              + this.rocksetResultSetPaginationParams.getLastQueryId()
-              + "'"
-              + " error =  "
-              + e.getMessage();
+      String msg = "Error retriving pagination info from query Id '"
+          + this.rocksetResultSetPaginationParams.getLastQueryId()
+          + "'"
+          + " error =  "
+          + e.getMessage();
       RocksetDriver.log(msg);
       throw new SQLException(msg, e);
     } catch (Exception e) {
@@ -228,6 +235,11 @@ public class RocksetResultSet implements ResultSet {
   }
 
   private boolean doNextIfPaginationEnabled() throws SQLException {
+    RocksetDriver.log("RocksetResultSet doNextIfPaginationEnabled rowIndex.get() = "
+        + rowIndex.get()
+        + " resultSet.size() = "
+        + resultSet.size());
+
     if (this.rowIndex.get() >= this.resultSet.size()) {
       // To paginate or not?
 
@@ -253,13 +265,15 @@ public class RocksetResultSet implements ResultSet {
 
   @Override
   public boolean next() throws SQLException {
+    RocksetDriver.log("RocksetResultSet next rowIndex.get() = " + rowIndex.get());
     boolean hasNext = doNext();
 
     if (hasNext) {
       // eagerly parse the current row
       currentDocRootNode = parseCurrentDocRootNode();
     } else {
-      // nothing to parse -> nullify in case we use it elsewhere and the tests will reveal an NPE!
+      // nothing to parse -> nullify in case we use it elsewhere and the tests will
+      // reveal an NPE!
       currentDocRootNode = null;
     }
 
@@ -357,7 +371,8 @@ public class RocksetResultSet implements ResultSet {
           "Error processing getBytes for column index "
               + columnIndex
               + " exception "
-              + e.getMessage(), e);
+              + e.getMessage(),
+          e);
     }
   }
 
@@ -478,7 +493,8 @@ public class RocksetResultSet implements ResultSet {
           "Error processing getBytes for column label "
               + columnLabel
               + " exception "
-              + e.getMessage(), e);
+              + e.getMessage(),
+          e);
     }
   }
 
@@ -1018,7 +1034,7 @@ public class RocksetResultSet implements ResultSet {
     }
 
     ArrayList<JsonNode> arr = new ArrayList<JsonNode>();
-    for (Iterator<JsonNode> iter = value.iterator(); iter.hasNext(); ) {
+    for (Iterator<JsonNode> iter = value.iterator(); iter.hasNext();) {
       arr.add(iter.next());
     }
     return new RocksetArray(arr);
@@ -1484,8 +1500,10 @@ public class RocksetResultSet implements ResultSet {
         "Expected column to be a time type but is " + columnInfo.getType());
   }
 
-  // NOTE: This handles both SQL timestamps with timezones (aka Rockset timestamp type) and
-  // SQL timestamps without timezones (aka Rockset datetime type). This is because in both cases
+  // NOTE: This handles both SQL timestamps with timezones (aka Rockset timestamp
+  // type) and
+  // SQL timestamps without timezones (aka Rockset datetime type). This is because
+  // in both cases
   // a JDBC client can call getTimestamp since the column type is timestamp.
   private Timestamp getTimestamp(int columnIndex, DateTimeZone localTimeZone) throws SQLException {
     log(prefix + "columnIndex getTimestamp " + columnIndex);
@@ -1504,8 +1522,7 @@ public class RocksetResultSet implements ResultSet {
       }
 
       try {
-        LocalDateTime dateTime =
-            LocalDateTime.parse(value.get("value").asText(), DATETIME_PARSE_FORMAT);
+        LocalDateTime dateTime = LocalDateTime.parse(value.get("value").asText(), DATETIME_PARSE_FORMAT);
         ZonedDateTime zonedDateTime = dateTime.atZone(ZoneId.of("UTC"));
         Instant instant = zonedDateTime.toInstant();
         return Timestamp.from(instant);
@@ -1649,11 +1666,21 @@ public class RocksetResultSet implements ResultSet {
   }
 
   private boolean doNext() throws SQLException {
+    RocksetDriver.log("Rockset doNext start: " + this.rowIndex.get());
+
     checkOpen();
     this.rowIndex.getAndIncrement();
 
+    if (this.rocksetResultSetPaginationParams != null) {
+      RocksetDriver.log("Rockset doNext rowIndex: " + this.rowIndex.get() + " params fetch size = "
+          + this.rocksetResultSetPaginationParams.getFetchSize() + " cursor = "
+          + this.rocksetResultSetPaginationParams.getCurrentCursor());
+    } else {
+      RocksetDriver.log("Rockset doNext rowIndex: " + this.rowIndex.get() + " NO paramsExist");
+    }
+
     if (this.rocksetResultSetPaginationParams != null
-            && this.rocksetResultSetPaginationParams.getFetchSize() > 0) {
+        && this.rocksetResultSetPaginationParams.getFetchSize() > 0) {
       return doNextIfPaginationEnabled();
     }
 
@@ -1674,10 +1701,12 @@ public class RocksetResultSet implements ResultSet {
     try {
       String asJson = OBJECT_MAPPER.writeValueAsString(onedoc);
 
+      RocksetDriver.log("Rockset parseCurrentDocRootNode rowIndex " + rowIndex + " asJson: " + asJson);
+
       return OBJECT_MAPPER.readTree(asJson);
     } catch (JsonProcessingException e) {
       throw new SQLException(
-              "Error caching document root node at row index " + index, e);
+          "Error caching document root node at row index " + index, e);
     }
   }
 }

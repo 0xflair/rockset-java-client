@@ -166,7 +166,11 @@ public class RocksetStatement implements Statement {
    */
   private static String getNextCursorFromQueryResponse(QueryResponse response) {
     if (response.getPagination() != null) {
-      return response.getPagination().getNextCursor();
+      String cursor = response.getPagination().getNextCursor();
+
+      RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = " + cursor);
+    } else {
+      RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = null");
     }
 
     return null;
@@ -198,6 +202,9 @@ public class RocksetStatement implements Statement {
   protected boolean executeWithParams(String sql, List<QueryParameter> params) throws SQLException {
     clearCurrentResults();
     checkOpen();
+
+    RocksetDriver.log("Rockset executeWithParams: " + sql + " maxRows = " + this.maxRows.get() + " fetchSize = "
+        + this.fetchSize.get());
 
     ResultSet resultSet = null;
     try {

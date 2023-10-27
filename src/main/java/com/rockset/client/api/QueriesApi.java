@@ -703,7 +703,14 @@ public class QueriesApi {
      *                   deserialize the response body
      */
     public QueryResponse query(QueryRequest body) throws Exception {
-        System.out.println("RocksetQueryRequest getQuery(): " + body.getSql().getQuery());
+        // try {
+        //     System.out.println("RocksetQueryRequest getQuery(): " + body.getSql().getQuery() + " with parameters: "
+        //             + (body.getSql().getParameters()).toString().replace("\n", ""));
+        // } catch (Exception e) {
+        //     System.out.println(
+        //             "RocksetQueryRequest getQuery(): " + body.getSql().getQuery() + " (cannot get parameters)");
+        // }
+
         ApiResponse<QueryResponse> resp = queryWithHttpInfo(body);
         return resp.getData();
     }
@@ -719,11 +726,6 @@ public class QueriesApi {
      */
     public ApiResponse<QueryResponse> queryWithHttpInfo(QueryRequest body) throws Exception {
         okhttp3.Call call = queryValidateBeforeCall(body, null, null);
-
-        System.out.println("queryWithHttpInfo call url(): " + call.request().url());
-        System.out.println("queryWithHttpInfo call headers: " + call.request().headers());
-        System.out.println("queryWithHttpInfo call header Authorization: " + call.request().header("Authorization"));
-
         Type localVarReturnType = new TypeToken<QueryResponse>() {
         }.getType();
         return apiClient.execute(call, localVarReturnType);

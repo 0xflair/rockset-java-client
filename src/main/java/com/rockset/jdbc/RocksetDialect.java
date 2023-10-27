@@ -76,12 +76,6 @@ public class RocksetDialect extends AbstractDialect {
 
     @Override
     public Set<LogicalTypeRoot> supportedTypes() {
-        // The data types used in Mysql are list at:
-        // https://dev.mysql.com/doc/refman/8.0/en/data-types.html
-
-        // TODO: We can't convert BINARY data type to
-        // PrimitiveArrayTypeInfo.BYTE_PRIMITIVE_ARRAY_TYPE_INFO in
-        // LegacyTypeInfoDataTypeConverter.
         return EnumSet.of(
                 LogicalTypeRoot.CHAR,
                 LogicalTypeRoot.VARCHAR,
@@ -95,6 +89,7 @@ public class RocksetDialect extends AbstractDialect {
                 LogicalTypeRoot.FLOAT,
                 LogicalTypeRoot.DOUBLE,
                 LogicalTypeRoot.DATE,
+                LogicalTypeRoot.NULL,
                 LogicalTypeRoot.TIME_WITHOUT_TIME_ZONE,
                 LogicalTypeRoot.TIMESTAMP_WITHOUT_TIME_ZONE);
     }

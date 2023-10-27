@@ -59,6 +59,17 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
             case NULL:
                 return val -> null;
             case BOOLEAN:
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return false;
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return ((com.fasterxml.jackson.databind.node.ValueNode) val).booleanValue();
+                    } else if (val instanceof Boolean) {
+                        return val;
+                    } else {
+                        throw new UnsupportedOperationException("Unexpected type for BOOLEAN: " + val.getClass());
+                    }
+                };
             case INTERVAL_YEAR_MONTH:
             case INTERVAL_DAY_TIME:
                 return val -> val;
@@ -70,15 +81,35 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
                 // JDBC 1.0 use int type for small values.
                 return val -> val instanceof Integer ? ((Integer) val).shortValue() : val;
             case INTEGER:
-                return val -> val;
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return ((com.fasterxml.jackson.databind.node.ValueNode) val).intValue();
+                    } else if (val instanceof Number) {
+                        return ((Number) val).intValue();
+                    } else {
+                        throw new UnsupportedOperationException("Unexpected type for INTEGER: " + val.getClass());
+                    }
+                };
             case BIGINT:
-                return val -> val;
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return ((com.fasterxml.jackson.databind.node.ValueNode) val).longValue();
+                    } else if (val instanceof Number) {
+                        return ((Number) val).longValue();
+                    } else {
+                        throw new UnsupportedOperationException("Unexpected type for BIGINT: " + val.getClass());
+                    }
+                };
             case FLOAT:
                 return val -> {
                     if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
                         return null;
-                    } else if (val instanceof com.fasterxml.jackson.databind.node.DoubleNode) {
-                        return ((com.fasterxml.jackson.databind.node.DoubleNode) val).floatValue();
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return ((com.fasterxml.jackson.databind.node.ValueNode) val).floatValue();
                     } else if (val instanceof Number) {
                         return ((Number) val).floatValue();
                     } else {
@@ -89,8 +120,8 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
                 return val -> {
                     if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
                         return null;
-                    } else if (val instanceof com.fasterxml.jackson.databind.node.DoubleNode) {
-                        return ((com.fasterxml.jackson.databind.node.DoubleNode) val).doubleValue();
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return ((com.fasterxml.jackson.databind.node.ValueNode) val).doubleValue();
                     } else if (val instanceof Number) {
                         return ((Number) val).doubleValue();
                     } else {
@@ -104,22 +135,52 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
                 // decimal(20, 0) in SQL,
                 // but other precision like decimal(30, 0) can work too from lenient
                 // consideration.
-                return val -> val instanceof BigInteger
-                        ? DecimalData.fromBigDecimal(
-                                new BigDecimal((BigInteger) val, 0), precision, scale)
-                        : DecimalData.fromBigDecimal((BigDecimal) val, precision, scale);
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return DecimalData.fromBigDecimal(
+                                ((com.fasterxml.jackson.databind.node.ValueNode) val).decimalValue(),
+                                precision, scale);
+                    } else if (val instanceof BigInteger) {
+                        return DecimalData.fromBigDecimal(new BigDecimal((BigInteger) val, 0), precision, scale);
+                    } else {
+                        throw new UnsupportedOperationException("Unexpected type for DECIMAL: " + val.getClass());
+                    }
+                };
+            // val instanceof BigInteger
+            // ? DecimalData.fromBigDecimal(
+            // new BigDecimal((BigInteger) val, 0), precision, scale)
+            // : DecimalData.fromBigDecimal((BigDecimal) val, precision, scale);
             case DATE:
                 return val -> (int) (((Date) val).toLocalDate().toEpochDay());
             case TIME_WITHOUT_TIME_ZONE:
                 return val -> (int) (((Time) val).toLocalTime().toNanoOfDay() / 1_000_000L);
             case TIMESTAMP_WITH_TIME_ZONE:
             case TIMESTAMP_WITHOUT_TIME_ZONE:
-                return val -> val instanceof LocalDateTime
-                        ? TimestampData.fromLocalDateTime((LocalDateTime) val)
-                        : TimestampData.fromTimestamp((Timestamp) val);
+                return val -> {
+                    // TODO convert Rockset dates or unix timestamps to TimestampData
+                    // if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                    //     return null;
+                    // } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                    //     return ((com.fasterxml.jackson.databind.node.ValueNode) val).
+                    // } else {
+                        return val instanceof LocalDateTime
+                                ? TimestampData.fromLocalDateTime((LocalDateTime) val)
+                                : TimestampData.fromTimestamp((Timestamp) val);
+                    // }
+                };
             case CHAR:
             case VARCHAR:
-                return val -> StringData.fromString((String) val.toString());
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                        return StringData.fromString((String) ((com.fasterxml.jackson.databind.node.ValueNode) val).asText());
+                    } else {
+                        return StringData.fromString((String) val.toString());
+                    }
+                };
             case BINARY:
             case VARBINARY:
                 return val -> val;

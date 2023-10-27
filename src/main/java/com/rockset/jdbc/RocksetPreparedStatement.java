@@ -658,6 +658,9 @@ public class RocksetPreparedStatement extends RocksetStatement implements Prepar
     if (ret) {
       executeCount.incrementAndGet();
     }
+
+    System.out.println("Rockset executeCount: " + executeCount.get());
+
     return ret;
   }
 
