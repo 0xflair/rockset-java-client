@@ -529,7 +529,7 @@ public class RocksetConnection implements Connection {
     System.out.println("RocksetConnection startQuery fetchSize: " + fetchSize);
 
     if (fetchSize > 0) {
-      q.initialPaginateResponseDocCount(fetchSize);
+      q.initialPaginateResponseDocCount(10000);
       // q.asyncOptions(new AsyncQueryOptions().clientTimeoutMs(
       //     1000 * 60 * 10L // 10 minutes
       // ));

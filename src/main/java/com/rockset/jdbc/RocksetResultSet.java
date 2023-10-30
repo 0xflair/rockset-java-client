@@ -215,7 +215,8 @@ public class RocksetResultSet implements ResultSet {
           .getQueryPaginationResults(
               this.rocksetResultSetPaginationParams.getLastQueryId(),
               this.rocksetResultSetPaginationParams.getCurrentCursor(),
-              this.rocksetResultSetPaginationParams.getFetchSize());
+              // this.rocksetResultSetPaginationParams.getFetchSize()
+              10000);
 
       this.rocksetResultSetPaginationParams.setCurrentCursor(
           response.getPagination().getNextCursor());
@@ -238,7 +239,9 @@ public class RocksetResultSet implements ResultSet {
     RocksetDriver.log("RocksetResultSet doNextIfPaginationEnabled rowIndex.get() = "
         + rowIndex.get()
         + " resultSet.size() = "
-        + resultSet.size());
+        + resultSet.size() + " currentCursor = " + (this.rocksetResultSetPaginationParams == null
+            ? "null"
+            : this.rocksetResultSetPaginationParams.getCurrentCursor()));
 
     if (this.rowIndex.get() >= this.resultSet.size()) {
       // To paginate or not?

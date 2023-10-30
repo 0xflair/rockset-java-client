@@ -169,6 +169,7 @@ public class RocksetStatement implements Statement {
       String cursor = response.getPagination().getNextCursor();
 
       RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = " + cursor);
+      return cursor;
     } else {
       RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = null");
     }

@@ -14,6 +14,7 @@ package com.rockset.client;
 
 import com.rockset.client.auth.ApiKeyAuth;
 import com.rockset.client.model.ErrorModel;
+import com.rockset.jdbc.RocksetDriver;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -688,7 +689,8 @@ public class ApiClient {
             throw new ApiException(e);
         }
 
-        // System.out.println("RocksetClient response: " + response.code() + " " + respBody);
+        RocksetDriver.log("RocksetClient response: " + response.code() + " " +
+        respBody);
 
         if (respBody == null || "".equals(respBody)) {
             return null;
@@ -833,8 +835,8 @@ public class ApiClient {
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws Exception {
         try {
             Response response = call.execute();
-            // System.out.println("RocksetClient response: " + response.code() + " " +
-            // response.body().string());
+            // RocksetDriver.log("RocksetClient response: " + response.code() + " " +
+            //         response.body().string());
             T data = handleResponse(response, returnType);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
@@ -955,7 +957,13 @@ public class ApiClient {
         Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams,
                 authNames, progressRequestListener);
 
-        return httpClient.newCall(request);
+        Call cl = httpClient.newCall(request);
+
+        // Print body object as JSON string
+        System.out.println("RocksetClient request: " + request.method() + " " + request.url() + " "
+                + (request.body() != null ? request.body().toString() : ""));
+
+        return cl;
     }
 
     /**
@@ -1017,8 +1025,9 @@ public class ApiClient {
             request = reqBuilder.method(method, reqBody).build();
         }
 
-        // System.out.println(
-        //         "RocksetClient request: " + request.method() + " " + request.url() + " BODY = " + reqBody.toString());
+        // use addInterceptor to add logging interceptor to the client
+
+
 
         return request;
     }

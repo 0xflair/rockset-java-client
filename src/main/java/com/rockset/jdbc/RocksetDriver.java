@@ -32,7 +32,10 @@ public class RocksetDriver implements Driver, Closeable {
   private static final String ROCKSET_DRIVER_URL_START = JDBC_URL_START.concat("rockset:");
 
   // This is debug logging to trace the calls made to the rockset jdbc driver.
-  private static boolean debugLogs = true;
+  // if env var LOG_LEVEL is set to DEBUG, then the logs will be written to a file
+  private static boolean debugLogs = false;
+  // System.getenv("LOG_LEVEL") != null
+  //     && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
   private static BufferedWriter debugWriter;
   private static String logfile = "/tmp/rockset-jdbc.log";
 
@@ -135,21 +138,22 @@ public class RocksetDriver implements Driver, Closeable {
   }
 
   // helper method to write log to a specific file
-  static void log(String msg) {
+  public static void log(String msg) {
     if (debugLogs) {
       doLog(msg);
     }
   }
 
   static synchronized void doLog(String msg) {
-    try {
-      if (debugWriter == null) {
-        debugWriter = new BufferedWriter(new FileWriter(logfile));
-      }
-      debugWriter.write(msg + "\n");
-      debugWriter.flush();
-    } catch (Exception e) {
-      System.out.println("Unable to log to file " + logfile);
-    }
+    System.out.println(msg);
+    // try {
+    //   if (debugWriter == null) {
+    //     debugWriter = new BufferedWriter(new FileWriter(logfile));
+    //   }
+    //   debugWriter.write(msg + "\n");
+    //   debugWriter.flush();
+    // } catch (Exception e) {
+    //   System.out.println("Unable to log to file " + logfile);
+    // }
   }
 }
