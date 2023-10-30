@@ -59,6 +59,44 @@ public class RocksetDialect extends AbstractDialect {
                         + updateClause);
     }
 
+    /**
+     * A simple {@code SELECT} statement.
+     *
+     * <pre>{@code
+     * SELECT expression [, ...]
+     * FROM table_name
+     * WHERE cond [AND ...]
+     * }</pre>
+     */
+    @Override
+    public String getSelectFromStatement(
+            String tableName, String[] selectFields, String[] conditionFields) {
+        String selectExpressions = Arrays.stream(selectFields)
+                .map(this::quoteIdentifier)
+                .collect(Collectors.joining(", "));
+
+        String[] parts = tableName.split(":");
+        String namespace = parts[0];
+        String entityType = parts[1];
+
+        String fieldExpressions = Arrays.stream(conditionFields)
+                .map(f -> String.format("%s = :%s", quoteIdentifier(f), f))
+                .collect(Collectors.joining(" AND "));
+
+        String sql = "SELECT "
+                + selectExpressions
+                + " FROM "
+                + quoteIdentifier("entities")
+                + (conditionFields.length > 0
+                        ? " WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "' AND ("
+                                + fieldExpressions + ")"
+                        : "WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "'");
+
+        System.out.println("getSelectFromStatement SQL: " + sql);
+
+        return sql;
+    }
+
     @Override
     public String dialectName() {
         return "Rockset";
