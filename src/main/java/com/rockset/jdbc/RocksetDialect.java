@@ -75,26 +75,46 @@ public class RocksetDialect extends AbstractDialect {
                 .map(this::quoteIdentifier)
                 .collect(Collectors.joining(", "));
 
-        String[] parts = tableName.split(":");
-        String namespace = parts[0];
-        String entityType = parts[1];
+        System.out.println("getSelectFromStatement tableName: " + tableName);
 
-        String fieldExpressions = Arrays.stream(conditionFields)
-                .map(f -> String.format("%s = :%s", quoteIdentifier(f), f))
-                .collect(Collectors.joining(" AND "));
+        if (tableName.contains(":")) {
+            String[] parts = tableName.split(":");
+            String namespace = parts[0];
+            String entityType = parts[1];
 
-        String sql = "SELECT "
-                + selectExpressions
-                + " FROM "
-                + quoteIdentifier("entities")
-                + (conditionFields.length > 0
-                        ? " WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "' AND ("
-                                + fieldExpressions + ")"
-                        : "WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "'");
+            String fieldExpressions = Arrays.stream(conditionFields)
+                    .map(f -> String.format("%s = :%s", quoteIdentifier(f), f))
+                    .collect(Collectors.joining(" AND "));
 
-        System.out.println("getSelectFromStatement SQL: " + sql);
+            String sql = "SELECT "
+                    + selectExpressions
+                    + " FROM "
+                    + quoteIdentifier("entities")
+                    + (conditionFields.length > 0
+                            ? " WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "' AND ("
+                                    + fieldExpressions + ")"
+                            : " WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "'");
 
-        return sql;
+            System.out.println("getSelectFromStatement SQL: " + sql);
+
+            return sql;
+        } else {
+            String fieldExpressions = Arrays.stream(conditionFields)
+                    .map(f -> String.format("%s = :%s", quoteIdentifier(f), f))
+                    .collect(Collectors.joining(" AND "));
+
+            String sql = "SELECT "
+                    + selectExpressions
+                    + " FROM "
+                    + quoteIdentifier(tableName)
+                    + (conditionFields.length > 0
+                            ? " WHERE " + fieldExpressions
+                            : "");
+
+            System.out.println("getSelectFromStatement SQL: " + sql);
+
+            return sql;
+        }
     }
 
     @Override
