@@ -9,11 +9,14 @@ import com.rockset.client.RocksetClient;
 import com.rockset.client.model.AsyncQueryOptions;
 import com.rockset.client.model.Collection;
 import com.rockset.client.model.GetQueryResponse;
+import com.rockset.client.model.PaginationInfo;
+import com.rockset.client.model.QueryInfo;
 import com.rockset.client.model.QueryPaginationResponse;
 import com.rockset.client.model.QueryParameter;
 import com.rockset.client.model.QueryRequest;
 import com.rockset.client.model.QueryRequestSql;
 import com.rockset.client.model.QueryResponse;
+import com.rockset.client.model.QueryResponseStats;
 import com.rockset.client.model.Workspace;
 import com.rockset.client.model.QueryResponse.StatusEnum;
 
@@ -527,21 +530,22 @@ public class RocksetConnection implements Connection {
       List<QueryParameter> params,
       Map<String, String> sessionPropertiesOverride)
       throws Exception {
-    // replace 
-    //   FROM ... WHERE ... WHERE
+    // replace
+    // FROM ... WHERE ... WHERE
     // with
-    //   FROM ... WHERE ... AND
+    // FROM ... WHERE ... AND
 
     String correctedSql = sql.replaceAll("WHERE(.*?)WHERE", "WHERE$1AND");
 
-    System.out.println("RocksetConnection startQuery ORIGINAL SQL = " + sql + " CORRECTED SQL = " + correctedSql + " fetchSize: " + fetchSize);
+    System.out.println("RocksetConnection startQuery ORIGINAL SQL = " + sql + " CORRECTED SQL = " + correctedSql
+        + " fetchSize: " + fetchSize);
 
     final QueryRequestSql q = new QueryRequestSql().query(correctedSql);
 
     if (fetchSize > 0) {
       q.initialPaginateResponseDocCount(100000);
       // q.asyncOptions(new AsyncQueryOptions().clientTimeoutMs(
-      //     1000 * 60 * 10L // 10 minutes
+      // 1000 * 60 * 10L // 10 minutes
       // ));
       // q.defaultRowLimit(fetchSize);
       // q.defaultRowLimit(1000000000);
@@ -552,42 +556,89 @@ public class RocksetConnection implements Connection {
       q.parameters(params);
     }
 
-    q.async(true);
-    q.asyncOptions(
-      new AsyncQueryOptions()
-      .clientTimeoutMs(
-        1000 * 60 * 20L // 20 minutes
-      )
-      .timeoutMs(
-        1000 * 60 * 40L // 40 minutes
-      )
-    );
+    // q.async(true);
+    // q.asyncOptions(
+    // new AsyncQueryOptions()
+    // .clientTimeoutMs(
+    // 1000 * 60 * 20L // 20 minutes
+    // )
+    // .timeoutMs(
+    // 1000 * 60 * 40L // 40 minutes
+    // )
+    // );
     // q.paginate(true);
     final QueryRequest request = new QueryRequest().sql(q);
+    request.async(true);
+    request.asyncOptions(
+        new AsyncQueryOptions()
+            .clientTimeoutMs(
+              10000L
+            )
+            .timeoutMs(
+              1800000L
+            ));
+
     QueryResponse resp = client.queries.query(request);
-    
+
     // Initial check of the status
     String status = resp.getStatus().toString();
 
-    System.out.println("RocksetConnection startQuery status = " + status);
-    
+    System.out.println("RocksetConnection startQuery status initial = " + status);
+
     // Loop until the query is completed, checking every 10 seconds
     while (!status.equals("COMPLETED")) {
-        // Wait for 10 seconds before the next check
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException("Thread interrupted while waiting", e);
-        }
-    
-        // Get the updated status
-        GetQueryResponse r = client.queries.get(resp.getQueryId());
-        status = r.getData().getStatus().toString();
-    
-        // Check if the status is ERROR or CANCELED and throw an error
-        if (status.equals("ERROR") || status.equals("CANCELED")) {
-            throw new RuntimeException("Query execution failed with status: " + status);
-        }
+      // Wait for 10 seconds before the next check
+      try {
+        Thread.sleep(10000);
+      } catch (InterruptedException e) {
+        throw new RuntimeException("Thread interrupted while waiting", e);
+      }
+
+      // Get the updated status
+      GetQueryResponse r = client.queries.get(resp.getQueryId());
+      status = r.getData().getStatus().toString();
+
+      System.out.println("RocksetConnection startQuery status check = " + status);
+
+      if (status.equals("COMPLETED")) {
+        QueryInfo data = r.getData();
+        // INFO: {"data":{"query_id":"4b29dce0-3894-4058-8bc3-2afcea3c67c9:oImencf:0",
+        // "status":"COMPLETED","executed_by":"aram@flair.dev","submitted_at":
+        // "2023-11-27T21:29:35Z","expires_at":"2023-11-28T21:29:35Z",
+        // "stats":{"elapsed_time_ms":151810,"throttled_time_ms":0,
+        // "result_set_document_count":56329450,"result_set_bytes_size":4701563778},
+        //"pagination":{"start_cursor":"velVBKlIRc226vtPa9N74xie4Q9wlDKNVSCvSKanTwMJerzNKQ13Rqsb
+        // fgYwprS6uknD4Ktgq74L3hpY4_cH7IfJvJXADxLWNxV_wusDjOdjY4uvX6cEpg=="},
+        // "last_offset":null,"query_errors":[],"sql":null},"last_offset":null}
+        resp = new QueryResponse()
+          .queryId(
+            data.getQueryId()
+          )
+          .status(
+            StatusEnum.COMPLETED
+          )
+          .stats(
+            new QueryResponseStats()
+              .elapsedTimeMs(
+                data.getStats().getElapsedTimeMs()
+              )
+          )
+          .pagination(
+            new PaginationInfo()
+              .startCursor(
+                data.getPagination().getStartCursor()
+              )
+          )
+          .queryErrors(
+            data.getQueryErrors()
+          )
+        ;
+      }
+
+      // Check if the status is ERROR or CANCELED and throw an error
+      if (status.equals("ERROR") || status.equals("CANCELED")) {
+        throw new RuntimeException("Query execution failed with status: " + status);
+      }
     }
 
     return resp;

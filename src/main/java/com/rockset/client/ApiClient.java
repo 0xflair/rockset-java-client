@@ -1035,7 +1035,7 @@ public class ApiClient {
             request = reqBuilder.method(method, reqBody).build();
         }
 
-        System.out.println("RocksetClient request body: " + request.body().toString());
+        // System.out.println("RocksetClient request body: " + request.body().toString());
 
         // use addInterceptor to add logging interceptor to the client
 

@@ -214,9 +214,14 @@ public class RocksetStatement implements Statement {
       QueryResponse resp = connection()
           .startQuery(sql, this.fetchSize.get(), params, getStatementSessionProperties());
 
-      if (!resp.getQueryErrors().isEmpty()) {
+      if (
+          resp != null &&
+          resp.getQueryErrors() != null &&
+          !resp.getQueryErrors().isEmpty() &&
+          resp.getQueryErrors().size() > 0) {
         throw new SQLException(
-            "Error executing query '" + sql + "'" + " error =  " + resp.getQueryErrors().get(0).getMessage());
+            "Found query errors '" + sql + "'" + " error =  " + resp.getQueryErrors().size() + " " + resp
+                .getQueryErrors().toArray().toString());
       }
 
       // store resuts in memory
@@ -236,9 +241,9 @@ public class RocksetStatement implements Statement {
     } catch (RuntimeException e) {
       String msg = "Error executing query '" + sql + "'" + " error =  " + e.getMessage();
       RocksetDriver.log(msg);
-      throw new SQLException(msg + " FAILED QUERY: " + sql, e);
+      throw new SQLException(msg + " (runtime) FAILED QUERY: " + sql, e);
     } catch (Exception e) {
-      throw new SQLException(e.getMessage() + " FAILED QUERY: " + sql, e);
+      throw new SQLException(e.getMessage() + " (unknown) FAILED QUERY: " + sql, e);
     } finally {
       if (this.currentResult.get() == null && resultSet != null) {
         resultSet.close();

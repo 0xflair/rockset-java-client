@@ -31,19 +31,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * QueryRequestSql
  */
-// @javax.annotation.Generated(value =
-// "io.swagger.codegen.languages.JavaClientCodegen", date =
-// "2023-09-19T15:55:29.974-07:00")
+// @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-19T15:55:29.974-07:00")
 public class QueryRequestSql {
-  @SerializedName("async")
-  private Boolean async = null;
-
-  @SerializedName("paginate")
-  private Boolean paginate = true;
-
-  @SerializedName("async_options")
-  private AsyncQueryOptions asyncOptions = null;
-
   @SerializedName("default_row_limit")
   private Integer defaultRowLimit = null;
 
@@ -55,67 +44,6 @@ public class QueryRequestSql {
 
   @SerializedName("query")
   private String query = null;
-
-  public QueryRequestSql async(Boolean async) {
-    this.async = async;
-    return this;
-  }
-
-  /**
-   * If true, the query will run asynchronously for up to 30 minutes. The query
-   * request will immediately return with a query id that can be used to retrieve
-   * the query status and results. If false or not specified, the query will
-   * return with results once completed or timeout after 2 minutes. (To return
-   * results directly for shorter queries while still allowing a timeout of up to
-   * 30 minutes, set &#x60;async_options.client_timeout_ms&#x60;.)
-   * 
-   * @return async
-   **/
-
-  @JsonProperty("async")
-  @ApiModelProperty(value = "If true, the query will run asynchronously for up to 30 minutes. The query request will immediately return with a query id that can be used to retrieve the query status and results. If false or not specified, the query will return with results once completed or timeout after 2 minutes. (To return results directly for shorter queries while still allowing a timeout of up to 30 minutes, set `async_options.client_timeout_ms`.) ")
-  public Boolean isAsync() {
-    return async;
-  }
-
-  public void setAsync(Boolean async) {
-    this.async = async;
-  }
-
-  public QueryRequestSql asyncOptions(AsyncQueryOptions asyncOptions) {
-    this.asyncOptions = asyncOptions;
-    return this;
-  }
-
-  @JsonProperty("paginate")
-  public Boolean getPaginate() {
-    return paginate;
-  }
-
-  public void setPaginate(Boolean paginate) {
-    this.paginate = paginate;
-  }
-
-  public QueryRequestSql paginate(Boolean paginate) {
-    this.paginate = paginate;
-    return this;
-  }
-
-  /**
-   * Options for configuring Asynchronous Query Mode.
-   * 
-   * @return asyncOptions
-   **/
-
-  @JsonProperty("async_options")
-  @ApiModelProperty(value = "Options for configuring Asynchronous Query Mode.")
-  public AsyncQueryOptions getAsyncOptions() {
-    return asyncOptions;
-  }
-
-  public void setAsyncOptions(AsyncQueryOptions asyncOptions) {
-    this.asyncOptions = asyncOptions;
-  }
 
   public QueryRequestSql defaultRowLimit(Integer defaultRowLimit) {
     this.defaultRowLimit = defaultRowLimit;
