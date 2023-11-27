@@ -99,6 +99,8 @@ public class ApiClient {
         authentications.put("ApiKeyAuth", new ApiKeyAuth("header", "Authorization"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
+
+        this.setDebugging(true);
     }
 
     /**
@@ -836,6 +838,13 @@ public class ApiClient {
      */
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws Exception {
         try {
+            RocksetDriver.log("RocksetClient request: " + call.request().url().toString() + " " +
+                    call.request().body().toString());
+        } catch (Exception e) {
+            RocksetDriver.log("RocksetClient request fail to parse: " + call);
+        }
+
+        try {
             Response response = call.execute();
             // RocksetDriver.log("RocksetClient response: " + response.code() + " " +
             // response.body().string());
@@ -962,8 +971,7 @@ public class ApiClient {
         Call cl = httpClient.newCall(request);
 
         // Print body object as JSON string
-        System.out.println("RocksetClient request: " + request.method() + " " + request.url() + " "
-                + (request.body() != null ? request.body().toString() : ""));
+        System.out.println("RocksetClient request: " + request.method() + " " + request.url());
 
         return cl;
     }
@@ -1026,6 +1034,8 @@ public class ApiClient {
         } else {
             request = reqBuilder.method(method, reqBody).build();
         }
+
+        System.out.println("RocksetClient request body: " + request.body().toString());
 
         // use addInterceptor to add logging interceptor to the client
 
@@ -1099,7 +1109,7 @@ public class ApiClient {
         }
 
         reqBuilder.header("Authorization", "ApiKey " + apiKey);
-        reqBuilder.header("x-rockset-version", version);
+        // reqBuilder.header("x-rockset-version", version);
     }
 
     /**

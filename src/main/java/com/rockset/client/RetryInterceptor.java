@@ -20,12 +20,23 @@ public class RetryInterceptor implements Interceptor {
         Request request = chain.request();
         IOException lastException = null;
 
+        Response response = chain.proceed(request);
+
+        if (response.isSuccessful()) {
+            return response;
+        }
+        
         for (int attempt = 0; attempt < maxRetries; attempt++) {
             System.out.println("Attempt " + attempt + " to send request: " + request.url());
             try {
-                Response response = chain.proceed(request);
+                response.close();
+                request = request.newBuilder().build();
+                response = chain.proceed(request);
+
                 if (response.isSuccessful()) {
                     return response;
+                } else {
+                    lastException = new IOException("Response was not successful: " + response.code() + " " + response.message() + " " + response.body().string());
                 }
             } catch (IOException e) {
                 lastException = e;

@@ -8,12 +8,15 @@ import static java.util.Objects.requireNonNull;
 import com.rockset.client.RocksetClient;
 import com.rockset.client.model.AsyncQueryOptions;
 import com.rockset.client.model.Collection;
+import com.rockset.client.model.GetQueryResponse;
 import com.rockset.client.model.QueryPaginationResponse;
 import com.rockset.client.model.QueryParameter;
 import com.rockset.client.model.QueryRequest;
 import com.rockset.client.model.QueryRequestSql;
 import com.rockset.client.model.QueryResponse;
 import com.rockset.client.model.Workspace;
+import com.rockset.client.model.QueryResponse.StatusEnum;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.CharsetEncoder;
@@ -536,7 +539,7 @@ public class RocksetConnection implements Connection {
     final QueryRequestSql q = new QueryRequestSql().query(correctedSql);
 
     if (fetchSize > 0) {
-      q.initialPaginateResponseDocCount(10000);
+      q.initialPaginateResponseDocCount(100000);
       // q.asyncOptions(new AsyncQueryOptions().clientTimeoutMs(
       //     1000 * 60 * 10L // 10 minutes
       // ));
@@ -549,8 +552,45 @@ public class RocksetConnection implements Connection {
       q.parameters(params);
     }
 
+    q.async(true);
+    q.asyncOptions(
+      new AsyncQueryOptions()
+      .clientTimeoutMs(
+        1000 * 60 * 20L // 20 minutes
+      )
+      .timeoutMs(
+        1000 * 60 * 40L // 40 minutes
+      )
+    );
+    // q.paginate(true);
     final QueryRequest request = new QueryRequest().sql(q);
-    return client.queries.query(request);
+    QueryResponse resp = client.queries.query(request);
+    
+    // Initial check of the status
+    String status = resp.getStatus().toString();
+
+    System.out.println("RocksetConnection startQuery status = " + status);
+    
+    // Loop until the query is completed, checking every 10 seconds
+    while (!status.equals("COMPLETED")) {
+        // Wait for 10 seconds before the next check
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException("Thread interrupted while waiting", e);
+        }
+    
+        // Get the updated status
+        GetQueryResponse r = client.queries.get(resp.getQueryId());
+        status = r.getData().getStatus().toString();
+    
+        // Check if the status is ERROR or CANCELED and throw an error
+        if (status.equals("ERROR") || status.equals("CANCELED")) {
+            throw new RuntimeException("Query execution failed with status: " + status);
+        }
+    }
+
+    return resp;
   }
 
   //

@@ -75,8 +75,6 @@ public class RocksetDialect extends AbstractDialect {
                 .map(this::quoteIdentifier)
                 .collect(Collectors.joining(", "));
 
-        System.out.println("getSelectFromStatement tableName: " + tableName);
-
         if (tableName.contains(":")) {
             String[] parts = tableName.split(":");
             String namespace = parts[0];

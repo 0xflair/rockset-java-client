@@ -214,6 +214,11 @@ public class RocksetStatement implements Statement {
       QueryResponse resp = connection()
           .startQuery(sql, this.fetchSize.get(), params, getStatementSessionProperties());
 
+      if (!resp.getQueryErrors().isEmpty()) {
+        throw new SQLException(
+            "Error executing query '" + sql + "'" + " error =  " + resp.getQueryErrors().get(0).getMessage());
+      }
+
       // store resuts in memory
       resultSet = new RocksetResultSet(
           sql,
