@@ -86,6 +86,8 @@ public class ApiClient {
         httpClient = new OkHttpClient.Builder()
                 .connectTimeout(140, TimeUnit.SECONDS)
                 .readTimeout(140, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .addInterceptor(new RetryInterceptor(10, 3000))
                 .build();
 
         verifyingSsl = true;
@@ -690,7 +692,7 @@ public class ApiClient {
         }
 
         RocksetDriver.log("RocksetClient response: " + response.code() + " " +
-        respBody);
+                respBody);
 
         if (respBody == null || "".equals(respBody)) {
             return null;
@@ -836,7 +838,7 @@ public class ApiClient {
         try {
             Response response = call.execute();
             // RocksetDriver.log("RocksetClient response: " + response.code() + " " +
-            //         response.body().string());
+            // response.body().string());
             T data = handleResponse(response, returnType);
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
@@ -1026,8 +1028,6 @@ public class ApiClient {
         }
 
         // use addInterceptor to add logging interceptor to the client
-
-
 
         return request;
     }

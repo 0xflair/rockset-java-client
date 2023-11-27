@@ -231,9 +231,9 @@ public class RocksetStatement implements Statement {
     } catch (RuntimeException e) {
       String msg = "Error executing query '" + sql + "'" + " error =  " + e.getMessage();
       RocksetDriver.log(msg);
-      throw new SQLException(msg, e);
+      throw new SQLException(msg + " FAILED QUERY: " + sql, e);
     } catch (Exception e) {
-      throw new SQLException(e.getMessage(), e);
+      throw new SQLException(e.getMessage() + " FAILED QUERY: " + sql, e);
     } finally {
       if (this.currentResult.get() == null && resultSet != null) {
         resultSet.close();

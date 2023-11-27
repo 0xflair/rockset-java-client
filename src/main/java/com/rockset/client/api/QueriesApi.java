@@ -25,7 +25,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 import com.rockset.client.model.CancelQueryResponse;
-import com.rockset.client.model.ErrorModel;
 import com.rockset.client.model.GetQueryResponse;
 import com.rockset.client.model.ListQueriesResponse;
 import com.rockset.client.model.QueryPaginationResponse;
@@ -662,15 +661,21 @@ public class QueriesApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if (progressListener != null) {
-            apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new okhttp3.Interceptor() {
-                @Override
-                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
-                    okhttp3.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                            .build();
-                }
-            }).build());
+            apiClient.setHttpClient(
+                    apiClient.getHttpClient().newBuilder()
+                            .addInterceptor(
+                                    new okhttp3.Interceptor() {
+                                        @Override
+                                        public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain)
+                                                throws IOException {
+                                            okhttp3.Response originalResponse = chain.proceed(chain.request());
+                                            return originalResponse.newBuilder()
+                                                    .body(new ProgressResponseBody(originalResponse.body(),
+                                                            progressListener))
+                                                    .build();
+                                        }
+                                    })
+                            .build());
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
@@ -704,11 +709,13 @@ public class QueriesApi {
      */
     public QueryResponse query(QueryRequest body) throws Exception {
         // try {
-        //     System.out.println("RocksetQueryRequest getQuery(): " + body.getSql().getQuery() + " with parameters: "
-        //             + (body.getSql().getParameters()).toString().replace("\n", ""));
+        // System.out.println("RocksetQueryRequest getQuery(): " +
+        // body.getSql().getQuery() + " with parameters: "
+        // + (body.getSql().getParameters()).toString().replace("\n", ""));
         // } catch (Exception e) {
-        //     System.out.println(
-        //             "RocksetQueryRequest getQuery(): " + body.getSql().getQuery() + " (cannot get parameters)");
+        // System.out.println(
+        // "RocksetQueryRequest getQuery(): " + body.getSql().getQuery() + " (cannot get
+        // parameters)");
         // }
 
         ApiResponse<QueryResponse> resp = queryWithHttpInfo(body);

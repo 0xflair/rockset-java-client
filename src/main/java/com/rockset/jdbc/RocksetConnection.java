@@ -524,9 +524,16 @@ public class RocksetConnection implements Connection {
       List<QueryParameter> params,
       Map<String, String> sessionPropertiesOverride)
       throws Exception {
-    final QueryRequestSql q = new QueryRequestSql().query(sql);
+    // replace 
+    //   FROM ... WHERE ... WHERE
+    // with
+    //   FROM ... WHERE ... AND
 
-    System.out.println("RocksetConnection startQuery fetchSize: " + fetchSize);
+    String correctedSql = sql.replaceAll("WHERE(.*?)WHERE", "WHERE$1AND");
+
+    System.out.println("RocksetConnection startQuery ORIGINAL SQL = " + sql + " CORRECTED SQL = " + correctedSql + " fetchSize: " + fetchSize);
+
+    final QueryRequestSql q = new QueryRequestSql().query(correctedSql);
 
     if (fetchSize > 0) {
       q.initialPaginateResponseDocCount(10000);
