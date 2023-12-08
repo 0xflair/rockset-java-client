@@ -27,7 +27,7 @@ public class RetryInterceptor implements Interceptor {
         }
         
         for (int attempt = 0; attempt < maxRetries; attempt++) {
-            System.out.println("Attempt " + attempt + " to send request: " + request.url());
+            // System.out.println("Attempt " + attempt + " to send request: " + request.url());
             try {
                 response.close();
                 request = request.newBuilder().build();

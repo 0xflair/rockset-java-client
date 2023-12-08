@@ -530,20 +530,15 @@ public class RocksetConnection implements Connection {
       List<QueryParameter> params,
       Map<String, String> sessionPropertiesOverride)
       throws Exception {
-    // replace
-    // FROM ... WHERE ... WHERE
-    // with
-    // FROM ... WHERE ... AND
-
     String correctedSql = sql.replaceAll("WHERE(.*?)WHERE", "WHERE$1AND");
 
-    System.out.println("RocksetConnection startQuery ORIGINAL SQL = " + sql + " CORRECTED SQL = " + correctedSql
+    RocksetDriver.log("RocksetConnection startQuery query: " + correctedSql
         + " fetchSize: " + fetchSize);
 
     final QueryRequestSql q = new QueryRequestSql().query(correctedSql);
 
     if (fetchSize > 0) {
-      q.initialPaginateResponseDocCount(100000);
+      q.initialPaginateResponseDocCount(fetchSize);
       // q.asyncOptions(new AsyncQueryOptions().clientTimeoutMs(
       // 1000 * 60 * 10L // 10 minutes
       // ));
@@ -583,7 +578,7 @@ public class RocksetConnection implements Connection {
     // Initial check of the status
     String status = resp.getStatus().toString();
 
-    System.out.println("RocksetConnection startQuery status initial = " + status);
+    RocksetDriver.log("RocksetConnection startQuery status initial = " + status);
 
     // Loop until the query is completed, checking every 10 seconds
     while (!status.equals("COMPLETED")) {
@@ -598,7 +593,7 @@ public class RocksetConnection implements Connection {
       GetQueryResponse r = client.queries.get(resp.getQueryId());
       status = r.getData().getStatus().toString();
 
-      System.out.println("RocksetConnection startQuery status check = " + status);
+      RocksetDriver.log("RocksetConnection startQuery status check = " + status);
 
       if (status.equals("COMPLETED")) {
         QueryInfo data = r.getData();
@@ -610,12 +605,21 @@ public class RocksetConnection implements Connection {
         //"pagination":{"start_cursor":"velVBKlIRc226vtPa9N74xie4Q9wlDKNVSCvSKanTwMJerzNKQ13Rqsb
         // fgYwprS6uknD4Ktgq74L3hpY4_cH7IfJvJXADxLWNxV_wusDjOdjY4uvX6cEpg=="},
         // "last_offset":null,"query_errors":[],"sql":null},"last_offset":null}
+
+        QueryPaginationResponse qpResp = this.getQueryPaginationResults(
+          data.getQueryId(),
+          data.getPagination().getStartCursor(),
+          fetchSize
+        );
         resp = new QueryResponse()
           .queryId(
             data.getQueryId()
           )
           .status(
             StatusEnum.COMPLETED
+          )
+          .results(
+            qpResp.getResults()
           )
           .stats(
             new QueryResponseStats()
@@ -624,10 +628,7 @@ public class RocksetConnection implements Connection {
               )
           )
           .pagination(
-            new PaginationInfo()
-              .startCursor(
-                data.getPagination().getStartCursor()
-              )
+            qpResp.getPagination()
           )
           .queryErrors(
             data.getQueryErrors()

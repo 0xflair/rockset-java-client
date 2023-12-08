@@ -93,7 +93,7 @@ public class RocksetDialect extends AbstractDialect {
                                     + fieldExpressions + ")"
                             : " WHERE namespace = '" + namespace + "' AND entityType = '" + entityType + "'");
 
-            System.out.println("getSelectFromStatement SQL: " + sql);
+            // System.out.println("getSelectFromStatement SQL: " + sql);
 
             return sql;
         } else {
@@ -109,7 +109,7 @@ public class RocksetDialect extends AbstractDialect {
                             ? " WHERE " + fieldExpressions
                             : "");
 
-            System.out.println("getSelectFromStatement SQL: " + sql);
+            // System.out.println("getSelectFromStatement SQL: " + sql);
 
             return sql;
         }

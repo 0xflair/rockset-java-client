@@ -215,8 +215,8 @@ public class RocksetResultSet implements ResultSet {
           .getQueryPaginationResults(
               this.rocksetResultSetPaginationParams.getLastQueryId(),
               this.rocksetResultSetPaginationParams.getCurrentCursor(),
-              // this.rocksetResultSetPaginationParams.getFetchSize()
-              10000);
+              this.rocksetResultSetPaginationParams.getFetchSize()
+            );
 
       this.rocksetResultSetPaginationParams.setCurrentCursor(
           response.getPagination().getNextCursor());

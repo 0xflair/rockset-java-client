@@ -100,7 +100,7 @@ public class ApiClient {
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
 
-        this.setDebugging(true);
+        this.setDebugging(false);
     }
 
     /**
@@ -971,7 +971,7 @@ public class ApiClient {
         Call cl = httpClient.newCall(request);
 
         // Print body object as JSON string
-        System.out.println("RocksetClient request: " + request.method() + " " + request.url());
+        // System.out.println("RocksetClient request: " + request.method() + " " + request.url());
 
         return cl;
     }
