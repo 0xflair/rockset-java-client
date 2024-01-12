@@ -102,7 +102,7 @@ public class RocksetResultSet implements ResultSet {
   // This is debug logging to trace how applications retrieve the values
   // from a ResultSet. If you enable this, you also have to enable entry-point
   // tracing via RocksetDriver.debugLogs = true.
-  private static boolean debugLogs = false;
+  private static boolean debugLogs = System.getenv("LOG_LEVEL") != null && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
 
   private List<Object> resultSet;
   private final DateTimeZone sessionTimeZone;
@@ -1590,7 +1590,23 @@ public class RocksetResultSet implements ResultSet {
     ObjectMapper mapper = new ObjectMapper();
 
     try {
-      if (response.getResults().size() > 0) {
+      if (response.getColumnFields() != null && response.getColumnFields().size() > 0) {
+        // If this is not a select star query, and has returned 0 rows.
+        // Extrapolate the fields from query response's getColumnFields
+        log("Extracting column information from explicit fields");
+        for (QueryFieldType field : response.getColumnFields()) {
+          Column.ColumnTypes valueType = Column.ColumnTypes.fromValue(field.getType());
+          if (valueType == null) {
+            log("Invalid type " + field.getType() + " for field " + field.getName() + " skipping now, and will try to infer later");
+            out.clear();
+            break;
+          }
+          Column c = new Column(field.getName(), valueType);
+          out.add(c);
+        }
+      }
+      
+      if (out.size() < 0 && response.getResults().size() > 0) {
         Set<String> fieldNames = new HashSet<>();
         // Loop through all the rows to get the fields and (their first
         // non-null) types.
@@ -1610,11 +1626,14 @@ public class RocksetResultSet implements ResultSet {
             }
             JsonNode value = field.getValue();
             Column.ColumnTypes type = Column.ColumnTypes.fromValue(value.getNodeType().toString());
-            // Skip over the fields with null type unless all values for that
-            // field are null
-            if (type.equals(Column.ColumnTypes.NULL) && i != response.getResults().size() - 1) {
-              continue;
-            }
+
+            // DO NOT Skip over the fields with null type unless all values for that field are null
+            // BECAUSE if ordering of the columns is different Flink RowData will be calculated wrongly
+            //
+            // if (type.equals(Column.ColumnTypes.NULL) && i != response.getResults().size() - 1) {
+            //   continue;
+            // }
+
             if (type.equals(Column.ColumnTypes.STRING)) {
               java.time.format.DateTimeFormatter format = TIMESTAMP_PARSE_FORMAT;
               try {
@@ -1634,19 +1653,6 @@ public class RocksetResultSet implements ResultSet {
             out.add(c);
             fieldNames.add(fieldName);
           }
-        }
-      } else if (response.getColumnFields() != null && response.getColumnFields().size() > 0) {
-        // If this is not a select star query, and has returned 0 rows.
-        // Extrapolate the fields from query response's getColumnFields
-        log("Extracting column information from explicit fields");
-        for (QueryFieldType field : response.getColumnFields()) {
-          Column.ColumnTypes valueType = Column.ColumnTypes.fromValue(field.getType());
-          // If the server is not sending a valid type, then use a default type
-          if (valueType == null) {
-            valueType = Column.ColumnTypes.STRING;
-          }
-          Column c = new Column(field.getName(), valueType);
-          out.add(c);
         }
       }
       return out;

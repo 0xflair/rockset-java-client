@@ -1,7 +1,6 @@
 package com.rockset.client;
 
 import com.rockset.client.api.*;
-import com.rockset.client.model.*;
 
 public class RocksetClient {
   private ApiClient apiClient;
@@ -47,7 +46,10 @@ public class RocksetClient {
             .setApiServer(apiServer)
             // .setVersion("0.10.3") // TODO: figure out how we can set this dynamically.
             .setUserAgent(userAgent)
-            .setDebugging(false);
+            .setDebugging(
+              // read LOG_LEVEL from environment variable and set it true if it is set to DEBUG
+              System.getenv("LOG_LEVEL") != null && System.getenv("LOG_LEVEL").equals("DEBUG")
+            );
 
     this.aliases = new AliasesApi(this.apiClient);
     this.apiKeys = new ApiKeysApi(this.apiClient);

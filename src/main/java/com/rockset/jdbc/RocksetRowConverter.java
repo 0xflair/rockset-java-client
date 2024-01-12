@@ -1,8 +1,13 @@
 package com.rockset.jdbc;
 
 import java.math.BigInteger;
+
+import static java.lang.String.format;
+
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -12,6 +17,7 @@ import org.apache.flink.connector.jdbc.converter.AbstractJdbcRowConverter;
 import org.apache.flink.table.data.StringData;
 import org.apache.flink.table.data.TimestampData;
 import org.apache.flink.table.data.DecimalData;
+import org.apache.flink.table.data.RowData;
 import org.apache.flink.table.types.logical.DecimalType;
 import org.apache.flink.table.types.logical.LogicalType;
 import org.apache.flink.table.types.logical.RowType;
@@ -52,6 +58,61 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
     // }
     // return genericRowData;
     // }
+
+    @Override
+    public RowData toInternal(ResultSet resultSet) throws SQLException {
+        // Print out the row data with field positions, field names and values:
+        RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " + resultSet.toString());
+        for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: " + pos + " " + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos + 1).toString());
+        }
+
+        RowData data = super.toInternal(resultSet);
+
+        // Print out the row data with field positions, field names and values:
+        RocksetDriver.log("RocksetRowConverter RowData.toInternal data: " + data.toString());
+        for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal data field: " + pos + " " + rowType.getFieldNames().get(pos) + " " + this.getFieldValue(data, pos));
+        }
+
+        return data;
+    }
+
+    private String getFieldValue(RowData data, int pos) {
+        try {
+            return data.getString(pos).toString();      
+        } catch (Exception e) {
+            try {
+                return new Long(data.getLong(pos)).toString();
+            } catch (Exception e2) {
+                try {
+                    return new Double(data.getDouble(pos)).toString();
+                } catch (Exception e3) {
+                    try {
+                        return new Boolean(data.getBoolean(pos)).toString();
+                    } catch (Exception e4) {
+                        try {
+                            return data.getDecimal(pos, 18, 18).toString();
+                        } catch (Exception e5) {
+                            try {
+                                return new Timestamp(data.getTimestamp(pos, 6).getMillisecond()).toString();
+                            } catch (Exception e6) {
+                                try {
+                                    return new Date(data.getInt(pos)).toString();
+                                } catch (Exception e7) {
+                                    try {
+                                        return new Time(data.getInt(pos)).toString();
+                                    } catch (Exception e8) {
+                                        return data.toString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @Override
     protected JdbcDeserializationConverter createInternalConverter(LogicalType type) {

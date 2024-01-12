@@ -33,9 +33,9 @@ public class RocksetDriver implements Driver, Closeable {
 
   // This is debug logging to trace the calls made to the rockset jdbc driver.
   // if env var LOG_LEVEL is set to DEBUG, then the logs will be written to a file
-  private static boolean debugLogs = false;
-  // System.getenv("LOG_LEVEL") != null
-  //     && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
+  private static boolean debugLogs = System.getenv("LOG_LEVEL") != null
+       && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
+       
   private static BufferedWriter debugWriter;
   private static String logfile = "/tmp/rockset-jdbc.log";
 
