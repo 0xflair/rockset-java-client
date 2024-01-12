@@ -1597,16 +1597,15 @@ public class RocksetResultSet implements ResultSet {
         for (QueryFieldType field : response.getColumnFields()) {
           Column.ColumnTypes valueType = Column.ColumnTypes.fromValue(field.getType());
           if (valueType == null) {
-            log("Invalid type " + field.getType() + " for field " + field.getName() + " skipping now, and will try to infer later");
-            out.clear();
-            break;
+            // log("Invalid type " + field.getType() + " for field " + field.getName() + " skipping now, and will try to infer later");
+            // out.clear();
+            // break;
+            valueType = Column.ColumnTypes.STRING;
           }
           Column c = new Column(field.getName(), valueType);
           out.add(c);
         }
-      }
-      
-      if (out.size() < 0 && response.getResults().size() > 0) {
+      } else if (out.size() < 0 && response.getResults().size() > 0) {
         Set<String> fieldNames = new HashSet<>();
         // Loop through all the rows to get the fields and (their first
         // non-null) types.
