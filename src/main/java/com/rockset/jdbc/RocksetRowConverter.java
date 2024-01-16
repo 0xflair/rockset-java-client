@@ -61,18 +61,28 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
 
     @Override
     public RowData toInternal(ResultSet resultSet) throws SQLException {
-        // Print out the row data with field positions, field names and values:
-        RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " + resultSet.toString());
-        for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: " + pos + " " + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos + 1).toString());
+        try {
+            // Print out the row data with field positions, field names and values:
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " + resultSet.toString());
+            for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+                RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: " + pos + " "
+                        + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos + 1).toString());
+            }
+        } catch (Exception e) {
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet exception: " + e.toString());
         }
 
         RowData data = super.toInternal(resultSet);
 
-        // Print out the row data with field positions, field names and values:
-        RocksetDriver.log("RocksetRowConverter RowData.toInternal data: " + data.toString());
-        for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal data field: " + pos + " " + rowType.getFieldNames().get(pos) + " " + this.getFieldValue(data, pos));
+        try {
+            // Print out the row data with field positions, field names and values:
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal data: " + data.toString());
+            for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+                RocksetDriver.log("RocksetRowConverter RowData.toInternal data field: " + pos + " "
+                        + rowType.getFieldNames().get(pos) + " " + this.getFieldValue(data, pos));
+            }
+        } catch (Exception e) {
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal data exception: " + e.toString());
         }
 
         return data;
@@ -80,7 +90,7 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
 
     private String getFieldValue(RowData data, int pos) {
         try {
-            return data.getString(pos).toString();      
+            return data.getString(pos).toString();
         } catch (Exception e) {
             try {
                 return new Long(data.getLong(pos)).toString();
@@ -221,14 +231,15 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
             case TIMESTAMP_WITHOUT_TIME_ZONE:
                 return val -> {
                     // TODO convert Rockset dates or unix timestamps to TimestampData
-                    // if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
-                    //     return null;
+                    // if (val == null || val instanceof
+                    // com.fasterxml.jackson.databind.node.NullNode) {
+                    // return null;
                     // } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
-                    //     return ((com.fasterxml.jackson.databind.node.ValueNode) val).
+                    // return ((com.fasterxml.jackson.databind.node.ValueNode) val).
                     // } else {
-                        return val instanceof LocalDateTime
-                                ? TimestampData.fromLocalDateTime((LocalDateTime) val)
-                                : TimestampData.fromTimestamp((Timestamp) val);
+                    return val instanceof LocalDateTime
+                            ? TimestampData.fromLocalDateTime((LocalDateTime) val)
+                            : TimestampData.fromTimestamp((Timestamp) val);
                     // }
                 };
             case CHAR:
@@ -237,7 +248,8 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
                     if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
                         return null;
                     } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
-                        return StringData.fromString((String) ((com.fasterxml.jackson.databind.node.ValueNode) val).asText());
+                        return StringData
+                                .fromString((String) ((com.fasterxml.jackson.databind.node.ValueNode) val).asText());
                     } else {
                         return StringData.fromString((String) val.toString());
                     }

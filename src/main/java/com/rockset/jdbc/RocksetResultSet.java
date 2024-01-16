@@ -1590,22 +1590,7 @@ public class RocksetResultSet implements ResultSet {
     ObjectMapper mapper = new ObjectMapper();
 
     try {
-      if (response.getColumnFields() != null && response.getColumnFields().size() > 0) {
-        // If this is not a select star query, and has returned 0 rows.
-        // Extrapolate the fields from query response's getColumnFields
-        log("Extracting column information from explicit fields");
-        for (QueryFieldType field : response.getColumnFields()) {
-          Column.ColumnTypes valueType = Column.ColumnTypes.fromValue(field.getType());
-          if (valueType == null) {
-            // log("Invalid type " + field.getType() + " for field " + field.getName() + " skipping now, and will try to infer later");
-            // out.clear();
-            // break;
-            valueType = Column.ColumnTypes.STRING;
-          }
-          Column c = new Column(field.getName(), valueType);
-          out.add(c);
-        }
-      } else if (out.size() < 0 && response.getResults().size() > 0) {
+      if (response.getResults().size() > 0) {
         Set<String> fieldNames = new HashSet<>();
         // Loop through all the rows to get the fields and (their first
         // non-null) types.
@@ -1625,6 +1610,9 @@ public class RocksetResultSet implements ResultSet {
             }
             JsonNode value = field.getValue();
             Column.ColumnTypes type = Column.ColumnTypes.fromValue(value.getNodeType().toString());
+            if (type == null || type.equals(Column.ColumnTypes.NULL)) {
+              type = Column.ColumnTypes.STRING;
+            }
 
             // DO NOT Skip over the fields with null type unless all values for that field are null
             // BECAUSE if ordering of the columns is different Flink RowData will be calculated wrongly
@@ -1647,13 +1635,31 @@ public class RocksetResultSet implements ResultSet {
                 type = Column.ColumnTypes.fromValue(value.get("__rockset_type").asText());
               }
             }
-            log("getColumns::column name " + fieldName + " type: " + type.toString());
+            log("Extracting column getColumns::column name " + fieldName + " type: " + type.toString());
             Column c = new Column(fieldName, type);
             out.add(c);
             fieldNames.add(fieldName);
           }
         }
       }
+      
+      if (response.getColumnFields() != null && response.getColumnFields().size() > 0) {
+        // If this is not a select star query, and has returned 0 rows.
+        // Extrapolate the fields from query response's getColumnFields
+        log("Extracting column information from explicit fields");
+        for (QueryFieldType field : response.getColumnFields()) {
+          Column.ColumnTypes valueType = Column.ColumnTypes.fromValue(field.getType());
+          if (valueType == null) {
+            log("Extracting column invalid type " + field.getType() + " for field " + field.getName() + " skipping now, and will try to infer later");
+            // out.clear();
+            // break;
+            valueType = Column.ColumnTypes.STRING;
+          }
+          Column c = new Column(field.getName(), valueType);
+          out.add(c);
+        }
+      }
+
       return out;
     } catch (Exception e) {
       log("Error processing row to extract column info exception" + e.getMessage());
