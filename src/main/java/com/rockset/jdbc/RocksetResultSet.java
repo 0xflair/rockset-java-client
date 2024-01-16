@@ -1614,9 +1614,7 @@ public class RocksetResultSet implements ResultSet {
               type = Column.ColumnTypes.STRING;
             }
 
-            // DO NOT Skip over the fields with null type unless all values for that field are null
-            // BECAUSE if ordering of the columns is different Flink RowData will be calculated wrongly
-            //
+            // Skip over the fields with null type unless all values for that field are null
             // if (type.equals(Column.ColumnTypes.NULL) && i != response.getResults().size() - 1) {
             //   continue;
             // }
@@ -1637,13 +1635,12 @@ public class RocksetResultSet implements ResultSet {
             }
             log("Extracting column getColumns::column name " + fieldName + " type: " + type.toString());
             Column c = new Column(fieldName, type);
-            out.add(c);
+            out.add(i, c);
+
             fieldNames.add(fieldName);
           }
         }
-      }
-      
-      if (response.getColumnFields() != null && response.getColumnFields().size() > 0) {
+      } else if (response.getColumnFields() != null && response.getColumnFields().size() > 0) {
         // If this is not a select star query, and has returned 0 rows.
         // Extrapolate the fields from query response's getColumnFields
         log("Extracting column information from explicit fields");
