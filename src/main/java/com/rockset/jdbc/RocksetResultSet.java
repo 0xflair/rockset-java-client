@@ -1586,8 +1586,10 @@ public class RocksetResultSet implements ResultSet {
   }
 
   private static List<Column> getColumns(QueryResponse response) throws SQLException {
-    List<Column> out = new ArrayList<Column>();
+    List<Column> outputColumns = new ArrayList<Column>();
     ObjectMapper mapper = new ObjectMapper();
+    // keep indexes of each field in a map to avoid duplicates:
+    Map<String, Integer> fieldToIndexMap = new HashMap<>();
 
     try {
       if (response.getResults().size() > 0) {
@@ -1600,7 +1602,9 @@ public class RocksetResultSet implements ResultSet {
           JsonNode docRootNode = mapper.readTree(mapper.writeValueAsString(onedoc));
 
           Iterator<Map.Entry<String, JsonNode>> fields = docRootNode.fields();
+          int fieldIndex = -1;
           while (fields.hasNext()) {
+            fieldIndex++;
             Map.Entry<String, JsonNode> field = fields.next();
             String fieldName = field.getKey();
             if (fieldNames.contains(fieldName)) {
@@ -1610,14 +1614,14 @@ public class RocksetResultSet implements ResultSet {
             }
             JsonNode value = field.getValue();
             Column.ColumnTypes type = Column.ColumnTypes.fromValue(value.getNodeType().toString());
-            if (type == null || type.equals(Column.ColumnTypes.NULL)) {
-              type = Column.ColumnTypes.STRING;
-            }
+            // if (type == null || type.equals(Column.ColumnTypes.NULL)) {
+            //   type = Column.ColumnTypes.STRING;
+            // }
 
             // Skip over the fields with null type unless all values for that field are null
-            // if (type.equals(Column.ColumnTypes.NULL) && i != response.getResults().size() - 1) {
-            //   continue;
-            // }
+            if (type.equals(Column.ColumnTypes.NULL) && i != response.getResults().size() - 1) {
+              continue;
+            }
 
             if (type.equals(Column.ColumnTypes.STRING)) {
               java.time.format.DateTimeFormatter format = TIMESTAMP_PARSE_FORMAT;
@@ -1635,8 +1639,8 @@ public class RocksetResultSet implements ResultSet {
             }
             log("Extracting column getColumns::column name " + fieldName + " type: " + type.toString());
             Column c = new Column(fieldName, type);
-            out.add(i, c);
-
+            outputColumns.add(c);
+            fieldToIndexMap.put(fieldName, fieldIndex);
             fieldNames.add(fieldName);
           }
         }
@@ -1653,11 +1657,21 @@ public class RocksetResultSet implements ResultSet {
             valueType = Column.ColumnTypes.STRING;
           }
           Column c = new Column(field.getName(), valueType);
-          out.add(c);
+          outputColumns.add(c);
         }
       }
 
-      return out;
+      if (fieldToIndexMap.size() > 0) {
+        // If we have a map of field names to indexes, then we can use it to
+        // reorder the columns in the outputColumns list.
+        List<Column> reorderedColumns = new ArrayList<>();
+        for (String fieldName : fieldToIndexMap.keySet()) {
+          reorderedColumns.add(outputColumns.get(fieldToIndexMap.get(fieldName)));
+        }
+        outputColumns = reorderedColumns;
+      }
+
+      return outputColumns;
     } catch (Exception e) {
       log("Error processing row to extract column info exception" + e.getMessage());
       throw new SQLException(

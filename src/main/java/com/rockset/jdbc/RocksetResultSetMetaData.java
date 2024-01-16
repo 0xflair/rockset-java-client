@@ -195,7 +195,7 @@ public class RocksetResultSetMetaData implements ResultSetMetaData {
       for (Column c : columnInfo) {
         columnsCommaSeparated += c.getName() + ",";
       }
-      throw new SQLException("Invalid column index: " + column + " (1.." + columnInfo.size() + ") " + columnsCommaSeparated);
+      throw new SQLException("Invalid column index for Rockset: " + column + " (1.." + columnInfo.size() + ") " + columnsCommaSeparated);
     }
     return columnInfo.get(column - 1);
   }
