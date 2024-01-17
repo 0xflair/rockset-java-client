@@ -17,6 +17,7 @@ import org.apache.flink.connector.jdbc.converter.AbstractJdbcRowConverter;
 import org.apache.flink.table.data.StringData;
 import org.apache.flink.table.data.TimestampData;
 import org.apache.flink.table.data.DecimalData;
+import org.apache.flink.table.data.GenericRowData;
 import org.apache.flink.table.data.RowData;
 import org.apache.flink.table.types.logical.DecimalType;
 import org.apache.flink.table.types.logical.LogicalType;
@@ -38,6 +39,8 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
     // GenericRowData genericRowData = new GenericRowData(rowType.getFieldCount());
     // for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
     // Object field = resultSet.getObject(pos + 1);
+    // String columnName = ((RocksetResultSet)
+    // resultSet).getMetaData().getColumnName(pos + 1);
     // // TODO do we need anything special for non-string types?
     // String valStr = field.toString();
 
@@ -63,26 +66,82 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
     public RowData toInternal(ResultSet resultSet) throws SQLException {
         try {
             // Print out the row data with field positions, field names and values:
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " + resultSet.toString());
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " +
+                    resultSet.toString());
             for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
-                RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: " + pos + " "
-                        + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos + 1).toString());
+                LogicalType tp = this.rowType.getTypeAt(pos);
+                RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: "
+                        + pos + " "
+                        + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos +
+                                1).toString()
+                        + " logical type " + tp.asSerializableString());
             }
         } catch (Exception e) {
             RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet exception: " + e.toString());
         }
 
+        GenericRowData genericRowData = new GenericRowData(rowType.getFieldCount());
+
+        for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+            Object fieldValue = resultSet.getObject(pos + 1);
+            String fieldName = rowType.getFieldNames().get(pos);
+            int actualPos = (((RocksetResultSet) resultSet).findColumn(fieldName)) - 1;
+
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal loop: pos=" + pos + " fieldName=" + fieldName
+                    + " actualPos=" + actualPos + " fieldValue=" + fieldValue.toString());
+
+            genericRowData.setField(actualPos, toInternalConverters[pos].deserialize(fieldValue));
+        }
+
+        try {
+            // Print out the row data with field positions, field names and values:
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData: " +
+            genericRowData.toString());
+            for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+                RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData field: " + pos
+                        + " "
+                        + rowType.getFieldNames().get(pos) + " " + this.getFieldValue(genericRowData, pos));
+            }
+        } catch (Exception e) {
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData exception: " +
+                    e.toString());
+        }
+
+        return genericRowData;
+    }
+
+    // @Override
+    public RowData toInternalX(ResultSet resultSet) throws SQLException {
         RowData data = super.toInternal(resultSet);
 
         try {
             // Print out the row data with field positions, field names and values:
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal data: " + data.toString());
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " +
+                    resultSet.toString());
             for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
-                RocksetDriver.log("RocksetRowConverter RowData.toInternal data field: " + pos + " "
+                LogicalType tp = this.rowType.getTypeAt(pos);
+                RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: "
+                        + pos + " "
+                        + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos +
+                                1).toString()
+                        + " logical type " + tp.asSerializableString());
+            }
+        } catch (Exception e) {
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet exception: " + e.toString());
+        }
+
+        try {
+            // Print out the row data with field positions, field names and values:
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal data: " +
+                    data.toString());
+            for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+                RocksetDriver.log("RocksetRowConverter RowData.toInternal data field: " + pos
+                        + " "
                         + rowType.getFieldNames().get(pos) + " " + this.getFieldValue(data, pos));
             }
         } catch (Exception e) {
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal data exception: " + e.toString());
+            RocksetDriver.log("RocksetRowConverter RowData.toInternal data exception: " +
+                    e.toString());
         }
 
         return data;
@@ -113,7 +172,11 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
                                     try {
                                         return new Time(data.getInt(pos)).toString();
                                     } catch (Exception e8) {
-                                        return data.toString();
+                                        try {
+                                            return new Float(data.getFloat(pos)).toString();
+                                        } catch (Exception e9) {
+                                            return "Unknown field type at pos " + pos + " " + e9.toString();
+                                        }
                                     }
                                 }
                             }

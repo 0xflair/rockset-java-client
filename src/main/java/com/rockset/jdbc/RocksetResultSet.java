@@ -102,7 +102,8 @@ public class RocksetResultSet implements ResultSet {
   // This is debug logging to trace how applications retrieve the values
   // from a ResultSet. If you enable this, you also have to enable entry-point
   // tracing via RocksetDriver.debugLogs = true.
-  private static boolean debugLogs = System.getenv("LOG_LEVEL") != null && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
+  private static boolean debugLogs = System.getenv("LOG_LEVEL") != null
+      && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
 
   private List<Object> resultSet;
   private final DateTimeZone sessionTimeZone;
@@ -215,8 +216,7 @@ public class RocksetResultSet implements ResultSet {
           .getQueryPaginationResults(
               this.rocksetResultSetPaginationParams.getLastQueryId(),
               this.rocksetResultSetPaginationParams.getCurrentCursor(),
-              this.rocksetResultSetPaginationParams.getFetchSize()
-            );
+              this.rocksetResultSetPaginationParams.getFetchSize());
 
       this.rocksetResultSetPaginationParams.setCurrentCursor(
           response.getPagination().getNextCursor());
@@ -1438,13 +1438,17 @@ public class RocksetResultSet implements ResultSet {
     }
   }
 
-  private JsonNode column(int index) throws SQLException {
+  public JsonNode column(int index) throws SQLException {
     checkOpen();
     checkValidRow();
     if ((index <= 0) || (index > this.columnCount)) {
       throw new SQLException("Invalid column index: " + index);
     }
     String columnName = columnInfo(index).getName();
+
+    // Log column name and index
+    log(prefix + "ResultSet JsonNode.column " + columnName + " index " + index);
+
     // extract the row
     try {
       JsonNode value = currentDocRootNode.get(columnName);
@@ -1456,7 +1460,7 @@ public class RocksetResultSet implements ResultSet {
     }
   }
 
-  private Column columnInfo(int index) throws SQLException {
+  public Column columnInfo(int index) throws SQLException {
     checkOpen();
     checkValidRow();
     if ((index <= 0) || (index > this.columnCount)) {
@@ -1589,7 +1593,7 @@ public class RocksetResultSet implements ResultSet {
     List<Column> outputColumns = new ArrayList<Column>();
     ObjectMapper mapper = new ObjectMapper();
     // keep indexes of each field in a map to avoid duplicates:
-    Map<String, Integer> fieldToIndexMap = new HashMap<>();
+    Map<Integer, Column> indexToColumnMap = new HashMap<>();
 
     try {
       if (response.getResults().size() > 0) {
@@ -1615,7 +1619,7 @@ public class RocksetResultSet implements ResultSet {
             JsonNode value = field.getValue();
             Column.ColumnTypes type = Column.ColumnTypes.fromValue(value.getNodeType().toString());
             // if (type == null || type.equals(Column.ColumnTypes.NULL)) {
-            //   type = Column.ColumnTypes.STRING;
+            // type = Column.ColumnTypes.STRING;
             // }
 
             // Skip over the fields with null type unless all values for that field are null
@@ -1637,10 +1641,11 @@ public class RocksetResultSet implements ResultSet {
                 type = Column.ColumnTypes.fromValue(value.get("__rockset_type").asText());
               }
             }
-            log("Extracting column getColumns::column name " + fieldName + " type: " + type.toString());
+            
+            log("Extracting column getColumns::column name " + fieldName + " type: " + type.toString() + " fieldIndex " + fieldIndex);
             Column c = new Column(fieldName, type);
             outputColumns.add(c);
-            fieldToIndexMap.put(fieldName, fieldIndex);
+            indexToColumnMap.put(fieldIndex, c);
             fieldNames.add(fieldName);
           }
         }
@@ -1651,7 +1656,8 @@ public class RocksetResultSet implements ResultSet {
         for (QueryFieldType field : response.getColumnFields()) {
           Column.ColumnTypes valueType = Column.ColumnTypes.fromValue(field.getType());
           if (valueType == null) {
-            log("Extracting column invalid type " + field.getType() + " for field " + field.getName() + " skipping now, and will try to infer later");
+            log("Extracting column invalid type " + field.getType() + " for field " + field.getName()
+                + " skipping now, and will try to infer later");
             // out.clear();
             // break;
             valueType = Column.ColumnTypes.STRING;
@@ -1661,14 +1667,24 @@ public class RocksetResultSet implements ResultSet {
         }
       }
 
-      if (fieldToIndexMap.size() > 0) {
+      log("Extracting column outputColumns size " + outputColumns.size() + " fieldToIndexMap size " + indexToColumnMap.size());
+
+      if (indexToColumnMap.size() > 0) {
         // If we have a map of field names to indexes, then we can use it to
         // reorder the columns in the outputColumns list.
         List<Column> reorderedColumns = new ArrayList<>();
-        for (String fieldName : fieldToIndexMap.keySet()) {
-          reorderedColumns.add(outputColumns.get(fieldToIndexMap.get(fieldName)));
+        for (int i = 0; i < indexToColumnMap.size(); i++) {
+          log("Extracting column reordering at fieldIndex " + i + " to be " + indexToColumnMap.get(i).getName());
+          reorderedColumns.add(indexToColumnMap.get(i));
         }
-        outputColumns = reorderedColumns;
+        return reorderedColumns;
+      }
+
+      // print all detected columns, their index and their types
+      for (int i = 0; i < outputColumns.size(); i++) {
+        log("Extracting column at index " +
+            i
+            + " final name " + outputColumns.get(i).getName() + " type: " + outputColumns.get(i).getType().toString());
       }
 
       return outputColumns;
@@ -1727,8 +1743,10 @@ public class RocksetResultSet implements ResultSet {
       String asJson = OBJECT_MAPPER.writeValueAsString(onedoc);
 
       RocksetDriver.log("Rockset parseCurrentDocRootNode rowIndex " + rowIndex + " asJson: " + asJson);
-
-      return OBJECT_MAPPER.readTree(asJson);
+      JsonNode node = OBJECT_MAPPER.readTree(asJson);
+      RocksetDriver.log("Rockset parseCurrentDocRootNode rowIndex " + rowIndex + " node: " + node.asText());
+      
+      return node;
     } catch (JsonProcessingException e) {
       throw new SQLException(
           "Error caching document root node at row index " + index, e);
