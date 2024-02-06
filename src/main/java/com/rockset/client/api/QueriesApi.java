@@ -359,7 +359,7 @@ public class QueriesApi {
         if (cursor != null)
             localVarQueryParams.addAll(apiClient.parameterToPair("cursor", cursor));
         if (docs != null)
-            localVarQueryParams.addAll(apiClient.parameterToPair("docs", docs));
+            localVarQueryParams.addAll(apiClient.parameterToPair("docs", Math.max(docs, 1)));
         if (offset != null)
             localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
 

@@ -212,7 +212,7 @@ public class RocksetStatement implements Statement {
       // Make query to rockset service. We do not use queryTimeoutSeconds
       // because rockset queries do not yet have a client-side timeout.
       QueryResponse resp = connection()
-          .startQuery(sql, this.fetchSize.get(), params, getStatementSessionProperties());
+          .startQuery(sql, this.fetchSize.get(), params, getStatementSessionProperties(), 0);
 
       if (
           resp != null &&

@@ -96,7 +96,7 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
         try {
             // Print out the row data with field positions, field names and values:
             RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData: " +
-            genericRowData.toString());
+                    genericRowData.toString());
             for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
                 RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData field: " + pos
                         + " "
@@ -208,7 +208,13 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
             case INTERVAL_DAY_TIME:
                 return val -> val;
             case TINYINT:
-                return val -> ((Integer) val).byteValue();
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    }
+                    
+                    return ((Integer) val).byteValue();
+                };
             case SMALLINT:
                 // Converter for small type that casts value to int and then return short value,
                 // since
@@ -287,17 +293,29 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
             // new BigDecimal((BigInteger) val, 0), precision, scale)
             // : DecimalData.fromBigDecimal((BigDecimal) val, precision, scale);
             case DATE:
-                return val -> (int) (((Date) val).toLocalDate().toEpochDay());
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    }
+
+                    return (int) (((Date) val).toLocalDate().toEpochDay());
+                };
             case TIME_WITHOUT_TIME_ZONE:
-                return val -> (int) (((Time) val).toLocalTime().toNanoOfDay() / 1_000_000L);
+                return val -> {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    }
+                    
+                    return (int) (((Time) val).toLocalTime().toNanoOfDay() / 1_000_000L);
+                };
             case TIMESTAMP_WITH_TIME_ZONE:
             case TIMESTAMP_WITHOUT_TIME_ZONE:
                 return val -> {
                     // TODO convert Rockset dates or unix timestamps to TimestampData
-                    // if (val == null || val instanceof
-                    // com.fasterxml.jackson.databind.node.NullNode) {
-                    // return null;
-                    // } else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
+                    if (val == null || val instanceof com.fasterxml.jackson.databind.node.NullNode) {
+                        return null;
+                    }
+                    // else if (val instanceof com.fasterxml.jackson.databind.node.ValueNode) {
                     // return ((com.fasterxml.jackson.databind.node.ValueNode) val).
                     // } else {
                     return val instanceof LocalDateTime

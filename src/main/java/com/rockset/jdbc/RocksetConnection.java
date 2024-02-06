@@ -528,7 +528,7 @@ public class RocksetConnection implements Connection {
       String sql,
       int fetchSize,
       List<QueryParameter> params,
-      Map<String, String> sessionPropertiesOverride)
+      Map<String, String> sessionPropertiesOverride, int attempt)
       throws Exception {
     String correctedSql = sql.replaceAll("WHERE(.*?)WHERE", "WHERE$1AND");
 
@@ -567,11 +567,9 @@ public class RocksetConnection implements Connection {
     request.asyncOptions(
         new AsyncQueryOptions()
             .clientTimeoutMs(
-              10000L
-            )
+                10000L)
             .timeoutMs(
-              1800000L
-            ));
+                1800000L));
 
     QueryResponse resp = client.queries.query(request);
 
@@ -602,42 +600,41 @@ public class RocksetConnection implements Connection {
         // "2023-11-27T21:29:35Z","expires_at":"2023-11-28T21:29:35Z",
         // "stats":{"elapsed_time_ms":151810,"throttled_time_ms":0,
         // "result_set_document_count":56329450,"result_set_bytes_size":4701563778},
-        //"pagination":{"start_cursor":"velVBKlIRc226vtPa9N74xie4Q9wlDKNVSCvSKanTwMJerzNKQ13Rqsb
+        // "pagination":{"start_cursor":"velVBKlIRc226vtPa9N74xie4Q9wlDKNVSCvSKanTwMJerzNKQ13Rqsb
         // fgYwprS6uknD4Ktgq74L3hpY4_cH7IfJvJXADxLWNxV_wusDjOdjY4uvX6cEpg=="},
         // "last_offset":null,"query_errors":[],"sql":null},"last_offset":null}
 
         QueryPaginationResponse qpResp = this.getQueryPaginationResults(
-          data.getQueryId(),
-          data.getPagination().getStartCursor(),
-          fetchSize
-        );
+            data.getQueryId(),
+            data.getPagination().getStartCursor(),
+            fetchSize);
         resp = new QueryResponse()
-          .queryId(
-            data.getQueryId()
-          )
-          .status(
-            StatusEnum.COMPLETED
-          )
-          .results(
-            qpResp.getResults()
-          )
-          .stats(
-            new QueryResponseStats()
-              .elapsedTimeMs(
-                data.getStats().getElapsedTimeMs()
-              )
-          )
-          .pagination(
-            qpResp.getPagination()
-          )
-          .queryErrors(
-            data.getQueryErrors()
-          )
-        ;
+            .queryId(
+                data.getQueryId())
+            .status(
+                StatusEnum.COMPLETED)
+            .results(
+                qpResp.getResults())
+            .stats(
+                new QueryResponseStats()
+                    .elapsedTimeMs(
+                        data.getStats().getElapsedTimeMs()))
+            .pagination(
+                qpResp.getPagination())
+            .queryErrors(
+                data.getQueryErrors());
       }
 
       // Check if the status is ERROR or CANCELED and throw an error
-      if (status.equals("ERROR") || status.equals("CANCELED")) {
+      if (status.equals("ERROR")) {
+        if (attempt > 5) {
+          RocksetDriver.log("RocksetConnection startQuery attempt " + attempt + " status error = " + status);
+          return startQuery(sql, fetchSize, params, sessionPropertiesOverride, attempt + 1);
+        } else {
+          throw new RuntimeException("Query execution failed with status: " + status);
+        }
+      }
+      if (status.equals("CANCELED")) {
         throw new RuntimeException("Query execution failed with status: " + status);
       }
     }
@@ -690,7 +687,7 @@ public class RocksetConnection implements Connection {
     String sql = String.format(
         "describe %s.%s OPTION(max_field_depth=1)",
         quoteIdentifier(schema), quoteIdentifier(name));
-    QueryResponse resp = startQuery(sql, 0, null, null);
+    QueryResponse resp = startQuery(sql, 0, null, null, 0);
     RocksetDriver.log("Exit: describeTable " + name);
     return resp;
   }

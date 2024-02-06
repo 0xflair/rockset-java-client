@@ -25,18 +25,28 @@ public class RetryInterceptor implements Interceptor {
         if (response.isSuccessful()) {
             return response;
         }
-        
+
         for (int attempt = 0; attempt < maxRetries; attempt++) {
-            // System.out.println("Attempt " + attempt + " to send request: " + request.url());
+            System.out.println(
+                    "[FLAIR][ROCKSET] RetryInterceptor attempt " + attempt + " to send request: " + request.url());
             try {
                 response.close();
+            } catch (Exception e) {
+            }
+
+            try {
                 request = request.newBuilder().build();
                 response = chain.proceed(request);
 
                 if (response.isSuccessful()) {
                     return response;
                 } else {
-                    lastException = new IOException("Response was not successful: " + response.code() + " " + response.message() + " " + response.body().string());
+                    lastException = new IOException("Response was not successful: " + response.code() + " "
+                            + response.message() + " " + response.body().string());
+                    System.out.println(
+                            "[FLAIR][ROCKSET] RetryInterceptor attempt " + attempt + " failed with response: "
+                                    + response.code() + " "
+                                    + response.message() + " " + response.body().string());
                 }
             } catch (IOException e) {
                 lastException = e;

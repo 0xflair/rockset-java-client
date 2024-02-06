@@ -55,7 +55,7 @@ import com.rockset.client.auth.HttpBasicAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://api.use1a1.rockset.com";
+    private String basePath = "https://api.euc1a1.rockset.com";
     private String apiKey;
     private String version;
     private boolean debugging = false;
@@ -87,7 +87,7 @@ public class ApiClient {
                 .connectTimeout(140, TimeUnit.SECONDS)
                 .readTimeout(140, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
-                .addInterceptor(new RetryInterceptor(10, 3000))
+                .addInterceptor(new RetryInterceptor(20, 5000))
                 .build();
 
         verifyingSsl = true;
