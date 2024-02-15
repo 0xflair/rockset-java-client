@@ -53,7 +53,11 @@ import java.util.regex.Pattern;
 import com.rockset.client.auth.Authentication;
 import com.rockset.client.auth.HttpBasicAuth;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ApiClient {
+    private static final Logger LOG = LoggerFactory.getLogger(ApiClient.class);
 
     private String basePath = "https://api.euc1a1.rockset.com";
     private String apiKey;
@@ -849,8 +853,11 @@ public class ApiClient {
             // RocksetDriver.log("RocksetClient response: " + response.code() + " " +
             // response.body().string());
             T data = handleResponse(response, returnType);
+            LOG.info("Received rockset query response: " + response.code() + " for request: " + call.request().url());
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
+            LOG.warn("Failed to execute rockset query with error: " + e.getMessage());
+
             throw new ApiException(e);
         }
     }

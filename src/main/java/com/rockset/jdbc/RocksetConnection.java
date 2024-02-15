@@ -539,8 +539,8 @@ public class RocksetConnection implements Connection {
       throws Exception {
     String correctedSql = sql.replaceAll("WHERE(.*?)WHERE", "WHERE$1AND");
 
-    // RocksetDriver.log("RocksetConnection startQuery query: " + correctedSql
-    // + " fetchSize: " + fetchSize);
+    // RocksetDriver.log("Starting rockset query (d): " + correctedSql + " fetchSize: " + fetchSize);
+    LOG.debug("Starting rockset query (l): " + correctedSql + " fetchSize: " + fetchSize);
 
     final QueryRequestSql q = new QueryRequestSql().query(correctedSql);
 
@@ -636,7 +636,7 @@ public class RocksetConnection implements Connection {
       if (status.equals("ERROR")) {
         if (attempt > 50) {
           Thread.sleep(20000);
-          LOG.warn("Retrying failed querry with status: " + status + " attempt: " + attempt);
+          LOG.warn("Retrying failed rockset query with status: " + status + " attempt: " + attempt);
           // RocksetDriver.log("RocksetConnection startQuery attempt " + attempt + "
           // status error = " + status);
           return startQuery(sql, fetchSize, params, sessionPropertiesOverride, attempt + 1);

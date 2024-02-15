@@ -38,7 +38,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class QueriesApi {
+    private static final Logger LOG = LoggerFactory.getLogger(QueriesApi.class);
+
     private ApiClient apiClient;
 
     public QueriesApi() {
@@ -708,15 +713,19 @@ public class QueriesApi {
      *                   deserialize the response body
      */
     public QueryResponse query(QueryRequest body) throws Exception {
-        // try {
-        // System.out.println("RocksetQueryRequest getQuery(): " +
-        // body.getSql().getQuery() + " with parameters: "
-        // + (body.getSql().getParameters()).toString().replace("\n", ""));
-        // } catch (Exception e) {
-        // System.out.println(
-        // "RocksetQueryRequest getQuery(): " + body.getSql().getQuery() + " (cannot get
-        // parameters)");
-        // }
+        try {
+            LOG.info(
+                "Sending rockset query: " + body.getSql().getQuery() +
+                " with parameters: " + (
+                    body.getSql().getParameters()
+                ).toString().replace("\n", "")
+            );
+        } catch (Exception e) {
+            LOG.info(
+                "Sending rockset query: " + body.getSql().getQuery() +
+                " with parameters: " + body.getSql().getParameters()
+            );
+        }
 
         ApiResponse<QueryResponse> resp = queryWithHttpInfo(body);
         return resp.getData();
