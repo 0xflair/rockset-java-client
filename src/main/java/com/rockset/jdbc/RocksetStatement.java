@@ -168,10 +168,10 @@ public class RocksetStatement implements Statement {
     if (response.getPagination() != null) {
       String cursor = response.getPagination().getNextCursor();
 
-      RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = " + cursor);
+      // RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = " + cursor);
       return cursor;
     } else {
-      RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = null");
+      // RocksetDriver.log("Rockset getNextCursorFromQueryResponse queryId =" + response.getQueryId() + " = null");
     }
 
     return null;
@@ -270,7 +270,7 @@ public class RocksetStatement implements Statement {
 
   @Override
   public boolean getMoreResults() throws SQLException {
-    RocksetDriver.log("Entry: Statement getMoreResults");
+    // RocksetDriver.log("Entry: Statement getMoreResults");
     checkOpen();
     currentResult.get().close();
     return false;

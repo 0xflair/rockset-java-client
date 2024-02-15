@@ -92,52 +92,52 @@ public class RocksetPreparedStatement extends RocksetStatement implements Prepar
 
   @Override
   public void close() throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement close");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement close");
     super.close();
-    RocksetDriver.log("Exit : RocksetPreparedStatement close");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement close");
   }
 
   @Override
   public ResultSet executeQuery() throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement executeQuery");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement executeQuery");
     if (!getExecuteSql()) {
       throw new SQLException("Prepared SQL statement is not a query: " + originalSql);
     }
-    RocksetDriver.log("Exit : RocksetPreparedStatement executeQuery");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement executeQuery");
     return getResultSet();
   }
 
   @Override
   public int executeUpdate() throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement executeUpdate");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement executeUpdate");
     return Ints.saturatedCast(executeLargeUpdate());
   }
 
   @Override
   public long executeLargeUpdate() throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement executeLargeUpdate");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement executeLargeUpdate");
     if (!getExecuteSql()) {
       throw new SQLException("Prepared SQL is not an update statement: " + originalSql);
     }
-    RocksetDriver.log("Exit : RocksetPreparedStatement executeLargeUpdate");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement executeLargeUpdate");
     return getLargeUpdateCount();
   }
 
   @Override
   public boolean execute() throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement execute");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement execute");
     boolean ret = getExecuteSql();
-    RocksetDriver.log("Exit : RocksetPreparedStatement execute");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement execute");
     return ret;
   }
 
   @Override
   public void setNull(int parameterIndex, int sqlType) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setNull");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setNull");
     checkOpen();
     setParameter(
         parameterIndex, RocksetUtils.sqlTypeToRocksetTypeNames(sqlType), typedNull(sqlType));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setNull");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setNull");
   }
 
   private void setNull(int parameterIndex, String rocksetType) throws SQLException {
@@ -147,50 +147,50 @@ public class RocksetPreparedStatement extends RocksetStatement implements Prepar
 
   @Override
   public void setBoolean(int parameterIndex, boolean x) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setBoolean");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setBoolean");
     checkOpen();
     setParameter(parameterIndex, "bool", String.valueOf(x));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setBoolean");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setBoolean");
   }
 
   @Override
   public void setByte(int parameterIndex, byte x) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setByte");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setByte");
     checkOpen();
     setParameter(parameterIndex, "int", Byte.toString(x));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setByte");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setByte");
   }
 
   @Override
   public void setShort(int parameterIndex, short x) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setShort");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setShort");
     checkOpen();
     setParameter(parameterIndex, "int", Short.toString(x));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setShort");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setShort");
   }
 
   @Override
   public void setInt(int parameterIndex, int x) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setInt");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setInt");
     checkOpen();
     setParameter(parameterIndex, "int", Integer.toString(x));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setInt");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setInt");
   }
 
   @Override
   public void setLong(int parameterIndex, long x) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setLong");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setLong");
     checkOpen();
     setParameter(parameterIndex, "int", Long.toString(x));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setLong");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setLong");
   }
 
   @Override
   public void setFloat(int parameterIndex, float x) throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement setFloat");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement setFloat");
     checkOpen();
     setParameter(parameterIndex, "float", Float.toString(x));
-    RocksetDriver.log("Exit : RocksetPreparedStatement setFloat");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement setFloat");
   }
 
   @Override
@@ -417,13 +417,13 @@ public class RocksetPreparedStatement extends RocksetStatement implements Prepar
 
   @Override
   public ResultSetMetaData getMetaData() throws SQLException {
-    RocksetDriver.log("Enter : RocksetPreparedStatement getMetaData");
+    // // RocksetDriver.log("Enter : RocksetPreparedStatement getMetaData");
     // If we have never run the query, execeute it once to gather metadata
     if (executeCount.get() == 0) {
       getExecuteSql();
     }
     ResultSetMetaData meta = getResultSet().getMetaData();
-    RocksetDriver.log("Exit : RocksetPreparedStatement getMetaData");
+    // RocksetDriver.log("Exit : RocksetPreparedStatement getMetaData");
     return meta;
   }
 

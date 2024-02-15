@@ -6,7 +6,12 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RetryInterceptor implements Interceptor {
+    private static final Logger LOG = LoggerFactory.getLogger(RetryInterceptor.class);
+
     private int maxRetries;
     private long delayMillis;
 
@@ -27,8 +32,7 @@ public class RetryInterceptor implements Interceptor {
         }
 
         for (int attempt = 0; attempt < maxRetries; attempt++) {
-            System.out.println(
-                    "[FLAIR][ROCKSET] RetryInterceptor attempt " + attempt + " to send request: " + request.url());
+            LOG.info("Sending rockset attempt " + attempt + " to send request: " + request.url());
             try {
                 response.close();
             } catch (Exception e) {
@@ -43,8 +47,8 @@ public class RetryInterceptor implements Interceptor {
                 } else {
                     lastException = new IOException("Response was not successful: " + response.code() + " "
                             + response.message() + " " + response.body().string());
-                    System.out.println(
-                            "[FLAIR][ROCKSET] RetryInterceptor attempt " + attempt + " failed with response: "
+                    LOG.warn(
+                            "Retrying rockset attempt " + attempt + " failed with response: "
                                     + response.code() + " "
                                     + response.message() + " " + response.body().string());
                 }

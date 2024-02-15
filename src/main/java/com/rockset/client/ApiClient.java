@@ -87,7 +87,7 @@ public class ApiClient {
                 .connectTimeout(140, TimeUnit.SECONDS)
                 .readTimeout(140, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
-                .addInterceptor(new RetryInterceptor(20, 5000))
+                .addInterceptor(new RetryInterceptor(50, 15000))
                 .build();
 
         verifyingSsl = true;
@@ -837,12 +837,12 @@ public class ApiClient {
      * @throws ApiException If fail to execute the call
      */
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws Exception {
-        try {
-            RocksetDriver.log("RocksetClient request: " + call.request().url().toString() + " " +
-                    call.request().body().toString());
-        } catch (Exception e) {
-            RocksetDriver.log("RocksetClient request fail to parse: " + call);
-        }
+        // try {
+        //     RocksetDriver.log("RocksetClient request: " + call.request().url().toString() + " " +
+        //             call.request().body().toString());
+        // } catch (Exception e) {
+        //     RocksetDriver.log("RocksetClient request fail to parse: " + call);
+        // }
 
         try {
             Response response = call.execute();

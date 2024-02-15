@@ -64,21 +64,21 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
 
     @Override
     public RowData toInternal(ResultSet resultSet) throws SQLException {
-        try {
-            // Print out the row data with field positions, field names and values:
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " +
-                    resultSet.toString());
-            for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
-                LogicalType tp = this.rowType.getTypeAt(pos);
-                RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: "
-                        + pos + " "
-                        + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos +
-                                1).toString()
-                        + " logical type " + tp.asSerializableString());
-            }
-        } catch (Exception e) {
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet exception: " + e.toString());
-        }
+        // try {
+        //     // Print out the row data with field positions, field names and values:
+        //     // RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " +
+        //     //         resultSet.toString());
+        //     for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+        //         LogicalType tp = this.rowType.getTypeAt(pos);
+        //         // RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: "
+        //         //         + pos + " "
+        //         //         + rowType.getFieldNames().get(pos) + " " + resultSet.getObject(pos +
+        //         //                 1).toString()
+        //         //         + " logical type " + tp.asSerializableString());
+        //     }
+        // } catch (Exception e) {
+        //     RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet exception: " + e.toString());
+        // }
 
         GenericRowData genericRowData = new GenericRowData(rowType.getFieldCount());
 
@@ -87,25 +87,27 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
             String fieldName = rowType.getFieldNames().get(pos);
             int actualPos = (((RocksetResultSet) resultSet).findColumn(fieldName)) - 1;
 
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal loop: pos=" + pos + " fieldName=" + fieldName
-                    + " actualPos=" + actualPos + " fieldValue=" + fieldValue.toString());
+            // RocksetDriver.log("RocksetRowConverter RowData.toInternal loop: pos=" + pos + " fieldName=" + fieldName
+            //         + " actualPos=" + actualPos + " fieldValue=" + fieldValue.toString());
 
             genericRowData.setField(actualPos, toInternalConverters[pos].deserialize(fieldValue));
         }
 
-        try {
-            // Print out the row data with field positions, field names and values:
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData: " +
-                    genericRowData.toString());
-            for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
-                RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData field: " + pos
-                        + " "
-                        + rowType.getFieldNames().get(pos) + " " + this.getFieldValue(genericRowData, pos));
+        // try {
+        //     // Print out the row data with field positions, field names and values:
+            // RocksetDriver.log("Fetched row from database " +
+            //         genericRowData.toString());
+            if (RocksetDriver.debugLogs) {
+                String fieldValues = "";
+                for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
+                    fieldValues +=    " [" + rowType.getFieldNames().get(pos) + "]=AttributeValue(" + this.getFieldValue(genericRowData, pos) + ")";
+                }
+                RocksetDriver.log("Fetched row from database " + fieldValues);
             }
-        } catch (Exception e) {
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData exception: " +
-                    e.toString());
-        }
+        // } catch (Exception e) {
+        //     RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData exception: " +
+        //             e.toString());
+        // }
 
         return genericRowData;
     }
@@ -116,8 +118,8 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
 
         try {
             // Print out the row data with field positions, field names and values:
-            RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " +
-                    resultSet.toString());
+            // RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet: " +
+            //         resultSet.toString());
             for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
                 LogicalType tp = this.rowType.getTypeAt(pos);
                 RocksetDriver.log("RocksetRowConverter RowData.toInternal resultSet field: "

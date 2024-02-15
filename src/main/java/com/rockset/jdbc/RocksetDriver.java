@@ -33,7 +33,7 @@ public class RocksetDriver implements Driver, Closeable {
 
   // This is debug logging to trace the calls made to the rockset jdbc driver.
   // if env var LOG_LEVEL is set to DEBUG, then the logs will be written to a file
-  private static boolean debugLogs = System.getenv("LOG_LEVEL") != null
+  public static boolean debugLogs = System.getenv("LOG_LEVEL") != null
        && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
        
   private static BufferedWriter debugWriter;
@@ -66,9 +66,9 @@ public class RocksetDriver implements Driver, Closeable {
 
   @Override
   public Connection connect(String url, Properties info) throws SQLException {
-    log("Entry: Connect " + url);
+    // log("Entry: Connect " + url);
     if (!acceptsURL(url)) {
-      log("Exit: Connect bad url" + url);
+      // log("Exit: Connect bad url" + url);
       // JDBC expects null return if url cannot be supported by driver:
       // "The driver should return "null" if it realizes it is the wrong kind of driver to connect
       // to the given URL"
@@ -94,19 +94,19 @@ public class RocksetDriver implements Driver, Closeable {
     res.close();
     stmt.close();
 
-    log("Exit: Connect " + url);
+    // log("Exit: Connect " + url);
     return conn;
   }
 
   @Override
   public boolean acceptsURL(String url) throws SQLException {
-    log("Entry: acceptsURL " + url);
+    // log("Entry: acceptsURL " + url);
     return url.startsWith(ROCKSET_DRIVER_URL_START);
   }
 
   @Override
   public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
-    log("Entry: getPropertyInfo " + url);
+    // log("Entry: getPropertyInfo " + url);
     Properties properties = new RocksetDriverUri(url, info).getProperties();
 
     return ConnectionProperties.allProperties().stream()
@@ -116,19 +116,19 @@ public class RocksetDriver implements Driver, Closeable {
 
   @Override
   public int getMajorVersion() {
-    log("Entry: getMajorVersion ");
+    // log("Entry: getMajorVersion ");
     return DRIVER_VERSION_MAJOR;
   }
 
   @Override
   public int getMinorVersion() {
-    log("Entry: getMinorVersion ");
+    // log("Entry: getMinorVersion ");
     return DRIVER_VERSION_MINOR;
   }
 
   @Override
   public boolean jdbcCompliant() {
-    log("Entry: jdbcCompliant ");
+    // log("Entry: jdbcCompliant ");
     return true;
   }
 
