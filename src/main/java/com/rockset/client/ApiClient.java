@@ -697,8 +697,8 @@ public class ApiClient {
             throw new ApiException(e);
         }
 
-        RocksetDriver.log("RocksetClient response: " + response.code() + " " +
-                respBody);
+        // RocksetDriver.log("RocksetClient response: " + response.code() + " " +
+        //         respBody);
 
         if (respBody == null || "".equals(respBody)) {
             return null;

@@ -45,12 +45,15 @@ public class RetryInterceptor implements Interceptor {
                 if (response.isSuccessful()) {
                     return response;
                 } else {
-                    lastException = new IOException("Response was not successful: " + response.code() + " "
-                            + response.message() + " " + response.body().string());
+                    String message = "Response was not successful: ";
+                    try {
+                        message += "" + response.code() + " " + response.message() + " " + response.body().string();
+                    } catch (Exception e) {
+                        message += response.message();
+                    }
+                    lastException = new IOException(message);
                     LOG.warn(
-                            "Retrying rockset attempt " + attempt + " failed with response: "
-                                    + response.code() + " "
-                                    + response.message() + " " + response.body().string());
+                            "Retrying rockset attempt " + attempt + " failed with: " + message);
                 }
             } catch (IOException e) {
                 lastException = e;
