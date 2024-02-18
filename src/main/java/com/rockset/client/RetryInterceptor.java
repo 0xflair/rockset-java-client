@@ -32,7 +32,7 @@ public class RetryInterceptor implements Interceptor {
         }
 
         for (int attempt = 0; attempt < maxRetries; attempt++) {
-            LOG.info("Sending rockset attempt " + attempt + " to send request: " + request.url());
+            LOG.warn("Sending rockset attempt " + attempt + " to send request: " + request.url());
             try {
                 response.close();
             } catch (Exception e) {

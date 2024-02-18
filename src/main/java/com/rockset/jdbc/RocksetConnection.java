@@ -634,7 +634,7 @@ public class RocksetConnection implements Connection {
 
       // Check if the status is ERROR or CANCELED and throw an error
       if (status.equals("ERROR")) {
-        if (attempt > 50) {
+        if (attempt < 20) {
           Thread.sleep(20000);
           LOG.warn("Retrying failed rockset query with status: " + status + " attempt: " + attempt);
           // RocksetDriver.log("RocksetConnection startQuery attempt " + attempt + "
