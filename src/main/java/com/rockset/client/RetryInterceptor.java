@@ -54,6 +54,12 @@ public class RetryInterceptor implements Interceptor {
                     lastException = new IOException(message);
                     LOG.warn(
                             "Retrying rockset attempt " + attempt + " failed with: " + message);
+                    try {
+                        Thread.sleep(delayMillis);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        throw new IOException("Interrupted during retry", ie);
+                    }
                 }
             } catch (IOException e) {
                 lastException = e;

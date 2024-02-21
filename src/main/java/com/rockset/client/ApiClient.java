@@ -91,7 +91,7 @@ public class ApiClient {
                 .connectTimeout(140, TimeUnit.SECONDS)
                 .readTimeout(140, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
-                .addInterceptor(new RetryInterceptor(50, 15000))
+                .addInterceptor(new RetryInterceptor(50, 20000))
                 .build();
 
         verifyingSsl = true;
