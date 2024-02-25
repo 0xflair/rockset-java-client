@@ -21,7 +21,12 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 public class RocksetDriver implements Driver, Closeable {
+  private static final Logger LOG = LoggerFactory.getLogger(RocksetDriver.class);
 
   static final String DRIVER_NAME = "Rockset JDBC Driver";
   static final String DRIVER_VERSION;
@@ -31,10 +36,10 @@ public class RocksetDriver implements Driver, Closeable {
   public static final String JDBC_URL_START = "jdbc:";
   private static final String ROCKSET_DRIVER_URL_START = JDBC_URL_START.concat("rockset:");
 
-  // This is debug logging to trace the calls made to the rockset jdbc driver.
-  // if env var LOG_LEVEL is set to DEBUG, then the logs will be written to a file
-  public static boolean debugLogs = System.getenv("LOG_LEVEL") != null
-       && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
+  // // This is debug logging to trace the calls made to the rockset jdbc driver.
+  // // if env var LOG_LEVEL is set to DEBUG, then the logs will be written to a file
+  // public static boolean debugLogs = System.getenv("LOG_LEVEL") != null
+  //      && System.getenv("LOG_LEVEL").equalsIgnoreCase("DEBUG");
        
   private static BufferedWriter debugWriter;
   private static String logfile = "/tmp/rockset-jdbc.log";
@@ -139,21 +144,6 @@ public class RocksetDriver implements Driver, Closeable {
 
   // helper method to write log to a specific file
   public static void log(String msg) {
-    if (debugLogs) {
-      doLog(msg);
-    }
-  }
-
-  static synchronized void doLog(String msg) {
-    System.out.println(msg);
-    // try {
-    //   if (debugWriter == null) {
-    //     debugWriter = new BufferedWriter(new FileWriter(logfile));
-    //   }
-    //   debugWriter.write(msg + "\n");
-    //   debugWriter.flush();
-    // } catch (Exception e) {
-    //   System.out.println("Unable to log to file " + logfile);
-    // }
+    LOG.debug(msg);
   }
 }

@@ -22,9 +22,13 @@ import org.apache.flink.table.data.RowData;
 import org.apache.flink.table.types.logical.DecimalType;
 import org.apache.flink.table.types.logical.LogicalType;
 import org.apache.flink.table.types.logical.RowType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Internal
 public class RocksetRowConverter extends AbstractJdbcRowConverter {
+    private static final Logger LOG = LoggerFactory.getLogger(RocksetDriver.class);
+
     @Override
     public String converterName() {
         return "Rockset";
@@ -97,12 +101,12 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
         //     // Print out the row data with field positions, field names and values:
             // RocksetDriver.log("Fetched row from database " +
             //         genericRowData.toString());
-            if (RocksetDriver.debugLogs) {
+            if (LOG.isDebugEnabled()) {
                 String fieldValues = "";
                 for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
                     fieldValues +=    " [" + rowType.getFieldNames().get(pos) + "]=AttributeValue(" + this.getFieldValue(genericRowData, pos) + ")";
                 }
-                RocksetDriver.log("Fetched row from database " + fieldValues);
+                LOG.debug("Fetched row from database " + fieldValues);
             }
         // } catch (Exception e) {
         //     RocksetDriver.log("RocksetRowConverter RowData.toInternal genericRowData exception: " +
@@ -340,11 +344,12 @@ public class RocksetRowConverter extends AbstractJdbcRowConverter {
             case BINARY:
             case VARBINARY:
                 return val -> val;
-            case ARRAY:
+            case RAW:
+            // TODO 
             case ROW:
+            case ARRAY:
             case MAP:
             case MULTISET:
-            case RAW:
             default:
                 throw new UnsupportedOperationException("Unsupported type:" + type);
         }

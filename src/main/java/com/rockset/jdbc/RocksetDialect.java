@@ -146,6 +146,8 @@ public class RocksetDialect extends AbstractDialect {
                 LogicalTypeRoot.DOUBLE,
                 LogicalTypeRoot.DATE,
                 LogicalTypeRoot.NULL,
+                LogicalTypeRoot.RAW,
+                LogicalTypeRoot.ROW,
                 LogicalTypeRoot.TIME_WITHOUT_TIME_ZONE,
                 LogicalTypeRoot.TIMESTAMP_WITHOUT_TIME_ZONE);
     }
