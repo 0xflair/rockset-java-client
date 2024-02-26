@@ -856,7 +856,7 @@ public class ApiClient {
             LOG.info("Received rockset query response: " + response.code() + " for request: " + call.request().url());
             return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
         } catch (IOException e) {
-            LOG.warn("Failed to execute rockset query with error: " + e.getMessage());
+            LOG.warn("Failed to execute rockset query with error: {}", e);
 
             throw new ApiException(e);
         }

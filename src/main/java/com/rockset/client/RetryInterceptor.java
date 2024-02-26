@@ -25,17 +25,26 @@ public class RetryInterceptor implements Interceptor {
         Request request = chain.request();
         IOException lastException = null;
 
-        Response response = chain.proceed(request);
+        Response response = null;
 
-        if (response.isSuccessful()) {
-            return response;
+        try {
+            response = chain.proceed(request);
+
+            if (response.isSuccessful()) {
+                return response;
+            }
+        } catch (Exception e) {
+            LOG.warn("First failed rockset attempt to send request {} with {}", request.url(), e);
+            lastException = new IOException("Failed to send request", e);
         }
 
         for (int attempt = 0; attempt < maxRetries; attempt++) {
             LOG.warn("Sending rockset attempt " + attempt + " to send request: " + request.url());
-            try {
-                response.close();
-            } catch (Exception e) {
+            if (response != null){
+                try {
+                    response.close();
+                } catch (Exception e) {
+                }
             }
 
             try {
