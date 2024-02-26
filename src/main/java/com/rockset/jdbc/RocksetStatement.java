@@ -141,7 +141,7 @@ public class RocksetStatement implements Statement {
 
   @Override
   public boolean execute(String sql) throws SQLException {
-    return executeWithParams(sql, null);
+    return executeWithParams(sql, null, 0);
   }
 
   /**
@@ -200,7 +200,7 @@ public class RocksetStatement implements Statement {
     return response.getQueryId();
   }
 
-  protected boolean executeWithParams(String sql, List<QueryParameter> params) throws SQLException {
+  protected boolean executeWithParams(String sql, List<QueryParameter> params, int attempt) throws SQLException {
     clearCurrentResults();
     checkOpen();
 
@@ -241,8 +241,18 @@ public class RocksetStatement implements Statement {
     } catch (RuntimeException e) {
       String msg = "Error executing query '" + sql + "'" + " error =  " + e.getMessage();
       RocksetDriver.log(msg);
+
+      if (attempt < 10) {
+        return executeWithParams(sql, params, attempt + 1);
+      }
+
       throw new SQLException(msg + " (runtime) FAILED QUERY: " + sql, e);
     } catch (Exception e) {
+
+      if (attempt < 10) {
+        return executeWithParams(sql, params, attempt + 1);
+      }
+
       throw new SQLException(e.getMessage() + " (unknown) FAILED QUERY: " + sql, e);
     } finally {
       if (this.currentResult.get() == null && resultSet != null) {
